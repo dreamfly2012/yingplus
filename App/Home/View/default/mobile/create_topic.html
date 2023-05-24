@@ -1,0 +1,31 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/vote.css"/>
+<script type="text/javascript" src="/Public/mobile/js/jquery.ajaxfileupload.js"></script>
+<script type="text/javascript" src="/Public/mobile/js/create_topic.js"></script>
+<style type="text/css">
+    .textarea1{
+        min-height: 134px;
+        height: auto;
+    }
+    .upload_topic_image{
+        opacity: 0;
+    }
+</style>
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="创建话题"/}>
+    
+    <p class="votetitle">标题：</p>
+    <input type="text" class="text92per" id="topic_subject" placeholder="请输入标题...">
+    <p class="votetitle">话题介绍：</p>
+    <div class="textarea1" id="topic_content" placeholder="活动介绍" contenteditable="true"></div>
+    <div class="uploadbtns">
+        <a href="javascript:;" title="上传图片" class="choose_topic_img">上传图片</a>
+        <input type="file" name="file" id="upload_topic_image" class="upload_topic_image"/>
+    </div>
+
+    <a href="javascript:;" title="发布" class="votesubmit add_topic_do" data-fid="<{$fid}>">发布</a>
+    <div class="alphabg"></div>
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/online.css"/>
+
+<div class="wrap" id="wrap">
+	<{assign name="title" value="线上活动"/}>
+	<{include file="default/mobile/nav"/}>
+	<{include file="default/mobile/forum_banner"/}>
+	
+	<div class="activity">
+		<h2>
+		<img src="/Public/mobile/images/t1on.png"> 
+		线上活动
+		</h2>
+		<{foreach name="activities" item="activity"}>
+		<a href="<{:U('Mobile/activity',array('aid'=>$activity['id']))}>" title="" class="actitem">
+		<{if condition="$activity.type eq 8"}><span style="color:#ffc600;">【投票】</span><{/if}><{if condition="$activity.type eq 9"}><span style="color:#ffc600;">【征集】</span><{/if}>
+		<{$activity.subject}>
+		</a>
+		<{/foreach}>
+	</div>
+	
+	<div class="single-createbtns">
+		<a href="javascript:void(0);" title="我要创建" class="create_online_activity" data-fid="<{$fid}>">我要创建</a>
+		<div class="clear"></div>
+	</div>
+	<a href="<{:U('Mobile/chat',array('type'=>4,'pid'=>$fid))}>" title="进入<{$fid|getFansgroupById}>聊天屋" class="joinchat">进入<{$fid|getFansgroupById}>聊天屋</a>
+	
+	<div class="alphabg"></div>
+	
+</div>
+
+
+
+</body>
+</html>

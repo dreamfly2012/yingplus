@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title></title>
+
+    <style>
+
+        .div_style{
+
+            float: left;
+
+            margin-left: 400px;
+
+            margin-top: 100px;
+
+        }
+
+        .div_two{
+
+            margin-left: 400px;
+
+            margin-top: 50px;
+
+            float: left;
+
+        }
+
+        li{
+
+            list-style-type: none;
+
+            margin-left: 100px;
+
+            float:left;
+
+        }
+
+    </style>
+
+    <script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+
+    <script src="__PUBLIC__/admin/js/bootstrap.js"></script>
+
+    <link href="__PUBLIC__/admin/css/bootstrap.css" rel="stylesheet">
+
+    <script src="__PUBLIC__/admin/js/topicdeal.js"></script>
+
+    <script>
+
+        var LookTopic_URL = "<{:U('Home/Topic/index')}>";
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+<div>
+
+    <div class="div_style">
+
+        <!--<form action="<{:U('Topic/index')}>" method="post">-->
+
+        <label>查找昵称：</label>
+
+        <input type="text" name="array[nickname]"/>
+
+        <select name="self">
+
+            <option value="0">创建</option>
+
+            <option value="1">参与</option>
+
+        </select>
+
+        <label><input name="array[status]" type="checkbox" value="1" />已删除话题</label>
+
+        <label><input name="array[plus]" type="checkbox" value="1" />加精话题</label><br/>
+
+        <label>话题创建时间：</label>
+
+        <input type="text" name="array[startime]"/>至 <input type="text" name="array[endtime]"/><br/>
+
+        <label>话题关键字搜索：</label>
+
+        <input type="text" name="array[subject]"/>
+
+        <!--<input type="submit" name="submit" value="查询">-->
+
+        <button id="topic">查询</button>
+
+        <!--</form>-->
+
+    </div>
+ 
+    <table class="topic">
+
+        <tr>
+
+            <th>标题</th>
+
+            <th>创建者</th>
+
+            <th>发布时间</th>
+
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

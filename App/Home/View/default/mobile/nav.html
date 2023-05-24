@@ -1,0 +1,43 @@
+<header class="header">
+    <{if condition="ACTION_NAME eq 'activity' or (ACTION_NAME eq 'topic') or (ACTION_NAME eq 'activitylist')"}>
+    <a href="/" title="返回" class="back"><img src="/Public/mobile/images/icoback_01.png" alt="返回"></a>
+    <{else/}>
+    <a href="javascript:void(0)" title="返回" class="back" onClick="window.history.go(-1)"><img src="/Public/mobile/images/icoback_01.png" alt="返回"></a>
+    <{/if}>
+
+    <span class="pagename"><{$title}></span>
+    <div class="hamburger hamburger--spin-r">
+        <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</header>
+<nav class="nav">
+    <{if condition="$Think.session.uid eq ''"}>
+    <div class="loginbtns">
+        <a href="<{:U('Mobile/register')}>" title="注册">注册</a>
+        <a href="javascript:jump_login_page();" title="登录">登录</a>
+        <div class="clear"></div>
+    </div>
+    <{else/}>
+    <div class="loginbtns">
+        <span class="uid">您好 <{$Think.session.uid|getUserNicknameById}> <a href="<{:U('Mobile/logout')}>">退出</a></span>
+        <div class="clear"></div>
+    </div>
+    <{/if}>
+    <{if condition="ACTION_NAME neq 'index'"}>
+    <div class="createitem"><a href="<{:U('Mobile/activitylist',array('tab'=>2,'fid'=>$fid))}>"><span>线上活动</span></a><i class="create_online_activity" data-fid="<{$fid}>">创建</i><div class="clear"></div></div>
+    <div class="createitem"><a href="<{:U('Mobile/activitylist',array('tab'=>1,'fid'=>$fid))}>"><span>包场观影</span></a><i class="create_movie_activity" data-fid="<{$fid}>">创建</i><div class="clear"></div></div>
+    <div class="createitem"><a href="<{:U('Mobile/activitylist',array('tab'=>3,'fid'=>$fid))}>"><span>公益应援</span></a><a href="<{:U('Mobile/createWelfareEvent')}>"><i>创建</i></a><div class="clear"></div></div>
+    <div class="createitem"><a href="<{:U('Mobile/topiclist',array('fid'=>$fid))}>"><span>话题</span></a><i class="create_topic" data-fid="<{$fid}>">创建</i><div class="clear"></div></div>
+    <a href="<{:U('Mobile/forum',array('fid'=>$fid))}>"><div class="createitem"><span>进入<{$fid|getFansgroupById}></span><div class="clear"></div></div></a>
+    <a href="<{:U('Mobile/index')}>"><div class="createitem"><span>回到首页</span><div class="clear"></div></div></a>
+    <{if condition="checkIsInForum(session('uid'),$fid)"}>
+    <a href="javascript:;" title="加入<{$fid|getFansgroupById}>" class="joinus exitforum" data-fid="<{$fid}>">已加入</a>
+    <{else/}>
+    <a href="javascript:;" title="加入<{$fid|getFansgroupById}>" class="joinus joinforum" data-fid="<{$fid}>">加入<{$fid|getFansgroupById}></a>
+    <{/if}>
+    <{/if}>
+
+</nav>

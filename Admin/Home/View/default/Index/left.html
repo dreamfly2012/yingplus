@@ -1,0 +1,520 @@
+<div class="page-sidebar nav-collapse collapse">
+    <ul class="page-sidebar-menu">
+        <li>
+            <div class="sidebar-toggler hidden-phone">
+            </div>
+        </li>
+        <li class="start active ">
+            <a href="<{:U('Index/index')}>">
+                <i class="icon-home">
+                </i>
+                <span class="title">
+                    主页
+                </span>
+                <span class="selected">
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="icon-user">
+                </i>
+                <span class="title">
+                    粉丝管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="find-fans">
+                    <a href="<{:U('Home/FansManage/fansList')}>">
+                        查找粉丝
+                    </a>
+                </li>
+                <!--
+                    <li class="ban-fans">
+                        <a href="<{:U('Home/FansManage/fansBanList')}>">
+                            粉丝封禁列表
+                        </a>
+                    </li>
+                -->
+                <!--
+                    <li class="shensu-fans">
+                        <a href="<{:U('Home/FansManage/fansComplainList')}>">
+                            粉丝申诉受理
+                        </a>
+                    </li>
+                -->
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-bookmark">
+                </i>
+                <span class="title">
+                    订单管理
+                </span>
+                <span class="arrow">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="group-order-list">
+                    <a href="<{:U('Home/Order/index',array('type'=>'group'))}>">
+                        包场订单
+                    </a>
+                </li>
+                <li class="through-order-list">
+                    <a href="<{:U('Home/Order/index',array('type'=>'through'))}>">
+                        通票订单
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-file-text">
+                </i>
+                <span class="title">
+                    经纪人管理
+                </span>
+                <span class="arrow  open">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="find-agent">
+                    <a href="<{:U('Home/AgentManage/agentList')}>">
+                        查找经纪人
+                    </a>
+                </li>
+                <li class="shenqing-agent">
+                    <a href="<{:U('Home/AgentManage/applyAgentList')}>">
+                        申请经纪人审核
+                    </a>
+                </li>
+                <li class="jubao-agent">
+                    <a href="<{:U('Home/AgentManage/reportAgentList')}>">
+                        举报经纪人审核
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-bookmark-empty">
+                </i>
+                <span class="title">
+                    活动管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="chazhao-activity">
+                    <a href="<{:U('Home/ActivityManage/activityList')}>">
+                        查找活动
+                    </a>
+                </li>
+                <!-- <li class="tuijian-activity"> -->
+                    <!-- <a href="<{:U('Home/ActivityManage/recommendActivityList')}>"> -->
+                        <!--
+                            推荐活动审核
+                        </a>
+                    -->
+                    <!-- </li> -->
+                <!--
+                    <li class="tuijian-activity">
+                        <a href="<{:U('Home/IndexRecommendActivity/homeRecommendActivityList')}>">
+                            首页推荐活动管理
+                        </a>
+                    </li>
+                -->
+                <li class="movie-recognition-activity">
+                    <a href="<{:U('Home/MovieRecognitionActivity/index')}>">
+                        包场认领管理
+                    </a>
+                </li>
+                <li class="movie-place">
+                    <a href="<{:U('Home/MoviePlace/index')}>">
+                        包场影院管理
+                    </a>
+                </li>
+                <li class="activity-movie">
+                    <a href="<{:U('Home/ActivityMovie/index')}>">
+                        包场电影管理
+                    </a>
+                </li>
+                <li class="movie-activity">
+                    <a href="<{:U('Home/MovieActivity/index')}>">
+                        包场视频管理
+                    </a>
+                </li>
+                <li class="movie-activity-manage">
+                    <a href="<{:U('Home/MovieActivityManage/activityList')}>">
+                        包场活动查找管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-film">
+                </i>
+                <span class="title">
+                    视频管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="video">
+                    <a href="<{:U('Home/VideoManage/index')}>">
+                        查找视频
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-table">
+                </i>
+                <span class="title">
+                    话题管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="chazhao-topic">
+                    <a href="<{:U('home/Topic/showCondition')}>">
+                        查找话题
+                    </a>
+                </li>
+                <li >
+                    <a href="<{:U('home/Topic/showRepairTopic')}>">
+                        删除话题恢复
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-money">
+                </i>
+                <span class="title">
+                    公益事件管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="event-search">
+                    <a href="<{:U('WelfareEvent/showEvent')}>">
+                        查找公益事件
+                    </a>
+                </li>
+                <li class="event-add">
+                    <a href="<{:U('WelfareEvent/add')}>">
+                        添加公益事件
+                    </a>
+                </li>
+                <li class="event-apply">
+                    <a href="<{:U('WelfareEvent/applylist')}>">
+                        公益事件申请
+                    </a>
+                </li>
+                <li class="event-recycle">
+                    <a href="<{:U('WelfareEvent/recycleEvent')}>">
+                        回收站
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-comment">
+                </i>
+                <span class="title">
+                    回复管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="response-1">
+                    <a href="<{:U('Home/Response/showResponse',array('type'=>1))}>">
+                        话题回复管理
+                    </a>
+                </li>
+                <li class="response-2">
+                    <a href="<{:U('Home/Response/showResponse',array('type'=>2))}>">
+                        活动回复管理
+                    </a>
+                </li>
+                <li class="response-3">
+                    <a href="<{:U('Home/Response/showResponse',array('type'=>3))}>">
+                        视频回复管理
+                    </a>
+                </li>
+                <li class="response-4">
+                    <a href="<{:U('Home/Response/showResponse',array('type'=>4))}>">
+                        工作室回复管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-briefcase">
+                </i>
+                <span class="title">
+                    工作室管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="shenhe-qing">
+                    <a href="<{:U('home/JobManage/index')}>">
+                        <i class="icon-time">
+                        </i>
+                        审核创建工作室请求
+                    </a>
+                </li>
+                <li class="gongzuo-guan">
+                    <a href="<{:U('home/JobManage/showAllJob')}>">
+                        <i class="icon-time">
+                        </i>
+                        工作室管理
+                    </a>
+                </li>
+                <li class="gongzuo-tuijian">
+                    <a href="<{:U('home/JobManage/showPromote')}>">
+                        <i class="icon-time">
+                        </i>
+                        工作室推荐
+                    </a>
+                </li>
+                <li class="gongzuo-picture">
+                    <a href="<{:U('home/JobManage/showPicture')}>">
+                        <i class="icon-picture">
+                        </i>
+                        照片墙管理
+                    </a>
+                </li>
+                <li class="gongzuo-story">
+                    <a href="<{:U('home/JobManage/showStory')}>">
+                        <i class="icon-pencil">
+                        </i>
+                        爱情故事管理
+                    </a>
+                </li>
+
+                <li class="gongzuo-passage">
+                    <a href="<{:U('home/JobManage/showPassage')}>">
+                        <i class="icon-edit">
+                        </i>
+                        一段话管理
+                    </a>
+                </li>
+
+                <li class="gongzuo-debate">
+                    <a href="<{:U('home/JobManage/showDebate',array('type'=>0))}>">
+                        <i class="icon-edit">
+                        </i>
+                        辩论管理
+                    </a>
+                </li>
+
+                <li class="gongzuo-news">
+                    <a href="<{:U('home/JobManage/showNews')}>">
+                        <i class="icon-edit">
+                        </i>
+                        资讯管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-briefcase">
+                </i>
+                <span class="title">
+                    统计管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="fensi-gender">
+                    <a href="<{:U('Statistics/index')}>">
+                        <i class="icon-time">
+                        </i>
+                        粉丝性别统计
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-bookmark-empty">
+                </i>
+                <span class="title">
+                    帮助文档管理
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="help">
+                    <a href="<{:U('home/Help/help')}>">
+                        文档类型
+                    </a>
+                </li>
+                <li class="helpprofile">
+                    <a href="<{:U('Home/Help/index')}>">
+                        文档管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-gift">
+                </i>
+                <span class="title">
+                    工作记录
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="job-re">
+                    <a href="<{:U('home/JobRemand/index')}>">
+                        工作日志
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-gift">
+                </i>
+                <span class="title">
+                    配置文件
+                </span>
+                <span class="arrow ">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="peizhi_message">
+                    <a href="<{:U('home/Config/showSqlData')}>">
+                        配置文件记录
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-gift">
+                </i>
+                <span class="title">
+                    网站IP管理
+                </span>
+                <span class="arrow">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="user_ip">
+                    <a href="<{:U('home/Block/blockIndex')}>">
+                        封禁用户ip
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-gift">
+                </i>
+                <span class="title">
+                    管理员邮箱管理
+                </span>
+                <span class="arrow">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="admin_email">
+                    <a href="<{:U('home/AdminMailList/showEmailList')}>">
+                        管理员邮箱列表
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-gift">
+                </i>
+                <span class="title">
+                    缓存管理
+                </span>
+                <span class="arrow">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="admin_email">
+                    <a href="<{:U('home/Cache/clear')}>">
+                        清除缓存
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="start">
+            <a href="<{:U('home/Index/showMusic')}>">
+                <i class="icon-gift">
+                </i>
+                <span class="title">
+                    音乐台管理
+                </span>
+                <span class="arrow">
+                </span>
+            </a>
+        </li>
+        <li class="start">
+            <a href="javascript:;">
+                <i class="icon-gift">
+                </i>
+                <span class="title">
+                    游戏管理
+                </span>
+                <span class="arrow">
+                </span>
+            </a>
+            <ul class="sub-menu">
+                <li class="admin_email">
+                    <a href="<{:U('Index/Game',array('id'=>1))}>">
+                        超级玛丽
+                    </a>
+                </li>
+                <li class="admin_email">
+                    <a href="<{:U('Index/Game',array('id'=>2))}>">
+                        街霸
+                    </a>
+                </li>
+                <li class="admin_email">
+                    <a href="<{:U('Index/Game',array('id'=>3))}>">
+                        暴打皮卡丘
+                    </a>
+                </li>
+                <li class="admin_email">
+                    <a href="<{:U('Index/Game',array('id'=>4))}>">
+                        合金弹头
+                    </a>
+                </li>
+                <li class="admin_email">
+                    <a href="<{:U('Index/Game',array('id'=>5))}>">
+                        植物大作战
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

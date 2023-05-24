@@ -1,0 +1,116 @@
+<div id="site_activities_content">
+    
+	<div id="site_activities_chart">
+        
+    </div>
+
+</div>
+
+<style type="text/css">
+    #site_activities_chart{
+        width:100%;
+        height:200px;
+    }
+</style>
+
+<script type="text/javascript">
+    require.config({
+        packages: [
+            {
+                name: 'echarts',
+                location: '../../../Public/admin/js/echarts',
+                main: 'echarts'
+            },
+            {
+                name: 'zrender',
+                location: 'http://ecomfe.github.io/zrender/src',
+                //location: '../../../zrender/src',
+                main: 'zrender'
+            }
+        ]
+    });
+    require(
+        [
+            'echarts',
+            'echarts/chart/line',
+            'echarts/chart/bar',
+            'echarts/chart/scatter',
+            'echarts/chart/k',
+            'echarts/chart/pie',
+            'echarts/chart/radar',
+            'echarts/chart/force',
+            'echarts/chart/chord',
+            'echarts/chart/map',
+            'echarts/chart/gauge',
+            'echarts/chart/funnel',
+            'echarts/chart/venn',
+            'echarts/chart/treemap',
+            'echarts/chart/tree',
+            'echarts/chart/eventRiver'
+        ],
+        requireCallback
+    );
+
+    function requireCallback (ec) {
+        echarts = ec;
+        option = {
+		    title : {
+		        text: '活动报名人数',
+		        subtext: ''
+		    },
+		    tooltip : {
+		        trigger: 'axis'
+		    },
+		    legend: {
+		        data:['人数']
+		    },
+		    toolbox: {
+		        show : true,
+		        feature : {
+		            mark : {show: true},
+		            dataView : {show: true, readOnly: false},
+		            magicType : {show: true, type: ['line', 'bar']},
+		            restore : {show: true},
+		            saveAsImage : {show: true}
+		        }
+		    },
+		    calculable : true,
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : [<{$activity_data_name}>]
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'人数',
+		            type:'bar',
+		            data:[<{$activity_data_value}>],
+		            markPoint : {
+		                data : [
+		                    {type : 'max', name: '最大值'},
+		                    {type : 'min', name: '最小值'}
+		                ]
+		            },
+		            markLine : {
+		                data : [
+		                    {type : 'average', name: '平均值'}
+		                ]
+		            }
+		        }
+		    ]
+		};
+                    
+                    
+    	var site_activities_chart = echarts.init(document.getElementById("site_activities_chart"));
+    	site_activities_chart.setOption(option);
+   
+    }
+    
+      
+</script>

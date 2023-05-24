@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>影加CC-影视明星的粉丝社区|<{$title}></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="no-cache, must-revalidate" http-equiv="Cache-Control"/>
+    <meta content="no-cache" http-equiv="Pragma"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="影+,影加,影视社区,明星粉丝社区yingplus,yingjia" name="keywords"/>
+    <meta content="影+最活跃的明星粉丝聚集地，线上线下同追星，给你追星新体验！影加,追星大不同！" name="description"/>
+    <link href="/Public/mobile/css/reset.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/mobile/css/common.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/jQuery-Sina-Emotion-master/jquery-sinaEmotion-2.1.0.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/jQuery-Sina-Emotion-master/mobile.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/sweetalert-master/dist/sweetalert.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/mobile/css/nav.css" rel="stylesheet" type="text/css"/>
+    <script src="http://yingplus-10014575.cossh.myqcloud.com/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="/Public/sweetalert-master/dist/sweetalert.min.js" type="text/javascript"></script>
+    <script src="/Public/jQuery-Sina-Emotion-master/jquery-sinaEmotion-2.1.0.min.js" type="text/javascript"></script>
+    <script src="http://yingplus-10014575.cossh.myqcloud.com/js/jquery.fancybox.js" type="text/javascript"></script>
+    <script src="/Public/mobile/js/common.js" type="text/javascript"></script>
+    <script src="/Public/mobile/js/share.js" type="text/javascript" ></script>
+    <script type="text/javascript">
+        var is_login = "<{$is_login}>";
+        var pid = "<{$pid}>";
+        var type = "<{$type}>";
+        var fid = "<{$fid}>";
+        var uid = "<{$Think.session.uid}>";
+        var login_url = "<{:U('Mobile/login')}>";
+        var index_url = "<{:U('Mobile/index')}>";
+        var login_handle_url = "<{:U('Login/login')}>";
+        var send_captcha_url = "<{:U('Captcha/send')}>";
+        var check_captcha_url = "<{:U('Captcha/check')}>";
+        var register_handle_url = "<{:U('Login/register')}>";
+        var forgetpassword_handle_url = "<{:U('Login/forgetpassword')}>";
+        var join_forum_url = "<{:U('Forum/joinforum')}>";//加入工作室
+        var exit_forum_url = "<{:U('Forum/exitforum')}>"; //退出工作室
+        var check_in_forum_url = "<{:U('Forum/checkinforum')}>";//检查用户是否在工作室
+        var check_favor_url = "<{:U('Favor/checkfavor')}>";//检查是否点赞
+        var add_favor_url = "<{:U('Favor/favor')}>";//点赞
+        var get_crete_movie_activity_url = "<{:U('Mobile/getCreateMovieActivityUrl')}>";
+        var create_movie_activity_do_url = "<{:U('MovieActivity/add')}>";//创建包场活动;
+        var create_online_activity_url = "<{:U('Mobile/create_vote_activity')}>";//创建线上活动
+        var create_online_activity_do_url = "<{:U('OnlineActivity/add')}>"; //创建线上活动
+        var submit_vote_url = "<{:U('OnlineActivity/submitVote')}>"
+        var get_attachment_info_url = "<{:U('Attachment/get')}>";//获取附件信息
+
+        var get_enroll_url = "<{:U('MovieActivity/getEnrollUrl')}>";//获取支付页面
+        var upload_feedback_video_url = "<{:U('Mobile/uploadfeedbackvideo')}>";//手机上传视频
+        var upload_video_url = "<{:U('Mobile/uploadvideo')}>";//手机上传视频
+        var upload_img_url = "<{:U('UploadImg/upload')}>";//上传图片
+        var add_response_do_url = "<{:U('Response/add')}>";//添加回复
+        var get_latest_response_url = "<{:U('Response/get')}>";
+        var get_cities_by_provine_url = "<{:U('Place/getCityByProvince')}>";//根据城市获取省份
+        var get_cinemas_by_place_url = "<{:U('Place/getCinemaByPlace')}>";//根据地区获取影院
+        var add_forum_video_url = "<{:U('Video/add')}>";//添加视频
+        var add_forumpicture_url = "<{:U('ForumPicture/add')}>";//添加到照片墙
+
+        var crop_poster_url = "<{:U('UploadImg/crop')}>";//截取图片获取
+        var crop_do_url = "<{:U('UploadImg/cropdo')}>";//截取图片处理
+        var get_zhengji_url  = "<{:U('Mobile/getZhengJiUrl')}>";//征集
+        var add_zhengji_url = "<{:U('Mobile/addZhengJiUrl')}>";//征集添加描述
+        var add_poster_do_url = "<{:U('OnlineActivity/uploadCollectPoster')}>";//线上活动征集图片处理
+
+        var search_user_url = "<{:U('Mobile/searchUser')}>";
+        var get_more_message_url = "<{:U('Response/getlisting')}>";
+
+        var movie_activity_feedback_video_url = "<{:U('Mobile/movieActivityFeedbackVideo')}>";
+        var add_movie_feedback_url = "<{:U('MovieActivity/uploadFeedback')}>";//反馈上传
+        var add_movie_feedback_do_url = "<{:U('MovieActivity/addUploadFeedback')}>";//反馈伤处处理
+        var leave_movie_activity_telephone_url = "<{:U('Mobile/leftMovieActivityTelephone')}>";
+        var activity_url = "<{:U('Mobile/activity')}>";//活动详情页
+        var topic_url = "<{:U('Mobile/topic')}>";//话题详情页面
+        var get_create_topic_url = "<{:U('Mobile/getCreateTopicUrl')}>";//创建话题表单
+        var add_topic_do_url = "<{:U('Topic/add')}>";//创建话题
+        var apply_welfare_url = "<{:U('WelfareEvent/apply')}>";//创建公益
+    </script>
+    <{if condition="$Think.get.sso eq 'login' and $Think.session.uid neq ''"}>
+<script type="text/javascript" src="http://xiayouqiaomu.80shihua.com/index.php/home/sso/acceptlogin/?uid=<{$uid}>&uid_info=<{$uid_info}>"></script>
+<{/if}>
+<{if condition="$Think.get.sso eq 'logout' and $Think.session.uid eq ''"}>
+<script type="text/javascript" src="http://xiayouqiaomu.80shihua.com/index.php/home/sso/acceptlogout/"></script>
+<{/if}>
+
+
+    <script>
+    var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0e62898d813c8e00a6b5678e046b0318";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+    </script>
+</head>
+</html>
+<body>
+</body>

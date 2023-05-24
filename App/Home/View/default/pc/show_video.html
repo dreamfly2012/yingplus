@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title><{$video.title}></title>
+</head>
+<body>
+
+    <{if condition="!empty($video['addition']) and ($video.source eq 'youku')"}>
+    <iframe height="300" width="100%" src="http://player.youku.com/embed/<{$video.addition}>" frameborder=0 allowfullscreen></iframe>
+    <{elseif condition="!is_null($video['addition']) and ($video.source eq 'tudou')"/}>
+    <!--土豆视频处理 addition表示类型  addition2表示类别id addition3表示id-->
+    <iframe height="300" width="100%" src="http://www.tudou.com/programs/view/html5embed.action?type=<{$video.addition}>&code=<{$video.addition2}>&lcode=<{$video.addition3}>" frameborder=0 allowfullscreen></iframe>
+    <{elseif condition="!is_null($video['addition']) and ($video.source eq 'iqiyi')"/}>
+    <iframe height="300" width="100%" src="http://open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=<{$video.addition}>&tvId=<{$video.addition2}>" frameborder=0 allowfullscreen></iframe>
+    <{elseif condition="!is_null($video['addition']) and ($video.source eq 'qq')"/}>
+    <iframe height="300" width="100%" src="http://v.qq.com/iframe/player.html?vid=<{$video.addition}>&tiny=0&auto=0" frameborder=0 allowfullscreen></iframe>
+
+    <{elseif condition="$video.mobileurl neq ''"/}>
+    <div style="width:100%;height:100%">
+    <video src="<{$video.mobileurl}>" controls="controls" style="width:100%;height:550px;"></video>
+    </div>
+    <{elseif condition="$video.flashurl neq ''"/}>
+    <div style="width:800px;height:600px">
+    <embed src="<{$video.flashurl}>" width="100%" height="100%"></embed>
+    </div>
+    <{else/}>
+    <div style="width:800px;height:600px">
+    <object  style="width:800px;height:600px" type="application/x-shockwave-flash" data="<{$video.url}>" id="youku-player">
+        <param name="allowFullScreen" value="true">
+        <param name="allowScriptAccess" value="always">
+        <param name="movie" value="http://player.youku.com/player.php/sid/XMTQyNzczMjQ0MA==/v.swf">
+        <param name="flashvars" value="<{$video.addition}>">
+    </object>
+    </div>
+    <{/if}>
+
+</body>
+</html>
+

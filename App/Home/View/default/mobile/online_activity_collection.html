@@ -1,0 +1,71 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/online.min.css"/>
+<script type="text/javascript" src="__PUBLIC__/mobile/js/jquery.ajaxfileupload.js?v=2016-05-04"></script>
+<script type="text/javascript" src="/Public/mobile/js/online.js"></script>
+<style type="text/css">
+	body{
+		margin-bottom: 100px;
+	}
+</style>
+<div class="wrap" id="wrap">
+	<{assign name="title" value="线上活动"/}>
+	<{include file="default/mobile/nav"/}>
+	
+	<h1 class="votename"><span>【征集】</span><{$activity.subject}></h1>
+	<div class="votenums">
+		<a href="javascript:;" title=""><img src="/Public/mobile/images/ico_19.jpg"> <{$poster_count}></a>
+		<a href="javascript:;" title=""><img src="/Public/mobile/images/ico_20.jpg"> <{$activity.id|getResponseCountByPidType=2}></a>
+	</div>
+	<div class="votetext">
+		<{$activity.content}>
+	</div>
+	<ul class="tabul1 tabul2 tabul4">
+		<{foreach name="posters" item="poster"}>
+		<li>
+			<div class="poster_img">
+				<a href="<{$poster.img_url}>" class="fancybox" style="display:block;height: 160px;">
+  					<span style="background:url('<{$poster.img_url}>') no-repeat;width: 100%;height: 150px;background-size: cover;margin-bottom: 8px;"></span>
+				</a>
+			</div>
+			<div class="heart vote_response" data-pid="<{$poster.id}>" data-type="7">
+				<img class="heart_1" src="/Public/mobile/images/heart_1.png">
+				<p class="vote_num"><{$poster.favors}></p>
+				<div class="clear"></div>
+			</div>
+			<div class="user"><img src="<{$poster.uid|getUserPhotoById|buildImgUrl}>"/><h2><{$poster.uid|getUserNicknameById}></h2><div class="clear"></div><div class="describe">
+				<{$poster.desc}>
+			</div></div>
+			<div class="clear"></div>
+		</li>
+		<{/foreach}>	
+	</ul>
+	
+	
+	<span class="footblank"></span>
+	
+	<div class="footico3">
+		<a href="javascript:;" title="上传" class="upload_my_poster"><img src="/Public/mobile/images/ico_03.png" alt="上传"> 上传</a>
+		<a href="<{:U('Mobile/response',array('type'=>2,'pid'=>$activity['id']))}>" title="评论"><img src="/Public/mobile/images/ico1_03.png" alt="评论"> 评论</a>
+		<a href="javascript:;" title="分享" class="open_share"><img src="/Public/mobile/images/ico2_05.png" alt="分享"> 分享</a>
+		<input type="file" name="file" class="upload_poster_img" id="upload_poster_img" data-aid="<{$activity.id}>"/>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="alphabg"></div>
+
+	<div class="share">
+		<h2 class="sharetitle">分享</h2>
+		<div class="sharewrap">
+			<a href="javascript:;" title="新浪微博" class="share_online_activity_weibo"><img src="/Public/mobile/images/share_03.png" alt="新浪微博">新浪微博</a>
+			<a href="javascript:;" title="QQ空间" class="share_online_activity_qzone"><img src="/Public/mobile/images/share_05.png" alt="QQ空间">QQ空间</a>
+			<a href="javascript:;" title="QQ好友" class="share_online_activity_qq"><img src="/Public/mobile/images/share_07.png" alt="QQ好友">QQ好友</a>
+			<a href="javascript:;" title="微信朋友圈" class="share_online_activity_weixin"><img src="/Public/mobile/images/share_09.png" alt="微信朋友圈">微信朋友圈</a>
+			<div class="clear"></div>
+		</div>
+		<a href="javascript:;" title="关闭" class="closebtn close_share"><img src="/Public/mobile/images/close2.png" alt="关闭"></a>
+	</div>
+
+</div>
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

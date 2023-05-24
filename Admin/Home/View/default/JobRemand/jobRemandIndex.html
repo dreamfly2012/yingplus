@@ -1,0 +1,196 @@
+<{include file="default/Public/header" /}>
+
+
+
+<link rel="stylesheet" href="__PUBLIC__/admin/css/topic.css" type="text/css" />
+
+<div class="page-container row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+</div>
+
+<script>
+
+        $('.job-re').parent().show();
+
+</script>
+
+<div class="page-content">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <h3 class="page-title">
+
+
+
+                    工作记录>>工作日志 <small>查找条件</small>
+
+
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <div class="portlet box light-grey topic-class">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>工作记录</div>
+
+                        <div class="tools">
+
+                            <a href="javascript:;" class="collapse"></a>
+
+                            <a href="javascript:;" class="reload"></a>
+
+                            <a href="javascript:;" class="remove"></a>
+
+                        </div>
+
+                    </div>
+
+
+
+                        <label class="topic-nickname-all">
+
+                            星吧：<input type="text"  class="topic-nickname" name="array[name]"/>
+
+                        </label>
+
+                        <label class="main-represent">
+
+                            经纪人：
+
+                            　<input type="text"  name="array[nickname]" class="topic-nickname-guan"/>
+
+                        </label>
+
+                        <label class="job-time-start">
+
+                            操作时间:<!--<input id="start" type="text" class="time-comom" name="array[startime]"/>-->
+
+                            <input id="d4311"   name="array[startime]" class="Wdate startLimit" type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"/>
+
+                        </label>
+
+                        <label  class="topic-time-end">
+
+                            至　<!--<input type="text" id="end" name="array[endtime]" class="time-comom"/>-->
+
+                            <input id="d4312"   name="array[endtime]" class="Wdate endLimit" type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"/>
+
+                        </label>
+
+                        <button id="job_remand" class="job_manage">查询</button>
+
+                    <div class="portlet-body">
+
+                        <div id="operate">
+
+                            <table class="job_remand topic table table-striped table-bordered table-hover table-diao" id="sample_1">
+
+                                <thead>
+
+                                <tr>
+
+                                    <th style="width:8px;">
+
+                                        <input type="checkbox" />
+
+                                    </th>
+
+                                    <th>星吧名</th>
+
+                                    <th class="hidden-480">经纪人</th>
+
+                                    <th class="hidden-480">粉丝</th>
+
+                                    <th class="hidden-480">操作</th>
+
+                                    <th class="hidden-480">原因</th>
+
+                                    <th class="hidden-480">操作时间</th>
+
+                                </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                <{foreach name="operate" item="vo"}>
+
+                                    <tr class='show-topic'>
+
+                                            <td>
+
+                                                <input type='checkbox' class='checkboxes' value='1' />
+
+                                            </td>
+
+                                            <td><{$vo.fid|getForumNameById}></td>
+
+                                            <td><{$vo.admin_id|getUserNicknameById}></td>
+
+                                            <td><{$vo.uid|getUserNicknameById}></td>
+
+                                            <td><{$vo.operate}></td>
+
+                                            <td><{$vo.content}></td>
+
+                                            <td><{$vo.addtime}></td>
+
+                                    </tr>
+
+                                <{/foreach}>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <div class="operate"> <{$page}></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<{include file="default/Public/footer" /}>
+
+
+
+
+
+<script src="__PUBLIC__/admin/js/manage.js"></script>
+
+<script src="__PUBLIC__/admin/js/topicdeal.js"></script>
+
+<script>
+
+    var JobRemand_URL = "<{:U('Home/JobRemand/postData')}>";
+
+</script>
+
+
+

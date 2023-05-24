@@ -1,0 +1,76 @@
+<script type="text/javascript">
+	window.UEDITOR_HOME_URL = "/Public/ueditor/";
+	//window.UEDITOR_CONFIG.imageUrl="{:U('admin/Category/checkPic')}";          //图片上传提交地址
+    //window.UEDITOR_CONFIG.imagePath=' /Uploads/thumb/';//编辑器调用图片的地址
+</script>
+<style>
+	#edui1_bottombar{display: none;}
+</style>
+
+<script type="text/javascript" src="/Public/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="/Public/ueditor/ueditor.all.min.js"></script>
+<div class="addactive_topic">
+	<div class="add_title">
+		<p>发表新话题</p>
+		<a href="javascript:void(0);" title="" class="closebtn2 close_form"></a>
+	</div>
+	<span class="hei40"></span>
+	<div class="addactiveitem">
+		<p class="add_comleft">标题：</p>
+		<div class="add_comright">
+			<input type="text" class="add_title_text" id="topic_subject" placeholder="请输入标题">
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="addactiveitem">
+		<p class="add_comleft">内容：</p>
+		<div class="add_comright">
+			<div class="fulltextarea">
+				<script id="container" name="content" type="text/plain" class="textarea3"></script>
+				<script type="text/javascript">
+					window.UEDITOR_HOME_URL = "/Public/ueditor/";  //UEDITOR_HOME_URL、config、all这三个顺序不能改变
+				   
+				    window.UEDITOR_CONFIG.initialFrameHeight=300;//编辑器的高度
+				    window.UEDITOR_CONFIG.imageUrl="{:U('admin/Category/checkPic')}";          //图片上传提交地址
+				    window.UEDITOR_CONFIG.imagePath=' /Uploads/thumb/';//编辑器调用图片的地址
+				    var ue = UE.getEditor('container', {
+					    toolbars: [
+					        ['emotion', 'insertimage']
+					    ],
+					    autoHeightEnabled: false,
+					    autoFloatEnabled: false
+					});
+				</script>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<a href="javascript:;" title="确认提交" class="add_submit add_topic_do" data-fid="16">确认提交</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(document).on('click','.add_topic_do',function(){
+		var fid = $(this).attr('data-fid');
+		var subject = $('#topic_subject').val();
+		var content = ue.getContent();
+		if(subject==''||content==''){
+			alert('话题标题和内容不能为空!');
+			return false;
+		}
+
+		if(content.length<10){
+			alert('话题内容长度不能少于10个字');
+			return false;
+		}
+		$.post(add_topic_do_url,{'fid':fid,'subject':subject,'content':content},function(result){
+			if(result.data.code==0){
+				window.location.href = "/index.php/Home/Pc/topic.html" + '?tid=' + result.data.info.tid;
+			}else{
+				alert(result.data.message);
+			}
+		});
+	});
+});
+</script>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>购买成功</title>
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="description" content="#">
+<meta name="Keywords" content="#">
+<link rel="stylesheet" href="__PUBLIC__/mobile/movie/css/global.css">
+<link rel="stylesheet" href="__PUBLIC__/mobile/movie/css/scan.css">
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/adaptive.js"></script>
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+    var aid = "<{$Think.get.aid}>";
+    var trade_no = "<{$Think.get.trade_no}>";
+    var get_activity_info_url = "<{:U('MovieActivity/getActivityInfo')}>";
+    var get_order_info_url = "<{:U('MovieActivity/getOrderInfo')}>";
+</script>
+
+</head>
+<body class="body-wrap">
+<!--   头部   -->
+<header>
+	<div class="wrap">
+
+        <h2>购买成功</h2>
+
+    </div>
+</header>
+
+<div class="film-name">
+	<i class="video"></i>
+    <div class="name">
+    	<span class="movie_title">夏有乔木 雅望天堂</span><br>
+    	Sweet   Sixteen
+    </div>
+</div>
+<div class="scan-result">
+	
+    <div class="p" id="success_text">
+        活动发起人在影院现场戴标有“梅格妮+”字样的帽子，以下为取票二维码，建议您截图保存。观影地址为（长春 中影国际影城），时间（2016-04-30）具体场次会提前一周确定，请保持关注。祝您观影愉快。
+    </div>
+    <img class="code" id="success_img" src="<{:U('Qrcode/showQrcode',array('url'=>$url))}>">
+</div>
+
+</div>
+
+</body>
+</html>

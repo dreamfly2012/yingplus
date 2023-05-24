@@ -1,0 +1,102 @@
+.banner {position:relative;}
+.banner span {display:block;position:absolute;width:30%;right:5%;top:15%;font:15px/15px "microsoft yahei";color:#fff;text-align:right;}
+.banner a {display:block;font:14px/26px "microsoft yahei";width:13%;text-align:center;position:absolute;right:5%;bottom:15%;background:#ffc600;color:#5d3e03;border-radius:10px;}
+.aoinfo {width:100%;padding:0 5%;background:#fff;position:relative;}
+.aoinfo b {float:left;width:32%;height:100%;}
+.aoinfo b img {width:100%;position:absolute;left:5%;bottom:6%;border:solid 2px #fff;width:32%;}
+.aoright {float:right;font:bold 14px/22px "microsoft yahei";color:#222;width:60%;padding:10px 0;}
+.joinbtn {display:block;font:14px/26px "microsoft yahei";width:70%;text-align:center;background:#ffc600;color:#5d3e03;border-radius:10px;margin-top:4px;}
+
+.filmwrap {position:relative;width:100%;}
+.filmbg {height:300px;background:url(../images/film.jpg) center no-repeat;background-size:cover;-webkit-filter: blur(5px);-moz-filter: blur(5px);-ms-filter: blur(5px); filter: blur(5px);}
+.filmimg {width:72%;position:absolute;left:50%;top:15%;margin-left:-36%;z-index:4;border:solid 4px #ffc600;}
+.filmwrap h1 {font:bold 20px/20px "microsoft yahei";color:#fff;text-align:center;position:absolute;left:0;top:5%;width:100%;z-index:5;}
+.filmmark {width:42%;height:38px;position:absolute;left:50%;top:83%;z-index:5;background:#ffc600;color:#472f00;border-radius:18px;margin-left:-21%;font:16px/38px "microsoft yahei";text-align:center;z-index:5;}
+.filmblank {width:100%;clear:both;display:block;visibility:hidden;padding-bottom:10px;}
+
+.addr {font:16px/20px "microsoft yahei";color:#313131;text-align:center;width:100%;padding:6px 0 16px;}
+.infolist {width:92%;margin:0 auto;}
+.infolist li {border-bottom:dashed 1px #ddd;}
+.infolist li p {float:left;display:inline-block;width:28%;font:15px/36px "microsoft yahei";color:#333;text-indent:5%;}
+.infolist li span {float:right;display:inline-block;width:71%;font:15px/24px "microsoft yahei";padding:6px 0;color:#333;}
+.infolist li span strong {font:bold 16px/20px "microsoft yahei";color:#000;}
+.role {width:82%;padding:10px 0;margin:0 auto;font:14px/24px "microsoft yahei";color:#333;text-align:justify;}
+.role span.roletitle {font:15px/24px "microsoft yahei";color:#333;padding-bottom:4px;display:block;}
+
+.footico {padding:6px 0;background:#ffc600;position:fixed;left:0;bottom:0;width:100%;}
+.footico a {float:left;display:inline-block;width:50%;border-right:solid 1px #b28a00;font:15px/30px "microsoft yahei";color:#5d3e03;text-align:center;}
+.footico a img {width:9%;display:inline-block;position:relative;top:3px;}
+.footico a:nth-child(2) {border:none;}
+.footblank {width:100%;clear:both;display:block;}
+
+.feedbacktitle {width:100%;border-bottom:solid 1px #ddd;height:40px;margin-bottom:10px;}
+.feedbacktitle ul {}
+.feedbacktitle ul li {float:left;width:50%;position:relative;text-align:center;}
+.feedbacktitle ul li a {display:inline-block;font:16px/40px "microsoft yahei";padding:0 10px;color:#7c7c7c;}
+.feedbacktitle ul li.on a {color:#494949;border-bottom:solid 3px #ffc600;font:16px/38px "microsoft yahei";}
+.feedbackitem {width:100%;margin:0 auto;padding:0 4% 16px;border-bottom:solid 1px #ddd;}
+.feedbackitem h2 {float:left;display:inline;color:#7c7c7c;font:14px/40px "microsoft yahei";}
+.feedbackitem span {float:right;font:14px/40px "microsoft yahei";color:#7c7c7c;}
+
+
+.fleximages { overflow: hidden; }
+.fleximages .item { float: left; margin: 4px; border: 1px solid #eee; box-sizing: content-box; overflow: hidden; position: relative;  }
+.fleximages .item img { width: 100%; height: 100%; }
+.videoshowitem {width:100%;height:242px;margin:0 auto;margin-bottom:20px;padding:0 4% 16px;border-bottom:solid 1px #ddd;}
+.videoshowitem .play{
+	opacity: .8;
+    border-radius: 2px;
+    position: absolute;
+    display: inline-block;
+    width: 35px;
+    height: 25px;
+    margin-top: 150px;
+    margin-left: 30px;
+    z-index: 3;
+    background: url(http://img2.cache.netease.com/f2e/wap/touch_index_2016/trunk/images/play_btn.png) center center no-repeat;
+    background-size: contain;
+}
+.videoshowitem h2 {
+	display: block;
+    font: 14px/20px "microsoft yahei";
+    padding: 10px 25px;
+    position: absolute;
+    margin-top: 170px;
+    color: #FFF;
+}
+.mask h2{
+    padding: 3px;
+    margin: 0px;
+}
+.videoshowitem .user{
+	position: absolute;
+    margin-top: 200px;
+    margin-left: 25px;
+    color: #888;
+}
+.videoshowitem .mask{
+	position: absolute;
+    width: 91%;
+    height: 24px;
+    margin-top: 200px;
+    z-index: 2;
+    background: url(http://img2.cache.netease.com/f2e/wap/touch_index_2016/trunk/images/shade.png) center center no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    box-shadow: 3px -10px 49px #333;
+    padding: 0 2px;
+}
+.videoshowitem img{width: 100%;height: 100%;}
+.videoshowitem p {font:14px/22px "microsoft yahei";color:#666;padding:10px 0;}
+.acimgwrap {background:#000;position:absolute;text-aligN:center;width:100%;height:100%;display:table;}
+.acimgwrap span {display:table-cell;display:table-cell; vertical-align:middle;}
+.bgblack {background:#000;}
+
+.upload_feedback_img{opacity: 1;display: none;}
+
+.huati_video_content{
+    margin-top: 20px;
+}
+.huati_video_tab{
+    padding-top: 5px;
+}

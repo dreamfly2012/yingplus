@@ -1,0 +1,200 @@
+<{include file="default/Public/header" /}>
+<style>
+    .content img{
+        width:100px;
+    }
+</style>
+<script>
+    var deletee_all_response_url = "<{:U('Response/deleteAllResponse')}>";
+    $(function() {
+        $(document).on("click", '#choose_all', function () {
+            if (this.checked) {
+                $(":checkbox[name='check']").prop('checked', true);//attr("checked",true);
+            } else {
+                $(":checkbox[name='check']").prop('checked', false);
+            }
+        });
+
+        $(document).on('click','.deleteResponse',function(){
+            if(confirm('确定要删除吗')){
+                var href = $(this).attr('data-href');
+                window.location.href = href;
+            }
+        });
+
+
+        $(document).on('click', '#all_delete', function () {
+            var repair = confirm("确定要批量删除吗？");
+            if (repair == true) {
+                var arr = {};
+                var i = 0;
+                $(":checkbox[name='check']").each(function () {
+                    if (this.checked) {
+                        arr["test[" + i + "]"] = $(this).attr("lid");
+                        $("tr").remove('#' + $(this).attr("lid"));
+                        i++;
+                    }
+
+                });
+                $.ajax({
+                    type: "POST",
+                    url: deletee_all_response_url,
+                    data: arr,
+                    dataType: "json",
+                    success: function (data) {
+                    }, async: true
+
+                });
+                window.location.reload();
+            }
+
+        });
+    });
+</script>
+<div class="page-container row-fluid">
+    <{include file="default/Index/left" /}>
+</div>
+
+<div class="page-content">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <h3 class="page-title">
+                    回复管理>> <{$Think.get.type|getResponseTypeName}>回复列表 
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <div class="portlet box light-grey">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>活动回复列表</div>
+
+                        <div class="tools">
+
+                            <a href="javascript:;" class="collapse"></a>
+
+                            <a href="javascript:;" class="reload"></a>
+
+                            <a href="javascript:;" class="remove"></a>
+
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+                    <form action="<{:U('ActivityResponse/activityResponse')}>" method="post">
+                        <table class="table table-striped table-bordered table-hover" id="sample_1">
+
+                            <thead>
+                            <tr>
+                                工作室：
+                                <select name="fid" name="fid">
+                                    <option value="">----请选择----</option>
+                                    <{foreach name="forums" item="forum"}>
+                                    <option value="<{$forum['id']}>"><{$forum['name']}></option>
+                                    <{/foreach}>
+                                </select>
+                            </tr>
+                            <tr>
+                               <input  style="margin-left: 100px;margin-top: -8px" type="submit" value="查询"/> 共 <font color="red"><{$count}></font> 信息
+                            </tr>
+                            <tr>
+
+                                <th style="width:45px;">
+                                    <input type="checkbox" id="choose_all"/>全选
+                                </th>
+
+                                <th><{$Think.get.type|getResponseTypeName}></th>
+
+                                <th class="hidden-480">所属工作室</th>
+
+                                <th class="hidden-480">回复者</th>
+
+                                <th class="hidden-480">回复内容</th>
+
+                                <th class="hidden-480">回复时间</th>
+
+                                <th class="hidden-480">操作</th>
+
+
+                            </tr>
+
+                            </thead>
+                            <label style="width: 86px">
+                                <input  style="margin-top: 10px" id="all_delete" type="button" value="批量删除"/>
+                            </label>
+                            <{foreach name="responseList" item="response"}>
+
+                            <tbody>
+
+                            <tr class="odd gradeX" id="<{$response['id']}>">
+
+                                <td>
+                                    <input type="checkbox" class="checkboxes" name="check" lid="<{$response.id}>">
+                                </td>
+
+                                <td>
+
+                                    <{$response['subject']}>
+
+                                </td>
+
+                                <td class="hidden-480"><{$response['forumname']}></td>
+
+                                <td class="hidden-480"><{$response['username']}></td>
+
+                                <td class="hidden-480 content"><{$response['content']}></td>
+
+                                <td class="hidden-480"><{$response['addtime']|date='Y-m-d H:i:s',###}></td>
+
+                                <td class="hidden-480">
+                                    <a href="javascript:;" class="deleteResponse" data-href="<{:U('Home/Response/delResponseById',array('id'=>$response['id']))}>">删除</a>　
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+
+                            <{/foreach}>
+
+                        </table>
+
+                        <div class="pagination">
+                            <div>
+                            <{$page}>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+    $('.response-1').parent().show();
+    $('.response a').css('color','#ffffff');
+    $('.response a').css('background','#575757');
+</script>
+
+<{include file="default/Public/footer" /}>

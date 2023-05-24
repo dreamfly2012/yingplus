@@ -1,0 +1,35 @@
+<aside class="cr">
+    <div class="commontitle">
+        <p>精彩活动</p>
+        <a href="<{:U('Pc/activitylist')}>" title="查看更多">查看更多</a>
+    </div>
+    <mark class="newsmark">· 公益</mark>
+    <figure class="newswrap">
+        <{volist name="promote_events" id="event" offset="0" length="1"}>
+        <a href="<{$event.url}>" target="_blank"><img src="<{$event.img_url}>"></a>
+        <h2><a href="<{$event.url}>" title="<{$event.subject}>" target="_blank"><{$event.subject}></a></h2>
+        <p>
+            <{$event.content}>
+        </p>
+        <{/volist}>
+    </figure>
+    <mark class="newsmark">· 包场</mark>
+    <ul class="privatelist">
+        <{volist name="activities" id="movie_activity" offset="0" length="2"}>
+        <li>
+            <h2><a href="<{:U('pc/activity',array('aid'=>$movie_activity['id']))}>" title="<{$activity.cinemaid|getCinemaNameById}>" target="_blank"><{$movie_activity.subject}></a></h2>
+            <p><{$movie_activity.holdstart|date='Y-m-d',###}>    <{$movie_activity.holdstart|date='H:i',###}>    </p>
+        </li>
+        <{/volist}>
+    </ul>
+    <mark class="newsmark2">· 线上活动</mark>
+    <ul class="activelist">
+        <{volist name="online_activities" id="online_activity" offset="0" length='3'}>
+        <li><a href="<{:U('Pc/activity',array('aid'=>$online_activity['id']))}>" title="<{$online_activity.subject}>" target="_blank"><{$online_activity.subject}></a></li>
+        <{/volist}>
+    </ul>
+
+    <div class="hot_topic_list_block">
+        <{include file="default/pc/aside_hot_topic_page"/}>
+    </div>
+</aside>

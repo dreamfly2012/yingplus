@@ -1,0 +1,70 @@
+<{assign name="title" value="支付页面"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+
+<link rel="stylesheet" type="text/css" href="/Public/default/css/pay.css">
+<form id="payform" method="post" action="<{:U('MovieActivity/payOrder')}>"  class="common_form" onsubmit="return check_pay_form();">
+<div class="main">
+	<div class="pay1">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<th width="454" class="payhead1st">项目</th>
+				<th width="216">单价</th>
+				<th width="216">数量</th>
+				<th>总价</th>
+			</tr>
+			<tr>
+				<td height="74"><a href="#" title="" class="filmcourtname"><{$activity.subject}></a></td>
+				<td class="price" align="center" id="price_item_1">￥<{$ticket.price}></td>
+				<td align="center">
+					<div class="num">
+						<a href="javascript:void(0);" title="减" class="minu" onClick="setAmount.reduce('#qty_item_1')">-</a>
+						<input type="text" class="buynum" data-bind="quantity" data-price="<{$ticket.price}>" readonly name="quantity" value="1" id="qty_item_1" onKeyUp="setAmount.modify('#qty_item_1')">
+						<a href="javascript:void(0);" title="加" class="plus" onClick="setAmount.add('#qty_item_1')">+</a>
+					</div>
+				</td>
+				<td class="total_price price" align="center" id="total_price"><{$ticket.price}></td>
+			</tr>
+		</table>
+	</div>
+	<span class="payway">微信</span>
+	<ul class="paywaylist">
+		<!-- <li><label><input type="radio" name="method" type="radio" value="1" checked="checked"> <img src="/Public/default/images/payway_13.jpg" alt="支付宝"></label></li> -->
+		<li><label><input type="radio" name="method" type="radio" value="2" checked="checked"> <img src="/Public/default/images/payway_15.jpg" alt="微信支付"></label></li>
+		<div class="clear"></div>
+	</ul>
+	<hr class="hr1px">
+	<p class="sholdpay">应付金额：<b id="total_points"><span class="total_price"><{$activity.id|getTicketPriceByAid}></span></b></p>
+	<hr class="hr1px">
+	<div class="paybtn">
+		<div class="send_mobile">
+
+			<{if condition="getUserTelephoneById(session('uid'))"}>
+			<label>留下手机号：</label>
+			<span id="telephone_span"><{$Think.session.uid|getUserTelephoneById}></span>
+			<span style="color: #2bb8aa;" class="change_telephone">修改手机号</span>
+			<input type="hidden" id="activity_telephone" name="activity_telephone" value="<{$Think.session.uid|getUserTelephoneById}>"/>
+			<{else/}>
+			<label>留下手机号：</label>
+			<span id="telephone_span"><{$Think.session.uid|getUserTelephoneById}></span>
+			<span style="color: #2bb8aa;" class="change_telephone">填写手机号</span>
+			<input type="hidden" id="activity_telephone" name="activity_telephone" />
+			<{/if}>
+		</div>
+		<input type="hidden" name="aid" value="<{$activity.id}>"/>
+		<input type="submit" class="deal_form_submit" value="去付款">
+		<a href="javascript:;" title="" class="go_to_pay">去付款</a>
+	</div>
+	
+	<hr class="hr1px">
+	<div class="role">
+		<h4>活动规则：</h4>
+		1.报名 2.支付 3.持二维码寻找发起人（特殊标识）处取票 4.领应援物品 5.进场 6.观影
+	</div>
+</div>
+</form>
+
+<{include file="default/pc/footer"/}>
+<script src="/Public/default/js/pay.js"></script>
+</body>
+</html>

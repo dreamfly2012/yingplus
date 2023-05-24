@@ -1,0 +1,72 @@
+.banner {position:relative;}
+.banner span {display:block;position:absolute;width:30%;right:5%;top:15%;font:15px/15px "microsoft yahei";color:#fff;text-align:right;}
+.banner a {display:block;font:14px/26px "microsoft yahei";width:13%;text-align:center;position:absolute;right:5%;bottom:15%;background:#ffc600;color:#5d3e03;border-radius:10px;}
+.aoinfo {width:100%;padding:0 5%;background:#fff;position:relative;}
+.aoinfo b {float:left;width:32%;height:100%;}
+.aoinfo b img {width:100%;position:absolute;left:5%;bottom:6%;border:solid 2px #fff;width:32%;}
+.aoright {float:right;font:bold 14px/22px "microsoft yahei";color:#222;width:60%;padding:10px 0;}
+.joinbtn {display:block;font:14px/26px "microsoft yahei";width:70%;text-align:center;background:#ffc600;color:#5d3e03;border-radius:10px;margin-top:4px;}
+
+.activity {background:#fff;margin-top:10px;}
+.activity h2 {height:40px;border-bottom:solid 1px #ddd;font:15px/40px "microsoft yahei";color:#333;padding:0 4%;}
+.activity h2 img {display:inline-block;width:5%;position:relative;top:3px;}
+.actitem {height:38px;border-bottom:solid 1px #ddd;font:14px/38px "microsoft yahei";color:#333;padding:0 4%;white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis;  overflow:hidden;display:block;}
+
+
+.single-createbtns {padding:6px 0;background:#fff;}
+.single-createbtns a {float:left;width:100%;text-align:center;font:15px/28px "microsoft yahei";color:#555;display:block;}
+.createbtns {padding:6px 0;background:#fff;}
+.createbtns a {float:left;width:50%;text-align:center;font:15px/28px "microsoft yahei";color:#555;display:block;border-right:solid 1px #ddd;}
+.createbtns a:nth-child(2) {border:none;}
+.joinchat {display:block;font:16px/36px "microsoft yahei";width:92%;text-align:center;background:#ffc600;color:#795206;border-radius:10px;margin:14px auto;height:36px;}
+
+.footico {padding:6px 0;background:#ffc600;position:fixed;left:0;bottom:0;width:100%;}
+.footico a {float:left;display:inline-block;width:50%;border-right:solid 1px #b28a00;font:15px/30px "microsoft yahei";color:#5d3e03;text-align:center;}
+.footico a img {width:9%;display:inline-block;position:relative;top:3px;}
+.footico a:nth-child(2) {border:none;}
+.footblank {width:100%;clear:both;display:block;}
+
+
+/*创建活动  投票类*/
+.voteitem {width:92%;margin:0 auto;padding-top:14px;}
+.voteitem p {float:left;display:inline-block;font:14px/32px "microsoft yahei";color:#7b7b7b;margin-right:4%;}
+.voteitem a {float:left;display:inline-block;border:solid 1px #ddd;color:#7b7b7b;padding:0 12px;font:14px/32px "microsoft yahei";margin-right:10px;}
+.voteitem a.on {border:solid 2px #ffc600;color:#d5a706;line-height:30px;}
+.votetitle {font:14px/32px "microsoft yahei";color:#7b7b7b;width:92%;margin:0 auto;padding-top:10px;}
+.text92per {width:92%;height:34px;font:14px/20px "microsoft yahei";padding:7px 3%;display:block;border:solid 1px #ddd;background:#fff;margin:0 auto;color:#666;}
+.textarea1 {width:92%;height:134px;padding:7px 3%;display:block;border:solid 1px #ddd;background:#fff;margin:0 auto;color:#666;}
+.optionbox {width:92%;margin:0 auto;padding-bottom:12px;padding-top:2px;position: relative;}
+.optionbox a {float:left;display:block;width:34px;height:34px;}
+.optionbox input {float:left;display:inline-block;height:34px;font:14px/20px "microsoft yahei";padding:7px 3%;display:block;border:solid 1px #ddd;background:#fff;width:90%;}
+.addnew {width:92%;margin:0 auto;font:14px/20px "microsoft yahei";text-align:right;}
+.addnew a {color:#0354af;}
+.vote_image{opacity: 0;width: 1px;height: 1px;}
+.votesubmit {width:92%;height:36px;text-align:center;font:16px/36px "microsoft yahei";color:#fff;border-radius:5px;background:#fcb01f;display:block;margin:20px auto;}
+.upload_small_icon{
+	background-image:url('/Public/mobile/images/plus_03.png');
+	background-size:34px 34px;
+	background-repeat: no-repeat;  
+}
+.delete_option {
+    font-size: 18px;
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    background-size: contain;
+    background-image: url('/Public/mobile/images/icon_option_delete.png');
+    width: 28px;
+    height: 20px;
+    display: none;
+}
+
+.city {width:92%;margin:0 auto;}
+.city select {width:40%;float:left;height:30px;display:inline-block;font:14px/30px "microsoft yahei";border:solid 1px #ddd;background:none;color:#666;margin-right:2%;padding:0 1%;}
+.validnum {width:92%;height:34px;font:14px/20px "microsoft yahei";display:block;margin:0 auto;}
+.validnum input.validnumbox {float:left;display:inline-block;width:50%;height:34px;font:14px/20px "microsoft yahei";padding:7px 3%;display:block;border:solid 1px #ddd;background:#fff;margin:0 auto;color:#666;border-right:none;}
+.validnum input.sendbtn {float:right;display:inline-block;width:50%;height:34px;font:14px/34px "microsoft yahei";background:#fcb01f;color:#333;text-align:center;border:0;}
+
+.uploadimg {width:92%;height:36px;text-align:center;font:16px/36px "microsoft yahei";color:#fff;border-radius:5px;background:#fcb01f;display:block;margin:5px auto 100px;}
+.uploadbtns {width:92%;height:auto;margin:0 auto;text-align:right;padding:12px 0;}
+.uploadbtns a {font:14px/30px "microsoft yahei";display:inline-block;padding:0 10px;height:30px;border-radius:6px;background:#fcb01f;color:#fff;margin-left:4px;}
+
+.uploadvideo {width:92%;height:auto;margin:12px auto 36px;font:14px/36px "microsoft yahei";display:block;height:36px;border-radius:6px;background:#fff;color:#888;text-align:center;border:solid 1px #ddd;}

@@ -1,0 +1,45 @@
+<{include file="default/mobile/header"/}>
+<link href="http://vjs.zencdn.net/5.9.2/video-js.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/video.css"/>
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="活动反馈区"/}>
+    <div class="container">
+    <video id="my_video_1" class="video-js vjs-default-skin"  controls
+     preload="auto"  poster="<{$video.videocover}>"
+     data-setup="{}">
+     <source src="<{$video.url}>" type='video/mp4'>
+     <source src="my_video.webm" type='video/webm'>
+    </video>
+
+    </div>
+
+    <div class="video_article_content">
+    <div class="video_tab_switch">
+        <a>其他</a>
+    </div>
+
+    <{foreach name="feedbacks" item="feedback"}>
+    <div class="video_recommend_item">
+        <a href="<{:U('Mobile/showfeedbackvideo',array('id'=>$feedback['id']))}>">
+            <div class="poster">
+                <img src="<{$feedback.image}>">
+                <div class="play_icon"></div>
+            </div>
+            <div class="info">
+                <div class="title"><{$feedback.title}></div>
+                <div class="detail">
+                    
+                </div>
+            </div>
+        </a>
+    </div>
+    <{/foreach}>
+   </div>
+
+   <script src="http://vjs.zencdn.net/5.9.2/video.js"></script>
+   <script type="text/javascript">
+        //var myPlayer = videojs('my_video_1');
+        //myPlayer.requestFullscreen();
+   </script>
+</body>
+</html>

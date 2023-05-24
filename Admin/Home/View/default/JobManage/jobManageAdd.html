@@ -1,0 +1,136 @@
+<{include file="default/Public/header" /}>
+
+<link rel="stylesheet" href="__PUBLIC__/admin/css/topic.css" type="text/css" />
+
+<div class="page-content">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <h3 class="page-title">
+
+
+
+                    工作室管理>>编辑信息 <small>编辑</small>
+
+
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <div class="portlet box light-grey topic-class">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>工作室编辑</div>
+
+                        <div class="tools">
+
+                            <a href="javascript:;" class="collapse"></a>
+
+                            <a href="javascript:;" class="reload"></a>
+
+                            <a href="javascript:;" class="remove"></a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="job_edit">
+
+                       <!-- <a style="display:inline-block;width: 180px;height: 180px;background-color: #1094fa"></a>-->
+
+                        <form action="<{:U('JobManage/addJobMassage')}>"  method="post" enctype="multipart/form-data">
+
+                            <label>星吧名：
+
+                                <input class="type-text" type="text" name="array[name]" value="<{$result.forumname}>"/>
+
+                            </label>
+
+                            <label>中文名：
+
+                                <input class="type-text" type="text" name="array[chinesename]"/><br/>
+
+                            </label>
+
+                            <label>韩文名：
+
+                                <input class="type-text" type="text" name="array[koreaname]"/><br/>
+
+                            </label>
+
+                            <label>英文名：
+
+                                <input class="type-text" type="text" name="array[englishname]"/><br/>
+
+                            </label>
+
+                            <label>组合名称：
+
+                                <input class="type-text" type="text" name="array[groupname]"/><br/>
+
+                            </label>
+
+                            <label>主要作品：
+
+                                <input class="type-text" type="text" name="array[representative]"  value="<{$result.representative}>"/><br/>
+
+                            </label>
+
+                            <div style="position: absolute; left: 473px; top: 497px;">
+
+                                <input type="file" name="photo" style="position: relative;left: 25px;top: 29px;"/>
+
+                                <span style="position: relative;left: -296px;color:red;}">上传星吧图片</span>
+
+                               <!-- <p class="photo-status">星吧头像</p>-->
+
+                            </div>
+
+                            <div style="position: absolute;top:317px;">
+
+                            <button type="submit" class="but-sure">确定</button>
+
+                            <a class="a btn" href="<{:U('JobManage/index')}>">>取消</a>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+    $('.shenhe-qing').parent().show().parent().addClass('active ').siblings().removeClass('active');
+    $('.shenhe-qing a').css('color','#ffffff');
+    $('.shenhe-qing a').css('background','#575757');
+
+</script>
+
+<{include file="default/Public/footer" /}>
+

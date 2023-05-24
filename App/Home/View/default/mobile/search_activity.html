@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+        <title>
+            搜索活动
+        </title>
+        <{include file="default/Index/head"/}>
+        </head>
+        <body class="mt70">
+            <link rel="stylesheet" href="__PUBLIC__/mobile/css/search_activity.css">
+            <script>
+                var search_forum_url = "<{:U('Search/forum')}>";
+            </script>
+            <script src="__PUBLIC__/mobile/js/search_activity.js">
+            </script>
+            <!-- Split button -->
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class='words'>时间</span>
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li data-date="none">
+                                <a href="javascript:;">
+                                    不限
+                                </a>
+                            </li>
+                            <li data-date="today">
+                                <a href="javascript:;">
+                                    今天
+                                </a>
+                            </li>
+                            <li data-date="tomorrow">
+                                <a href="javascript:;">
+                                    明天
+                                </a>
+                            </li>
+                            <li data-date="weekend">
+                                <a href="javascript:;">
+                                    周末
+                                </a>
+                            </li>
+                            <li data-date="week">
+                                <a href="javascript:;">
+                                    最近一周
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class='words'>地点</span>
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li data-date="none">
+                                <a href="javascript:;">
+                                    不限
+                                </a>
+                            </li>
+                            <li data-date="today">
+                                <a href="javascript:;">
+                                    今天
+                                </a>
+                            </li>
+                            <li data-date="tomorrow">
+                                <a href="javascript:;">
+                                    明天
+                                </a>
+                            </li>
+                            <li data-date="weekend">
+                                <a href="javascript:;">
+                                    周末
+                                </a>
+                            </li>
+                            <li data-date="week">
+                                <a href="javascript:;">
+                                    最近一周
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class='words'>类型</span>
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li data-date="none">
+                                <a href="javascript:;">
+                                    不限
+                                </a>
+                            </li>
+                            <li data-date="today">
+                                <a href="javascript:;">
+                                    今天
+                                </a>
+                            </li>
+                            <li data-date="tomorrow">
+                                <a href="javascript:;">
+                                    明天
+                                </a>
+                            </li>
+                            <li data-date="weekend">
+                                <a href="javascript:;">
+                                    周末
+                                </a>
+                            </li>
+                            <li data-date="week">
+                                <a href="javascript:;">
+                                    最近一周
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class='words'>工作室</span>
+                            <span class="caret">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li data-date="none">
+                                <a href="javascript:;">
+                                    不限
+                                </a>
+                            </li>
+                            <li data-date="today">
+                                <a href="javascript:;">
+                                    今天
+                                </a>
+                            </li>
+                            <li data-date="tomorrow">
+                                <a href="javascript:;">
+                                    明天
+                                </a>
+                            </li>
+                            <li data-date="weekend">
+                                <a href="javascript:;">
+                                    周末
+                                </a>
+                            </li>
+                            <li data-date="week">
+                                <a href="javascript:;">
+                                    最近一周
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div id="search_result">
+                <div class="media">
+                  <div class="media-left">
+                    <a href="#">
+                      <img class="media-object" data-src="holder.js/100x100?theme=sky" src="..." alt="...">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    <p class="media-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                  </div>
+                </div>
+                <div class="media">
+                  <div class="media-left">
+                    <a href="#">
+                      <img class="media-object" data-src="holder.js/100x100?theme=sky" src="..." alt="...">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    <p class="media-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <{include file="default/Index/nav"/}>
+            </body>
+        </html>

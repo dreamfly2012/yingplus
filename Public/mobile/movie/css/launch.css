@@ -1,0 +1,229 @@
+body {
+	background:#fff;	
+}
+
+
+/*    活动详情开始   */
+.launch {
+	padding:.3rem 0 .1rem;
+	text-align:center;
+	width:5rem;
+	margin:0 auto .4rem;
+	border-bottom:#f5c943 solid 2px;
+}
+.launch .video {
+	background:url(../images/detail/video.png) no-repeat;
+	background-size:contain;
+	width:.7rem;
+	height:.7rem;
+	display:inline-block;
+	margin-right:.2rem;
+	vertical-align:top;
+}
+.launch .name {
+	display:inline-block;
+	font-size:.4rem;
+	color:#ef4343;
+	text-align:center;
+}
+.launch .name span {
+	font-size:.55rem;
+	color:#444;
+}
+
+/*    列表   */
+.info-list {
+	padding:0 3%;
+	font-size:.35rem;
+	color:#666;
+	margin-bottom:.5rem;
+}
+.info-list li {
+	border-bottom:#c7c6c6 solid 1px;
+	padding:.3rem .5rem;
+}
+.info-list li:first-child {
+	border-top:#c7c6c6 solid 1px;
+}
+
+
+.info-list li img {
+	display:inline-block;
+	width:.5rem;
+	height:	.5rem;
+	vertical-align:middle;
+	margin-right:.3rem;
+}
+.info-list li span {
+	vertical-align:middle;
+}
+.info-list li #hold_place_dummy{
+	color:#ffa10e !important;
+	border:none;
+	color:#666;
+	font-size:.35rem;
+	vertical-align:middle;
+	height:.7rem;
+	line-height:.7rem;
+	display:inline-block;
+	width:7rem;
+	padding:0;
+}
+
+.info-list li #cinemaname_dummy {
+    color: #ffa10e !important;
+    border: none;
+    color: #666;
+    font-size: .35rem;
+    vertical-align: middle;
+    height: .7rem;
+    line-height: .7rem;
+    display: inline-block;
+    width: 7rem;
+    padding: 0;
+}
+
+.info-list li .yellow {
+	color:#ffa10e !important;
+	border:none;
+	color:#666;
+	font-size:.35rem;
+	vertical-align:middle;
+	height:.7rem;
+	line-height:.7rem;
+	display:inline-block;
+	width:7rem;
+	padding:0;
+}
+
+.info-list li .place{
+	border: none;
+    color: #666;
+    font-size: .35rem;
+    vertical-align: middle;
+    height: .7rem;
+    line-height: .7rem;
+    padding: 0;
+}
+.info-list li .gray {
+	background:none;
+	color:#666 !important;
+	border:none;
+	color:#666;
+	font-size:.35rem;
+	vertical-align:middle;
+	height:.7rem;
+	line-height:.7rem;
+	display:inline-block;
+	width:7rem;
+	padding:0;
+	
+}
+
+/*    报名按钮   */
+.form-box {
+	padding:0 3%;
+}
+.form-box div {
+	position:relative;	
+}
+.form-box .code {
+	
+}
+.form-box input {
+	border:#ccc solid 2px;
+	border-radius:2px;
+	height:1rem;
+	line-height:1rem;
+	padding:0 .3rem;
+	font-size:.4rem;
+	display:block;
+	width:7rem;
+	margin:0 auto .4rem;
+}
+.form-box .code input {
+	
+}
+.form-box .code input.code {
+	background:none;
+	border:#f5c943 solid 1px;
+	color:#f5c943;
+	position:absolute;
+	right:1rem;
+	top:.15rem;
+	width:2rem;
+	height:.8rem;
+	line-height:.8rem;
+	font-size:.3rem;
+	text-align:center;
+}
+.form-box .code input.code:disabled {
+	background: #ddd;
+	border:#999 solid 1px;
+	color:#666;
+}
+/*    提交   */
+.submit {
+	background:#ef4343;
+	border:#c62c2c solid 1px;
+	box-shadow:2px 2px 3px #aaa;
+	width:7.6rem;
+	height:1rem;
+	line-height:1rem;
+	display:block;
+	margin:.5rem auto;
+	font-size:.6rem;
+	color:#fff;
+	text-align:center;
+	text-shadow:2px 2px 3px #333;
+}
+.end {
+	background:#e5e5e5;
+	border:#ccc solid 1px;
+	box-shadow:2px 2px 3px #aaa;
+	color:#fff;
+	text-shadow:2px 2px 3px #333;
+}
+
+
+.long-btn {
+	background:#ef4343;
+	border:#c62c2c solid 1px;
+	box-shadow:2px 2px 3px #aaa;
+	width:8rem;
+	height:1rem;
+	line-height:1rem;
+	display:block;
+	margin:.5rem auto;
+	font-size:.6rem;
+	color:#fff;
+	text-align:center;
+	text-shadow:2px 2px 3px #333;
+}
+
+/**登陆注册**/
+.form-box input.keeppassword {
+    border: #ccc solid 2px;
+    border-radius: 2px;
+    height: 0.2rem;
+    line-height: 1rem;
+    font-size: .4rem;
+    display: inline-block;
+    width: 0.2rem;
+    margin-left: 0.8rem;
+}
+
+.forgetpassword{
+	float: right;
+	margin-right: 0.8rem;
+}
+
+.goregister{
+	color: #000;
+	margin-left: 0.8rem;
+}
+
+.gologin{
+	color: #000;
+	margin-left: 0.8rem;
+}

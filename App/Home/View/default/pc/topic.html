@@ -1,0 +1,62 @@
+<{assign name="title" value="$topic.subject"/}>
+<{assign name="description" value="$seo['description']"/}>
+<{assign name="keywords" value="$seo['keywords']"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+<{include file="default/pc/banner"/}>
+
+<script type="text/javascript" src="/Public/default/js/topic.js"></script>
+<div class="cont">
+    <div class="cl">
+        <div class="cltop">
+            <b class="avatar">
+                <a href="<{:U('pc/forum',array('fid'=>$topic['fid']))}>" title="">
+                    <img src="<{$forum.photo|getAttachmentUrlById}>" alt="<{$forum.fansgroup}>">
+                </a>
+            </b>
+            <div class="uidbox">
+                <h2><{$activity.fid|getFansgroupById}></h2>
+                <{if condition="checkIsInForum(session('uid'),$fid)"}>
+                <a href="javascript:;" title="加入" class="exitforum" data-fid="<{$fid}>">已 加 入</a>
+                <{else/}>
+                <a href="javascript:;" title="加入" class="joinforum" data-fid="<{$fid}>">＋  加 入</a>
+                <{/if}>
+            </div>
+            <p class="pageposition">当前位置：<a href="/" title="首页">首页</a> > 话题</p>
+            <div class="share2">
+                <span class="shareico2">分享</span>
+                <a href="javascript:;" class="share_topic_weibo" title="新浪微博"><img src="/Public/default/images/share1.jpg" alt="新浪微博"></a>
+                <a href="javascript:;" class="share_topic_qzone" title="QQ空间"><img src="/Public/default/images/share2.jpg" alt="QQ空间"></a>
+                <a href="javascript:;" class="share_topic_qq" title="QQ"><img src="/Public/default/images/share5.jpg" alt="QQ"></a>
+                <a href="javascript:;" class="share_topic_weixin" title="微信"><img src="/Public/default/images/share6.jpg" alt="微信"></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="newstitle">
+            <b><img src="<{$topic.uid|getUserPhotoById}>" alt=""></b>
+            <h2><{$topic.subject}></h2>
+            <p class="editor"><{$topic.uid|getUserNicknameById}></p>
+            <p class="regtime"><{$topic.addtime|date='Y-m-d',###}></p>
+            <a href="javascript:;" title="创建话题" class="ans create_topic" data-fid="<{$fid}>">创建话题</a>
+            <div class="clear"></div>
+        </div>
+        <div class="newsview">
+            <{$topic.content}>
+        </div>
+        <div class="wonderarg">
+            精彩评论
+        </div>
+        <div class="response_block">
+        <{include file="default/pc/response_page"/}>
+        </div>
+    </div>
+    <{include file="default/pc/aside"/}>
+    <div class="clear"></div>
+</div>
+<div class="arg2">
+    <{include file="default/pc/response_submit_form"/}>
+</div>
+
+<{include file='default/pc/footer'/}>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<{include file="default/Public/header" /}>
+    <script>
+        var province_city_url = "<{:U('Home/MovieActivityManage/getCitiesByPid')}>";
+        var cid = "<{$activity['holdcity']}>";
+        var cinemaid = "<{$activity.cinemaid}>";
+        var checkStar_URL = "<{:U('Home/FansManage/checkStar_exist')}>";
+    </script>
+    <script src="__PUBLIC__/admin/js/tools.js">
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            getCinemas();
+        });
+        function getCinemas(){
+            var pid = $("#province").val();
+            var cid = $("#city").val();
+            $.ajax({
+                type: 'POST',
+                url: "<{:U('MovieActivityManage/getCinemaByPlace')}>",
+                data: "pid=" + pid + "&cid="+cid,
+                dataType: 'json',
+                success: function(result) {
+                    $('#cinemaid').empty();
+                    if (result.status == 2) {
+                        $('.div_cinema').css('display', 'none');
+                    } else if (result.status == 1) {
+                        $('.div_cinema').css('display', 'block');
+                        var data = result.info;
+                        for (var i = 0; i < data.length; i++) {
+                            if(cinemaid == data[i]['id']){
+                                $('#cinemaid').append("<option value='" + data[i]['id'] + "' selected='selected'>" + data[i]['title'] + "</option>");
+                            }else{
+                                $('#cinemaid').append("<option value='" + data[i]['id'] + "'>" + data[i]['title'] + "</option>");
+                            }
+                        }
+                    }
+                },
+                async: false
+            });
+        }
+    </script>
+    <div class="page-container row-fluid">
+        <{include file="default/Index/left" /}>
+        </div>
+        <div class="page-content">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h3 class="page-title">
+                            活动管理>>包场活动编辑
+                            <small>
+                               包场活动编辑
+                            </small>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="portlet box light-grey">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="icon-globe">
+                                    </i>
+                                    包场活动编辑
+                                </div>
+                                <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                    <a href="javascript:;" class="reload">
+                                    </a>
+                                    <a href="javascript:;" class="remove">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <form class="form-horizontal" id="saveActivity"
+                                    action="<{:U('Home/MovieActivityManage/saveActivity')}>" enctype="multipart/form-data"
+                                    method="post">
+                                    <table width="1060px" border="0">
+                                        <tr>
+                                            <td>
+                                                <label for="nickname">
+                                                    活动创建者：
+                                                </label>
+                                                <input type="text" name="nickname" value="<{$activity['nickname']}>" class="m-wrap medium" id="nickname" readonly="readonly"/>
+                                                <input type="hidden" name="aid" value="<{$activity['id']}>"/>
+                                                <input type="hidden" name="uid" value="<{$activity['uid']}>"/>
+                                            </td>
+                                            <td>
+                                                <label for="forumname">
+                                                    所属工作室：
+                                                </label>
+                                                <input type="text" name="frounname" value="<{$activity['forumname']}>" id="forumname" class="m-wrap medium" readonly="readonly" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="province">
+                                                    活动地点：
+                                                </label>
+                                                <select name="province" id="province" class="medium m-wrap">
+                                                <{foreach name="provinces" item="province"}>
+                                                    <option value="<{$province['id']}>" <{if condition="$activity['holdprovince'] eq $province['id']"}>selected<{/if}>>
+                                                        <{$province['name']}>
+                                                    </option>
+                                                <{/foreach}>
+                                                </select>
+                                                <select id="city" class="medium m-wrap" name="city">
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <label for="detailaddress">
+                                                    活动详细地址：
+                                                </label>
+                                                <input type="text" value="<{$activity['detailaddress']}>" class="m-wrap large"
+                                                id="detailaddress" name="detailaddress"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="cinemaid" class="star">
+                                                    影院
+                                                </label>
+                                                <select name="cinemaid" id="cinemaid" class="select al">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="mid" class="star">
+                                                    电影名称
+                                                </label>
+                                                <input type="text" disabled="disabled" value="<{$activity['movie']|getMovieNameById}>"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="enrollendtime">
+                                                    创建者手机号:
+                                                </label>
+                                                <input type="text" class="m-wrap medium" readonly="" value="<{$activity['telephone']}>" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="enrollendtime">
+                                                    报名者期望包场时间：
+                                                </label>
+                                                <input type="text" class="m-wrap large" readonly="readonly" value="<{$activity['expecttime']|date='Y-m-d H:i:s',###}>"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="enrollendtime">
+                                                    活动截止报名时间：
+                                                </label>
+                                                <input type="text" class="m-wrap large Wdate" value="<{$activity['enrollendtime']}>"
+                                                name="enrollendtime" id="enrollendtime"
+                                                onfocus="WdatePicker({firstDayOfWeek:1,startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="holdstart">
+                                                    本场电影开始时间：
+                                                </label>
+                                                <input class="m-wrap large Wdate" value="<{$activity['holdstart']}>"
+                                                name="holdstart" type="text" id="holdstart"
+                                                onfocus="WdatePicker({firstDayOfWeek:1,startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="enrolltotal">
+                                                    限制报名人数：
+                                                </label>
+                                                <input itype="text" name="enrolltotal" value="<{$activity['enrolltotal']}>" id="enrolltotal" class="m-wrap small"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="hot">
+                                                    活动热度：
+                                                </label>
+                                                <input id="hot" class="m-wrap small" type="text"
+                                                    value="<{$activity['hot']}>" name="hot"/>
+                                            </td>
+                                            <td>
+                                                <label for="subject">
+                                                    活动主题：
+                                                </label>
+                                                <input id="subject" class="m-wrap small" type="text"
+                                                    value="<{$activity['subject']}>" name="subject"/>
+                                            </td>
+                                            <td>
+                                                <label for="isadminrecommend">
+                                                    管理员推荐：
+                                                </label>
+                                                <input id="isadminrecommend" class="m-wrap small" type="text"
+                                                    value="<{$activity['isadminrecommend']}>"
+                                                    name="isadminrecommend"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="price">
+                                                    电影票价(单张)：
+                                                </label>
+                                                <input type="text" id="price" class="m-wrap small" name="price"
+                                                    value="<{$activity.id|getTicketPriceByAid}>"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for='audit'>
+                                                    审核状态
+                                                </label>
+                                                <select name="audit" id="audit">
+                                                    <option value="0" <{if condition="$activity.audit eq '0'"}>selected="selected"<{/if}>>
+                                                        未审核
+                                                    </option>
+                                                    <option value="1" <{if condition="$activity.audit eq '1'"}>selected="selected"<{/if}>>
+                                                        通过
+                                                    </option>
+                                                    <option value="2" <{if condition="$activity.audit eq '2'"}>selected="selected"<{/if}>>
+                                                        未通过
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="submit" class="btn blue" value="保存"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+//左侧导航定位
+$('.movie-activity-manage').parent().show();
+$('.movie-activity-manage a').css('color', '#ffffff');
+$('.movie-activity-manage a').css('background', '#575757');
+</script>
+<{include file="default/Public/footer" /}>

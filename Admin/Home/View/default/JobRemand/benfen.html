@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <!-- <form action="<{:U('JobRemand/postData')}>" method="post">-->
+    <label>粉丝：</label>
+    <input type="text" name="array[nickname]"/>
+    <label>操作时间：</label>
+    <input input="text" name="array[startime]"/>至
+    <input input="text" name="array[endtime]"/>
+    <!-- <input type="submit" name="submit" value="搜索"/>-->
+    <button id="jobRemand">查询</button>
+    <!-- </form>-->
+</div>
+<div>
+    <{foreach name="operate" item="vo"}>
+    <{$vo.uid|getUserNicknameById}>|<{$vo.admin_id|getUserNicknameById}>
+    |<{$vo.operate}>|<{$vo.content}>|<{$vo.addtime}><br/>
+    <{/foreach}>
+</div>
+</body>
+</html>

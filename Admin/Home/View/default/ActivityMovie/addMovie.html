@@ -1,0 +1,127 @@
+<{include file="default/Public/header" /}>
+    <link href="__PUBLIC__/admin/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/umeditor/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/umeditor/umeditor.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/plupload/"></script>
+    <div class="page-container row-fluid">
+        <!-- BEGIN SIDEBAR -->
+        <{include file="default/Index/left" /}>
+            <!-- BEGIN PAGE -->
+            <div class="page-content">
+
+                <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <!-- BEGIN PAGE CONTAINER-->
+                <div class="container-fluid">
+                    <!-- BEGIN PAGE HEADER-->
+
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="portlet box blue tabbable">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-reorder"></i>
+                                        <span class="hidden-480">电影添加</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body form">
+                                    <div class="tabbable portlet-tabs">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#portlet_tab1" data-toggle="tab">默认风格</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="portlet_tab1">
+                                                <!-- BEGIN FORM-->
+                                                <form action="<{:U('Home/ActivityMovie/add')}>" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 电影名称：</label>
+                                                        <div class="controls">
+                                                            <input style="width: 90px" class="Wdate m-wrap small" name="title" type="text" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 电影票房id：<br>http://www.cbooo.cn/ 查看id</label>
+                                                        <div class="controls">
+                                                            <input style="width: 90px" class="Wdate m-wrap small" name="box_office_id" type="text" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 所属工作室：</label>
+                                                        <div class="controls">
+                                                            <{foreach name="forums" item="forum"}>
+                                                                <input type="checkbox" name="fid[]" value="<{$forum.id}>" <{if condition='$forum.id eq $fid'}>checked="checked"<{/if}>></span> <label><{$forum.name}></label>
+                                                            <{/foreach}>
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">活动规则：</label>
+                                                        <div class="controls">
+                                                            <textarea class="large m-wrap" rows="6" name="rule"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">电影简介：</label>
+                                                        <div class="controls">
+                                                            <textarea class="large m-wrap" rows="6" name="desc"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">电影海报：</label>
+                                                        <div class="controls">
+                                                            <input type="file" name="file_0"/>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">手机轮播banner<br>(支持多个图片上传)：</label>
+                                                        <div class="controls">
+                                                            <input type="file" name="file_1[]" multiple="multiple" />
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">上映日期：</label>
+                                                        <div class="controls">
+                                                            <input id="d4311" value="" name="releasetime" class="Wdate" type="text" onfocus="WdatePicker({maxDate:'2020-10-01'})">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="control-group">
+                                                        <label class="control-label">是否上线：</label>
+                                                        <div class="controls">
+                                                            <input class="large m-wrap" type="checkbox" name="status" value="1"/>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-actions">
+                                                        <button type="submit" class="btn blue"><i class="icon-ok"></i> 保存</button>
+                                                        <button type="button" class="btn">取消</button>
+                                                    </div>
+                                                </form>
+                                                <!-- END FORM-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <style>
+    label{
+        display: inline-block;
+    }
+    </style>
+    <script type="text/javascript">
+    //实例化编辑器
+    $('.activity-movie').parent().show();
+    $('.activity-movie a').css('color','#ffffff');
+    $('.activity-movie a').css('background','#575757');
+
+</script>
+    <{include file="default/Public/footer" /}>

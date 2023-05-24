@@ -1,0 +1,424 @@
+<{include file="default/Public/header" /}>
+
+<link rel="stylesheet" href="__PUBLIC__/admin/css/topic.css" type="text/css"/>
+
+
+<div class="row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+    <div class="span12" style="background-color: #fff;margin-left: 225px;">
+
+
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+
+        <div class="color-panel hidden-phone" style="margin-left: 22px; margin-top: 53px;">
+
+
+            <div class="color-mode-icons icon-color"></div>
+
+
+            <div class="color-mode-icons icon-color-close"></div>
+
+
+            <h3 class="page-title">
+
+
+                工作室管理
+
+
+                <!-- <small>form layouts and more</small>-->
+
+
+            </h3>
+
+
+            <ul class="breadcrumb">
+
+
+                <li>
+
+
+                    <i class="icon-home"></i>
+
+
+                    <a href="#">工作室管理</a>
+
+
+                    <span class="icon-angle-right"></span>
+
+
+                </li>
+
+
+                <li><a href="#">编辑工作室</a></li>
+
+
+            </ul>
+
+        </div>
+
+        <div class="portlet box blue tabbable" style="margin-left: 22px;">
+
+
+            <div class="portlet-title">
+
+
+                <div class="caption">
+
+
+                    <i class="icon-reorder"></i>
+
+
+                    <span class="hidden-480">工作室</span>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="portlet-body form">
+
+
+                <div class="tabbable portlet-tabs">
+
+                    <div class="tab-content">
+
+
+                        <div class="tab-pane active" id="portlet_tab1">
+
+                            <form action="<{:U('JobManage/putJobMassage',array('id'=>$id))}>" method="post"
+                                  enctype="multipart/form-data" class="form-horizontal">
+
+
+                                <div class="control-group" style="margin-top: 77px">
+
+
+                                    <label class="control-label">星吧名：</label>
+
+
+                                    <div class="controls">
+
+                                        <input type="text" name="array[name]" value="<{$result.name}>"
+                                               class="m-wrap medium"/>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">中文名：</label>
+                                    <div class="controls">
+                                        <input type="text" name="array[chinesename]" value="<{$result.chinesename}>"
+                                               class="m-wrap medium"/>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">韩文名：</label>
+
+
+                                    <div class="controls">
+                                        <input type="text" name="array[koreaname]" value="<{$result.koreaname}>"
+                                               class="m-wrap medium"/>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+                                    <label class="control-label">英文名：</label>
+
+
+                                    <div class="controls">
+
+
+                                        <input type="text" name="array[englishname]" value="<{$result.englishname}>"
+                                               class="m-wrap medium"/>
+
+                                 </div>
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+                                    <label class="control-label">组合名：</label>
+
+
+                                    <div class="controls">
+
+
+                                        <input type="text" name="array[groupname]" value="<{$result.groupname}>"
+                                               class="m-wrap medium"/>
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="control-group">
+
+
+                                    <label class="control-label">别名：</label>
+
+
+                                    <div class="controls">
+
+
+                                        <input type="text" name="array[aliasname]" value="<{$result.aliasname}>"
+                                               class="m-wrap medium"/>
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+                                    <label class="control-label">艺名：</label>
+
+
+                                    <div class="controls">
+
+
+                                        <input type="text" name="array[stagename]" value="<{$result.stagename}>"
+                                               class="m-wrap medium"/>
+
+
+                                        <!--  <span class="help-inline">Some hint here</span>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+                                    <label class="control-label">粉丝团名：</label>
+
+
+                                    <div class="controls">
+
+
+                                        <input type="text" name="array[fansgroup]" value="<{$result.fansgroup}>"
+                                               class="m-wrap medium"/>
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+                                    <label class="control-label">主要作品：</label>
+
+
+                                    <div class="controls">
+
+
+                                        <input type="text" name="array[representative]"
+                                               value="<{$result.representative}>" class="m-wrap medium"/>
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+                                    <label class="control-label">汉语拼音：</label>
+
+
+                                    <div class="controls">
+
+
+                                        <input type="text" name="array[pinyin]" value="<{$result.pinyin}>"
+                                               class="m-wrap medium"/>
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="control-group">
+
+
+                                    <label class="control-label">即时通讯样式：</label>
+
+
+                                    <div class="controls">
+
+                                        <select name="array[instantstyle]" class="m-wrap medium"> 
+                                            <{foreach name="styles" item="style"}>
+                                                <option value="<{$style.id}>" <{if condition="$style.id eq $result['instantstyle']"}>selected="selected"<{/if}>><{$style.name}></option>
+                                            <{/foreach}>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="controls" style="margin-bottom: 21px;">
+
+                                    <{if condition=" $result.status eq '1'"}>
+
+                                    <label class="radio">
+
+                                        <input type="radio" name="array[status]" value="1" checked/>
+
+                                        上线
+
+                                    </label>
+
+                                    <label class="radio">
+
+                                        <input style="margin-left: 30px;" type="radio" name="array[status]" value="0"/>
+
+                                        不上线
+
+                                    </label>
+
+                                    <{elseif condition=" $result.status eq '0'" /}>
+
+                                    <label class="radio">
+
+                                        <input type="radio" name="array[status]" value="1"/>
+
+                                        上线
+
+                                    </label>
+
+                                    <label class="radio">
+
+                                        <input style="margin-left: 30px;" type="radio" name="array[status]" value="0"
+                                               checked/>
+
+                                        不上线
+
+                                    </label>
+
+                                    <{/if}>
+
+
+                                </div>
+
+                                <div class="controls" style="margin-bottom: 21px;">
+
+                                    <{if condition=" $result.is_admin_promote eq '1'"}>
+
+                                    <label class="radio">
+
+                                        <input type="radio" name="array[is_admin_promote]" value="1" checked/>
+
+                                        管理员推荐
+
+                                    </label>
+
+                                    <label class="radio">
+
+                                        <input style="margin-left: 30px;" type="radio" name="array[is_admin_promote]"
+                                               value="0"/>
+
+                                        不推荐
+
+                                    </label>
+
+                                    <{elseif condition=" $result.is_admin_promote eq '0'" /}>
+
+                                    <label class="radio">
+
+                                        <input type="radio" name="array[is_admin_promote]" value="1"/>
+
+                                        管理员推荐
+
+                                    </label>
+
+                                    <label class="radio">
+
+                                        <input style="margin-left: 30px;" type="radio" name="array[is_admin_promote]"
+                                               value="0" checked/>
+
+                                        不推荐
+
+                                    </label>
+
+                                    <{/if}>
+
+
+                                </div>
+
+                                <{include file="default/JobManage/commonEditPhoto" /}>
+
+
+                                <div class="form-actions">
+                                    <button type="submit" id="qieding" class="btn blue">保存</button>
+                                    <a href="<{:U('JobManage/showAllJob')}>" class="btn">取消</a>
+                                </div>
+
+
+                            </form>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- END SAMPLE FORM PORTLET-->
+
+
+    </div>
+
+
+</div>
+
+<script src="__PUBLIC__/admin/js/manage.js"></script>
+
+<script>
+    $('.gongzuo-guan').parent().show().parent().addClass('active ').siblings().removeClass('active');
+    $('.gongzuo-guan a').css('color', '#ffffff');
+    $('.gongzuo-guan a').css('background', '#575757');
+</script>
+<{include file="default/Public/footer" /}>

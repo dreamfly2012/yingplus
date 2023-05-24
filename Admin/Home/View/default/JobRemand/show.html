@@ -1,0 +1,43 @@
+<div id="operate">
+    <table class="job_remand topic table table-striped table-bordered table-hover table-diao" id="sample_1">
+        <thead>
+        <tr>
+            <th style="width:8px;">
+                <input type="checkbox" />
+            </th>
+            <th>星吧名</th>
+            <th class="hidden-480">经纪人</th>
+            <th class="hidden-480">粉丝</th>
+            <th class="hidden-480">操作</th>
+            <th class="hidden-480">原因</th>
+            <th class="hidden-480">操作时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <{foreach name="operate" item="vo"}>
+        <tr class='show-topic'>
+            <td>
+                <input type='checkbox' class='checkboxes' value='1' />
+            </td>
+            <td><{$vo.fid|getForumNameById}></td>
+            <td><{$vo.admin_id|getUserNicknameById}></td>
+            <td><{$vo.uid|getUserNicknameById}></td>
+            <td><{$vo.operate}></td>
+            <td><{$vo.content}></td>
+            <td><{$vo.addtime}></td>
+        </tr>
+        <{/foreach}>
+        </tbody>
+    </table>
+    <div class="operate">
+        <{$page}>
+    </div>
+</div>
+<script>
+    function operate(id){
+        $.get('<{:U("JobRemand/operate")}>',{'p':id}, function(data){  //用get方法发送信息到TestAction中的test方法
+            $("#operate").replaceWith("<div id='operate'>"+data+"</div>"); //test一定要和tpl中的一致
+        });
+    }
+
+</script>

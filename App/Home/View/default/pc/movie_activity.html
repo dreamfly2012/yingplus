@@ -1,0 +1,251 @@
+<{assign name="title" value="$activity.subject"/}>
+<{assign name="description" value="$seo['description']"/}>
+<{assign name="keywords" value="$seo['keywords']"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+<{include file="default/pc/banner"/}>
+
+<script src="/Public/default/js/jquery.flex-images.min.js"></script>
+<script type="text/javascript" src="/Public/default/js/movie_activity.js"></script>
+
+
+<div class="cont">
+	<div class="cl">
+		<{include file="default/pc/online_activity_top"/}>
+		<div class="info">
+			<div class="moviepic">
+				<img src="<{$activity.movie|getMoviePoster|getAttachmentUrlById}>">
+				<!-- <h2><{$activity.movie|getMovieTitle}></h2> -->
+			</div>
+			<div class="ticket">
+				<h1 class="moviename"><{$activity.subject}></h1>
+				<a href="javascript:;" title="创建包场" class="ans2 create_movie_activity" data-fid="<{$activity.fid}>">创建包场</a>
+				<{if condition="$activity.direct_pay neq 1"}>
+				<div class="ticitem">
+					<p>时间：</p>
+					<span><{$activity.holdstart|date='Y-m-d',###}>　　<{$activity.holdstart|date='H:i',###}>　　</span>
+				</div>
+				<{/if}>
+				<div class="ticitem">
+					<p>人数：</p>
+					<span><{$activity.id|getBoughtTicketByAid}>/<{$activity.enrolltotal}></span>
+				</div>
+				
+				<div class="ticitem">
+					<p>地点：</p>
+					<span><{$activity.holdprovince|getPlaceNameById}><{$activity.holdcity|getPlaceNameById}><{$activity.detailaddress}></span>
+				</div>
+				<div class="ticitem">
+					<p>发起者：</p>
+					<span><{$activity.uid|getUserNicknameById}></span>
+				</div>
+				<{if condition="$activity.direct_pay neq 1"}>
+				<div class="ticitem">
+					<p>票价：</p>
+					<span><strong><{$activity.id|getTicketPriceByAid}></strong>元</span>
+				</div>
+				<{/if}>
+				<div class="ticitem ticitemlast">
+					<p>活动规则：</p>
+					<div class="ticrole">
+						<{$activity.movie|getMovieRuleById}>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="sharewrap">
+					<div class="share2 share3">
+						<span class="shareico2">分享</span>
+						<a href="javascript:;" class="share_movie_activity_weibo" title="新浪微博"><img src="/Public/default/images/share1.jpg" alt="新浪微博"></a>
+		                <a href="javascript:;" class="share_movie_activity_qzone" title="QQ空间"><img src="/Public/default/images/share2.jpg" alt="QQ空间"></a>
+		                <a href="javascript:;" class="share_movie_activity_qq" title="QQ"><img src="/Public/default/images/share5.jpg" alt="QQ"></a>
+		                <a href="javascript:;" class="share_movie_activity_weixin" title="微信"><img src="/Public/default/images/share6.jpg" alt="微信"></a>
+					</div>
+
+					<{if condition="time() gt $activity['holdstart']"}>
+					<a href="javascript:;" title="已结束" class="markname">已 结 束</a>
+					<{else/}>
+	                    <{if condition="time() gt $activity['enrollendtime']"}>
+	                        <a href="javascript:;" title="停止报名" class="markname" data-aid="<{$activity.id}>">停 止 报 名</a>
+	                    <{else/}>
+	                        <{if condition="!checkIsEnroll(session('uid'),$activity['id'])"}>
+	                            <a href="javascript:;" title="我要报名" class="markname movie-activity-enroll" data-aid="<{$activity.id}>">我 要 报 名</a>
+	                        <{else/}>
+	                        	<a href="javascript:;" title="我要报名" class="markname movie-activity-enroll" data-aid="<{$activity.id}>">已 报 名</a>
+	                        <{/if}>
+	                    <{/if}>
+	                <{/if}>
+
+				</div>
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="fans">
+			<div class="fal">
+				<div class="fanstab">
+					<ul>
+						<li>报名列表</li>
+					</ul>
+					<span><{$enrollInfo|count}></span>
+					<div class="clear"></div>
+				</div>
+				<div class="fanssearch">
+					<input type="text" class="searchtext search_forum_user" placeholder="搜索：用户昵称">
+					<input type="image" class="searchbtn" src="/Public/default/images/icoserach.jpg" alt="搜索" title="搜索">
+				</div>
+				<div class="onlinelist">
+					<ul>
+						<{foreach name="enrollInfo" item="enroll"}>
+						<li data-username="<{$enroll.uid|getUserNicknameById}>" data-rid="0" class="response_to"><img src="<{$enroll.uid|getUserPhotoById}>"><{$enroll.uid|getUserNicknameById}></li>
+						<{/foreach}>
+					</ul>
+				</div>
+			</div>
+			<div class="far">
+				<div class="fanstab">
+					<ul>
+						<li>粉丝交流</li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="guestlist" id="movie_guestlist">
+					<p class="see_more" data-page="2" data-type="2" data-pid="<{$activity.id}>">查看更多</p>
+					<{foreach name="activity_responses" item="response"}>
+					<div class="guitem_movie_activity">
+						<h2 data-rid="<{$response.id}>" data-username="<{$response.username}>" class="response_to"><img src="<{$response.uid|getUserPhotoById}>"><{$response.uid|getUserNicknameById}></h2>
+						<p>
+							<{$response.content}>
+						</p>
+					</div>
+					<{/foreach}>
+				</div>
+				<form>
+				<p class="sendface">
+					<span class="preview_img"></span>
+					<a href="javascript:;" title="表情" class="choose_face"><img src="/Public/default/images/sendface.jpg"></a>
+					<a href="javascript:;" title="图片" class="choose_img"><img src="/Public/default/images/sendimg.jpg"></a>
+				</p>
+				<textarea class="textarea_movie_activity" id="response_content" placeholder="与在线粉丝互动交流......"></textarea>
+				<input type="file" name="file" id="upload_message_image" class="upload_message_image" accept="image/*" />
+				<a href="javascript:void(0);" title="发送" class="sendbtn addresponse" data-fid="<{$fid}>" data-pid="<{$activity.id}>" data-type='2'>发送</a>
+				</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="feedback">
+			<div class="fbtitle">
+				<p>活动反馈</p>
+				<a href="javascript:;" title="上传视频" class="upload_feedback_video">上传视频</a>
+				<a href="javascript:;" title="上传图片" class="upload_feedback_image">上传图片</a>
+				<input type="file" name="file" class="upload_feedback_img" id="upload_feedback_img" data-aid="<{$activity.id}>"/>
+			</div>
+		</div>
+
+		<div class="flex-images">
+		<{foreach name="feedbacks" item="feedback"}>
+		<{if condition="$feedback.isvideo eq 1"}>
+		<div class="item fancybox feedback_cover" data-fancybox-type="iframe" data-w="<{$feedback.width}>" data-h="<{$feedback.height}>" href="<{:U('MovieActivity/showFeedbackVideo',array('id'=>$feedback['id']))}>">
+			<div class="ovrly"></div>
+			<div class="play"></div>
+			<img src="<{$feedback.image}>" class="feedback_back_img show_feedback_video" data-id="<{$feedback.id}>">
+		</div>
+		<{else/}>
+		<div class="item fancybox" data-w="<{$feedback.width}>" data-h="<{$feedback.height}>"  data-fancybox-group="group" rel="group" href="<{$feedback.image}>">
+			<img src="<{$feedback.image}>" class="feedback_back_img" data-id="<{$feedback.id}>">
+		</div>
+		<{/if}>
+		<{/foreach}>
+		</div>
+
+	</div>
+	
+	<{include file="default/pc/aside"/}>
+
+	<div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+	function getLiveInfo(){
+	    var lastid = $('.guitem_movie_activity h2:last').attr('data-rid');
+	    var aid = "<{$activity.id}>";
+	    htmlobj=$.ajax({
+	        type:"POST",
+	        url:get_latest_response_url,
+	        data:{
+	            'pid':aid,
+	            'type':2,
+	            'lastid':lastid
+	        },
+	        dataType:'json',
+	        success:function(data) {
+	            if(data.data.info.length != 0){
+	                var length = data.data.info.length;
+	                var template_arr = [];
+	                for(var i=0;i<=length;i++){
+	                    template = '<div class="guitem_movie_activity">'+
+	                                '<h2 data-rid="'+data.data.info[i].id+'" data-username="'+data.data.info[i].username+'" class="response_to"><img src="'+data.data.info[i].userphoto+'">'+data.data.info[i].username+'</h2>'+
+	                                '<p>'+
+	                                data.data.info[i].content+
+	                                '</p>'+
+	                            '</div>';
+	                    template_arr.push(template);       
+	                }
+	                $("#movie_guestlist").append(template_arr.join(''));
+	                $('.guestlist')[0].scrollTop = $('.guestlist')[0].scrollHeight;
+	            }
+	        },
+	        async:false
+	    });
+	}
+
+
+	function chat_template(username,content,userphoto,rid,uid){
+		var template = '<div class="guitem_movie_activity">'+
+					'<h2 data-rid="'+rid+'" data-username="'+username+'" class="response_to">'+
+						'<img src="'+userphoto+'">'+username+
+					'</h2>'+
+					'<p>'+
+					content+
+					'</p>'+
+				'</div>';
+		return template;		
+	}
+
+	setInterval("getLiveInfo()",10000);
+
+	//查看更多
+	$(document).on('click','.see_more',function(){
+		var _this = $(this);
+		var p = $(this).attr('data-page');
+		var pid = $(this).attr('data-pid');
+		var type = $(this).attr('data-type');
+		$.post(get_more_message_url,{'p':p,'pid':pid,'type':type},function(result){
+			if(result.data.code==0){
+				var length = result.data.info.data.length;
+				var info = result.data.info.data;
+				var template = '';
+				if(length!=0){
+					for(i=length-1;i--;i>=0){
+						var username = info[i].username;
+						var content = info[i].content;
+						var userphoto = info[i].userphoto;
+						var rid = info[i].id;
+						var ruid = info[i].uid;
+						
+						template += chat_template(username,content,userphoto,rid,ruid); 
+					}
+					_this.attr('data-page',parseInt(p)+1);
+					$(template).insertAfter(_this);
+					$('.guestlist').parseEmotion();
+				}else{
+					_this.removeClass('see_more').addClass('no_more');
+					_this.text('没有更多信息了');
+				}
+			}
+		});
+	});
+</script>
+<{include file="default/pc/footer"/}>
+</body>
+</html>

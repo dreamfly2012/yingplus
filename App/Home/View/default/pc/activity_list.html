@@ -1,0 +1,70 @@
+<{assign name="title" value="活动列表-影加活动"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+<{include file="default/pc/banner"/}>
+<link href="/Public/default/activitylist/css/index.css" rel="stylesheet" type="text/css"/>
+<script src="/Public/default/activitylist/js/index.js" type="text/javascript">
+</script>
+<div class="main">
+    <div class="button">
+        <ul>
+            <a href="javascript:;" title="发起包场">
+                <li class="b_one create_movie_activity" data-fid="<{$fid}>">
+                </li>
+            </a>
+            <a href="javascript:;" title="发起线上活动">
+                <li class="b_two create_online_activity" data-fid="<{$fid}>">
+                </li>
+            </a>
+            <a href="<{:U('Pc/launch_public_welfare')}>" title="发起公益">
+                <li class="b_three">
+                </li>
+            </a>
+        </ul>
+    </div>
+    <div class="option">
+        <ul>
+            <li class="name jian_1 width blue" id="name_1">
+                活动
+            </li>
+            <li class="name ft16" id="name_2">
+                <i class="name_1 dib">
+                </i>
+                包场观影
+                <i class="line_3">
+                </i>
+            </li>
+            <li class="name ft16" id="name_3">
+                <i class="name_2 dib">
+                </i>
+                线上活动
+                <i class="line_3">
+                </i>
+            </li>
+            <li class="name ft16" id="name_4">
+                <i class="name_3 dib">
+                </i>
+                公益应援
+                <i class="line_3">
+                </i>
+            </li>
+        </ul>
+    </div>
+    <div class="line_1">
+    </div>
+    <div>
+        <div class="table recommend_activity_block" id="table_one">
+            <{include file="default/pc/ajax_recommend_activity_page"/}>
+        </div>
+        <div class="table dn movie_activity_block" id="table_two">
+            <{include file="default/pc/ajax_movie_activity_page"/}>
+        </div>
+        <div class="table dn online_activity_block" id="table_three">
+            <{include file="default/pc/ajax_online_activity_page"/}>
+        </div>
+        <div class="table dn welfare_event_block" id="table_four">
+            <{include file="default/pc/ajax_welfare_event_page"/}>
+        </div>
+    </div>
+</div>
+<{include file="default/pc/footer"/}>

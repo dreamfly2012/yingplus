@@ -1,0 +1,18 @@
+<div class="banner">
+	<img src="/Public/mobile/images/banner<{$fid}>.png" alt="<{$forum.fansgroup}>">
+	<span><{$fid|getFansgroupById}></span>
+	<{if condition="checkIsInForum(session('uid'),$fid)"}>
+	<a href="javascript:;" title="加入" class="joinbtn exitforum" data-fid="<{$fid}>">已加入</a>
+	<{else/}>
+	<a href="javascript:;" title="加入" class="joinbtn joinforum" data-fid="<{$fid}>">加 入</a>
+	<{/if}>
+</div>
+<div class="aoinfo">
+	<b><a href="javascript:;" title=""><img src="/Public/mobile/images/banner_movie<{$fid}>.png" alt=""></a></b>
+	<div class="aoright">
+		距离电影上映还有<{$daojishi|getday}>天<br>
+		<{$fid|getFansgroupById}>包场<{$activity_count}>场
+		<a href="<{$seminar_url}>" title="进入电影专题页" class="joinbtn">进入电影专题页</a>
+	</div>
+	<div class="clear"></div>
+</div>

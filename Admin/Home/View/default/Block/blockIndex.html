@@ -1,0 +1,102 @@
+<{include file="default/Public/header" /}>
+
+
+
+<link rel="stylesheet" href="__PUBLIC__/admin/css/topic.css" type="text/css" />
+
+<div class="page-container row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+</div>
+
+<script>
+
+    $('.user_ip').parent().show();
+
+</script>
+
+<div class="page-content">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <h3 class="page-title">
+
+
+
+                    用户ip<!-- <small>配置文件记录</small> -->
+
+
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                
+
+                <div class="portlet box light-grey topic-class">
+
+                    <div class="portlet-title">
+
+                         
+
+                        <div class="tools">
+
+                             <a href="<{:U('Block/addBlockDataIndex')}>"><span style="color:blue;font-size:14px;font-weight:bold;">添加用户记录</span></a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="portlet-body">
+
+                        <div class="index-table">
+
+                            <{include file="default/Block/showBlock"/}>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<{include file="default/Public/footer" /}>
+
+<!--以下为必要的，勿删-->
+
+<script src="__PUBLIC__/admin/js/manage.js"></script>
+
+<script src="__PUBLIC__/admin/js/topicdeal.js"></script>
+
+<script>
+
+    var DeleteBlockData_URL = "<{:U('Home/Block/deleteDataById')}>";
+
+     
+
+</script>
+

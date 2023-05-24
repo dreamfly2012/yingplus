@@ -1,0 +1,19 @@
+<ul>
+	<{volist name="videos" id="video" offset="0" length="6"}>
+	<{if condition="$i eq 1"}>
+	<li style="width: 528px; height: 323px; margin-bottom: 5px;">
+		<a href="<{:U('Pc/showvideo',array('id'=>$video['id']))}>" data-fancybox-type="iframe" class="fancybox"><img width="528" height="323" src="<{$video.cover}>"/></a>
+		<h2 class="videotitle"><{$video.title}></h2>
+	</li>
+	<{else/}>
+	<li>
+		<a href="<{:U('Pc/showvideo',array('id'=>$video['id']))}>" data-fancybox-type="iframe" class="fancybox"><img width="254" height="152" src="<{$video.cover}>"/></a>
+		<h2 class="videotitle"><{$video.title}></h2>
+	</li>
+	<{/if}>
+	<{/volist}>
+	<div class="clear"></div>
+</ul>
+<div class="videopages">
+	<{$video_page}>
+</div>

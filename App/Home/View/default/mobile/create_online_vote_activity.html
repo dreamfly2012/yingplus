@@ -1,0 +1,54 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/vote.css">
+<script type="text/javascript" src="/Public/mobile/js/jquery.ajaxfileupload.js"></script>
+<script type="text/javascript" src="/Public/mobile/js/create_online_activity.js"></script>
+<div class="wrap" id="wrap">
+	<{include file="default/mobile/nav" title="创建线上活动"/}>
+	
+	<div class="voteitem">
+		<p>类型：</p>
+		<a href="<{:U('Mobile/create_vote_activity',array('fid'=>$fid))}>" title="投票类" class="on">投票类</a>
+		<a href="<{:U('Mobile/create_collect_activity',array('fid'=>$fid))}>" title="征集类">征集类</a>
+		<div class="clear"></div>
+	</div>
+	<form action="javascript:;" method="post" class="create-online-activity">
+	<p class="votetitle">标题：</p>
+	<input type="text" class="text92per" id="title" name="title" placeholder="请输入标题...">
+	<p class="votetitle">活动介绍：</p>
+	<textarea class="textarea1" placeholder="请输入活动介绍" id="desc" name="desc"></textarea>
+	<p class="votetitle">提供选项：</p>
+	<div class="question_option">
+		<div class="optionbox">
+			<a href="javascript:;" title="添加" class="upload_small_icon" data-imageid="0"></a>
+			<input type="text" name="question[]" value="">
+			<div class="delete_option"></div>
+			<div class="clear"></div>
+		</div>
+		<div class="optionbox">
+			<a href="javascript:;" title="添加" class="upload_small_icon" data-imageid="0"></a>
+			<input type="text" name="question[]" value="">
+			<div class="delete_option"></div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<p class="addnew"><a href="javascript:;" title="添加选项" class="add_more_option">添加选项</a></p>
+	<div class="voteitem">
+		<p>选项设置：</p>
+		<a href="javascript:;" title="单选" class="on" data-type="single">单选</a>
+		<a href="javascript:;" title="多选" data-type="multi">多选</a>
+		<div class="clear"></div>
+	</div>
+	<input type="file" name="file" id="vote_image" class="vote_image">
+	<input type="hidden" name="type" value="8"/>
+	<input type="hidden" name="fid" value="<{$fid}>">
+    <input type="hidden" name="img" value="" id="img">
+    <input type="hidden" name="question_img" value="" id="question_img">
+    <input type="hidden" name="option_set" value="0" id="option_set"/>
+	<a href="javascript:;" title="提交" class="votesubmit create-online-activity-submit">提交</a>
+	</form>
+	<div class="alphabg"></div>
+	
+</div>
+
+</body>
+</html>

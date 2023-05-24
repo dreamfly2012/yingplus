@@ -1,0 +1,308 @@
+h2 {
+    font-family: "微软雅黑";
+}
+
+i {
+    display: inline-block;
+}
+
+.p {
+    font-family: "微软雅黑";
+}
+
+.main {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.main_img {
+    height: 2.87rem;
+    background: url(../img/main_img.jpg);
+    background-size: 100% 100%;
+}
+
+.detail {
+    height: 1.08rem;
+    text-align: center;
+    line-height: 1.08rem;
+    font-size: 0.45rem;
+    color: #76952f;
+}
+
+.line {
+    height: 0.06rem;
+}
+
+.line_1 {
+    width: 2.2rem;
+    height: 0.03rem;
+    background: #ccc;
+    margin-top: 0.03rem;
+}
+
+.line_2 {
+    width: 5.6rem;
+    height: 0.06rem;
+    background: #dbe000;
+}
+
+.detail_content {
+    width: 85%;
+    margin: 1rem auto;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.content_one {
+    height: 2rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 0.36rem;
+    color: #666;
+    line-height: 1rem;
+}
+
+.fl {
+    float: left;
+}
+
+.mt {
+    margin-top: -0.3rem;
+}
+
+.content_one span {
+    font-size: 0.33rem;
+    color: #666;
+}
+
+.content_one span>a {
+    color: #76952f;
+}
+
+.logo_1 {
+    width: 1.25rem;
+    height: 0.55rem;
+    background: url(../img/logo_1.png);
+    background-size: 100% 100%;
+    vertical-align: middle;
+}
+
+.v {
+    width: 0.3rem;
+    height: 0.3rem;
+    background: url(../img/v.png);
+    background-size: 100% 100%;
+    margin-left: 0.2rem;
+    margin-top: -0.1rem;
+    vertical-align: middle;
+}
+
+.touxiang {
+    width: 0.7rem;
+    height: 0.7rem;
+    background: url(../img/touxiang.png);
+    background-size: 100% 100%;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    border-radius: 50%;
+    border: 1px solid #e9c452;
+    vertical-align: middle;
+}
+
+.content_two {
+    height: 1.8rem;
+    /*background: #ccc;*/
+}
+
+.c6 {
+    color: #666;
+}
+
+.two_1 {
+    font-size: 0.36rem;
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.two_1 span {
+    font-size: 0.27rem;
+    color: #666;
+    text-align: center;
+    line-height: 0.6rem;
+}
+
+.two_2 {
+    font-size: 0.36rem;
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.two_2 span {
+    font-size: 0.27rem;
+    color: #666;
+    text-align: center;
+    line-height: 0.6rem;
+}
+
+.line_3 {
+    width: 0.04rem;
+    height: 0.83rem;
+    background: #ccc;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+.line_4 {
+    width: 10rem;
+    height: 0rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.shuo {
+    width: 2.81rem;
+    height: 0.62rem;
+    background: url(../img/shuo.png);
+    background-size: 100% 100%;
+    margin: 0.33rem 3.36rem;
+}
+
+.pub_c {
+    width: 9rem;
+    padding: 0.2rem;
+    border-bottom: 1px solid #ccc;
+    font-size: 0.36rem;
+    color: #666060;
+    line-height: 0.56rem;
+    margin-left: 0.41rem;
+}
+
+.introduce {
+    width: 2.94rem;
+    height: 0.58rem;
+    background: url(../img/logo_2.png);
+    background-size: 100% 100%;
+    margin: 0.33rem 3.36rem;
+}
+
+.footer {
+    width:10rem;
+    height: 0.95rem;
+    background: #76952f;
+    padding-top: 0.3rem;
+    position: fixed;
+    bottom: 0;
+}
+.mb{
+    margin-bottom: 1.2rem;
+}
+
+.user {
+    width: 0.5rem;
+    height: 0.65rem;
+    background: url(../img/icon_1.png);
+    background-size: 100% 100%;
+    margin-left: 1.13rem;
+}
+
+.button {
+    width: 2.27rem;
+    height: 0.58rem;
+    margin-left: 2.19rem;
+    border: 0.05rem solid #dbe000;
+    border-radius: 0.14rem;
+    box-shadow: 0rem 0.03rem 0.013rem #647f28;
+    font-size: 0.36rem;
+    color: #fff;
+    text-align: center;
+    line-height: 0.58rem;
+}
+
+.massage {
+    width: 0.67rem;
+    height: 0.64rem;
+    background: url(../img/icon_2.png);
+    background-size: 100% 100%;
+    margin-left: 2.19rem;
+}
+
+
+/**捐赠**/
+.detail {
+    height: 1.08rem;
+    text-align: center;
+    line-height: 1.08rem;
+    font-size: 0.45rem;
+    color: #76952f;
+}
+
+.line {
+    height: 0.06rem;
+}
+
+.line_1 {
+    width: 2.2rem;
+    height: 0.03rem;
+    background: #ccc;
+    margin-top: 0.03rem;
+}
+
+.line_2 {
+    width: 5.6rem;
+    height: 0.06rem;
+    background: #dbe000;
+}
+
+.content {
+    height: 2.1rem;
+    /*background: #ddd;*/
+    padding: 0.44rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.name {
+    margin-left: 0.5rem;
+    width: 5rem;
+    overflow: hidden;
+    height: 1.5rem;
+}
+
+.touxiang {
+    width: 1.2rem;
+    height: 1.2rem;
+    background: url(/Public/mobile/baiwansenlin/img/touxiang.png);
+    background-size: 100% 100%;
+    margin-right: 0.83rem;
+    border-radius: 50%;
+    border: 1px solid #e9c452;
+    vertical-align: middle;
+}
+
+.date {
+    margin-left: 0.77rem;
+}
+
+.word {
+    font-size: 0.36rem;
+    color: #666;
+    line-height: 1.2rem;
+}
+
+.number {
+    margin-left: 0.58rem;
+    color: #a9bb86;
+}
+
+.tree {
+    width: 0.23rem;
+    height: 0.34rem;
+    background: url(/Public/mobile/baiwansenlin/img/tree.png);
+    background-size: 100% 100%;
+    margin-left: 0.1rem;
+    margin-top: -0.1rem;
+    vertical-align: middle;
+}

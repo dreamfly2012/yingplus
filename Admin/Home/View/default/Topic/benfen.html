@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div_style{
+            float: left;
+            margin-left: 400px;
+            margin-top: 100px;
+        }
+        .div_two{
+            float: left;
+            margin-top: 50px;
+        }
+        li{
+            float:left;
+            list-style-type: none;
+            margin-left: 50px;
+        }
+
+    </style>
+    <style>
+        .none{
+            display:none;
+        }
+    </style>
+    <script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/admin/js/bootstrap.js"></script>
+    <link href="__PUBLIC__/admin/css/bootstrap.css" rel="stylesheet">
+    <script src="__PUBLIC__/admin/js/topicdeal.js"></script>
+    <script>
+        var DeleteTopic_URL = "<{:U('Home/Topic/LookRepairTopic')}>";
+    </script>
+</head>
+<body>
+<div class="div_style">
+    <!--<form action="<{:U('Topic/LookRepairTopic')}>" method="post">-->
+    <label>粉丝昵称：</label>
+    <input type="text" name="array[nickname]"/>
+    &nbsp;&nbsp;&nbsp;
+    <label>删除时间段：</label>
+    <input type="text" name="array[startime]"/>至
+    <input type="text" name="array[endtime]"/>
+    <button id="delete">查询</button>
+    <!-- <input type="submit" name="submit" value="查询"/>-->
+    <!-- </form>-->
+    <!--<{if condition="$topic neq ''"}>
+        <div class="div_two">
+                <ul class="one">
+                    <li>话题标题</li>
+                    <li>话题创建者</li>
+                    <li>话题所属工作室</li>
+                    <li>删除者</li>
+                    <li>话题删除时间</li>
+                    <br/>
+                </ul>
+            <{foreach name="topic" item="repair"}>
+                <ul>
+                    <li><{$repair.subject}></li>
+                    <li><{$repair.uid|getUserNicknameById}></li>
+                    <li><{$repair.fid|getForumNameById}></li>
+                    <li><{$repair.admin_id|getUserNicknameById}></li>
+                    <li><{$repair.deletetime}></li>
+                    <a href="<{:U('Topic/setStatus',array('id'=>$repair['id']))}>">恢复</a><br/>
+                </ul>
+            <{/foreach}>
+         </div>
+    <{/if}>-->
+
+    <table class="deleteTopic">
+        <tr>
+            <th>话题标题</th>
+            <th>话题创建者</th>
+            <th>话题所属工作室</th>
+            <th>删除者</th>
+            <th>话题删除时间</th>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>发起包场</title>
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="description" content="#">
+<meta name="Keywords" content="#">
+<link rel="stylesheet" href="__PUBLIC__/mobile/movie/css/global.css">
+<link rel="stylesheet" href="__PUBLIC__/mobile/movie/css/launch.css">
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/adaptive.js"></script>
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/jquery-2.2.1.min.js"></script>
+
+
+<link href="__PUBLIC__/mobiscroll-master/css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/mobiscroll-master/css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/mobiscroll-master/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+<script src="__PUBLIC__/mobiscroll-master/js/mobiscroll.core.js"></script>
+<script src="__PUBLIC__/mobiscroll-master/js/mobiscroll.frame.js"></script>
+<script src="__PUBLIC__/mobiscroll-master/js/mobiscroll.scroller.js"></script>
+<script src="__PUBLIC__/mobiscroll-master/js/mobiscroll.util.datetime.js"></script>
+<script src="__PUBLIC__/mobiscroll-master/js/mobiscroll.datetimebase.js"></script>
+<script src="__PUBLIC__/mobiscroll-master/js/mobiscroll.datetime.js"></script>
+<script src="__PUBLIC__/mobiscroll-master/js/mobiscroll.select.js"></script>
+<script src="__PUBLIC__/mobiscroll-master/js/i18n/mobiscroll.i18n.zh.js"></script>
+
+<link rel="stylesheet" href="__PUBLIC__/sweetalert-master/dist/sweetalert.css">
+<script src="__PUBLIC__/sweetalert-master/dist/sweetalert.min.js"></script>
+
+
+<script src="__PUBLIC__/mobile/js/common.js"></script>
+<script type="text/javascript">
+    var sene_captcha_url = "<{:U('Captcha/send')}>";
+    var check_captcha_url = "<{:U('Captcha/check')}>";
+    var create_noraml_activity_url = "<{:U('MovieActivity/createActivityDo')}>";
+    var create_recognition_activity_url = "<{:U('MovieActivity/createRecognitionActivityDo')}>";
+    var get_activity_type_url = "<{:U('MovieActivity/getActivityType')}>";
+    var movie_index_url = "<{:U('Index/movie',array('mid'=>19))}>";
+    var minDate = (new Date(<{$limit_start}> * 1000));
+    var maxDate = (new Date(<{$limit_end}> * 1000));
+    var fid = "<{$Think.get.fid}>";
+    var mid = "<{$Think.get.mid}>";
+</script>
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/launch.js"></script>
+
+</head>
+<body class="body-wrap">
+<!--   头部   -->
+<{include file="default/Index/header"/}>
+
+<div class="launch">
+    <div class="name">
+    	<span>发起包场</span><br>
+    	<span>夏有乔木雅望天堂</span>
+    </div>
+</div>
+
+<ul class="info-list">
+	<li>
+    	<img src="__PUBLIC__/mobile/movie/images/location.png">
+        <select name="holdplace" id="hold_place" class="place">
+            <{foreach name="provinces" item="province"}>
+            <optgroup label="<{$province.name}>">
+                <{foreach name="cities" item="city"}>
+                    <{if condition="$city.upid eq $province['id']"}>
+                    <option value="<{$city.id}>"><{$city.name}></option>
+                    <{/if}>
+                <{/foreach}>
+            </optgroup>
+            <{/foreach}>
+        </select>
+    </li>
+    	
+    <li class="hide">
+    	<img src="__PUBLIC__/mobile/movie/images/home.png">
+        <select id="cinemaname">
+            <option>红旗街万达影院</option>
+        </select>
+   </li>
+
+    <li>
+        <img src="__PUBLIC__/mobile/movie/images/time.png">
+        <input type="text" id="expect_date" class="yellow" value="<{$limit_start|date='Y/m/d',###}>"/>  
+    </li>
+    <li class="hide">
+        <img src="__PUBLIC__/mobile/movie/images/address.png">
+        <span id="detail_address">前进大街和湖西路交汇科研园</span>
+    </li>
+    <li class="hide">
+        <img src="__PUBLIC__/mobile/movie/images/count.png">
+        <span id="enrolltotal">12人</span>
+    </li>
+    <li class="hide">
+        <img src="__PUBLIC__/mobile/movie/images/price.png">
+        <span id="price">25.00</span>
+    </li>		
+</ul>
+
+<div class="form-box">
+	<div>
+    	<input type="text" placeholder="请填写手机号" id="telephone" required="required">
+    </div>
+    <div class="code">
+    	<input type="text" id="captcha" placeholder="请填写验证码">
+        <input class="code" type="button" id="sendcaptcha" value="发送验证码" /> 
+    </div>
+    <a class="submit" href="javascript:;" id="submit" data-type='normal'>提交</a>
+   
+</div>
+
+</body>
+</html>

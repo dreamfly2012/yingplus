@@ -1,0 +1,187 @@
+<{include file="default/Public/header" /}>
+
+<div class="page-container row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+    <div class="page-content">
+
+        <div class="container-fluid">
+
+
+            <!-- BEGIN PAGE HEADER-->
+
+            <div class="row-fluid">
+
+                <div class="span12">
+
+                    <div class="portlet box blue tabbable">
+
+                        <div class="portlet-title">
+
+
+                            <div class="caption">
+
+
+                                <i class="icon-reorder"></i>
+
+
+                                <span class="hidden-480">订单详情</span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="portlet-body form">
+
+
+                            <div class="tabbable portlet-tabs">
+
+
+                                <ul class="nav nav-tabs">
+
+
+                                    <li class="active"><a href="#portlet_tab1" data-toggle="tab">默认风格</a></li>
+
+
+                                </ul>
+
+
+                                <div class="tab-content">
+
+
+                                    <div class="tab-pane active" id="portlet_tab1">
+
+
+                                        <!-- BEGIN FORM-->
+
+
+                                        <form action="<{:U('Home/Order/updateOrder')}>"
+                                              enctype="multipart/form-data" method="post" class="form-horizontal">
+
+
+                                            <div class="control-group">
+
+
+                                                <label class="control-label"> 订单影院: </label>
+
+                                                <div class="controls">
+                                                    <h4> <{$order.cinemaname}></h4>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="control-group">
+
+                                                <label class="control-label"> 订单数量：</label>
+
+                                                <div class="controls">
+
+                                                    <h4> <{$order.goods_amount}></h4>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="control-group">
+                                                <label class="control-label">用户昵称：</label>
+
+                                                <div class="controls">
+                                                    <h4><{$order.uid|getUserNicknameById}>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="control-group">
+
+
+                                                <label class="control-label"> 用户电话：</label>
+
+                                                <div class="controls">
+                                                    <h4><{$order.telephone}></h4>
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div class="control-group">
+
+                                                <label class="control-label">购买链接：</label>
+
+                                                <div class="controls">
+                                                    <h4><a href="<{$order.buylink}>" target="_blank"><{$order.buylink}></a></h4>
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div class="control-group">
+
+
+                                                <label class="control-label">处理状态：</label>
+
+
+                                                <div class="controls">
+
+                                                    <h4><input id="handle_status" type="checkbox" name="handle_status" <{if condition="$order.handle_status eq 1"}>checked="checked"<{/if}> value="1"/><label for="handle_status">是否标记处理</label></h4>
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div class="form-actions">
+                                                <input type="hidden" name="id" value="<{$order.id}>"/>
+
+                                                <button type="submit" class="btn blue"><i class="icon-ok"></i> 保存
+                                                </button>
+
+
+                                                <button type="button" class="btn">取消</button>
+
+
+                                            </div>
+
+
+                                        </form>
+
+
+                                        <!-- END FORM-->
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $('.through-order-list').parent().show();
+    $('.through-order-list a').css('color', '#ffffff');
+    $('.through-order-list a').css('background', '#575757');
+</script>
+
+<{include file="default/Public/footer" /}>

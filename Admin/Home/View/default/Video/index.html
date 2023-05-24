@@ -1,0 +1,211 @@
+<{include file="default/Public/header" /}>
+<script>
+    var deleteAllVideo_URL = "<{:U('VideoManage/deleteAllVideo')}>";
+    $(function() {
+        $(document).on("click", '#choose_all', function () {
+            if (this.checked) {
+                $(":checkbox[name='check']").prop('checked', true);//attr("checked",true);
+            } else {
+                $(":checkbox[name='check']").prop('checked', false);
+            }
+        });
+
+        //筛选
+        $(document).on("change", '#filter_forum', function () {
+            var fid = $(this).val();
+            window.location.href =  "<{:U('VideoManage/filterVideo')}>?fid="+fid;
+        });
+
+
+        $(document).on('click', '#all_delete', function () {
+            var repair = confirm("确定要批量删除吗？");
+            if (repair == true) {
+                var array = {};
+                var i = 0;
+                $(":checkbox[name='check']").each(function () {
+                    if (this.checked) {
+                        array["test[" + i + "]"] = $(this).attr("lid");
+                        $("tr").remove('#' + $(this).attr("lid"));
+                        i++;
+                    }
+
+                });
+                $.ajax({
+                    type: "POST",
+                    url: deleteAllVideo_URL,
+                    data: array,
+                    dataType: "json",
+                    success: function (data) {
+                    }, async: true
+
+                });
+                window.location.reload();
+            }
+
+        });
+    });
+</script>
+<div class="page-container row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+</div>
+
+<div class="page-content">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <h3 class="page-title">
+
+
+
+                    视频管理>>视频列表 <small>视频列表</small>
+
+
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <div class="portlet box light-grey">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>视频列表</div>
+
+                        <div class="tools">
+
+                            <a href="javascript:;" class="collapse"></a>
+
+                            <a href="javascript:;" class="reload"></a>
+
+                            <a href="javascript:;" class="remove"></a>
+
+                        </div>
+
+                    </div>
+                    <a href="<{:U('Home/VideoManage/addVideo')}>">【+添加】</a>
+                    <div class="portlet-body">
+                        <span>筛选:</span>
+                        <select id="filter_forum">
+                            <option value="">--请选择--</option>
+                            <{foreach name="forums" item="forum"}>
+                            <option value='<{$forum.id}>' <{if condition="$forum.id eq $fid"}>selected="selected"<{/if}>><{$forum.name}></option>
+                            <{/foreach}>
+                        </select>
+                        <table class="table table-striped table-bordered table-hover" id="sample_1">
+
+                            <thead>
+
+                            <tr>
+
+                                <th style="width:45px;">
+                                    <input type="checkbox" id="choose_all"/>全选
+                                </th>
+
+                                <th>视频标题</th>
+
+                                <th class="hidden-480">所属工作室</th>
+
+                                <th>视频简介</th>
+
+                                <th>视频封面</th>
+
+                                <th>点赞数</th>
+
+                                <th class="hidden-480">添加时间</th>
+
+                                <th class="hidden-480">操作</th>
+
+
+                            </tr>
+
+                            </thead>
+                            <label style="width: 86px">
+                                <input  style="margin-top: 10px" id="all_delete" type="button" value="批量删除"/>
+                            </label>
+                            <{foreach name="videoList" item="video"}>
+
+                            <tbody>
+
+                            <tr class="odd gradeX">
+
+                                <td>
+                                    <input type="checkbox" class="checkboxes" name="check" lid="<{$video.id}>">
+                                </td>
+
+                                <td>
+
+                                    <a href="<{:U('Home/VideoManage/showVideo',array('id'=>$video['id']))}>">
+
+                                        <{$video['title']}>
+
+                                    </a>
+
+                                </td>
+
+                                <td class="hidden-480"><{$video['forumname']}></td>
+
+                                <td class="hidden-480"><{$video['synopsis']}></td>
+
+                                <td class="hidden-480">
+                                    <img style="width: 100px;height: 50px;" src="<{$video.id|getVideoCover}>"/>
+                                </td>
+
+                                <td class="hidden-480"><{$video['favors']}></td>
+
+                                <td class="hidden-480"><{$video['time']}></td>
+
+                                <td class="hidden-480">
+                                    <a href="<{:U('Home/VideoManage/showVideo',array('id'=>$video['id']))}>">编辑</a>
+                                    <a href="<{:U('Home/VideoManage/delVideo',array('id'=>$video['id']))}>">删除</a>　
+
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+
+                            <{/foreach}>
+
+                        </table>
+
+                        <div style="margin-left:45%;" class="pagination">
+
+                            <{$page}>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+    $('.video').parent().show();
+    $('.video a').css('color','#ffffff');
+    $('.video a').css('background','#575757');
+
+</script>
+
+<{include file="default/Public/footer" /}>

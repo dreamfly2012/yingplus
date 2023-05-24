@@ -1,0 +1,19 @@
+<ul class="tabul3">
+	<{volist name="events" id="event"}>
+	<li>
+		<b><a href="<{$event.url}>" title="<{$event.subject}>"><img src="<{$event.img_url}>" alt=""></a></b>
+		<div class="tab3right">
+			<h2><a href="<{$event.url}>" title="<{$event.subject}>"><{$event.subject}></a></h2>
+			<p>
+				<{$event.content}>
+			</p>
+		</div>
+		<div class="clear"></div>
+	</li>
+	<{/volist}>
+</ul>
+<div class="createbtns">
+	<a href="<{:U('Mobile/createWelfareEvent')}>" title="我要创建">我要创建</a>
+	<a href="javascript:void(0);" title="查看更多">查看更多</a>
+	<div class="clear"></div>
+</div>

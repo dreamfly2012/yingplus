@@ -1,0 +1,121 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/baiwansenlin/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/baiwansenlin/css/index.css?v=2016-04-25"/>
+
+<script src="/Public/mobile/baiwansenlin/js/adaptive.js" type="text/javascript"></script>
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="百万森林"/}>
+    
+
+    <div class="main">
+        <div class="main_img">
+        </div>
+        <div class="detail p">
+            项目详情
+        </div>
+        <div class="line">
+            <ul>
+                <li class="line_1 fl">
+                </li>
+                <li class="line_2 fl">
+                </li>
+                <li class="line_1 fl">
+                </li>
+            </ul>
+        </div>
+        <div class="detail_content">
+            <ul>
+                <li class="content_one p">
+                    <div class="fl">
+                        项目名称：
+                    </div>
+                    <div class="fl mt">
+                        <span>
+                            吴亦凡出道四周年公益应援
+                            <br/>
+                            ——为爱播种，拒绝沙漠
+                        </span>
+                    </div>
+                </li>
+                <li class="content_one p">
+                    发起方：
+                    <span>
+                        <i class="logo_1">
+                        </i>
+                        <a href="http://www.millionforest.org/" target="_blank">
+                            百万森林计划
+                        </a>
+                        <i class="v">
+                        </i>
+                    </span>
+                </li>
+                <li class="content_one p">
+                    <b>
+                        认领方：
+                    </b>
+                    <span>
+                        <i class="touxiang">
+                        </i>
+                        KRIS真的不凡
+                    </span>
+                </li>
+                <li class="content_one p">
+                    执行地：
+                    <span>
+                        甘肃省民勤县
+                    </span>
+                </li>
+                <li class="content_one p">
+                    项目时间：
+                    <span>
+                        <{$event.begintime|date='Y-m-d',###}>-<{$event.endtime|date='Y-m-d',###}>
+                    </span>
+                </li>
+                <li class="content_two p">
+                    <div class="two_1 fl c6">
+                        已筹集: ¥<{$collect_money}>
+                    </div>
+                    <i class="fl line_3">
+                    </i>
+                    <div class="two_2 fl c6">
+                        参与人数:<{$collect_user_num}>梅格妮
+                        <br/>
+                        <span>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="line_4">
+        </div>
+        <div class="shuo">
+        </div>
+        <div class="pub_c p">
+            亲爱的凡凡，转眼你已经出道四周年了，四年里你一直那么美好，那么光芒万丈，一直给我勇气和力量。在你出道四周年的纪念日里，我相信你一定会受到无数祝福，因为爱你的人真的很多很多。今年我选择了发起公益活动为你庆祝，希望我们梅格妮种的408棵树能为你带来幸运和祝福！
+亲爱的妮妮，或许我们素不相识，但是我们有一样的信仰，他就是吴亦凡。值此吴亦凡出道四周年之际，我发起了：为爱播种，拒绝荒漠公益应援活动，活动中将筹集408棵树，而后由公益组织 以吴亦凡的名义在西北荒漠地区种植一片KRIS林，爱凡凡的每个你一定要多多支持，让我们一起把对凡凡满满的爱分享给需要帮助的地方！
+        </div>
+        <div class="introduce">
+        </div>
+        <div class="pub_c p mb">
+            经kris真的不凡申请，影+对接了深度合作公益组织百万森林计划（隶属于中国绿化基金会），为其发起了吴亦凡出道四周年公益应援活动，活动以为爱播种，拒绝荒漠为主题。活动将筹集4080元公益善款，用以在西北荒漠地区种植408棵梭梭树（该项目来自百万森林计划之梭梭项目）。活动善款将由影+平台垂直对接百万森林计划公益组织，中间不经由任何个人或组织。活动具体执行将由百万森林计划负责，影+平台时刻更新活动最新进展。为爱播种，拒绝荒漠，需要每个你的支持！
+        </div>
+        <div class="footer">
+            <a href="<{:U('Mobile/donatelist')}>">
+                <div class="user fl">
+                </div>
+            </a>
+            <a href="<{:U('Mobile/donationform')}>">
+                <div class="button fl p">
+                    我要捐款
+                </div>
+            </a>
+            <a href="<{:U('Mobile/response',array('type'=>'5','pid'=>1))}>">
+                <div class="massage fl">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

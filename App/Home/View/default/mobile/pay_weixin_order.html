@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>微信扫码支付</title>
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="description" content="#">
+<meta name="Keywords" content="#">
+<link rel="stylesheet" href="__PUBLIC__/mobile/movie/css/global.css">
+<link rel="stylesheet" href="__PUBLIC__/mobile/movie/css/scan.css">
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/adaptive.js"></script>
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+    var check_has_pay_url = "<{:U('MovieActivity/checkHasPay')}>";
+    var trade_no = "<{$trade_no}>";
+</script>
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/pay_weixin.js"></script>
+</head>
+<body class="body-wrap">
+<!--   头部   -->
+<header>
+	<div class="wrap">
+        <a class="back" href="javascript:history.go(-1)"></a>
+        <h2>扫码支付</h2>
+        <div class="more">
+        	
+        </div>
+    </div>
+</header>
+
+<div class="film-name">
+	<i class="video"></i>
+    <div class="name">
+    	<span>夏有乔木 雅望天堂</span><br>
+    	Sweet   Sixteen
+    </div>
+</div>
+<div class="scan-result">
+	
+    <div class="p" id="success_text">
+    	请在2小时内使用微信的"扫一扫"完成支付
+    </div>
+    <img src="<{:U('Qrcode/showQrcode')}>?url=<{$pay_url}>" class="code qrcode_img" alt="二维码"/>
+    
+</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/forum.css"/>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/vote.css">
+<style>
+	body{background: #ffffff}
+</style>
+<div class="wrap" id="wrap">
+	<{assign name="title" value="热门话题"/}>
+	<{include file="default/mobile/nav"/}>
+	<{include file="default/mobile/forum_banner"/}>
+	
+	<div class="activity tab2ul">
+		<h2><img src="/Public/mobile/images/ico_20.jpg"> 热门话题</h2>
+		<{foreach name="topics" item="topic"}>
+		<{if condition="empty($topic['image_list'])"}>
+		<li>
+			<a href="<{:U('Mobile/topic')}>" title="<{$topic.subject}>">
+				<p><{if condition="$topic.admin_digest eq 1"}><span class="site_blue">【精】</span><{/if}><{$topic.subject}></p>
+			</a>
+		</li>
+		<{else/}>
+		<div class="image_content">
+			<a href="<{:U('Mobile/topic',array('tid'=>$topic['id']))}>" title="<{$topic.subject}>">
+				<p><{if condition="$topic.admin_digest eq 1"}><span class="site_blue">【精】</span><{/if}><{$topic.subject}></p>
+				<div class="clear"></div>
+				<div class="rm_img">
+				<{volist name='topic.image_list' id='image' offset="0" length="3"}>   
+				<div><a href="<{:U('Mobile/topic',array('tid'=>$topic['id']))}>" title=""><img src="<{$image.src}>" alt=""></a></div>
+				<{/volist}>
+				<div class="clear"></div>
+			</div>
+			</a>
+		</div>
+		<{/if}>
+		<{/foreach}>
+	</div>
+	
+	<div class="single-createbtns">
+		<a href="javascript:void(0);" title="我要创建" data-fid="<{$fid}>" class="create_topic">我要创建</a>
+		<div class="clear"></div>
+	</div>
+	<a href="<{:U('Mobile/chat',array('type'=>'4','pid'=>$fid))}>" title="进入<{$fid|getFansgroupById}>聊天屋" class="joinchat">进入<{$fid|getFansgroupById}>聊天屋</a>
+	
+	<div class="alphabg"></div>
+</div>
+</body>
+</html>

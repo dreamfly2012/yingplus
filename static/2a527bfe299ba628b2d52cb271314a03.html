@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+<meta name="keywords" content="影+,影加,yingplus,yingjia" />
+<meta name="description" content="影+(www.yingplus.cc)最活跃的明星粉丝聚集地，线上线下同追星，给你追星新体验！影加,追星大不同！"/>
+<title>影加CC-影视明星的粉丝社区|</title>
+<link href="/Public/default/css/reset.min.css" rel="stylesheet" type="text/css" />
+<link href="/Public/default/css/common.min.css" rel="stylesheet" type="text/css" />
+<link href="/Public/jQuery-Sina-Emotion-master/jquery-sinaEmotion-2.1.0.min.css" rel="stylesheet" type="text/css">
+<link href="/Public/default/css/fixed.css"rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/Public/fancybox/jquery.fancybox.css"/>
+<script src="/Public/default/js/jquery-1.7.2.min.js"></script>
+<script>
+	var is_login = "true";
+	var fid = "";
+	var pid = "";
+	var type = "";
+	var login_form_url = "/index.php/Home/Pc/login.html";//登录表单
+	var register_form_url = "/index.php/Home/Pc/register.html";//注册表单
+	var forgetpassword_form_url = "/index.php/Home/Pc/forgetpassword.html";//找回密码表单
+	var login_url = "/index.php/Home/Login/login.html"; //登录处理
+	var register_url = "/index.php/Home/Login/register.html"; //登录处理
+	var forgetpassword_url = "/index.php/Home/Login/forgetpassword.html"; //忘记密码
+	var check_telephone_url = "/index.php/Home/Login/checktelephone.html";//查询手机号
+	var send_captcha_url = "/index.php/Home/Captcha/send.html";//发送验证码
+	var join_forum_url = "/index.php/Home/Forum/joinforum.html";//加入工作室
+	var exit_forum_url = "/index.php/Home/Forum/exitforum.html"; //退出工作室
+	var upload_img_url = "/index.php/Home/UploadImg/upload.html";//上传图片处理,返回附件id
+	var upload_forumpicture_url = "/index.php/Home/UploadImg/upload.html";//上传图片
+	var add_forumpicture_url = "/index.php/Home/ForumPicture/add.html";//添加到照片墙
+	var add_response_do_url = "/index.php/Home/Response/add.html";//添加回复
+	var add_response_do_html_url = "/index.php/Home/Response/add/cateogry/pc_html.html";//添加评论
+	var response_page_url = "/index.php/Home/Response/reseponsepage.html";//回复ajax分页
+	var search_forum_user_url = "/index.php/Home/Forum/searchuser.html";//搜索工作室人员
+	var create_online_activity_url = "/index.php/Home/Pc/createonlineactivity.html";//创建线上活动
+	var create_online_activity_do_url = "/index.php/Home/OnlineActivity/add.html";//创建线上活动
+	var create_movie_activity_url = "/index.php/Home/Pc/createmovieactivity.html";//创建包场活动表单
+	var create_movie_activity_do_url = "/index.php/Home/MovieActivity/add.html";//创建包场活动;
+	var get_cities_by_provine_url = "/index.php/Home/Place/getCityByProvince.html";//根据城市获取省份
+	var get_cinemas_by_place_url = "/index.php/Home/Place/getCinemaByPlace.html";//根据地区获取影院
+	var upload_vote_image_url = "/index.php/Home/UploadImg/upload.html";//投票活动图片
+	var get_attachment_img_url = "/index.php/Home/Attachment/get.html";//获取附件图片url
+	var get_attachment_info_url = "/index.php/Home/Attachment/get.html";//获取附件信息
+	var create_topic_url = "/index.php/Home/Pc/createtopic.html";//创建话题表单
+	var add_topic_do_url = "/index.php/Home/Topic/add.html";//创建话题
+	
+	var get_latest_response_url = "/index.php/Home/Response/get.html";//获取最新回复
+	var get_more_message_url = "/index.php/Home/Response/getlisting.html";//获取之前的回复
+	var add_response_favor_url = "/index.php/Home/Favor/favor.html";//点赞
+	var check_response_favor_url = "/index.php/Home/Favor/checkfavor.html";//检查是否点赞
+	
+	var submit_vote_url = "/index.php/Home/OnlineActivity/submitVote.html";
+	var hot_topic_page_url = "/index.php/Home/Pc/hot_topic_list.html";//热门话题列表分页
+	var topic_page_url = "/index.php/Home/Topic/getlisting.html";//话题列表
+	var video_page_url = "/index.php/Home/Pc/video_list.html"//视频列表
+	var add_forum_video_url = "/index.php/Home/Video/add.html";//添加视频
+	var upload_video_url = "/index.php/Home/Pc/upload_video_form.html";//上传列表
+	var get_vote_text_result_url  = "/index.php/Home/Pc/online_vote_text_result.html";//
+	var get_vote_image_result_url = "/index.php/Home/Pc/online_vote_image_result.html";
+	var share_weibo_img_url = "/index.php/Home/Pc/share_weibo_img.html";//微博分享图片
+
+	var upload_poster_url = "/index.php/Home/UploadImg/upload.html";//上传征集活动图片
+	var crop_poster_url = "/index.php/Home/UploadImg/crop.html";//截取图片获取
+    var crop_do_url = "/index.php/Home/UploadImg/cropdo.html";//截取图片处理
+    var add_zhengji_url = "/index.php/Home/Pc/addZhengji.html";//征集添加描述
+    var add_poster_do_url = "/index.php/Home/OnlineActivity/uploadCollectPoster.html";//线上活动征集图片处理
+	var add_movie_feedback_url = "/index.php/Home/MovieActivity/uploadFeedback.html";//反馈上传
+	var add_movie_feedback_do_url = "/index.php/Home/MovieActivity/addUploadFeedback.html";//反馈伤处处理
+    
+
+    var get_more_poster_info_url = "/index.php/Home/OnlineActivity/getMoreCollcet.html";
+    var poster_favor_url = "/index.php/Home/OnlineActivity/favorPoster.html";
+    var delete_poster_url = "/index.php/Home/OnlineActivity/deletePoster.html";
+
+	//活动列表
+	var recommend_activity_page_url = "/index.php/Home/Pc/recommendActivityPage.html";//推荐列表分页
+	var movie_activity_page_url = "/index.php/Home/Pc/movieActivityPage.html";//包场活动分页
+	var online_activity_page_url = "/index.php/Home/Pc/onlineActivityPage.html";//线上活动分页
+	var welfare_event_page_url  = "/index.php/Home/Pc/welfareEventPage.html";//公益分页
+
+    //电影包场
+    var get_enroll_url = "/index.php/Home/MovieActivity/getEnrollUrl.html";//获取支付页面
+	var leave_movie_activity_telephone_url = "/index.php/Home/pc/leave_movie_activity_telephone.html";//电影包场留下电话号码
+    var check_captcha_url=  "/index.php/Home/Captcha/check.html";//验证手机号
+	var check_order_telephone_url = "/index.php/Home/MovieActivity/checkTelephone.html";
+	var check_order_captcha_url = "/index.php/Home/MovieActivity/checkCaptcha.html";
+	var pay_order_url = "/index.php/Home/MovieActivity/payOrder.html";
+
+	//公益事件
+	var show_donation_form_url = "/index.php/Home/Pc/donationform.html";
+	var donate_order_page_url = "/index.php/Home/Pc/donatepage.html";
+	var apply_welfare_url = "/index.php/Home/WelfareEvent/apply.html";
+</script>
+<script type="text/javascript" src="/Public/fancybox/jquery.fancybox.js"></script>
+<script type="text/javascript" src="/Public/html2canvas/dist/html2canvas.min.js"></script>
+<script src="/Public/jQuery-Sina-Emotion-master/jquery-sinaEmotion-2.1.0.min.js"></script>
+<script src="/Public/default/js/bxslider.js"></script>
+<script src="/Public/datejs/WdatePicker.js"></script>
+<script src="/Public/default/js/jquery.nicescroll.min.js"></script>
+<script src="/Public/qrcode/jquery.qrcode.js"></script>
+<script src="/Public/qrcode/qrcode.js"></script>
+<script src="/Public/fireworks/fireworks.js"></script>
+<script src="/Public/default/js/jquery.ajaxfileupload.js"></script>
+<script src="/Public/default/js/jquery.easing.1.3.js"></script>
+<script src="/Public/default/js/text_plugin.js"></script>
+<script src="/Public/default/js/common.js?v=2016-04-26-1"></script>
+<script src="/Public/default/js/share.js"></script>
+<script src="/Public/default/js/create_online_activity.js"></script>
+<script src="/Public/default/js/create_movie_activity.js"></script>
+<script src="/Public/default/js/login.js"></script>
+
+
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?572474684c71dae9d81e257fe81fa781";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+
+<body>
+<header class="header">
+    <div class="container">
+        <a href="/" title="影加" class="logo"><img src="/Public/default/images/logo3.png" alt=""></a>
+                <span class="loginandregedit"><a href="javascript:;" title="用户名" class="login_username">jfu <a href="/index.php/Home/Pc/logout.html" title="退出">退出</a></span>
+        <a class="findactivity" href="/index.php/Home/Pc/activitylist.html" title="发现活动" target="_blank">发现活动</a>    </div>
+</header>
+<link rel="stylesheet" type="text/css" href="/Public/default/css/index.css"/>
+
+<div class="banner">
+	<div class="container">
+		<div class="left_curtain"></div>
+		<div class="right_curtain"></div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="index_left_content">
+		<h2>影视<span>爱豆</span></h2>
+		<div class="divider"></div>
+		<ul class="forum_list">
+			<li>
+				<div class="userphoto">
+					<a href="/index.php/Home/Pc/forum/fid/19.html"><img src="/Public/default/images/photo/liuyifei.png"/></a>
+					<span>刘亦菲</span>
+				</div>
+				<a href="/index.php/Home/Pc/forum/fid/19.html"><div class="join_forum_btn">亦+</div></a>
+			</li>
+			<li>
+				<div class="userphoto">
+					<a href="/index.php/Home/Pc/forum/fid/2.html"><img src="/Public/default/images/photo/zhonghanliang.png"/></a>
+					<span>钟汉良</span>
+				</div>
+				<a href="/index.php/Home/Pc/forum/fid/2.html"><div class="join_forum_btn">良民+</div></a>
+			</li>
+			<li>
+				<div class="userphoto">
+					<a href="/index.php/Home/Pc/forum/fid/16.html"><img src="/Public/default/images/photo/wuyifan.png"/></a>
+					<span>吴亦凡</span>
+				</div>
+				<a href="/index.php/Home/Pc/forum/fid/16.html"><div class="join_forum_btn">梅格妮+</div></a>
+			</li>
+		</ul>
+		<div class="hope">更多实力偶像将跟随影视作品强势登
+录影+,敬请期待!</div>
+	</div>
+	<div class="index_right_content">
+		<div class="section mt30">
+			<div class="left">
+				<img src="/Public/default/images/yekongque_img.png"/>
+				<a href="http://www.yekongque.cc"><span class="movie_sepecial_btn"></span></a>
+			</div>
+			<div class="right">
+				<div class="title">
+					<h3>夜孔雀</h3>
+					<span>Le Paon de Nuit</span>
+				</div>
+				<div class="release_date">
+					上映日期: 2016-05-20
+				</div>
+				<div class="elite_title">
+					爱与恨真实的交织
+				</div>
+				<div class="desc">
+					<p>
+						剧情<br>
+						电影《夜孔雀》讲述了法国籍华裔长笛手埃尔莎从浪漫巴黎到锦绣成都的几段邂逅
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="section mt30">
+			<div class="left">
+				<div class="title">
+					<h3>三人行</h3>
+					<span>THREE</span>
+				</div>
+				<div class="release_date">
+					上映日期: 2016-06-24
+				</div>
+				<div class="elite_title">
+					推理与迷幻的三人行
+				</div>
+				<div class="desc">
+					<p>
+						剧情<br>
+						电影《三人行》堪称杜琪峯最拿手的警匪回
+归之作。影片由杜琪峯执导，游乃海编剧，
+赵薇、古天乐、钟汉良等主演，讲述了六小
+时内，一个医生、一个悍匪、一个警察，三
+方在“生、老、病、死”轮回不断的医院发
+生的惊心动魄的交锋。生死一线..
+					</p>
+				</div>
+				
+			</div>
+			<div class="right">
+				<img src="/Public/default/images/sanrenxing_img.png"/>
+				<a href="http://www.sanrenxing.cc"><span class="movie_sepecial_btn"></span></a>
+			</div>
+		</div>
+		<div class="section mt30">
+			<div class="left">
+				<img src="/Public/default/images/xiayouqiaomu_img.png"/>
+				<a href="http://www.xiayouqiaomu.cc"><span class="movie_sepecial_btn"></span></a>
+			</div>
+			<div class="right">
+				<div class="title">
+					<h3>夏有乔木 雅望天堂</h3>
+					<span>Sweet Sixteen</span>
+				</div>
+				<div class="release_date">
+					上映日期: 2016-08-05
+				</div>
+				<div class="elite_title">
+					爱与恨真实的交织
+				</div>
+				<div class="desc">
+					<p>
+						剧情<br>
+						改编自同名小说。电影讲述的是长相俊美
+的夏木，因为双亲的相继去世，变得自我
+封闭。直到清纯可爱的舒雅望出现后，他
+的人生才从黑白变成彩色。但是舒雅望身
+边却有一个青梅竹马的唐小天，因此他们
+三个之间展开了一场爱情追逐战。
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="clearfix"></div>
+
+
+<h3 id="effect">
+	<span>欢</span>
+	<span>迎</span>
+	<span>加</span>
+	<span>入</span>
+	<span>+</span>
+</h3>
+
+<div id="ajax_form"></div>
+<footer class="footer">
+	©2016  影加(www.yingplus.cc)  吉ICP备15002629号-1 版权所有 麦缇克文化传媒有限公司 联系电话:0431-84761260
+</footer>
+<div class="alphalayer"></div>
+<noscript><p class="noscript">为了更好的体验,请不要阻止javascript</p></noscript>
+</body>
+</html>

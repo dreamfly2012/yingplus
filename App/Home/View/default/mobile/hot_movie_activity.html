@@ -1,0 +1,16 @@
+<ul class="tab2ul">
+	<{volist name="activities" id="activity"}>
+	<li>
+		<a href="<{:U('Mobile/activity',array('aid'=>$activity['id']))}>" title="<{$activity.subject}>">
+			<p><{$activity.subject}></p>
+			<i><{$activity.holdstart|date='Y-m-d',###}></i>
+			<span><{$activity.holdstart|date='H:i',###}></span>
+		</a>
+	</li>
+	<{/volist}>
+</ul>
+<div class="createbtns">
+	<a href="javascript:void(0);" title="我要创建" data-fid="<{$fid}>" class="create_movie_activity">我要创建</a>
+	<a href="<{:U('Mobile/activitylist',array('tab'=>1))}>" title="查看更多">查看更多</a>
+	<div class="clear"></div>
+</div>

@@ -1,0 +1,36 @@
+/*顶部*/
+.header {height:48px;background:#fcb01f;overflow:hidden;position:relative;z-index:999;}
+.back {display:block;width:14.0625%;height:48px;float:left;}
+.back img {width:100%;height:100%;}
+.pagename {width:80%;margin:0 auto;display:block;font:16px/48px "microsoft yahei";color:#fff;text-align:center;}
+.hamburger--spin-r .hamburger-inner { transition-duration: 0.3s; transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+.hamburger--spin-r .hamburger-inner::before { transition: top 0.1s 0.34s ease-in, opacity 0.1s ease-in; }
+.hamburger--spin-r .hamburger-inner::after { transition: bottom 0.1s 0.34s ease-in, -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19); transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19); transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+.hamburger--spin-r.is-active .hamburger-inner { -webkit-transform: rotate(-225deg); transform: rotate(-225deg); transition-delay: 0.14s; transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+.hamburger--spin-r.is-active .hamburger-inner::before { top: 0; opacity: 0; transition: top 0.1s ease-out, opacity 0.1s 0.14s ease-out; }
+.hamburger--spin-r.is-active .hamburger-inner::after { bottom: 0; -webkit-transform: rotate(-90deg); transform: rotate(-90deg); transition: bottom 0.1s ease-out, -webkit-transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1); transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1); transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1); }
+.hamburger {float:right; padding: 10px 10px 9px; display:block; cursor: pointer; transition-property: opacity, -webkit-filter; transition-property: opacity, filter; transition-property: opacity, filter, -webkit-filter; transition-duration: 0.15s; transition-timing-function: linear; font: inherit; color: inherit; text-transform: none; background-color: transparent; border: 0; margin: 0; overflow: visible; position:absolute;right:0;top:0;}
+.hamburger:hover { opacity: 1; }
+.hamburger-box { width: 30px; height: 24px;margin-top:3px; display: inline-block; position: relative; }
+.hamburger-inner { display: block; top: 50%; margin-top: -2px; }
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after { width: 30px; height: 3px; background-color: #fff; border-radius: 4px; position: absolute; transition-property: -webkit-transform; transition-property: transform; transition-property: transform, -webkit-transform; transition-duration: 0.15s; transition-timing-function: ease; }
+.hamburger-inner::before, .hamburger-inner::after { content: ""; display: block; }
+.hamburger-inner::before { top: -9px; }
+.hamburger-inner::after { bottom: -9px; }
+/*导航*/
+.uid {
+    font: 16px/20px "microsoft yahei";
+    text-align: center;
+    display: block;
+    color: #fff;
+}
+.alphabg {width:100%;height:100%;position:fixed;left:0;top:0;z-index:899;-webkit-transform:translateX(100%);transform:translateX(100%);-webkit-transition:all 0.2s ease 0s;transition:all 0.2s ease 0s;}
+.nav {width:100%;height:auto;position:fixed;left:0;top:0;z-index:900;background:#414141;top:48px;-webkit-transform:translateX(100%);transform:translateX(100%);-webkit-transition:all 0.2s ease 0s;transition:all 0.2s ease 0s;}
+.loginbtns {border-bottom:solid 1px #222;text-align:center;padding:15px 0 13px;}
+.loginbtns a {display:inline-block;width:42%;height:36px;background:#fcb01f;color:#fff;text-align:center;font:15px/36px "microsoft yahei";border-radius:5px;margin:0 6px;}
+.createitem {padding:8px 4%;font:15px/30px "microsoft yahei";color:#fefefe;display:block;width:100%;background:url(../images/icoright_05.png) 94% 50% no-repeat;background-size:3% 40%;border-bottom:solid 1px #222;}
+.createitem a span {float:left;color:#FFFFFF;}
+.createitem a i {float:right;font:normal normal 15px/30px "microsoft yahei";color:#414141;display:inline-block;padding:0 10px;background:#ffc600;border-radius:13px;margin-right:15%;}
+.createitem i {float:right;font:normal normal 15px/30px "microsoft yahei";color:#414141;display:inline-block;padding:0 10px;background:#ffc600;border-radius:13px;margin-right:15%;}
+.joinus {width:68%;height:36px;font:15px/36px "microsoft yahei";border-radius:5px;margin:16px auto;background:#fcb01f;color:#fff;text-align:center;display:block;}
+.menuanimate {-webkit-transform:translateX(0);transform:translateX(0);}

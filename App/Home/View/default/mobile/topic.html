@@ -1,0 +1,40 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" href="/Public/mobile/css/online.min.css"/>
+<div class="wrap" id="wrap">
+    <{assign name="title" value="话题详情页"/}>
+    <{include file="default/mobile/nav"/}>
+
+    <h1 class="votename"><{$topic.subject}></h1>
+    <div class="votenums votenums2">
+        创建者：<{$topic.uid|getUserNicknameById}>  <br>发布时间：<{$topic.addtime|date='Y-m-d',###}>
+    </div>
+    <div class="votetext">
+        <{$topic.content}>
+    </div>
+    <div class="hei20"></div>
+
+    <span class="footblank"></span>
+    <div class="footico">
+        <a href="<{:U('Mobile/response',array('type'=>1,'pid'=>$topic['id']))}>" title="回复"><img src="/Public/mobile/images/ico1_03.png" alt="回复"> 评论</a>
+        <a href="javascript:;" title="分享"><img src="/Public/mobile/images/ico2_05.png" alt="分享"> 分享</a>
+        <div class="clear"></div>
+    </div>
+
+    <div class="alphabg"></div>
+
+    <div class="share">
+        <h2 class="sharetitle">分享</h2>
+        <div class="sharewrap">
+            <a href="javascript:;" title="新浪微博" class="share_topic_weibo"><img src="/Public/mobile/images/share_03.png" alt="新浪微博">新浪微博</a>
+            <a href="javascript:;" title="QQ空间" class="share_topic_qzone"><img src="/Public/mobile/images/share_05.png" alt="QQ空间">QQ空间</a>
+            <a href="javascript:;" title="QQ好友" class="share_topic_qq"><img src="/Public/mobile/images/share_07.png" alt="QQ好友">QQ好友</a>
+            <a href="javascript:;" title="微信朋友圈" class="share_topic_weixin"><img src="/Public/mobile/images/share_09.png" alt="微信朋友圈">微信朋友圈</a>
+            <div class="clear"></div>
+        </div>
+        <a href="javascript:;" title="关闭" class="closebtn close_share"><img src="/Public/mobile/images/close2.png" alt="关闭"></a>
+    </div>
+
+</div>
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

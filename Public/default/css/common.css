@@ -1,0 +1,2759 @@
+@charset "utf-8";
+body{
+    overflow-x: hidden;
+}
+*{
+    font-family: "Microsoft YaHei";
+}
+.site_blue {
+    color: #1689e2;
+}
+.bodyhide {
+    overflow: hidden;
+}
+
+.alphalayer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 990;
+    background: #000;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    display: none;
+}
+
+.loginbox {
+    width: 500px;
+    height: 448px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -224px 0 0 -250px;
+    border-radius: 4px;
+    background: #fff;
+    z-index: 991;
+    box-shadow: 0 0 8px #444;
+}
+
+.regedit {
+    display: block;
+    font: 14px/16px "microsoft yahei";
+    color: #0968a2;
+    position: absolute;
+    left: 20px;
+    top: 16px;
+    width: 78px;
+    height: 16px;
+}
+
+.closelayer {
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 6px;
+    top: 0;
+    background: url(../images/closebg.jpg) center no-repeat;
+}
+
+.logo2 {
+    width: 132px;
+    height: 50px;
+    margin: 22px auto;
+    display: block;
+}
+
+.otherway2 {
+    text-align: center;
+    font: 16px/16px "microsoft yahei";
+    color: #999;
+    display: block;
+}
+
+.loginbtns {
+    text-align: center;
+    padding: 14px 0 6px;
+}
+
+.loginbtns img {
+    margin: 0 18px;
+}
+
+a.login_username {
+    cursor: default;
+    transition: none;
+}
+
+a.login_username:hover {
+    cursor: default;
+    color: #fff;
+    transition: none;
+}
+
+.uid {
+    width: 258px;
+    height: 20px;
+    border: solid 1px #c7c7c7;
+    border-radius: 3px;
+    margin: 16px auto 0;
+    display: block;
+    padding: 10px 15px;
+    font: 14px/20px "microsoft yahei";
+    color: #666;
+    background: #fff;
+}
+
+.loginbtn {
+    width: 288px;
+    height: 40px;
+    margin: 16px auto 0;
+    border-radius: 3px;
+    background: #fcb01f;
+    display: block;
+    font: 16px/40px "microsoft yahei";
+    color: #fff;
+    text-align: center;
+}
+
+.loginlinks {
+    width: 288px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.loginlinks label {
+    float: left;
+    display: inline;
+    font: 14px/14px "microsoft yahei";
+    color: #0967a5;
+}
+
+.loginlinks label input {
+    position: relative;
+    top: 2px;
+}
+
+.loginlinks a {
+    float: right;
+    font: 14px/14px "microsoft yahei";
+    color: #0967a5;
+}
+
+.loginlinks a:hover {
+    color: #cb8c13;
+}
+
+.regtitle {
+    text-align: center;
+    display: block;
+    padding-top: 34px;
+    font: 14px/14px "microsoft yahei";
+    color: #999;
+    padding-bottom: 40px;
+}
+
+.text2 {
+    margin-top: 18px;
+}
+
+.validnum {
+    width: 288px;
+    height: 40px;
+    padding-top: 18px;
+    margin: 0 auto;
+}
+
+.validnum input {
+    float: left;
+    width: 104px;
+    display: block;
+    padding: 10px 15px;
+    font: 14px/20px "microsoft yahei";
+    color: #666;
+    border: solid 1px #c7c7c7;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.validnum span {
+    float: right;
+    width: 134px;
+    height: 42px;
+    font: 14px/42px "microsoft yahei";
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
+    background: #fcb01f;
+    cursor: pointer;
+}
+
+.regbtns {
+    width: 288px;
+    height: 42px;
+    padding-top: 22px;
+    margin: 0 auto;
+}
+
+.cancel {
+    width: 134px;
+    height: 42px;
+    text-align: center;
+    font: 14px/42px "microsoft yahei";
+    color: #fff;
+    background: #1689e2;
+    display: block;
+    float: left;
+    border-radius: 4px;
+}
+
+.confirm {
+    width: 134px;
+    height: 42px;
+    text-align: center;
+    font: 14px/42px "microsoft yahei";
+    color: #fff;
+    background: #fcb01f;
+    display: block;
+    float: right;
+    border-radius: 4px;
+}
+
+.agreenit {
+    width: 288px;
+    height: auto;
+    padding-top: 18px;
+    margin: 0 auto;
+    font: 14px/14px "microsoft yahei";
+    color: #999;
+}
+
+.agreenit a {
+    color: #0967a5;
+}
+
+.agreenit input {
+    position: relative;
+    top: 2px;
+}
+
+.hadcount {
+    width: 160px;
+    height: 14px;
+    font: 14px/14px "microsoft yahei";
+    color: #999;
+    text-align: right;
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+}
+
+.hadcount a {
+    color: #999;
+}
+
+.hadcount a:hover {
+    color: #0967a5;
+}
+
+
+/**导航**/
+
+.header {
+    height: 58px;
+    background: #fcb01f;
+    border-top: solid 3px #fff102;
+    box-shadow: 0 0 5px #666;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    min-width: 1100px;
+}
+
+.container {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 130px;
+    display: block;
+    float: left;
+    padding: 4px;
+}
+
+.icoweibo,
+.icoqq,
+.otherway,
+.loginandregedit,
+.findactivity {
+    float: right;
+    display: inline-block;
+    margin-top: 18px;
+}
+
+.icoweibo {
+    margin-right: 4px;
+}
+
+.icoqq {
+    margin-right: 22px;
+}
+
+.otherway {
+    font: 12px/20px "microsoft yahei";
+    color: #fff;
+    padding: 0 16px;
+    border-left: solid 1px #ffcc01;
+}
+
+.loginandregedit {
+    text-align: center;
+    font: 14px/20px "microsoft yahei";
+    color: #fff;
+    max-width: 210px;
+    border-left: solid 1px #ffcc01;
+}
+
+.loginandregedit a {
+    color: #fff;
+    margin: 0 4px;
+}
+
+.findactivity:hover {
+    color: #54a342;
+}
+
+.findactivity {
+    margin-right: 16px;
+    color: #fff;
+    font: 14px/20px "microsoft yahei";
+}
+
+
+/*banner*/
+
+.bannerwrap {
+    height: 192px;
+    background: url(../images/bannerbg_03.jpg) repeat-x;
+}
+
+.bannerin {
+    height: 192px;
+    position: relative;
+}
+
+.bannerinfo {
+    width: 616px;
+    height: 172px;
+    position: absolute;
+    left: 8px;
+    top: 42px;
+    background: url(../images/bannerinfo.png) no-repeat;
+}
+
+.filmname {
+    font: bold 30px/30px "microsoft yahei";
+    color: #fff;
+    padding: 24px 0 0 32px;
+}
+
+.filmname span {
+    font: normal normal 20px/30px arial;
+    color: #fff;
+    padding-left: 10px;
+    position: relative;
+    top: 2px;
+}
+
+.filmlimit {
+    font: 16px/30px "microsoft yahei";
+    color: #fff;
+    padding-top: 26px;
+    padding-left: 32px;
+}
+
+.filmlimit span {
+    font: normal 30px/30px impact;
+    position: relative;
+    top: 2px;
+}
+
+.filmmark {
+    display: block;
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+}
+
+.viewmore {
+    width: 154px;
+    height: 42px;
+    text-align: center;
+    font: 16px/42px "microsoft yahei";
+    color: #fff;
+    background: #eea417;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px #bbb;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 88px;
+}
+
+.tophd {
+    width: 1100px;
+    height: 74px;
+    margin: 0 auto;
+}
+
+.tophd p {
+    float: left;
+    font: 14px/60px "microsoft yahei";
+    padding-top: 14px;
+    color: #747474;
+    display: block;
+}
+
+.tophd p strong {
+    font: bold 14px/60px "microsoft yahei";
+    color: #303030;
+}
+
+.joinbtn {
+    width: 126px;
+    height: 46px;
+    text-aligN: center;
+    font: 16px/46px "microsoft yahei";
+    color: #000;
+    background: #fcb01f;
+    border-radius: 4px;
+    margin-top: 14px;
+    float: right;
+    display: block;
+}
+
+.picwrap {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+}
+
+.picroll {
+    width: 1100px;
+    height: auto;
+    overflow: hidden;
+}
+
+.picroll li {
+    width: 1100px;
+    height: auto;
+    min-height: 181px;
+}
+
+.picitem {
+    float: left;
+    width: 183px;
+    height: 181px;
+    display: block;
+    position: relative;
+}
+
+.picwrap .bx-pager {
+    display: none;
+}
+
+.picwrap .bx-prev {
+    display: block;
+    width: 26px;
+    height: 48px;
+    position: absolute;
+    left: -48px;
+    top: 50%;
+    margin-top: -24px;
+    background: url(../images/icoleft_23.png) no-repeat;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
+.picwrap .bx-next {
+    display: block;
+    width: 26px;
+    height: 48px;
+    position: absolute;
+    right: -48px;
+    top: 50%;
+    margin-top: -24px;
+    background: url(../images/icoright_26.png) no-repeat;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
+.uploadico {
+    width: 183px;
+    height: 181px;
+    position: absolute;
+    left: 917px;
+    bottom: 0;
+    background: url(../images/pic9_35.png) #fcb01f center no-repeat;
+}
+
+.upload_default_icon {
+    background: url(../images/picture_wall_default.png) center no-repeat;
+    width: 183px;
+    height: 181px;
+    bottom: 0;
+}
+
+.uploadico:hover {
+    background: url(../images/upload.png) #fcb01f center no-repeat;
+}
+
+.cont1 {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 14px;
+}
+
+.cleft {
+    width: 400px;
+    height: auto;
+    float: left;
+}
+
+.commontitle {
+    height: 40px;
+    border-bottom: solid 1px #ddd;
+}
+
+.commontitle p {
+    float: left;
+    display: inline;
+    background: url(../images/ico7_38.png) left center no-repeat;
+    padding-left: 36px;
+    font: bold 16px/40px "microsoft yahei";
+    color: #212121;
+}
+
+.commontitle a {
+    float: right;
+    font: 12px/40px "microsoft yahei";
+    color: #1689e2;
+}
+
+.commontitle a:hover {
+    color: #de970f;
+}
+
+.actol {
+    width: 400px;
+    height: 205px;
+    border-bottom: solid 1px #ddd;
+    display: block;
+}
+
+.actol h2 {
+    font: bold 16px/14px "microsoft yahei";
+    color: #212121;
+    padding-top: 20px;
+}
+
+.actol h2 a {
+    color: #212121;
+}
+
+.actol h2 a:hover {
+    color: #1689e2;
+}
+
+.actol p {
+    font: 14px/24px "microsoft yahei";
+    color: #616161;
+    padding-top: 14px;
+}
+
+.actlist {
+    padding-top: 12px;
+}
+
+.actlist li {
+    font: 16px/30px "microsoft yahei";
+    color: #616161;
+}
+
+.actlist li p {
+    float: left;
+    display: inline;
+    font-size: 14px;
+}
+
+.actlist li p a {
+    color: #212121;
+    text-decoration: none;
+    font-weight: bold;
+    width: 300px;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.actlist li p a:hover {
+    color: #1689e2;
+    text-decoration: underline;
+}
+
+.actlist li span {
+    float: right;
+    font: 14px/30px "microsoft yahei";
+    color: #9d9d9d;
+}
+
+.actmore {
+    font: 12px/14px "microsoft yahei";
+    color: #1689e2;
+    text-align: right;
+    padding-top: 18px;
+    padding-bottom: 8px;
+}
+
+.actmore a {
+    color: #1689e2;
+    text-decoration: none;
+}
+
+.actmore a:hover {
+    color: #1689e2;
+    text-decoration: underline;
+}
+
+.commontitle p.priv {
+    background: url(../images/prv_49.png) left center no-repeat;
+}
+
+.privlist {
+    padding-top: 12px;
+}
+
+.privlist li {
+    height: 34px;
+}
+
+.privlist li p {
+    float: left;
+    display: inline-block;
+    width: 224px;
+    font: 16px/34px "microsoft yahei";
+}
+
+.privlist li p a {
+    color: #1689e2;
+}
+
+.privlist li i {
+    float: left;
+    display: inline-block;
+    width: 84px;
+    font: normal normal 12px/34px "microsoft yahei";
+    color: #999;
+}
+
+.privlist li b {
+    float: left;
+    display: inline-block;
+    width: 42px;
+    font: normal normal 12px/34px "microsoft yahei";
+    color: #999;
+}
+
+.privlist li span {
+    float: right;
+    display: inline-block;
+    font: normal normal 12px/34px "microsoft yahei";
+    color: #999;
+}
+
+.cmid {
+    width: 400px;
+    height: auto;
+    float: left;
+    margin-left: 30px;
+}
+
+.commontitle p.pub {
+    background: url(../images/heart_38.png) left center no-repeat;
+}
+
+.publist {
+    padding: 3px 0;
+}
+
+.publist li {
+    width: 400px;
+    height: 132px;
+    padding: 17px 0;
+}
+
+.publist li b {
+    float: left;
+    display: block;
+    width: 132px;
+    height: 132px;
+    text-align: center;
+}
+
+.pubright {
+    width: 254px;
+    height: auto;
+    float: right;
+}
+
+.pubright h2 {
+    font: bold 14px/16px "microsoft yahei";
+    color: #212121;
+}
+
+.pubright h2 a {
+    color: #212121;
+}
+
+.pubright h2 a:hover {
+    color: #1689e2;
+}
+
+.pubright p {
+    font: 14px/23px "microsoft yahei";
+    color: #6f6f6f;
+    padding-top: 8px;
+    overflow: hidden;
+    height: 118px;
+}
+
+.pubmore {
+    padding-top: 7px;
+}
+
+.cright {
+    width: 240px;
+    height: auto;
+    float: right;
+}
+
+.fanstab {
+    height: 40px;
+    border-bottom: solid 1px #ddd;
+}
+
+.fanstab ul {
+    float: left;
+}
+
+.fanstab ul li {
+    float: left;
+    font: 16px/40px "microsoft yahei";
+    color: #a4a4a4;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.fanstab ul li.on {
+    height: 38px;
+    border-bottom: solid 3px #fcb01f;
+    position: relative;
+    color: #212121;
+}
+
+.fanstab span {
+    float: right;
+    font: 12px/40px "microsoft yahei";
+    color: #999;
+}
+
+.tabwrap {}
+
+.fanssearch {
+    height: 28px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    background: #dedede;
+}
+
+.searchtext {
+    float: left;
+    display: inline-block;
+    width: 180px;
+    padding-left: 10px;
+    font: 12px/28px "microsoft yahei";
+    color: #444;
+    background: none;
+    border: none;
+}
+
+.searchbtn {
+    display: inline-block;
+    float: right;
+}
+
+.searchbtn:focus {
+    border: none;
+}
+
+.guestlist {
+    width: 240px;
+    height: 482px;
+    overflow: hidden;
+}
+
+.guitem_forum {
+    height: auto;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    width: 210px;
+    padding-left: 6px;
+}
+
+.guitem_forum h2 {
+    font: 12px/24px "microsoft yahei";
+    color: #212121;
+}
+
+.guitem_forum h2 a {
+    color: #212121;
+}
+
+.guitem_forum h2 img {
+    position: relative;
+    top: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.guitem_forum p {
+    font: 12px/20px "microsoft yahei";
+    color: #777;
+    padding-top: 4px;
+}
+
+.guitem_forum p img {
+    max-width: 99%;
+    cursor:pointer;
+}
+
+.guitem_movie_activity {
+    height: auto;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    width: 550px;
+    padding-left: 6px;
+}
+
+.guitem_movie_activity h2 {
+    font: 12px/24px "microsoft yahei";
+    color: #212121;
+}
+
+.guitem_movie_activity h2 a {
+    color: #212121;
+}
+
+.guitem_movie_activity h2 img {
+    position: relative;
+    top: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.guitem_movie_activity p {
+    font: 12px/20px "microsoft yahei";
+    color: #777;
+    padding-top: 4px;
+}
+
+.guitem_movie_activity p img {
+    max-width: 99%
+}
+
+.sendface {
+    padding: 10px 0;
+    text-align: right;
+}
+
+.sendface_upload {
+    border: solid 1px #ddd;
+    border-bottom: none;
+    padding-right: 10px;
+}
+
+.sendface img {
+    margin-left: 8px;
+    display: inline-block;
+}
+
+.textarea1 {
+    width: 220px;
+    height: 70px;
+    border: solid 1px #ddd;
+    font: 12px/18px "microsoft yahei";
+    color: #444;
+    padding: 8px 10px;
+}
+
+.sendbtn {
+    width: 72px;
+    height: 28px;
+    border-radius: 4px;
+    background: #ffc916;
+    color: #a33300;
+    font: 14px/28px "microsoft yahei";
+    display: block;
+    text-align: center;
+    margin-right: 0px;
+    margin-top: 8px
+}
+
+.sendbtn:hover {
+    background: #1689e2;
+    color: #fff;
+}
+
+.onlinelist {
+    width: 240px;
+    height: 482px;
+    overflow: hidden;
+}
+
+.onlinelist ul {}
+
+.onlinelist ul li {
+    height: 24px;
+    width: 210px;
+    padding-left: 6px;
+    font: 14px/24px "microsoft yahei";
+    color: #212121;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    overflow: hidden;
+}
+
+.onlinelist ul li img {
+    position: relative;
+    top: 5px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.cont2 {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    border-bottom: solid 1px #ddd;
+}
+
+.video {
+    width: 830px;
+    height: auto;
+    float: left;
+}
+
+.commontitle {}
+
+.vid_title {
+    width: 830px;
+}
+
+.commontitle p.vid {
+    background: url(../images/vide_107.jpg) left center no-repeat;
+}
+
+.piclist {
+    width: 830px;
+    height: 568px;
+    overflow: hidden;
+}
+
+.piclist ul {
+    padding: 16px 0 0 6px;
+    width: 860px;
+}
+
+.piclist ul li {
+    width: 254px;
+    height: 152px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.videotitle {
+    width: 234px;
+    height: 26px;
+    padding: 0 10px;
+    font: 12px/26px "microsoft yahei";
+    color: #fff;
+    background: url(../images/alpha.png) repeat;
+    position: absolute;
+    left: 0;
+    bottom: -46px;
+    z-index: 10;
+}
+
+.videofirst {
+    width: 498px;
+    height: 46px;
+    font: 16px/46px "microsoft yahei";
+    color: #fff;
+    padding: 0 15px;
+}
+
+.videopages {
+    text-aligN: center;
+    font: 14px/24px "microsoft yahei";
+    color: #0766d2;
+}
+
+.videopages a {
+    color: #0766d2;
+    margin: 0 5px;
+}
+
+.hotword {
+    width: 240px;
+    height: auto;
+    float: right;
+}
+
+.hottitle p.vid {
+    background: none;
+    padding-left: 0;
+}
+
+.hotlist {
+    padding-top: 4px;
+}
+
+.hotlist li {
+    font: 16px/34px "microsoft yahei";
+    color: #1a1a1a;
+}
+
+.hotlist li a {
+    color: #1a1a1a;
+}
+
+.hotlist li a:hover {
+    color: #1689e2;
+}
+
+.hotpages {
+    text-aligN: center;
+    font: 14px/24px "microsoft yahei";
+    color: #0766d2;
+    padding-top: 11px;
+}
+
+.hotpages a {
+    color: #0766d2;
+    margin: 0 5px;
+}
+
+
+
+.text3 {
+    margin-top: 0px;
+    margin-bottom: 18px;
+}
+
+.validnum2 {
+    padding-top: 0;
+    padding-bottom: 18px;
+}
+
+.regbtns2 {
+    padding-top: 2px;
+}
+
+.addactive {
+    width: 756px;
+    min-height: 610px;
+    background: #fff;
+    border-radius: 4px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -378px;
+    margin-top: -305px;
+    z-index: 999;
+    box-shadow: 0 0 8px #444;
+    overflow: auto;
+    max-height: 600px;
+}
+
+.addtitle {
+    height: 52px;
+    border-bottom: solid 1px #ddd;
+}
+
+.addtitle p {
+    float: left;
+    display: inline;
+    font: 16px/52px "microsoft yahei";
+    color: #979797;
+    padding-left: 22px;
+}
+
+.closebtn2 {
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    float: right;
+    background: url(../images/closebg.jpg) center no-repeat;
+}
+
+.addactiveitem {
+    width: 600px;
+    margin: 0 auto;
+    padding-bottom: 24px;
+}
+
+.add_comleft {
+    width: 90px;
+    height: auto;
+    font: 14px/32px "microsoft yahei";
+    color: #313131;
+    float: left;
+}
+
+.hei40 {
+    display: block;
+    height: 40px;
+    clear: both;
+}
+
+.add_comright {
+    width: 506px;
+    height: auto;
+    float: left;
+}
+
+.sel1 {
+    border: solid 1px #ddd;
+    padding: 3px 6px;
+    font: 14px/18px "microsoft yahei";
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.text4 {
+    width: 416px;
+    height: 30px;
+    border: solid 1px #ddd;
+    padding: 0 15px;
+    font: 12px/30px "microsoft yahei";
+    color: #444;
+    border-radius: 2px;
+}
+
+.add_title_text {
+    width: 475px;
+    height: 30px;
+    border: solid 1px #ddd;
+    padding: 0 15px;
+    font: 12px/30px "microsoft yahei";
+    color: #444;
+    border-radius: 2px;
+}
+
+.textarea10 {
+    width: 416px;
+    height: 66px;
+    padding: 10px 15px;
+    border: solid 1px #ddd;
+    font: 12px/18px "microsoft yahei";
+    color: #444;
+    border-radius: 2px;
+}
+
+.selectitems {
+    height: 32px;
+    position: relative;
+    width: 446px;
+    height: 30px;
+    border: solid 1px #ddd;
+    border-radius: 2px;
+    margin-bottom: 12px;
+}
+
+.selectitems input {
+    width: 376px;
+    height: 30px;
+    padding: 0 15px;
+    font: 12px/30px "microsoft yahei";
+    color: #444;
+    border-radius: 2px;
+    padding-left: 43px;
+    border: none;
+    background: none;
+}
+
+.selectitems a {
+    width: 32px;
+    height: 32px;
+    font: 16px/32px arial;
+    color: #fff;
+    text-aligN: center;
+    display: block;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    z-index: 2;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    background: url(../images/plus_03.png) center #ddd no-repeat;
+}
+
+.addmoreargs {
+    font: 14px/14px "microsoft yahei";
+    color: #1689e2;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.addmoreargs a {
+    color: #1689e2;
+}
+
+.add_submit {
+    width: 124px;
+    height: 34px;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    font: 14px/34px "microsoft yahei";
+    color: #fff;
+    background: #1689e2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add_submit:hover {
+    background: #fcb01f;
+}
+
+.addactive2 {
+    height: 424px;
+    margin-top: -212px;
+}
+
+.addpriv {
+    height: 470px;
+    margin-top: -235px;
+}
+
+.text5 {
+    width: 210px;
+}
+
+.text6 {
+    width: 360px;
+}
+
+.text7 {
+    width: 80px;
+}
+
+.add_comright span {
+    width: 134px;
+    height: 42px;
+    font: 14px/42px "microsoft yahei";
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
+    background: #fcb01f;
+    cursor: pointer;
+}
+
+
+/**视频上传**/
+
+.addvideo {
+    height: 316px;
+    margin-top: -158px;
+}
+
+.uploadfile {
+    width: 446px;
+    height: auto;
+}
+
+.uploadfile input {
+    float: left;
+    width: 306px;
+    font: 14px/30px;
+    height: 30px;
+    border: solid 1px #ddd;
+    padding: 0 15px;
+    color: #444;
+    border: solid 1px #ddd;
+    background: #fff;
+    height: 30px;
+    border-radius: 2px;
+}
+
+.uploadfile a {
+    float: right;
+    width: 100px;
+    height: 32px;
+    background: #fcb01f;
+    font: 14px/32px "microsoft yahei";
+    border-radius: 2px;
+    color: #000;
+    display: inline-block;
+    text-align: center;
+}
+
+
+/*底部*/
+
+.footer {
+    height: 84px;
+    text-align: center;
+    padding-top: 100px;;
+    color: #5c5c5c;
+}
+
+.footer a {
+    color: #5c5c5c;
+}
+
+
+/*主体内容*/
+
+.cont {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 34px;
+    border-bottom: solid 1px #ccc;
+}
+
+.cl {
+    width: 830px;
+    height: auto;
+    float: left;
+}
+
+.cltop {
+    border-bottom: solid 1px #ddd;
+    padding-bottom: 16px;
+}
+
+
+/*左侧新闻部分*/
+
+.avatar {
+    display: block;
+    width: 96px;
+    height: 96px;
+    float: left;
+}
+.avatar a img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.uidbox {
+    width: 250px;
+    height: 96px;
+    float: left;
+    padding-left: 24px;
+}
+
+.uidbox h2 {
+    font: normal normal 26px/26px "microsoft yahei";
+    color: #424140;
+    padding: 16px 0 18px;
+}
+
+.uidbox a {
+    display: inline-block;
+    width: 68px;
+    height: 30px;
+    border-radius: 4px;
+    background: #fcb01f;
+    color: #7b5305;
+    text-aligN: center;
+    font: 14px/30px "microsoft yahei";
+}
+
+.uidbox a:hover {
+    background: #1689e2;
+    color: #fff;
+}
+
+.pageposition {
+    width: 330px;
+    height: auto;
+    float: right;
+    font: 12px/12px "microsoft yahei";
+    color: #717374;
+    padding-top: 24px;
+    text-align: right;
+}
+
+.pageposition a {
+    color: #717374;
+}
+
+.pageposition a:hover {
+    color: #1689e2;
+}
+
+.share2 {
+    float: right;
+    padding-top: 26px;
+}
+
+span.shareico2 {
+    float: left;
+    display: inline-block;
+    margin-left: 6px;
+    padding-left: 20px;
+    background: url(../images/shareico.png) left center no-repeat;
+    font: 12px/20px "microsoft yahei";
+    color: #2c5722;
+    margin-right: 10px;
+}
+
+.newstitle {
+    width: 830px;
+    height: auto;
+    padding-top: 32px;
+    position: relative;
+}
+
+.newstitle b {
+    float: left;
+    display: block;
+    width: 82px;
+    height: 82px;
+    margin-right: 20px;
+}
+
+.newstitle h2 {
+    font: normal normal 26px/32px "microsoft yahei";
+    color: #424140;
+    float: left;
+    width: 580px;
+}
+
+.editor {
+    float: left;
+    font: 14px/22px "microsoft yahei";
+    color: #424140;
+    width: 580px;
+    background: url(../images/ico_13.jpg) left center no-repeat;
+    margin-top: 12px;
+    padding-left: 24px;
+}
+
+.regtime {
+    float: left;
+    font: 14px/22px arial;
+    color: #7e7e7e;
+    width: 580px;
+    background: url(../images/ico_16.jpg) left center no-repeat;
+    padding-left: 24px;
+}
+
+.ans {
+    width: 88px;
+    height: 30px;
+    float: right;
+    display: block;
+    border-radius: 4px;
+    font: 14px/30px "microsoft yahei";
+    color: #7b5305;
+    background: #fcb01f;
+    margin-top: 4px;
+    text-align: center;
+    position: absolute;
+    top: 36px;
+    right: 2px;
+}
+
+.ans:hover {
+    background: #1689e2;
+    color: #fff;
+}
+
+.newsview {
+    word-wrap: break-word;
+    width: 830px;
+    min-height: 200px;
+    padding: 24px 0;
+    font: 16px/28px "microsoft yahei";
+    color: #424140;
+}
+
+.newsview img {
+    max-width: 99%
+}
+
+.newsview p {
+    font: 16px/28px "microsoft yahei";
+}
+
+
+/*精彩回复*/
+
+.wonderarg {
+    width: 830px;
+    height: 46px;
+    border-bottom: solid 1px #ddd;
+    text-indent: 14px;
+    font: bold 16px/46px "microsoft yahei";
+    color: #333;
+}
+
+.argitem {
+    padding: 16px 0;
+    border-bottom: solid 1px #ddd;
+}
+
+.avatar2 {
+    width: 58px;
+    height: 58px;
+    float: left;
+    display: block;
+    padding: 3px;
+    border: solid 1px #ddd;
+    background: #fff;
+    margin-left: 22px;
+}
+
+.argright {
+    width: 714px;
+    height: auto;
+    float: right;
+}
+
+.argright h2 {
+    font: normal normal 14px/14px "microsoft yahei";
+    color: #1a1a1a;
+}
+
+.argright h2 a {
+    color: #216fe4;
+}
+
+.argtext {
+    font: 14px/24px "microsoft yahei";
+    color: #1a1a1a;
+    padding-top: 6px;
+}
+
+.argtime {
+    font: 12px/14px "microsoft yahei";
+    color: #666;
+    text-align: right;
+}
+
+.argtime img {
+    margin-right: 6px;
+    position: relative;
+    top: 2px;
+}
+
+.goodtime {
+    color: #bb0c0c;
+    margin-right: 8px;
+    position: relative;
+}
+
+.add_plus_effect b {
+    position: absolute;
+    left: 10px;
+    top: -6px;
+    z-index: 2;
+    font: 14px/20px "microsoft yahei";
+    width: 30px;
+    height: 20px;
+    text-align: center;
+    opacity: 0;
+}
+
+.add_plus_effect b.on {
+    -webkit-animation: plus 0.7s ease-in-out 0s both;
+    animation: plus 0.7s ease-in-out 0s both;
+}
+
+@-webkit-keyframes plus {
+    0% {
+        top: -6px;
+        opacity: 0;
+    }
+    50% {
+        top: -18px;
+        opacity: 1;
+    }
+    100% {
+        top: -30px;
+        opacity: 0;
+    }
+}
+
+@keyframes plus {
+    0% {
+        top: -6px;
+        opacity: 0;
+    }
+    50% {
+        top: -18px;
+        opacity: 1;
+    }
+    100% {
+        top: -30px;
+        opacity: 0;
+    }
+}
+
+.anslink {
+    color: #216fe4;
+    margin-left: 8px;
+}
+
+.anstextarea {
+    padding-top: 20px;
+    padding-left: 120px;
+    display: none;
+}
+
+.anstextarea textarea {
+    font: 12px/18px "microsoft yahei";
+    color: #555;
+    border: solid 1px #ddd;
+    padding: 10px 15px;
+    background: #fff;
+    width: 680px;
+    height: 46px;
+}
+
+.argtext2 {
+    font: 14px/24px "microsoft yahei";
+    color: #868686;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.argpage {
+    text-align: right;
+    font: 14px/48px "microsoft yahei";
+    color: #0766d2;
+}
+
+.argpage a {
+    color: #0766d2;
+    margin: 0 5px;
+}
+
+
+/*右侧内容*/
+
+.cr {
+    width: 240px;
+    height: auto;
+    float: right;
+}
+
+.commontitle {
+    height: 42px;
+    border-bottom: solid 1px #ddd;
+}
+
+.commontitle > p {
+    float: left;
+    display: inline;
+    font: 16px/42px "microsoft yahei";
+    color: #212121;
+}
+
+.commontitle > a {
+    float: right;
+    display: inline;
+    font: 12px/42px "microsoft yahei";
+    color: #616261;
+}
+
+.commontitle > a:hover {
+    color: #2c5722;
+}
+
+.newsmark {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 46px;
+    padding-right: 190px;
+    background: url(../images/bg_08.jpg) left center no-repeat;
+    margin: 7px 0;
+    height: 18px;
+    font: 11px/18px "microsoft yahei";
+    color: #fff;
+    text-align: center;
+}
+
+.newswrap {
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.newswrap h2 {
+    font: 16px/20px "microsoft yahei";
+    color: #1a1a1a;
+    padding: 10px 0 0;
+}
+
+.newswrap h2 a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.newswrap h2 a:hover {
+    text-decoration: underline;
+}
+
+.newswrap p {
+    font: 12px/24px "microsoft yahei";
+    color: #797979;
+    padding-top: 4px;
+    text-align: justify;
+    height: 75px;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+
+.privatelist {
+    padding: 2px 0;
+}
+
+.privatelist li {
+    padding: 2px 0;
+}
+
+.privatelist li h2 {
+    font: normal normal 14px/20px "microsoft yahei";
+    color: #1a1a1a;
+}
+
+.privatelist li h2 a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.privatelist li h2 a:hover {
+    text-decoration: underline;
+}
+
+.privatelist li p {
+    font: 12px/22px "microsoft yahei";
+    color: #888888;
+}
+
+.newsmark2 {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 66px;
+    padding-right: 170px;
+    background: url(../images/bg_30.jpg) left center no-repeat;
+    margin: 6px 0;
+    height: 18px;
+    font: 11px/18px "microsoft yahei";
+    color: #fff;
+    text-align: center;
+}
+
+.activelist {
+    padding: 2px 0;
+}
+
+.activelist li {
+    font: 14px/26px "microsoft yahei";
+    color: #262626;
+    width: 240px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.activelist li a {
+    color: #262626;
+    text-decoration: none;
+}
+
+.activelist li a:hover {
+    color: #262626;
+    text-decoration: underline;
+}
+
+.hotlist {
+    padding-top: 4px;
+}
+
+.hotlist li {
+    font: 14px/34px "microsoft yahei";
+    color: #1a1a1a;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.hotlist li a {
+    color: #1a1a1a;
+}
+
+.hotlist li a:hover {
+    color: #1689e2;
+}
+
+.hotpages {
+    text-aligN: center;
+    font: 14px/24px "microsoft yahei";
+    color: #0766d2;
+    padding-top: 11px;
+}
+
+.hotpages a {
+    color: #0766d2;
+    margin: 0 5px;
+}
+
+.commontitle a.create {
+    color: #1689e2;
+}
+
+.hotpages {
+    text-aligN: center;
+    font: 14px/24px "microsoft yahei";
+    color: #0766d2;
+    padding-top: 11px;
+}
+
+.hotpages a {
+    color: #0766d2;
+    margin: 0 5px;
+}
+
+
+/*发表回复*/
+
+.arg2 {
+    width: 1100px;
+    height: auto;
+    border-bottom: solid 1px #ccc;
+    margin: 0 auto;
+}
+
+.arg2 h2 {
+    font: bold 16px/46px "microsoft yahei";
+    color: #292929;
+}
+
+.argwid830 {
+    width: 830px;
+    height: auto;
+}
+
+.argwid830 b {
+    width: 58px;
+    height: 58px;
+    float: left;
+    display: block;
+    padding: 3px;
+    border: solid 1px #ddd;
+    background: #fff;
+    margin-left: 4px;
+}
+
+.arg_right2 {
+    width: 726px;
+    height: auto;
+    float: right;
+    padding-bottom: 32px;
+}
+
+.textarea2 {
+    width: 696px;
+    height: 140px;
+    padding: 10px 15px;
+    font: 12px/18px "microsoft yahei";
+    color: #666;
+    border: solid 1px #ddd;
+    background: #fff;
+}
+
+.arg2btns img {
+    margin-top: 8px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.argsubmit {
+    float: right;
+    display: inline-block;
+    width: 86px;
+    height: 34px;
+    text-align: center;
+    background: #fcb01f;
+    color: #936205;
+    border-radius: 4px;
+    font: 14px/34px "microsoft yahei";
+    margin-top: 10px;
+}
+
+.argsubmit:hover {
+    background: #1689e2;
+    color: #fff;
+}
+
+.joinnums {
+    float: left;
+    font: 14px/22px "microsoft yahei";
+    color: #424140;
+    width: 580px;
+    background: url(../images/ico_03.png) left center no-repeat;
+    padding-left: 24px;
+}
+
+.joinnums strong {
+    color: #990a0a;
+}
+
+.newstitle h2 span {
+    color: #990a0a;
+}
+
+
+/*投票列表*/
+
+.selectlist {
+    width: 678px;
+    height: auto;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.selectlist li {
+    font: 16px/54px "microsoft yahei";
+    color: #424140;
+    display: inline-block;
+    width: 100%
+}
+
+.selectlist li input {
+    float: right;
+    display: inline-block;
+    position: relative;
+    top: 20px;
+}
+
+.selectlist li span {
+    float: left;
+    display: inline;
+}
+
+.hei10 {
+    height: 10px;
+}
+
+
+/*投票结果列表*/
+
+.selectresult {
+    width: 778px;
+    height: auto;
+    margin: 0 auto;
+    padding: 14px 0;
+}
+
+.selectresult li {}
+
+.selectresult li h2 {
+    font: normal normal 16px/16px "microsoft yahei";
+    color: #292929;
+    padding: 20px 0;
+}
+
+.selectresult li h2 a {
+    color: #292929;
+}
+
+.per {
+    width: 678px;
+    height: 26px;
+    background: #eeeeee;
+    position: relative;
+}
+
+.per b {
+    display: block;
+    height: 26px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #3498db;
+}
+
+.per span {
+    display: block;
+    display: block;
+    height: 26px;
+    width: 104px;
+    position: absolute;
+    left: 692px;
+    top: 0px;
+    font: 14px/26px "microsoft yahei";
+    color: #585858;
+}
+
+.act_title {
+    font: normal normal 16px/18px "microsoft yahei";
+    color: #333;
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
+
+.act_text {
+    font: 16px/26px "microsoft yahei";
+    color: #444;
+}
+
+.act_text p {
+    font: 16px/26px "microsoft yahei";
+}
+
+
+/*线上活动列表*/
+
+.act_list {
+    width: 830px;
+    padding-top: 20px;
+}
+
+.act_list ul {
+    width: 870px;
+}
+
+.act_list ul li {
+    width: 252px;
+    height: 340px;
+    float: left;
+    margin-right: 35px;
+}
+
+.act_list ul li b {
+    display: block;
+    width: 252px;
+    height: 252px;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.act_list ul li .bg_span {
+    height: 252px;
+    width: 252px;
+    background-position: 50% 10%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.act_list ul li p {
+    width: 140px;
+    height: auto;
+    float: left;
+    font: 12px/20px "microsoft yahei";
+    color: #333333;
+}
+
+.act_list ul li span {
+    float: right;
+    font: bold 16px/20px arial;
+    color: #c30000;
+    text-align: right;
+}
+
+.act_list ul li span.percent {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: -12px;
+}
+
+.act_list ul li span input {
+    -webkit-transform: scale(1.3, 1.3);
+    transform: scale(1.6, 1.6);
+}
+
+.act_list2 {}
+
+.act_list2 ul {}
+
+.act_list2 ul li {
+    height: 346px;
+}
+
+.avatar3 {
+    width: 38px;
+    height: 38px;
+    float: left;
+    display: block;
+}
+
+.act_list2 ul li div.uid2 {
+    width: 140px;
+    float: left;
+    margin-left: 14px;
+}
+
+.act_list2 ul li div.uid2 a {
+    font: 12px/12px "microsoft yahei";
+    color: #cd8600;
+}
+
+.act_list2 ul li div.uid2 a:hover {
+    color: #0766d2;
+}
+
+.act_list2 ul li div.uid2 p {
+    font: 12px/20px "microsoft yahei";
+    color: #333333;
+    padding-top: 4px;
+}
+
+.heart {
+    width: 50px;
+    height: auto;
+    text-align: center;
+    float: right;
+    font: 12px/20px "microsoft yahei";
+    cursor: pointer;
+}
+
+.heart img {
+    display: block;
+    margin: 0 auto;
+}
+
+.heart img.on {
+    -webkit-animation: flash1 0.4s ease-in-out 0s both;
+    animation: flash1 0.4s ease-in-out 0s both;
+}
+
+.heart span.lovenum {
+    float: none;
+    font: 12px/20px "microsoft yahei";
+    padding-top: 3px;
+    display: block;
+    text-align: center;
+}
+
+@-webkit-keyframes flash1 {
+    0% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    50% {
+        -webkit-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+    }
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes flash1 {
+    0% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    50% {
+        -webkit-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+    }
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+.info {
+    margin-top: 32px;
+}
+
+.moviepic {
+    width: 306px;
+    float: left;
+}
+
+.moviepic img {
+    display: block;
+}
+
+.moviepic h2 {
+    font: normal normal 20px/64px "microsoft yahei";
+    color: #333;
+    text-align: center;
+}
+
+.ticket {
+    width: 490px;
+    height: auto;
+    float: right;
+    position: relative;
+}
+
+.moviename {
+    font: bold 26px/26px "microsoft yahei";
+    color: #313131;
+    padding-bottom: 24px;
+}
+
+.ticitem {
+    min-height: 36px;
+    border-bottom: dashed 1px #ddd;
+    width: 100%;
+}
+
+.ticitem p {
+    float: left;
+    display: inline-block;
+    width: 90px;
+    font: bold 14px/36px "microsoft yahei";
+    color: #313131;
+}
+
+.ticitem span {
+    float: left;
+    display: inline-block;
+    font: 14px/36px "microsoft yahei";
+    color: #313131;
+}
+
+.ans2 {
+    width: 88px;
+    height: 30px;
+    float: right;
+    display: block;
+    border-radius: 4px;
+    font: 14px/30px "microsoft yahei";
+    color: #7b5305;
+    background: #fcb01f;
+    margin-top: 4px;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.ans2:hover {
+    background: #1689e2;
+    color: #fff;
+}
+
+.ticrole {
+    width: 100%;
+    font: 14px/24px "microsoft yahei";
+    color: #333;
+}
+
+.ticitemlast {
+    border: none;
+    padding-top: 4px;
+}
+
+.ticitemlast p {
+    float: none;
+    display: block;
+}
+
+.sharewrap {
+    padding-top: 32px;
+}
+
+.share3 {
+    float: left;
+    padding-top: 15px;
+}
+
+.markname {
+    float: right;
+    display: inline-block;
+    width: 156px;
+    height: 52px;
+    border-radius: 6px;
+    background: #fcb01f;
+    color: #7b5305;
+    font: 16px/52px "microsoft yahei";
+    text-align: center;
+}
+
+.markname:hover {
+    background: #1689e2;
+    color: #fff;
+}
+
+.fans {}
+
+.fal {
+    width: 240px;
+    height: auto;
+    float: left;
+}
+
+.fanssearch {
+    height: 28px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    background: #dedede;
+}
+
+.searchtext {
+    float: left;
+    display: inline-block;
+    width: 180px;
+    padding-left: 10px;
+    font: 12px/28px "microsoft yahei";
+    color: #444;
+    background: none;
+    border: none;
+}
+
+.searchbtn {
+    display: inline-block;
+    float: right;
+}
+
+.searchbtn:focus {
+    border: none;
+}
+
+.onlinelist {
+    width: 240px;
+    height: 580px;
+    overflow: hidden;
+}
+
+.fanstab {
+    height: 40px;
+    border-bottom: solid 1px #ddd;
+}
+
+.fanstab ul {
+    float: left;
+}
+
+.fanstab ul li {
+    float: left;
+    font: 16px/40px "microsoft yahei";
+    color: #222;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.fanstab ul li.on {
+    height: 38px;
+    border-bottom: solid 3px #fcb01f;
+    position: relative;
+    color: #212121;
+}
+
+.fanstab span {
+    float: right;
+    font: 12px/40px "microsoft yahei";
+    color: #999;
+}
+
+.far {
+    width: 576px;
+    height: auto;
+    float: right;
+}
+
+.guestlist {
+    width: 576px;
+    height: 490px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.guitem {
+    height: auto;
+    padding-top: 0px;
+    padding-bottom: 14px;
+    width: 546px;
+    padding-left: 6px;
+}
+
+.guitem h2 {
+    font: 12px/24px "microsoft yahei";
+    color: #212121;
+}
+
+.guitem h2 a {
+    color: #212121;
+}
+
+.guitem h2 img {
+    position: relative;
+    top: 4px;
+    margin-right: 8px;
+}
+
+.guitem p {
+    font: 12px/20px "microsoft yahei";
+    color: #777;
+    padding-top: 4px;
+}
+
+.sendface {
+    padding: 10px 0;
+    text-align: right;
+}
+
+.sendface img {
+    margin-left: 8px;
+    display: inline-block;
+}
+
+.textarea1 {
+    width: 556px;
+    height: 70px;
+    border: solid 1px #ddd;
+    font: 12px/18px "microsoft yahei";
+    color: #444;
+    padding: 8px 10px;
+}
+
+.sendbtn {
+    width: 72px;
+    height: 28px;
+    border-radius: 4px;
+    background: #ffc916;
+    color: #a33300;
+    font: 14px/28px "microsoft yahei";
+    display: block;
+    text-align: center;
+    /* margin-left: 506px; */
+    margin-top: 8px;
+    margin-right: 0;
+    float: right;
+}
+
+.sendbtn:hover {
+    background: #1689e2;
+    color: #fff;
+}
+
+
+/**电影包场**/
+
+.flex-images {
+    overflow: hidden;
+}
+
+.flex-images .item {
+    float: left;
+    margin: 4px;
+    border: 1px solid #eee;
+    box-sizing: content-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.flex-images .item img {
+    width: 100%;
+    height: 100%;
+}
+
+.feedback {
+    padding-top: 6px;
+    width: 830px;
+}
+
+.fbtitle {
+    height: 42px;
+    border-bottom: solid 1px #ddd;
+}
+
+.fbtitle p {
+    font: 16px/42px "microsoft yahei";
+    color: #333;
+    float: left;
+    display: inline;
+    padding-left: 4px;
+}
+
+.fbtitle a {
+    float: right;
+    display: inline;
+    font: 14px/42px "microsoft yahei";
+    color: #1689e2;
+    margin-left: 10px;
+}
+
+.fblist {
+    width: 830px;
+    overflow-x: hidden;
+    padding-top: 26px;
+}
+
+.fblist ul {
+    width: 860px;
+}
+
+.fblist ul li {
+    width: 200px;
+    height: 150px;
+    float: left;
+    margin-bottom: 12px;
+    margin-right: 11px;
+}
+
+.fbpages {
+    padding-top: 8px;
+    padding-bottom: 20px;
+}
+
+.addactive {
+    width: 756px;
+    height: 610px;
+    background: #fff;
+    border-radius: 4px;
+    position: fixed;
+    left: 50%;
+    top: 45%;
+    margin-left: -378px;
+    margin-top: -305px;
+    z-index: 999;
+    box-shadow: 0 0 8px #444;
+    display: block;
+    overflow-x: hidden;
+}
+
+.addactive_video {
+    width: 756px;
+    height: 360px;
+    background: #fff;
+    border-radius: 4px;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    box-shadow: 0 0 8px #444;
+    display: block;
+    overflow-x: hidden;
+    height: auto;
+}
+
+.addactive_telephone {
+    width: 756px;
+    height: 360px;
+    background: #fff;
+    border-radius: 4px;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    box-shadow: 0 0 8px #444;
+    display: block;
+    overflow-x: hidden;
+    height: auto;
+}
+
+.addactive_topic {
+    width: 756px;
+    height: 610px;
+    background: #fff;
+    border-radius: 4px;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    box-shadow: 0 0 8px #444;
+    display: block;
+    overflow-x: hidden;
+    min-height: 570px;
+    height: auto;
+}
+
+.addactive_online_activity {
+    width: 756px;
+    background: #fff;
+    border-radius: 4px;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    box-shadow: 0 0 8px #444;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 550px;
+    min-height: 230px;
+    height: auto;
+}
+
+.addactive_movie_activity {
+    width: 756px;
+    background: #fff;
+    border-radius: 4px;
+    position: fixed;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    box-shadow: 0 0 8px #444;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 600px;
+    min-height: 230px;
+    height: auto;
+}
+
+.addtitle {
+    height: 52px;
+    border-bottom: solid 1px #ddd;
+}
+
+.addtitle p {
+    float: left;
+    display: inline;
+    font: 16px/52px "microsoft yahei";
+    color: #979797;
+    padding-left: 22px;
+}
+
+.topic_user_photo {
+    width: 58px;
+    height: 58px;
+}
+
+.textarea_movie_activity {
+    width: 556px;
+    height: 70px;
+    border: solid 1px #ddd;
+    font: 12px/18px "microsoft yahei";
+    color: #444;
+    padding: 8px 10px;
+}
+
+.upload_video_input {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+
+/**分页样式**/
+
+.current {
+    margin: 0 5px;
+    color: #5c5c5c;
+}
+
+
+/**电影包场页面**/
+
+.upload_feedback_img {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+
+/**阻止js**/
+
+.noscript {
+    position: fixed;
+    top: 20px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 24px;
+    z-index: 9;
+}
+
+
+/***图片裁剪展示**/
+
+.forum_bg_span {
+    height: 190px;
+    width: 190px;
+    background-position: 50% 10%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+}
+
+.recomend_online_bg_span {
+    width: 130px;
+    height: 130px;
+    background-position: 10% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.see_more,
+.no_more {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/**烟火**/
+
+canvas {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 20
+}
+
+#effect {
+    position: absolute;
+    top: 200px;
+    left: 400px;
+    font-size: 70px;
+    display: none;
+}

@@ -1,0 +1,320 @@
+body {
+	background:#fff;	
+}
+/*    反馈   */
+.feedback-bg {
+	background:url(../images/feedback/bg.jpg) no-repeat;
+	background-size:contain;
+	box-shadow:2px 2px 3px #aaa;
+	height:2.85rem;
+	position:relative;
+}
+
+
+/*    活动详情开始   */
+.film-name {
+	padding:.3rem 0;
+	text-align:center;
+}
+.film-name .video {
+	background:url(../images/detail/video.png) no-repeat;
+	background-size:contain;
+	width:.7rem;
+	height:.7rem;
+	display:inline-block;
+	margin-right:.2rem;
+	vertical-align:top;
+}
+.film-name .name {
+	display:inline-block;
+	font-size:.4rem;
+	color:#ef4343;
+	text-align:center;
+}
+.film-name .name span {
+	font-size:.55rem;
+	color:#444;
+}
+
+/*    影院信息   */
+.cinema-info {
+	border-top:#b9b8b8 solid 1px;
+	border-bottom:#b9b8b8 solid 1px;
+	padding:.2rem 0.7rem;
+	line-height:250%;
+}
+.cinema-info .name {
+	font-size:.45rem;
+	color:#ef4343;
+}
+.cinema-info .price {
+	float:right;
+	font-size:.45rem;
+	color:#ef4343;
+}
+.cinema-info .price em {
+	font-size:.3rem;	
+}
+.cinema-info .address {
+	font-size:.33rem;
+	color:#999;
+}
+.cinema-info .other {
+	font-size:.4rem;
+	color:#666;
+}
+.cinema-info .other span {
+	color:#ffa10e;	
+}
+/*    报名按钮   */
+.enroll {
+	background:#ef4343;
+	border:#c62c2c solid 1px;
+	box-shadow:2px 2px 3px #aaa;
+	width:4rem;
+	height:1rem;
+	line-height:1rem;
+	display:block;
+	margin:.5rem auto;
+	font-size:.6rem;
+	color:#fff;
+	text-align:center;
+	text-shadow:2px 2px 3px #333;
+}
+.end {
+	background:#e5e5e5;
+	border:#ccc solid 1px;
+	box-shadow:2px 2px 3px #aaa;
+	color:#fff;
+	text-shadow:2px 2px 3px #333;
+}
+
+.instructions {
+	margin-bottom:.5rem;
+	padding:0 3%;	
+}
+.instructions .title {
+	border-bottom:#c7c6c6 solid 1px;
+	padding:0 0 .3rem;
+	margin-bottom:.2rem;
+	text-align:center;
+	font-size:.4rem;
+	color:#333;
+}
+.instructions .title i {
+	background:#d87677;
+	display:inline-block;
+	width:.08rem;
+	height:.44rem;
+	margin-right:.18rem;
+	vertical-align:middle;
+	position:relative;
+	top:-.02rem;
+}
+.instructions p {
+	line-height:150%;
+	padding:0 .5rem;
+	font-size:.32rem;
+	color:#666;	
+}
+.instructions .pic-box {
+}
+.instructions .pic-box img {
+	margin:.1rem 1%;
+	width:30.70%;
+}
+
+
+.fixed-message {
+	background:rgba(0,0,0,.5);
+	position:fixed;
+	width:10rem;
+	height:8.2rem;
+	bottom:-7.7rem;
+}
+.fixed-message .message-bar {
+	width:10rem;
+	height:.5rem;
+	padding:.1rem 0 ;
+}
+.fixed-message .message-bar .horn {
+	background:url(../images/detail/horn.png);
+	background-size:contain;
+	width:.5rem;
+	height:.5rem;
+	float:left;
+	margin-left:.5rem;
+}
+.fixed-message .message-bar .pen {
+	background:url(../images/detail/pen.png);
+	background-size:contain;
+	width:.5rem;
+	height:.5rem;
+	float:right;
+	margin-right:.5rem;
+}
+.fixed-message .message-bar .message {
+	width:7.3rem;
+	padding:0 .3rem;
+	float:left;
+	font-size:.35rem;
+	color:#fff;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.fixed-message .message-bar .message span {
+	color:#ffa10e;
+}
+.fixed-message .message-box {
+	background:#ccc;
+	height:7.5rem;	
+}
+
+/*    上传   */
+.upload {
+	border-bottom:#b9b8b8 solid 1px;
+	margin-top:-0.8rem;
+}
+#demo {
+	margin:auto;
+	width:10rem;
+	min-height:3rem;
+}
+.upload .title {
+	border-bottom:#b9b8b8 solid 1px;
+	margin-bottom:.2rem;
+	padding:.1rem 3%;
+	font-size:.6rem;
+	color:#ffa10e;
+}
+.upload .my-upload {
+	float:left;
+	margin:0 3%;
+	font-size:.3rem;
+	line-height:.45rem;
+	color:#666;
+}
+
+.webuploader-container::after {
+  clear: both;
+  content: " ";
+  display: block;
+}
+
+
+/*    图片&视频   */
+.media-box {
+	padding:0 3%;
+}
+.media-box .title {
+	border-bottom:#c7c6c6 solid 1px;
+	padding:.3rem;
+	margin-bottom:.2rem;
+	text-align:left;
+	font-size:.4rem;
+	color:#333;
+}
+.media-box .title i {
+	background:#d87677;
+	display:inline-block;
+	width:.08rem;
+	height:.44rem;
+	margin-right:.18rem;
+	vertical-align:middle;
+	position:relative;
+	top:-.02rem;
+}
+.media-box .pic-box {
+	vertical-align:middle;
+	overflow-y: hidden;
+    overflow-x: hidden;
+}
+.media-box .pic-box .block {
+	margin-bottom:.2rem;	
+}
+.media-box .pic-box .left, .media-box .pic-box .right, .media-box .pic-box .middle {
+	width:2.2rem;
+	height:3.2rem;
+	float:left;	
+}
+.media-box .pic-box .middle {
+	width:4.6rem;
+	margin:0 .2rem;
+	overflow:hidden;
+}
+.media-box .pic-box .middle img {
+	width:4.6rem;
+	height:3.2rem;
+}
+.media-box .pic-box .left span, .media-box .pic-box .right span {
+	display:block;
+	width:2.2rem;
+	height:1.5rem;
+	overflow:hidden;
+	margin-bottom:.2rem;
+}
+.media-box .pic-box .left span:last-child, .media-box .pic-box .right span:last-child {
+	margin-bottom:0;
+}
+.media-box .pic-box .left img, .media-box .pic-box .right img {
+	width:2.2rem;
+	height:1.5rem;
+}
+.media-box .video-box {
+	margin:0 -3%;
+	padding:0 1.5%;
+}
+.media-box .video-box a {
+	width:1.64rem;
+	height:1.64rem;
+	display:block;
+	float:left;
+	margin:0 1.5% 2%;
+	position:relative;
+}
+.media-box .video-box a:after {
+	background:url(../images/feedback/play.png);
+	background-size:contain;
+	width:.64rem;
+	height:.64rem;
+	display:block;
+	position:absolute;
+	top:.5rem;
+	left:.5rem;
+	z-index:999;
+	content: " ";
+}
+.media-box .video-box a img {
+	width:1.64rem;
+	height:1.64rem;
+}
+
+#grid-container{
+	width: 100% !important;
+}
+
+a.grid-item{
+	display: inline-block;
+}
+
+.grid-item img {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.ofh{
+	overflow: hidden;
+}
+
+.ofa{
+	overflow: auto;
+}
+
+
+
+
+
+
+

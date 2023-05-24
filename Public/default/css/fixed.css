@@ -1,0 +1,118 @@
+.validnum span[disabled] {float:right;width:134px;height:42px;font:14px/42px "microsoft yahei";color:#fff;text-align:center;border-radius:3px;display:inline-block;background:#C7C7C7;cursor:pointer;}
+
+.loginbox{display:block;}
+.picroll img{width:190px;height: 190px;}
+#upload_forumpicture{opacity: 0;width: 1px;height: 1px;}
+.actlist li {height: 30px;}
+.publist li img{width: 132px;height:132px;}
+.hotpages span{color:#5c5c5c;}
+.videopages span{color:#5c5c5c;}
+.onlinelist li img{width:23px;height: 23px;}
+.guestlist h2 img{width: 23px;height: 23px;}
+span.encrollend_span{background: none;}
+#encrollend_custom_date{    
+	height: 28px;
+    border: solid 1px #ddd;
+    padding: 0 15px;
+    font: 12px/30px "microsoft yahei";
+    color: #444;
+    border-radius: 2px;
+}
+.vote_image {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.add_submit {border:none;    margin-bottom: 20px;}
+.imp_none{display:none !important;}
+.addactive {
+    min-height: 650px;
+    height: auto;
+}
+.delete_option{    
+    font-size: 18px;
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    background-size: contain;
+    background-image: url('/Public/default/images/icon_option_delete.png');
+    width: 28px;
+    height: 20px;
+    display: none;
+}
+.add_title {
+    height: 52px;
+    border-bottom: solid 1px #ddd;
+}
+.add_title p{
+	float:left;display:inline;font:16px/52px "microsoft yahei";color:#979797;padding-left:22px;
+}
+
+span[disabled]{background:#C7C7C7;}
+.success_text{
+	padding-left: 50px;
+    font-size: 20px;
+}
+.guitem img{
+    width:99%;
+}
+img.sina-emotion{
+    width:22px !important;
+    height: 22px !important;
+}
+.preview_img{
+    float:left;
+}
+.preview_img img{
+    width: 25px !important;
+    height: 25px !important;
+}
+.delete_preview{
+    font-size: 12px;
+    padding-left: 12px;
+    padding-top: 6px;
+    position: absolute;
+}
+.delete_preview:hover{
+    color: #eb7350;
+}
+.upload_message_image{
+    opacity: 0;
+    width:1px;
+    height: 1px;
+}
+.newswrap img{
+    width: 100%;
+}
+
+.argtext img{
+    max-width: 100%;
+}
+
+.poster_img{
+    width: 252px;
+    height: 252px;
+}
+img.heart_img{
+    width: 24px;
+    height: 24px;
+}
+.moviepic img{
+    width:305px;
+    height:458px;
+}
+.newstitle img{
+    width:82px;
+    height: 82px;
+}
+.upload_poster_img{
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+.jcrop-holder{
+    margin: 20px auto;
+}
+.online_activity_user_img{
+    width: 38px;
+    height: 38px;
+}

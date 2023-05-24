@@ -1,0 +1,16 @@
+<div class="act_list">
+<ul>
+	<{volist name="wrap_results" id='res' key='k'}>
+    <li>
+        <b><a href="<{$res.image}>" title="" class="fancybox"><span class="bg_span" style="background-image: url(<{$res.image}>)"></span></a></b>
+        <p><{$res.text}></p>
+        <span>
+        	<span><{$res.value}></span>
+        	<span class="percent"><{$res.percent}>%</span>
+		</span>
+        <div class="clear"></div>
+    </li>
+	<{/volist}>
+    <div class="clear"></div>
+</ul>
+</div>

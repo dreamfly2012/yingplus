@@ -1,0 +1,14 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/online.css"/>
+<div class="wrap" id="wrap">
+	<{include file="default/mobile/nav" title="搜索结果页"/}>
+	
+	<{foreach name="lists" item="list"}>
+	<a class="autolist" href="<{:U('Mobile/chat',array('type'=>4,'pid'=>16,'username'=>$list['nickname']))}>" title=""><{$list.nickname}></a>
+	<{/foreach}>
+	
+	
+	<div class="alphabg"></div>
+</div>
+</body>
+</html>

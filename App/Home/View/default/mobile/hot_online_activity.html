@@ -1,0 +1,145 @@
+<{if condition="$online_top_activity"}>
+<h2 class="comtitle">
+<span style="color:#5E5FEF;">【推荐】</span>
+<{if condition="$online_top_activity.type eq 8"}><span style="color:#ffc600;">【投票】</span><{/if}><{if condition="$online_top_activity.type eq 9"}><span style="color:#ffc600;">【征集】</span><{/if}>
+<a href="<{:U('Mobile/activity',array('aid'=>$online_top_activity['id']))}>" title=""><{$online_top_activity.subject}></a></h2>
+<{if condition="$online_top_activity.type eq 8"}>
+	<{if condition="$online_top_activity.vote_type eq 'image'"}>
+		<ul class="tabul2">
+		<{volist name="online_wrap_questions" id="question" key='k' offset="0" length="3"}>
+			<li><a href="<{:U('Mobile/activity',array('aid'=>$online_top_activity['id']))}>" title="<{$online_top_activity.subject}>"><span class="recomend_online_bg_span" style="background-image: url(<{$question.image|buildImgUrl}>)"></span></a></li>
+		<{/volist}>
+		</ul>
+	<{else/}>
+		<ul class="tabul2">
+		<{volist name="questions" id='question' key='k' offset="0" length="3"}>
+		<li><label><input type="radio" value="" name=""><span><{$question}></span></label><div class="clear"></div></li>
+		<{/volist}>
+		</ul>
+	<{/if}>
+<{else/}>
+	<ul class="tabul2">
+	<{volist name="posters" id="poster" key='k' offset="0" length="3"}>
+		<li><a href="<{:U('Mobile/activity',array('aid'=>$online_top_activity['id']))}>" title=""><span class="recomend_online_bg_span" style="background-image: url(<{$poster.img_url}>)"></span></a></li>
+	<{/volist}>
+	</ul>
+<{/if}>
+<div class="tab_nums">
+	<a href="javascript:;" title="参与人数"><img src="/Public/mobile/images/ico_19.jpg"> <{$online_top_activity.id|getOnlineVoteNum}></a>
+	<a href="javascript:;" title="回复人数"><img src="/Public/mobile/images/ico_20.jpg"> <{$online_top_activity.id|getResponseCountByPidType=2}></a>
+</div>
+<{/if}>
+
+
+
+<{volist name="online_activities" id="online_activity"}>
+	<{if condition="$online_activity.isadminrecommend neq 1"}>
+	<h2 class="comtitle">
+	<{if condition="$online_activity.type eq 8"}><span style="color:#ffc600;">【投票】</span><{/if}><{if condition="$online_activity.type eq 9"}><span style="color:#ffc600;">【征集】</span><{/if}>
+	<a href="<{:U('Mobile/activity',array('aid'=>$online_activity['id']))}>" title=""><{$online_activity.subject}></a>
+	</h2>
+	<{/if}>
+	<{if condition="$online_activity.isadminrecommend neq 1"}>
+		<{if condition="$online_activity.type eq 8"}>
+			<{if condition="$online_activity.vote_type eq 'image'"}>
+				<{volist name="$online_activity.online_wrap_questions" id="question" key='k'}>
+					<a href="<{:U('Mobile/activity',array('aid'=>$online_activity['id']))}>" title="<{$online_activity.subject}>"><span class="recomend_online_bg_span" style="background-image: url(<{$question.image|buildImgUrl}>)"></span></a>
+				<{/volist}>
+			<{else}>
+				<ul class="tabul2">
+				<{volist name="$online_activity.questions" id='question' key='k'}>
+				<li><label><input type="radio" value="" name=""><span><{$question}></span></label><div class="clear"></div></li>
+				<{/volist}>
+				</ul>
+			<{/if}>
+		<{else/}>
+			<{volist name="$online_activity.posters" id="poster" key='k' offset="0" length="15"}>
+				<li><a href="<{:U('Mobile/activity',array('aid'=>$online_top_activity['id']))}>" title=""><span class="recomend_online_bg_span" style="background-image: url(<{$poster.img_url}>)"></span></a></li>
+			<{/volist}>
+		<{/if}>
+		<div class="tab_nums">
+			<a href="javascript:;" title="参与人数"><img src="/Public/mobile/images/ico_19.jpg"> <{$online_activity.id|getOnlineVoteNum}></a>
+			<a href="javascript:;" title="回复人数"><img src="/Public/mobile/images/ico_20.jpg"> <{$online_activity.id|getResponseCountByPidType=2}></a>
+		</div>
+	<{/if}>
+<{/volist}>
+<div class="createbtns" style="border-bottom: 1px solid #ddd;">
+	<a href="javascript:void(0);" title="我要创建" data-fid="<{$fid}>" class="create_online_activity">我要创建</a>
+	<a href="<{:U('Mobile/activitylist',array('tab'=>2))}>" title="查看更多">查看更多</a>
+	<div class="clear"></div>
+</div>
+
+
+<ul class="tab2ul">
+	<div class="remen huati_video_tab createbtns">
+		<a class="huati"><img src="/Public/mobile/images/ico_20.jpg">热门视频</a>
+		<a class="huati"><img src="/Public/mobile/images/ico_20.jpg">热门话题</a>
+	</div>
+	
+	<div>
+	<div class="huati_video_content">
+		<div class="single-createbtns" style="border-bottom: 1px solid #ddd;">
+			<a href="javascript:void(0);" title="我要创建" data-fid="<{$fid}>" class="upload_video">上传视频</a>
+			<div class="clear"></div>
+		</div>
+		<{foreach name="videos" item="video"}>
+	    <div class="videoshowitem">
+	        <a href="<{:U('Mobile/showvideo',array('id'=>$video['id']))}>" title="" class="fancybox">
+	            <span class="play"></span>
+	            
+	            <!-- <span class="user"><{$video.uid|getUserNicknameById}></span> -->
+	            <div class="mask">
+	            	<h2><{$video.title}></h2>
+	            </div> 
+	            <img src="<{$video.cover}>" alt="">
+	        </a>
+	    </div>
+	    <{/foreach}>
+	</div>
+	<div class="huati_video_content" style="display: none">
+	<{foreach name="hot_topics" item="topic"}>
+	<{if condition="empty($topic['image_list'])"}>
+	<li>
+		<h2>
+		<{if condition="$topic.admin_digest eq 1"}><span class="site_blue">【精】</span><{/if}>
+		<a href="<{:U('Mobile/topic')}>" title="<{$topic.subject}>">
+			<{$topic.subject}>
+		</a>
+		</h2>
+	</li>
+	<{else/}>
+	<div class="image_content">
+		<h2>
+		<{if condition="$topic.admin_digest eq 1"}><span class="site_blue">【精】</span><{/if}>
+		<a href="<{:U('Mobile/topic',array('tid'=>$topic['id']))}>" title="<{$topic.subject}>">
+			<{$topic.subject}>
+			<div class="clear"></div>
+			<div class="rm_img">
+			<{volist name='topic.image_list' id='image' offset="0" length="3"}>   
+			<div><a href="<{:U('Mobile/topic',array('tid'=>$topic['id']))}>" title=""><img src="<{$image.src}>" alt=""></a></div>
+			<{/volist}>
+			<div class="clear"></div>
+		</div>
+		</a>
+		</h2>
+	</div>
+	<{/if}>
+	<{/foreach}>
+	<div class="createbtns">
+		<a href="javascript:void(0);" title="我要创建" class="create_topic" data-fid="<{$fid}>">我要创建</a>
+		<a href="<{:U('Mobile/topiclist')}>" title="查看更多">查看更多</a>
+		<div class="clear"></div>
+	</div>
+	</div>
+	</div>
+</ul>
+
+
+
+<script type="text/javascript">
+	$('.huati_video_tab').children('a').click(function(){
+		var index = $('.huati_video_tab').children('a').index($(this));
+		console.log(index);
+		$('.huati_video_content').eq(index).css('display','block').siblings().css('display','none');
+	});
+</script>

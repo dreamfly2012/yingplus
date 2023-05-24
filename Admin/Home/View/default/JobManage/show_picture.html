@@ -1,0 +1,320 @@
+<{include file="default/Public/header" /}>
+
+<link rel="stylesheet" href="__PUBLIC__/admin/css/topic.css" type="text/css" />
+
+<body class="page-header-fixed">
+
+<!-- BEGIN CONTAINER -->
+
+<div class="page-container row-fluid">
+
+    <!-- BEGIN SIDEBAR -->
+
+    <{include file="default/index/left" /}>
+
+    <!-- END SIDEBAR MENU -->
+
+</div>
+
+<!-- END SIDEBAR -->
+
+<!-- BEGIN PAGE -->
+
+<div class="page-content">
+
+    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+    <div id="portlet-config" class="modal hide">
+
+        <div class="modal-header">
+
+            <button data-dismiss="modal" class="close" type="button"></button>
+
+            <h3>portlet Settings</h3>
+
+        </div>
+
+        <div class="modal-body">
+
+            <p>Here will be a configuration form</p>
+
+        </div>
+
+    </div>
+
+    <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+    <!-- BEGIN PAGE CONTAINER-->
+
+    <div class="container-fluid">
+
+        <!-- BEGIN PAGE HEADER-->
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <!-- END BEGIN STYLE CUSTOMIZER -->
+
+                <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+                <h3 class="page-title">
+
+
+
+                    工作室管理>>图片墙管理>><small>查找条件</small>
+
+
+
+                </h3>
+
+                <!-- END PAGE TITLE & BREADCRUMB-->
+
+            </div>
+
+        </div>
+
+        <!-- END PAGE HEADER-->
+
+        <!-- BEGIN PAGE CONTENT-->
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+                <div class="portlet box light-grey topic-class">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>照片墙</div>
+
+                        <div class="tools">
+
+                            <a href="javascript:;" class="collapse"></a>
+
+                            <a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+                            <a href="javascript:;" class="reload"></a>
+
+                            <a href="javascript:;" class="remove"></a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <label>
+                        工作室：
+                    </label>
+                    <select name="fid" id="fid">
+                        <{foreach name="forums" item="forum"}>
+                        <option value="<{$forum.id}>" <{if condition="$_GET['fid'] eq $forum['id']"}>selected="selected"<{/if}>><{$forum.name}></option>
+                        <{/foreach}>
+                    </select>
+
+                    <button id="search_forum" class="btn blue">查询</button>
+                    
+                    <div>
+                        <button class="btn green" id="all_select">全选</button>
+                        <button class="btn green" id="reverse_select">反选</button>
+                        <button class="btn red" id="delete">删除</button>
+                    </div>
+                    
+                    
+                    <div class="portlet-body height500 width800">
+
+                        <div id="picturewall">
+                           <{foreach name="pictures" item="picture"}>
+                                <a href="<{$picture.img_url}>" class="fancybox" rel="gallery1">
+                                    <img src="<{$picture.img_url}>" class="preview-picture" />
+                                    <input type="checkbox" data-id="<{$picture.id}>" class="picture_checkbox"/> 
+                                </a>
+                           <{/foreach}> 
+                        </div>
+
+                        <div class="clearfix pagination"> 
+                            <div>
+                            <{$page}>
+                            </div> 
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- END EXAMPLE TABLE PORTLET-->
+
+            </div>
+
+        </div>
+
+        <!-- END PAGE CONTENT-->
+
+    </div>
+
+    <!-- END PAGE CONTAINER-->
+
+</div>
+
+<!-- END PAGE -->
+
+</div>
+
+<!-- END CONTAINER -->
+
+<!-- BEGIN FOOTER -->
+
+<{include file="default/Public/footer" /}>
+<style type="text/css">
+    .height500{
+        height: 500px;
+    }
+    .width800{
+        width: 800px;
+    }
+    .clearfix{
+        clear:both;
+    }
+    .picture_checkbox{
+        width:30px !important;
+        height: 30px !important;
+        left:0;
+        top:0;
+        display: block;
+        position: absolute;
+    }
+    
+    #picturewall a{
+        width: 100px;
+        height: 100px;
+        opacity: 0.4;
+        border: 1px solid #555;
+        margin: 0px 20px 23px 0px;
+        display: block;
+        position: relative;
+        float: left;
+    }
+    .preview-picture{
+        width: 100px;
+        height: 100px;
+    }
+    
+    #picturewall a:hover{
+        opacity: 1;
+    }
+</style>
+
+<script>
+
+    jQuery(document).ready(function() {
+        //App.init();
+        $('.picture_checkbox').click(function(e){
+            //e.preventDefault();
+            e.stopPropagation();
+        });
+    }); 
+
+    var show_picture_url = "<{:U('JobManage/showPicture')}>";
+    var delete_picture_url = "<{:U('JobManage/deletePicture')}>";
+
+    $('#search_forum').click(function(){
+        var fid = $('#fid').val();
+        window.location.href = show_picture_url + '&fid=' + fid;
+    });
+
+    //全选
+    $('#all_select').click(function(){
+        $('.picture_checkbox').prop('checked',true);
+    });
+    
+    //反选
+    $('#reverse_select').click(function(){
+        var length = $('.picture_checkbox').length;
+        for(i=0;i<length;i++){
+            if($('.picture_checkbox').eq(i).prop('checked')){
+                $('.picture_checkbox').eq(i).prop('checked',false);
+            }else{
+                $('.picture_checkbox').eq(i).prop('checked',true);
+            }
+        }
+    });
+
+    //删除
+    $('#delete').click(function(){
+        if(confirm('是否真的删除?')){
+            var ids = "";
+            var length = $('.picture_checkbox').length;
+            for(i=0;i<length;i++){
+                if($('.picture_checkbox').eq(i).prop('checked')){
+                    var id  = $('.picture_checkbox').eq(i).attr('data-id');
+                    ids += id + ',';
+                }
+            }
+
+            $.post(delete_picture_url,{'ids':ids},function(result){
+                if(result.data.code==0){
+                    window.location.reload();
+                }else{
+                    alert(result.data.message);
+                }
+            });
+        }
+    });
+
+    //显示特效
+    $("#picturewall img").each(function(){
+        d = Math.random()*1000; //1ms to 1000ms delay
+        $(this).delay(d).animate({opacity: 0}, {
+            step: function(n){
+                s = 1-n; //scale - will animate from 0 to 1
+                $(this).css("transform", "scale("+s+")");
+            }, 
+            duration: 1000, 
+        })
+    }).promise().done(function(){
+        //after *promising* and *doing* the fadeout animation we will bring the images back
+        storm();
+    })
+
+    //bringing back the images with style
+    function storm()
+    {
+        $("img").each(function(){
+            d = Math.random()*1000;
+            $(this).delay(d).animate({opacity: 1}, {
+                step: function(n){
+                    //rotating the images on the Y axis from 360deg to 0deg
+                    ry = (1-n)*360;
+                    //translating the images from 1000px to 0px
+                    tz = (1-n)*1000;
+                    //applying the transformation
+                    $(this).css("transform", "rotateY("+ry+"deg) translateZ("+tz+"px)");
+                }, 
+                duration: 3000, 
+                //some easing fun. Comes from the jquery easing plugin.
+                easing: 'easeOutQuint', 
+            })
+        })
+    }
+    
+</script>
+
+<script>
+
+    $('.gongzuo-picture').parent().show().parent().addClass('active ').siblings().removeClass('active');
+    $('.gongzuo-picture a').css('color','#ffffff');
+    $('.gongzuo-picture a').css('background','#575757');
+
+</script>
+
+</body>
+
+<!-- END BODY -->
+
+
+
+</html>
+

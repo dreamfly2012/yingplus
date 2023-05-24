@@ -1,0 +1,55 @@
+<{if condition="$fid eq 16"}>
+
+<div class="bannerwrap">
+	<div class="container bannerin">
+		<a href="javascript:;" title=""><img src="/Public/default/images/banner16.png" alt=""></a>
+		<div class="bannerinfo">
+			<h2 class="filmname">
+				夏有乔木 雅望天堂 <span>Sweet Sixteen</span>
+			</h2>
+			<p class="filmlimit">
+				距电影上映还有 <span><{$daojishi|getday}></span> 天   <{$fid|getFansgroupById}>发起包场 <span><{$activity_count}></span> 场
+			</p>
+			<img src="/Public/default/images/ico_text_16.png" class="filmmark">
+		</div>
+		<a href="<{$wuyifan_seminar_url}>" title="进入电影专题页" target="_blank"  class="viewmore">进入电影专题页</a>
+	</div>
+</div>
+
+<{elseif condition="$fid eq 19"/}>
+<div class="bannerwrap">
+	<div class="container bannerin">
+		<a href="javascript:;" title=""><img src="/Public/default/images/banner19.png" alt=""></a>
+		<div class="bannerinfo">
+			<h2 class="filmname">
+				夜孔雀 <span>Le Paon de Nuit</span>
+			</h2>
+			<p class="filmlimit">
+				距电影上映还有 <span><{$daojishi|getday}></span> 天   <{$fid|getFansgroupById}>发起包场 <span><{$activity_count}></span> 场
+			</p>
+			<img src="/Public/default/images/ico_text_19.png" class="filmmark">
+		</div>
+		<a href="<{$liuyifei_seminar_url}>" title="进入电影专题页" target="_blank"  class="viewmore">进入电影专题页</a>
+	</div>
+</div>
+
+<{elseif condition="$fid eq 2"/}>
+<div class="bannerwrap">
+	<div class="container bannerin">
+		<a href="javascript:;" title=""><img src="/Public/default/images/banner2.png" alt=""></a>
+		<div class="bannerinfo">
+			<h2 class="filmname">
+				三人行 <span>Three on the road</span>
+			</h2>
+			<p class="filmlimit">
+				距电影上映还有 <span><{$daojishi|getday}></span> 天   <{$fid|getFansgroupById}>发起包场 <span><{$activity_count}></span> 场
+			</p>
+			<img src="/Public/default/images/ico_text_2.png" class="filmmark">
+		</div>
+		<a href="<{$zhonghanliang_seminar_url}>" title="进入电影专题页" target="_blank" class="viewmore">进入电影专题页</a>
+	</div>
+</div>
+<{else/}>
+
+
+<{/if}>

@@ -1,0 +1,74 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/movie_activity.css"/>
+
+<div class="wrap" id="wrap">
+	<{include file="default/mobile/nav" title="包场活动"/}>
+	
+	<div class="filmwrap">
+		<div class="filmbg" style="background:url(<{$activity.movie|getMoviePoster|getAttachmentUrlById}>) center no-repeat;background-size: cover;"></div>
+		<h1><{$activity.movie|getMovieTitle}> </h1>
+		<img src="<{$activity.movie|getMoviePoster|getAttachmentUrlById}>" alt="" class="filmimg">
+
+		<{if condition="time() gt $activity['holdstart']"}>
+		<a href="javascript:;" title="已结束" class="filmmark">已 结 束</a>
+		<{else/}>
+            <{if condition="time() gt $activity['enrollendtime']"}>
+                <a href="javascript:;" title="停止报名" class="filmmark" data-aid="<{$activity.id}>">停 止 报 名</a>
+            <{else/}>
+                <{if condition="!checkIsEnroll(session('uid'),$activity['id'])"}>
+                    <a href="javascript:;" title="我要报名" class="filmmark movie-activity-enroll" data-aid="<{$activity.id}>">我 要 报 名</a>
+                <{else/}>
+                	<a href="javascript:;" title="我要报名" class="filmmark movie-activity-enroll" data-aid="<{$activity.id}>">已 报 名</a>
+                <{/if}>
+            <{/if}>
+        <{/if}>
+
+		<span class="filmblank"><img src="/Public/mobile/images/blank_02.jpg"></span>
+	</div>
+	<h2 class="addr"><{$activity.subject}></h2>
+	<ul class="infolist">
+		<{if condition="$activity.direct_pay neq 1"}>
+		<li><p>时间：</p><span><strong><{$activity.holdstart|date='Y-m-d',###}> <{$activity.holdstart|date='H:i',###}></strong></span><div class="clear"></div></li>
+		<{/if}>
+		<li><p>人数：</p><span><strong><{$activity.id|getBoughtTicketByAid}>/<{$activity.enrolltotal}></strong></span><div class="clear"></div></li>
+		<li><p>发起者：</p><span><{$activity.uid|getUserNicknameById}></span><div class="clear"></div></li>
+		<{if condition="$activity.direct_pay neq 1"}>
+		<li><p>票价：</p><span><strong><{$activity.id|getTicketPriceByAid}></strong> 元</span><div class="clear"></div></li>
+		<{/if}>
+		<li><p>地点：</p><span><{$activity.holdprovince|getPlaceNameById}><{$activity.holdcity|getPlaceNameById}><{$activity.detailaddress}></span><div class="clear"></div></li>
+	</ul>
+	<div class="role">
+		<span class="roletitle">规则：</span>
+		<{$activity.movie|getMovieRuleById}>
+	</div>
+	
+	
+	<span class="footblank"></span>
+	<div class="footico">
+		<a href="<{:U('Mobile/chat',array('type'=>2,'pid'=>$activity['id']))}>" title="讨论组"><img src="/Public/mobile/images/ico1_03.png" alt="讨论组"> 讨论组</a>
+		<a href="<{:U('Mobile/movieActivityFeedbackImage',array('aid'=>$activity['id']))}>" title="活动反馈"><img src="/Public/mobile/images/ico1_04.png" alt="活动反馈"> 活动反馈</a>
+		<a href="javascript:;" title="分享"><img src="/Public/mobile/images/ico2_05.png" alt="分享"> 分享</a>
+		<div class="clear"></div>
+	</div>
+	
+	
+	<div class="alphabg"></div>
+	<div class="share">
+		<h2 class="sharetitle">分享</h2>
+		<div class="sharewrap">
+			<a href="javascript:;" title="新浪微博" class="share_movie_activity_weibo"><img src="/Public/mobile/images/share_03.png" alt="新浪微博">新浪微博</a>
+			<a href="javascript:;" title="QQ空间" class="share_movie_activity_qzone"><img src="/Public/mobile/images/share_05.png" alt="QQ空间">QQ空间</a>
+			<a href="javascript:;" title="QQ好友" class="share_movie_activity_qq"><img src="/Public/mobile/images/share_07.png" alt="QQ好友">QQ好友</a>
+			<a href="javascript:;" title="微信朋友圈" class="share_movie_activity_weixin"><img src="/Public/mobile/images/share_09.png" alt="微信朋友圈">微信朋友圈</a>
+			<div class="clear"></div>
+		</div>
+		<a href="javascript:;" title="关闭" class="closebtn close_share"><img src="/Public/mobile/images/close2.png" alt="关闭"></a>
+	</div>
+
+</div>
+<{include file="default/mobile/footer"/}>
+<script src="/Public/mobile/js/movie_activity.js"></script>
+
+
+</body>
+</html>

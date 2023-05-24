@@ -1,0 +1,205 @@
+<{include file="default/Public/header" /}>
+    <link href="__PUBLIC__/admin/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        .delete_mobile_banner_checkbox{
+            position: absolute;
+            margin-left: -28px;
+            width: 30px;
+            height: 30px;
+            margin-top: 0px;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/umeditor/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/admin/umeditor/umeditor.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/admin/umeditor/lang/zh-cn/zh-cn.js"></script>
+    <div class="page-container row-fluid">
+        <!-- BEGIN SIDEBAR -->
+        <{include file="default/Index/left" /}>
+            <!-- BEGIN PAGE -->
+            <div class="page-content">
+
+                <!-- BEGIN PAGE CONTAINER-->
+                <div class="container-fluid">
+                    <!-- BEGIN PAGE HEADER-->
+
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="portlet box blue tabbable">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-reorder"></i>
+                                        <span class="hidden-480">电影编辑</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body form">
+                                    <div class="tabbable portlet-tabs">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#portlet_tab1" data-toggle="tab">默认风格</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="portlet_tab1">
+                                                <!-- BEGIN FORM-->
+                                                <form action="<{:U('Home/ActivityMovie/edit')}>" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 电影名称：</label>
+                                                        <div class="controls">
+                                                            <input style="width: 90px" class="Wdate m-wrap small" name="title" type="text" value="<{$movie.title}>"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 电影票房id：</label>
+                                                        <div class="controls">
+                                                            <input style="width: 90px" class="Wdate m-wrap small" name="box_office_id" type="text" value="<{$movie.box_office_id}>"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 所属工作室：</label>
+                                                        <div class="controls">
+                                                            <{foreach name="forums" item="forum"}>
+                                                                <input type="checkbox" name="fid[]" value="<{$forum.id}>" <{if condition='$forum.id eq $fid'}>checked="checked"<{/if}>></span> <label><{$forum.name}></label>
+                                                            <{/foreach}>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">活动规则：</label>
+                                                        <div class="controls">
+                                                            <textarea class="large m-wrap" rows="6" name="rule"><{$movie.rule}></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">电影简介：</label>
+                                                        <div class="controls">
+                                                            <textarea class="large m-wrap" rows="6" name="desc"><{$movie.desc}></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">电影海报：</label>
+                                                        <div class="controls">
+
+
+                                                            <a class="fancybox" href="<{$movie['poster']|getAttachmentUrlById|buildImgUrl}>">
+
+                                                                <img width="50px" src="<{$movie['poster']|getAttachmentUrlById|buildImgUrl}>"/>
+
+                                                            </a>
+
+
+
+                                                            <div>
+
+                                                                替换图片：
+
+                                                                <input type="file" name="file_0"/>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">手机轮播海报：</label>
+                                                        <div class="controls">
+                                                            <{foreach name="mobile_banners" item="banner"}>
+                                                            <a class="fancybox" href="<{$banner|getAttachmentUrlById|buildImgUrl}>">
+                                                                <img class="mobile_banner" data-id="<{$banner}>" style="width:50px;height:50px" src="<{$banner|getAttachmentUrlById|buildImgUrl}>"/>
+                                                            </a>
+                                                            <{/foreach}>
+                                                            <span class="delete_img btn blue">删除图片</span>
+                                                            <span class="confirm_delete_img hide btn red">确定</span>
+                                                            <span class="cancel_delete_img hide btn red">取消</span>
+
+                                                            <div>
+                                                                添加图片：
+                                                                <input type="file" name="file_1[]" multiple="multiple" />
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">上映日期：</label>
+                                                        <div class="controls">
+                                                            <input id="d4311" style="width: 90px;margin-left: 6px;" value="<{$movie.releasetime|date='Y-m-d',###}>" name="releasetime" class="Wdate" type="text" onfocus="WdatePicker({maxDate:'2020-10-01'})">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="control-group">
+                                                        <label class="control-label">是否上线：</label>
+                                                        <div class="controls">
+                                                            <input class="large m-wrap" type="checkbox" name="status" value="1" <{if condition="$movie.status eq 1"}>checked="checked"<{/if}>/>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-actions">
+                                                        <input type="hidden" name="id" value="<{$movie.id}>" />
+                                                        <button type="submit" class="btn blue"><i class="icon-ok"></i> 保存</button>
+                                                        <button type="button" class="btn">取消</button>
+                                                    </div>
+                                                </form>
+                                                <!-- END FORM-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <style>
+    label{
+        display: inline-block;
+    }
+    </style>
+    <script type="text/javascript">
+    //多选框
+    var movie_id = "<{$movie.id}>";
+    
+    
+   
+
+
+    $('.activity-movie').parent().show();
+    $('.activity-movie a').css('color','#ffffff');
+    $('.activity-movie a').css('background','#575757');
+    $(".delete_img").click(function(){
+        $('.mobile_banner').each(function(){
+            var id = $(this).attr('data-id');
+            $(this).parent('a').removeClass('fancybox');
+            $('<input type="checkbox"  data-id="'+id+'" class="delete_mobile_banner_checkbox" style="position: absolute;margin-left: -28px;width: 30px;height: 30px;margin-top: 0px;">').insertAfter($(this));
+        });
+        $(".confirm_delete_img").removeClass('hide');
+        $(".cancel_delete_img").removeClass('hide');
+    });
+    $(".confirm_delete_img").click(function(){
+        var ids = "";
+        $(".delete_mobile_banner_checkbox:checked").each(function(){
+            ids = ids + $(this).attr('data-id') + ',';
+        });
+        if(ids==""){
+            alert('没有选择删除图片！');
+            return false;
+        }
+        $.post("<{:U('ActivityMovie/deleteMobileBanner')}>",{ids:ids,id:movie_id},function(){
+            window.location.reload();
+        });
+    });
+    $(".cancel_delete_img").click(function(){
+        $('.mobile_banner').each(function(){
+            $(this).parent('a').addClass('fancybox');
+            $(this).next('input').remove();
+        });
+        $(".confirm_delete_img").addClass('hide');
+        $(".cancel_delete_img").addClass('hide');
+    });
+
+</script>
+<{include file="default/Public/footer" /}>

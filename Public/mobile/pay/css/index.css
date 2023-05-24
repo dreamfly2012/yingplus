@@ -1,0 +1,176 @@
+body {
+    background: #ebebeb;
+}
+
+.table {
+    position: relative;
+}
+
+.td {
+    margin: 0 auto;
+    padding: 30px 4%;
+    line-height: 120px;
+    border-bottom: solid 1px #ccc;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.address {
+    width: 100%;
+    color: #595959;
+}
+
+.h2 {
+    color: #484849;
+}
+
+.price {
+    color: #9d9d9d;
+}
+
+.number {
+    width: 40%;
+    /*background:yellow;*/
+}
+.buynum{
+    background: #ebebeb;
+    width: 65px;
+    text-align: center;
+    border:none;
+}
+
+.num_p {
+    width: 27px;
+    height: 44px;
+    margin-top: -8px;
+    margin-bottom: -15px;
+}
+
+.down {
+    background: url(/Public/mobile/pay/images/down.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.up {
+    background: url(/Public/mobile/pay/images/up.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.num {
+    width: 40%;
+    height: 8%;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    margin-top: -8px;
+    margin-bottom: -10px;
+    font: 26px/26px "microsoft yahei";
+    line-height: 40px;
+    text-align: center;
+    color: #484849;
+}
+
+.allprice {
+    color: #ec5330;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.bt {
+    border-top: solid 1px #ccc;
+}
+
+.phone {
+    margin: 0 auto;
+    padding: 25px 4%;
+    line-height: 76px;
+    border-bottom: solid 1px #ccc;
+    border-top: solid 1px #ccc;
+    margin-top: 10px;
+}
+
+.f20 {
+    font: 20px/26px "microsoft yahei";
+}
+
+.f26 {
+    font: 26px/26px "microsoft yahei";
+}
+
+.phonenumber {
+    color: #999;
+}
+
+.change {
+    color: #595959;
+}
+
+.td img {
+    width: 7%;
+    display: inline-block;
+}
+
+.weixin {
+    width: 40px;
+    height: 40px;
+    background: url(/Public/mobile/pay/images/weixin.png) no-repeat;
+    background-size: 100% 100%;
+    margin-right: 8%;
+}
+
+.zfb {
+    width: 40px;
+    height: 40px;
+    background: url(/Public/mobile/pay/images/zfb.png) no-repeat;
+    background-size: 100% 100%;
+    margin-right: 8%;
+}
+
+.option {
+    width: 30px;
+    height: 30px;
+    background: url(/Public/mobile/pay/images/option_1.png) no-repeat;
+    background-size: 100% 100%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.option input{
+    display: none;
+}
+
+
+.dn {
+    display: none;
+}
+
+.option_2 {
+    background: url(/Public/mobile/pay/images/option_2.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.button {
+    width: 80%;
+    margin: 0 auto;
+    background: #ffa600;
+    padding: ;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.deal_form_submit{
+    opacity: 0;
+    display: none;
+}

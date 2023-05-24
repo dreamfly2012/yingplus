@@ -1,0 +1,73 @@
+<{include file="default/pc/header" /}>
+<!--添加公益事件弹出层介绍-->
+<{include file="default/pc/event_form" /}>
+<div class="main_base">
+    <div class="main1_bg" >
+        <div class="pm"><{$paiming}></div>
+        <{include file="default/Public/left" /}>
+        <{include file="default/Public/top" /}>
+        <{include file="default/Public/right" /}>
+    </div>
+    
+        
+<div class="main2_bg">
+        <div class="gongyu_grade_all">
+           <div class="gongyu_grade_every">
+            <img src="__PUBLIC__/gongyi/default/img/<{$starInfo['starClass']}>/gongyu_grade_star.png">
+               <span class="welfarePariming"><{$lovepaiming}></span>
+               <span class="welfareLove"><{$starInfo['totallove']}></span>
+            </div>
+               <div class="gongyu_grade_second">
+            <img style="margin-left: 155px;" src="__PUBLIC__/gongyi/default/img/<{$starInfo['starClass']}>/star_grade.png">
+                <span class="actressPariming"><{$actresspaiming}></span>
+                <span class="actressScore"><{$starInfo['actressScore']}></span>
+                 <div class="do_grade_star">
+             <a href="<{:U('Home/Actress/index')}>">
+               <img src="__PUBLIC__/gongyi/default/img/do_grade_star.png"/>
+             </a>
+             </div>
+        </div>
+</div>
+        <div class="timelinemainidea">
+            <div style="width:486px;height:970px;overflow:hidden;">
+            <span class="arrow_dot_first"></span>
+            <div class="timelinemain_bg">
+                <{if condition="$starInfo['gender'] eq 2"}>
+                <div class="not woman"></div>
+                <{else/}>
+                <div class="not man"></div>
+                <{/if}>
+                <{include file='default/Welfare/event' /}>
+            </div>
+        </div>
+       </div>
+        <{include file='default/Welfare/actress' /}>
+    <div class="main3_bg">
+        <div class="pinglunbase" id="lovewall" style="width: 935px;margin: 50px 0px 50px 156px;overflow: hidden;height: 1200px;">
+            <{include file='default/Letter/lovewall' /}>
+        </div>
+        <!--有言评论-->
+        <div class="pinglunbase">
+
+            <div id="uyan_frame"></div>
+            <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2051423"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    UYAN.addCmt2 = UYAN.addCmt;
+                    UYAN.addCmt = function(e, a, b) {
+                        UYAN.addCmt2(e, a, b);
+                        $("#uyan_box_cnt div:eq(0) span").html("<label style='color:red;font-size:20px;'>登陆</label>");
+                        $("#uyan_box_cnt div:eq(1) h2").html("<label>点击图标登陆</label>");
+                    }
+                    UYAN.addCCmt2 = UYAN.addCCmt;
+                    UYAN.addCCmt = function (e,a){
+                        UYAN.addCCmt2(e,a);
+                        $(".uyan_cmt_uname").attr('href','javascript:;');
+                        $("#uyan_cmt_list div div a").attr('href','javascript:;');
+                    }
+
+                });
+            </script>
+        </div>
+
+<{include file="default/Public/footer" /}>

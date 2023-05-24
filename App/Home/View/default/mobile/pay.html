@@ -1,0 +1,111 @@
+<{include file="default/mobile/header"/}>
+<link href="/Public/mobile/pay/css/index.css" rel="stylesheet" type="text/css"/>
+
+<script src="/Public/mobile/pay/js/index.js" type="text/javascript"></script>
+
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="支付订单"/}>
+
+    <form id="payform" method="post" action="<{:U('MovieActivity/payOrder')}>"  class="common_form" onsubmit="return check_pay_form();">
+    <div class="table">
+        <div class="td">
+            <p class="address f26">
+                <span class="h2 f26">
+                    项目：
+                </span>
+                <{$activity.subject}>
+            </p>
+        </div>
+        <div class="td">
+            <div class="h2 fl f26">
+                单价
+            </div>
+            <div class="price fr f20" id="price_item_1">
+                ¥<{$ticket.price}>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="td">
+            <div class="h2 fl f26">
+                数量：
+            </div>
+            <div class="number fr ml20">
+                <a href="javascript:;">
+                    <div class="down fl num_p" onClick="setAmount.reduce('#qty_item_1')">
+                    </div>
+                </a>
+                <div class="num fl number">
+                    <input type="text" class="buynum" data-bind="quantity" data-price="<{$ticket.price}>" readonly name="quantity" value="1" id="qty_item_1" onKeyUp="setAmount.modify('#qty_item_1')">
+                </div>
+                <a href="javascript:;">
+                    <div class="up fl num_p" onClick="setAmount.add('#qty_item_1')">
+                    </div>
+                </a>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="td">
+            <div class="h2 fl f26">
+                总价
+            </div>
+            <div class="allprice fr f20 total_price" id="total_price">
+                ¥<{$ticket.price}>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="phone">
+            <div class="phonenumber fl f20">
+                <{if condition="getUserTelephoneById(session('uid'))"}>
+                <span id="telephone_span"><{$Think.session.uid|getUserTelephoneById}></span>
+                <span style="color: #2bb8aa;" class="change_telephone">修改手机号</span>
+                <input type="hidden" id="activity_telephone" name="activity_telephone" value="<{$Think.session.uid|getUserTelephoneById}>"/>
+                <{else/}>
+                <span id="telephone_span"><{$Think.get.telephone}></span>
+                <span style="color: #2bb8aa;" class="change_telephone">填写手机号</span>
+                <input type="hidden" id="activity_telephone" name="activity_telephone" value=""/>
+                <{/if}>
+            </div>
+            
+            <div class="clear">
+            </div>
+        </div>
+        <div class="td bt mt10">
+            <div class="weixin fl">
+            </div>
+            <div class="h2 fl f26">
+                微信支付
+            </div>
+            <label class="option fr option_2" id="weixin">
+                <input type="radio" name="method" type="radio" value="2" checked="checked">
+            </label>
+            <div class="clear">
+            </div>
+        </div>
+        <!-- <div class="td">
+            <div class="zfb fl">
+            </div>
+            <div class="h2 fl f26">
+                支付宝支付
+            </div>
+            <label class="option fr" id="zfb">
+                <input type="radio" name="method" type="radio" value="1" checked="checked">
+            </label>
+            <div class="clear">
+            </div>
+        </div> -->
+        <input type="hidden" name="aid" value="<{$activity.id}>"/>
+        <input type="submit" class="deal_form_submit" value="去付款">
+        <div class="button f26 go_to_pay">
+            付款
+        </div>
+    </div>
+    </form>
+</div>
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

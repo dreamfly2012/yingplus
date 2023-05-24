@@ -1,0 +1,40 @@
+<{include file="default/mobile/header"/}>
+
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="支付订单"/}>
+
+    <div class="scan-result" style="text-align: center;">
+
+        <div class="p" id="success_text" style="text-align: center;padding: 20px;font-size: 16px;font-weight: bold;">
+            请在2小时内使用微信的"扫一扫"完成支付
+        </div>
+        <img src="<{:U('Qrcode/showQrcode')}>?url=<{$pay_url}>" class="code qrcode_img" alt="二维码"/> 
+
+        <!-- <div class="p" id="success_text" style="text-align: center;padding: 20px;font-size: 16px;font-weight: bold;">
+            请在2小时内完成支付
+        </div>
+        <a href="<{$pay_url}>" class="code qrcode_img" alt="二维码">去微信支付</a>  -->
+
+    </div>
+</div>
+
+
+<script>
+    var check_has_pay_url = "<{:U('Donate/checkHasPay')}>";
+    var trade_no = "<{$trade_no}>";
+    function checkHasPay(trade_no){
+        $.post(check_has_pay_url,{'trade_no':trade_no},function(result){
+            if(result.info==0){
+                window.location.href = "<{:U('Pc/baiwansenlin')}>";
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        setInterval("checkHasPay(trade_no)",1000*10);
+    });
+</script>
+
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

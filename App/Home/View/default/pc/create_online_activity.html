@@ -1,0 +1,100 @@
+<form class="create-online-activity" method="post" action="javascript:;">
+<div class="addactive_online_activity">
+	<div class="add_title">
+		<p>线上活动</p>
+		<a href="javascript:void(0);" title="关闭" class="closebtn2 close_form"></a>
+	</div>
+	<span class="hei40"></span>
+	<div class="addactiveitem">
+		<p class="add_comleft">类型：</p>
+		<div class="add_comright">
+			<select name="type" id="type" class="sel1">
+                <option value="0">征集</option>
+                <option value="1">投票</option>
+            </select>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!-- <div class="addactiveitem">
+		<p class="add_comleft">时间：</p>
+		<div class="add_comright">
+			<select class="sel1" name="encrollend_date" id="encrollend_date">
+                <option value="3600*24*7">一周后</option>
+                <option value="3600*24*15">半个月后</option>
+                <option value="3600*24*30">一个月后</option>
+                <option value="3600*24*90">三个月后</option>
+                <option value="custom">自定义</option>
+            </select>
+            <span class="imp_none encrollend_span active_date">
+                <input name="encrollend_custom_date" id="encrollend_custom_date"
+                       class="Wdate datepicker" type="text" readonly="readonly"
+                       onFocus="WdatePicker({minDate:'<{$Think.now}>',maxDate:''})"/>
+            </span>
+		</div>
+		<div class="clear"></div>
+	</div> -->
+
+
+	
+	<div class="addactiveitem">
+		<p class="add_comleft">标题：</p>
+		<div class="add_comright">
+			<input type="text" name="title" id="title" class="text4" placeholder="请输入标题">
+		</div>
+		<div class="clear"></div>
+	</div>
+
+
+	<div class="addactiveitem">
+		<p class="add_comleft">活动介绍：</p>
+		<div class="add_comright">
+			<textarea class="textarea10" name="desc" id="desc" placeholder="请输入活动介绍"></textarea>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="vote_div imp_none">
+	<div class="addactiveitem">
+		<p class="add_comleft">提供选项：</p>
+		<div class="add_comright">
+			<div class="addargswrap question_option">
+				<div class="selectitems">
+					<a href="javascript:;" title="" class="upload_small_icon" data-imageid="0"></a>
+					<input type="text" name="question[]" value="">
+					<div class="delete_option"></div>
+				</div>
+				<div class="selectitems">
+					<a href="javascript:;" title="" class="upload_small_icon" data-imageid="0"></a>
+					<input type="text" name="question[]" value="">
+					<div class="delete_option"></div>
+				</div>
+			</div>
+			<span class="addmoreargs add_more_option"><a href="javascript:void(0);" class="addmorelink">添加选项</a></span>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="addactiveitem">
+		<p class="add_comleft">选项设置：</p>
+		<div class="add_comright">
+			<select class="sel1" name="option_set" id="option_set">
+                <option value="0">单选</option>
+                <option value="1">多选</option>
+            </select>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	</div>
+
+	<div>
+        <input type="file" name="file" id="vote_image" class="vote_image"/>
+    </div>
+
+    <div>
+		<input type="hidden" name="fid" value="<{$fid}>" />
+        <input type="hidden" name="img" value="" id="img"/>
+        <input type="hidden" name="question_img" value="" id="question_img" />
+        <button type="submit" class="add_submit create-online-activity-submit">创建</button>
+	</div>
+	
+</div>
+</form>

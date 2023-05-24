@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>创建活动</title>
+    <{include file="default/Index/head"/}>
+    
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1 class="text-center">创建活动</h1>
+    </div>
+</div>
+
+<form id="create-topic-form">
+    <div class="form-group">
+        <label for="subject">活动标题</label>
+        <input type="text" class="form-control" id="subject" placeholder="请输入标题" required="required">
+    </div>
+    <div class="form-group">
+        <label for="type">活动类型</label>
+        <select id="type">
+            <option>粉丝见面会</option>
+            <option>星公益</option>
+        </select>
+    </div>
+    <div class="">
+        <label>地点</label>
+        <select name="province" id="province">
+
+        </select>
+
+        <select name="city" id="city">
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label>时间</label>
+        <input type="datetime" id="encrollendtime" placeholder="报名截至时间" required="required">
+        <input type="datetime" id="holdstart" placeholder="活动开始时间" required="required">
+        <input type="datetime" id="holdend" placeholder="活动结束时间" required="required">
+    </div>
+    <div class="form-group">
+        <label>报名人数</label>
+        <input type="number" placeholder="不填为不限制报名人数"/>
+    </div>
+
+    <div class="form-group">
+        <label for="content">活动介绍</label>
+        <textarea id="content" required="required"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="participatemethod">参与方式</label>
+        <textarea id="participatemethod" required="required"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="notice">活动公告</label>
+        <textarea id="notice" required="required"></textarea>
+    </div>
+
+    <div class="img">
+        <label for="img">活动海报</label>
+        <input type="file" id="img" accept="image/*" multiple="false"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">发表</button>
+</form>
+<script type="text/javascript" src="__PUBLIC__/mobile/js/activity_create.js"></script>
+</body>
+</html>

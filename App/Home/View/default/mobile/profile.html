@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>个人资料</title>
+    <{include file="default/Index/head"/}>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/profile.css">
+<link rel="stylesheet" href="/Public/default/css/jquery.Jcrop.min.css" type="text/css">
+<script src="/Public/default/js/jquery.Jcrop.min.js"></script>
+<script type="text/javascript" src="/Public/default/js/jquery.ajaxfileupload.js"></script>
+<script>
+    var url_heard_upload = "<{:U('PersonCenter/uploadImg')}>";
+    var save_profile_url = "<{:U('User/save',array('type'=>'profile'))}>";
+</script>
+<script type="text/javascript" src="__PUBLIC__/mobile/js/profile.js"></script>
+<div class="container">
+<div class="page-header">
+    <h1 class="text-center">个人资料设置</h1>
+</div>
+<div class="text-center">
+    <img data-src="holder.js/100x100?text=头像" class="uploadphoto"/>
+    <form method="post" action="<{:U('Home/PersonCenter/produceAvatar')}>" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" capture="camera"/>
+    </form>
+</div>
+<form id="profile_form" method="post" action="javascript:;">
+    <div class="form-group">
+        <label for="nickname">昵称</label>
+        <input type="text" class="form-control" id="nickname" placeholder="昵称">
+    </div>
+    <div class="form-group">
+        <label for="realname">真实姓名</label>
+        <input type="password" class="form-control" id="realname" placeholder="真实姓名">
+    </div>
+    <div class="form-group">
+        <label for="sex">性别</label>
+        <select id="sex" class="form-control">
+            <option value="0">保密</option>
+            <option value="1">男</option>
+            <option value="2">女</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="address">详细地址</label>
+        <textarea id="address" class="form-control" rows="3">
+
+        </textarea>
+    </div>
+    <div class="form-group">
+        <label for="birth">生日</label>
+        <input type="date" id="birth" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="selfdesc">追星宣言</label>
+        <textarea id="selfdesc" class="form-control" rows="3">
+
+        </textarea>
+    </div>
+    <div claas="form-group">
+        <button type="submit" id="save" class="btn btn-primary form-control">保存</button>
+    </div>
+</form>
+</div>
+</body>
+</html>

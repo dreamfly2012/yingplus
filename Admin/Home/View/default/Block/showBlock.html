@@ -1,0 +1,69 @@
+
+
+    <table class="table table-striped table-bordered table-hover table-diao" id="sample_1">
+
+        <thead>
+
+            <tr>
+
+                <th>用户名</th>
+
+                <th class="hidden-480">ip值</th>
+
+                <th class="hidden-480">操作</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+       
+            <{foreach name="block" item="blockData"}>
+
+                  <tr class="test-show" id="<{$blockData.id}>">
+
+                      <td class="name_input">
+
+                          <{$blockData.uid|getUserNicknameById}>
+
+                      </td>
+
+                      <td class="value_input hidden-480">
+
+                        <{$blockData.ip}>
+
+                      </td>
+
+                      <td class="hidden-480 " lid="<{$blockData.id}>">                          
+
+                          
+                          <span  class="delete_block" style="color:#70f">删除</span>
+
+                      </td> 
+
+                  </tr>                        
+
+            <{/foreach}>
+
+     
+
+        </tbody>
+
+    </table>
+
+    <div class="page-style" style="margin-left: 387px;">
+
+        <{$page}>
+
+    </div>
+
+   
+
+
+
+ 
+
+ 
+
+ 

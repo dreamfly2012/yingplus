@@ -1,0 +1,375 @@
+       <div >
+
+                            <div style="color: #7D1717;position: absolute;top: 328px;left:275px;font-size: 20px;">添加星吧</div>
+
+                            <form action="<{:U('JobManage/addJobManageSelf',array('time'=>NOW_TIME))}>"  method="post"  enctype="multipart/form-data" class="form-horizontal">
+
+
+
+                                <div class="control-group" style="margin-top: 77px">
+
+
+
+                                    <label class="control-label">星吧名：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[name]"  class="m-wrap medium" value="<{$result.forumname}>"/>
+
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">中文名：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[chinesename]"  class="m-wrap medium" />
+
+
+
+                                        <!--<span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">韩文名：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[koreaname]" class="m-wrap medium" />
+
+
+
+                                        <!--<span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">英文名：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[englishname]"  class="m-wrap medium" />
+
+
+
+                                        <!--  <span class="help-inline">Some hint here</span>
+
+  -->
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">组合名：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[groupname]"  class="m-wrap medium" />
+
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">别名：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[aliasname]"  class="m-wrap medium" />
+
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">艺名：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[stagename]"  class="m-wrap medium" />
+
+
+
+                                        <!--  <span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">粉丝团名：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[fansgroup]"  class="m-wrap medium" />
+
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">主要作品：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[representative]"  value="<{$result.representative}>"  class="m-wrap medium" />
+
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="control-group">
+
+
+
+                                    <label class="control-label">汉语拼音：</label>
+
+
+
+                                    <div class="controls">
+
+
+
+                                        <input type="text" name="list[pinyin]"  class="m-wrap medium" />
+
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="controls"  style="margin-bottom: 21px;">
+
+
+
+                                    <label class="radio">
+
+
+
+                                        <input type="radio" name="list[status]" value="1" checked/>
+
+                                        上线
+
+                                    </label>
+
+
+
+                                    <label class="radio">
+
+
+
+                                        <input style="margin-left: 30px;"  type="radio" name="list[status]" value="0"/>
+
+
+
+                                        不上线
+
+
+
+                                    </label>
+
+                                </div>
+
+                                <div style="position: absolute;top: 362px;left:750px;">
+
+                                    <div>
+
+                                        <span style="color: blue">上传头像</span>
+
+                                        <input type="file" name="photo" style="margin-left: 18px"/><br/>
+
+
+
+                                    </div>
+
+                                    <div style="margin-top: 50px">
+
+                                        <span style="color: blue">上传banner</span>
+
+                                        <input type="file" name="banner" style="margin-left: 18px"/><br/>
+
+
+
+                                    </div>
+
+                                    <div style="margin-top: 50px">
+
+                                        <span style="color: blue">上传indexphoto</span>
+
+                                        <input type="file" name="indexphoto" style="margin-left: 18px"/><br/>
+
+
+
+                                    </div>
+
+                                    <div style="margin-top: 50px">
+
+                                        <span style="color: blue">上传话题/活动的banner</span>
+
+                                        <input type="file" name="detailbanner" style="margin-left: 18px"/><br/>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-actions">
+
+
+
+                                    <button type="submit" id="qieding" class="btn blue"><i class="icon-ok"></i> Save</button>
+
+
+
+                                    <a href="<{:U('JobManage/showAllJob')}>"><button type="button"  class="btn">Cancel</button></a>
+
+
+
+                                </div>
+
+
+
+                            </form>
+
+
+
+        <!-- END SAMPLE FORM PORTLET-->
+
+
+
+
+
+</div>
+
+<script src="__PUBLIC__/admin/js/manage.js"></script>
+
+<{include file="default/Public/footer" /}>

@@ -1,0 +1,9 @@
+/Api/Runtime/
+/App/Runtime/
+/Admin/Runtime/
+Runtime/
+vendor/
+uploads
+.phpintel
+/uploads
+.phpintel/

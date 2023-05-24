@@ -1,0 +1,663 @@
+<{include file="default/pc/header" /}>
+<{include file="default/pc/nav" /}>
+<style type="text/css">
+    .picture_class{float: left;width: 142px;height: 92px;line-height: 92px;margin-top: 13px;}
+    .b_circular_xiu{float: left;width: 50px;height: 50px;margin-top: 37px;margin-left: 7px;}
+    .photo-change{margin: 70px 4px 0px 23px;}
+    .body_line_new{margin-top: 8px;}
+    .J_img{width: 50px;height: 50px;}
+    .page{width:1100px;margin: 0px auto;min-height: 625px;font-size: 14px;}
+    .tip{color:#b2b2b2;font-size: 12px;}
+    .use_tip{color:#ffffff;font-size: 12px;display:block;width:138px;height: 28px;line-height:19px;background: url('../img/home_set/use_tip.png') no-repeat 0px -1px;text-align:center;margin-bottom: -29px;}
+    .realname_tip{position: absolute;color: #ffffff;font-size: 12px;display: block;width: 138px;height: 28px;line-height: 19px;background: url('../img/home_set/use_tip.png') no-repeat 0px -1px;text-align: center;z-index: 0;margin: -23px 0px 0px 134px;}
+    .self-desc{display: inline-block;width: 269px;}
+    .xiugai-desc{float: right;}
+    .edit{cursor:pointer;display: inline-block;color: #3cb1d6;font-size: 14px;height: 15px;line-height: 15px;padding-left:22px;}
+    .set_content{display: inline-block;width: 1100px;min-height: 585px;background-color: #f9f8f2;box-shadow: 0 0 5px rgba(198, 198, 198, 0.4);}
+    .self_data{margin: 20px 100px;}
+    .self_data h1{font-weight: normal;font-size: 16px;padding-bottom: 8px;font-weight: 500;border-bottom: 1px solid #cccccc;width: 900px;}
+    .self_data label,.account_manage label{display:inline-block;width: 137px;}
+    .self_data input{width: 140px;height: 19px; }
+    .self_data p{margin-top:24px;word-wrap: break-word;}
+    .body_line{background: #cccccc;width: 900px;height: 1px;margin-top: 24px;}
+    .form_name{margin-top: -57px;margin-left: 138px;}
+    .form_name input{margin-top: 30px;}
+
+    .form_tname{margin-top: -26px;margin-left: 138px;}
+    .form_xuan_yan{  width:350px;  margin-top: -21px;  margin-left: 138px;  }
+    .form_address textarea,.form_xuan_yan textarea{  margin-top: 9px;  width:303px;  height:69px;  }
+    .form_xuan_yan{ margin-top: -40px; }
+    .submit_btn{cursor:pointer;font-size: 12px;line-height: 21px;height:21px;width:38px;text-align: center;display:inline-block;}
+    .yellow_btn{cursor:pointer;color:black;background:#FCB01F;}
+    
+    
+     
+</style>
+<div class="bg">
+    <div class="page">
+        <div class="set_content">
+            <!--个人资料设置-->
+            <div class="self_data">
+                <h1>个人资料</h1>
+                <div class="J_icon">
+                    <div class="icon_mask none">
+                    </div>
+                   <label class="picture_class">修改头像</label>
+                    <div class="b_circular_xiu">
+                        <{if condition="checkHasUserPhoto(session('uid'))"}>
+                        <img src="<{$Think.session.uid|getUserPhotoById|buildImgUrl}>" class="J_img">
+                        <{else/}>
+                        <img src="__PUBLIC__/default/img/face/default_face.png" class="J_img">
+                        <{/if}>
+                    </div> 
+                     <a class="edit photo-change">修改</a> 
+                     <div class="body_line body_line_new"></div>                  
+                </div>
+                <p id="frist_p" style="margin-top: 22px">
+                    <label class="nickname_self" for="nickname">昵称</label>
+                    <span class="name_show n_e"><{$Think.session.uid|getUserNicknameById}></span>
+                    <span class="edit n_e" onclick="show('nickname')">修改</span>
+                    <!--点击修改之后show-->
+
+                    <div class="form_name none">
+                        <input type="text" id="nickname" value="<{$Think.session.uid|getUserNicknameById}>"/>
+                        <a class="submit_btn yellow_btn" onclick="hide('nickname')">保存</a>
+                    </div>
+                    <div class="body_line"></div>
+                </p>
+                <p>
+                    <label class="realname_self" for="realname">真实姓名</label>
+                    <{if condition='!empty($realname)' }>
+                    <span class="tname_show t_e"><{$realname}></span>
+                    <span class="edit t_e" onclick="show('realname')">修改</span>
+                    <span class="tname_show t_e_2 none"><{$realname}></span>
+                    <span class="edit none" onclick="show('realname')">修改</span>
+                    <{else/}>
+                    <span class="tname_show none t_e"><{$realname}></span>
+                    <span class="edit none t_e" onclick="show('realname')">修改</span>
+                    <span class="edit t_e_2" onclick="show('realname')">填写</span>
+                    <span class="tip t_e_2">真实姓名有礼物邮寄</span>
+                    <{/if}>
+                    <!--点击修改之后show-->
+
+                <div class="form_tname none">
+                    <input type="text" id="realname" name="realname" value="<{$realname}>"/>
+                    <a class="submit_btn yellow_btn" onclick="hide('realname')">保存</a>
+                </div>
+                <div class="body_line"></div>
+                </p>
+                <p>
+                    <label class="gender_self" for="gender">性别</label>
+                    <select name="gender" id="gender">
+                        <option value="0" <{if condition="$gender eq 0"}>selected='selected'<{/if}>>不告诉任何人</option>
+                        <option value="1" <{if condition="$gender eq 1"}>selected='selected'<{/if}>>男</option>
+                        <option value="2" <{if condition="$gender eq 2"}>selected='selected'<{/if}>>女</option>
+                    </select>
+                <div class="body_line"></div>
+                </p>
+                
+                <p>
+                    <label class="xuan_yan">追星宣言</label>
+                    <{if condition='empty($selfdesc)'}>
+                    <span class="tip x_e selfdesc_show none"><{$selfdesc}></span>
+                    <span class="edit x_e none" onclick="show('xuan_yan')">修改宣言</span>
+                    <span class="edit x_e_2" onclick="show('xuan_yan')">填写宣言</span>
+                    <span class="tip x_e_2">让我们看到你的热情!</span>
+                    <{else/}>
+                    <span class="x_e selfdesc_show self-desc"><{$selfdesc}></span>
+                    <span class="edit x_e xiugai-desc" onclick="show('xuan_yan')">修改宣言</span>
+                    <span class="edit x_e_2 none" onclick="show('xuan_yan')">填写宣言</span>
+                    <span class="tip x_e_2 none">让我们看到你的热情!</span>
+                    <{/if}>
+                    <!--点击填写宣言之后show-->
+
+                <div class="form_xuan_yan none">
+                    <textarea name="selfdesc" id="selfdesc"><{$selfdesc}></textarea>
+                    <a class="submit_btn yellow_btn" data-info='selfdesc' onclick="hide('xuan_yan')">保存</a>
+                </div>
+                </p>
+            </div>
+
+            
+            <!--账号管理-->
+            <div class="account_manage none">
+                <h1>账号管理</h1>
+                <span class="red_warn">绑定帐号有助于账户安全和信息找回</span>
+
+                <p>
+                    <label class="xing_lang">新浪微博</label>
+                    <{if condition="getWeiboByUid(session('uid'))"}>
+                    <span>已绑定</span>
+                    <{else/}>
+                    <span class="submit_btn yellow_btn" data-info="bind_info"><a href="https://api.weibo.com/oauth2/authorize?client_id=255864200&amp;redirect_uri=http://www.yingplus.cc<{:U('Home/Login/loginByWeibo')}>">绑定</a></span>
+                    <{/if}>
+                </p>
+
+                <p>
+                    <label class="QQ">QQ</label>
+                    <{if condition="getQqByUid(session('uid'))"}>
+                    <div class="re_qq" style="margin-left: 179px;margin-top: -35px">
+                        已绑定 <span class="show_qq"><{$qq}></span>
+                    </div>
+                    <{else/}>
+                        <span class="submit_btn yellow_btn" data-info="bind_info"><a href="https://graph.qq.com/oauth2.0/authorize?client_id=101223402&amp;response_type=code&amp;display=pc&amp;redirect_uri=http://www.yingplus.cc/index.php/Home/Login/loginByQQ">绑定</a></span>
+                    <{/if}>
+                </p>
+
+                <p>
+                    <label class="phone">手机</label>
+                    <{if condition="getUserTelephoneById(session('uid'))"}>
+                        <div class="re_phone">
+                            已绑定 <span class="show_phone"><{$telephone}></span>
+                            <span class="edit" onclick="re_bind()">修改</span>
+                        </div>
+                    <{else/}>
+                        <div class="re_phone">
+                            <span class="submit_btn yellow_btn first_bind"  data-info="bind_info" onclick="first_bind()">绑定</span>
+                        </div>
+                    <{/if}>
+
+
+                    <!--修改密码，接受验证码-->
+                    <div class="yan_zhen none" id="yan_zheng">
+                        <input type="text" name="telephone" value="" id="telephone" class="phone_num" placeholder="手机号"/>
+                        <input type="text" name="captcha" id="captcha" placeholder="输入验证码"/>
+                        <button class="blue_tip send_bind_captcha">发送验证码</button>
+                        <input type="password" name="password" id="password" placeholder="设置密码"/>
+                        <span class="blue_tip">下次可以用手机号登录</span>
+                        <span class="bind_btn w_s bind_telephone">确定</span>
+                    </div>
+
+
+                    <!--重新绑定接受验证码-->
+                    <div class="yan_zhen_other none" id="yan_zheng_ohter">
+                        <input type="text" name="telephone" value="" id="telephone_other" class="phone_num" placeholder="手机号"/>
+                        <input type="text" name="captcha" id="captcha_other" placeholder="输入验证码"/>
+                        <button class="blue_tip send_re_bind_captcha">发送验证码</button>
+                        <span class="bind_btn w_s re_bind_telephone">确定</span>
+                    </div>
+
+                    <!--活动登陆页报名,跳转到此页面,输入密码-->
+                    <div class="re_bind  none">
+                        <span class="show_phone"><{$telephone}></span>
+                        <input type="text" name="telephone" placeholder="输入新的手机号"/>
+                        <span class="bind_btn" onclick="other_bind()">确认</span>
+                    </div>
+
+
+                    <div class="sign_bind none">
+                        <p>
+                            <span class="show_phone"><{$telephone}></span>
+                            <span class="edit" onclick="re_bind()">修改</span>
+                        </p>
+                        <input type="password" placeholder="设置密码"/>
+                        <span class="tip">设置密码下次可以用手机号登录</span>
+                        <span class="bind_btn sure_btn" onclick="sign_bind()">确定</span>
+                    </div>
+                </p>
+            </div>
+            <!--帮助中心-->
+            <div class="help none"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //日期联动
+    (function ($) {
+        //SELECT控件设置函数
+        function setSelectControl(oSelect, iStart, iLength, iIndex) {
+            oSelect.empty();
+            for (var i = 0; i < iLength; i++) {
+                if ((parseInt(iStart) + i) == iIndex)
+                    oSelect.append("<option selected='selected' value='" + (parseInt(iStart) + i) + "'>" + (parseInt(iStart) + i) + "</option>");
+                else
+                    oSelect.append("<option value='" + (parseInt(iStart) + i) + "'>" + (parseInt(iStart) + i) + "</option>");
+            }
+        }
+
+        $.fn.DateSelector = function (options) {
+            options = options || {};
+
+            //初始化
+            this._options = {
+                defYear: 0,
+                defMonth: 0,
+                defDay: 0,
+                minYear: 1882,
+                maxYear: new Date().getFullYear()
+            }
+
+
+            for (var property in options) {
+                this._options[property] = options[property];
+            }
+
+            this.yearValueId = $(this).children().eq(0);
+            this.monthValueId = $(this).children().eq(1);
+            this.dayValueId = $(this).children().eq(2);
+
+            var dt = new Date(),
+            iMonth = parseInt(this.monthValueId.attr("data") || this._options.defMonth),
+            iDay = parseInt(this.dayValueId.attr("data") || this._options.defDay),
+            iMinYear = parseInt(this._options.minYear),
+            iMaxYear = parseInt(this._options.maxYear);
+
+            this.Year = parseInt(this.yearValueId.attr("data") || this._options.defYear) || dt.getFullYear();
+            this.Month = 1 <= iMonth && iMonth <= 12 ? iMonth : dt.getMonth() + 1;
+            this.Day = iDay > 0 ? iDay : dt.getDate();
+            this.minYear = iMinYear && iMinYear < this.Year ? iMinYear : this.Year;
+            this.maxYear = iMaxYear && iMaxYear > this.Year ? iMaxYear : this.Year;
+
+            //初始化控件
+            //设置年
+        
+            setSelectControl(this.yearValueId, this.minYear, this.maxYear - this.minYear + 1, this.Year);
+            //设置月
+            setSelectControl(this.monthValueId, 1, 12, this.Month);
+            //设置日
+            var daysInMonth = new Date(this.Year, this.Month, 0).getDate(); //获取指定年月的当月天数[new Date(year, month, 0).getDate()]
+            if (this.Day > daysInMonth) { this.Day = daysInMonth; };
+            setSelectControl(this.dayValueId, 1, daysInMonth, this.Day);
+
+            var oThis = this;
+            //绑定控件事件
+            this.yearValueId.change(function () {
+                oThis.Year = $(this).val();
+                setSelectControl(oThis.monthValueId, 1, 12, oThis.Month);
+                oThis.monthValueId.change();
+            });
+            this.monthValueId.change(function () {
+                oThis.Month = $(this).val();
+                var daysInMonth = new Date(oThis.Year, oThis.Month, 0).getDate();
+                if (oThis.Day > daysInMonth) { oThis.Day = daysInMonth; };
+                setSelectControl(oThis.dayValueId, 1, daysInMonth, oThis.Day);
+            });
+            this.dayValueId.change(function () {
+                oThis.Day = $(this).val();
+            });
+        }
+    })(jQuery);
+    
+    $(document).ready(function () {
+        if ($("#dateselect").length != 0) {
+            $("#dateselect").DateSelector({
+                defYear: "<{$current_year}>",
+                defMonth: "<{$current_month}>",
+                defDay: "<{$current_day}>",
+                minYear: '1990',
+                maxYear: "<{$Think.now|date='Y'}>"
+            });
+        }
+
+        $(".photo-change").click(function(){
+            show_form("<{:U('PersonCenter/photoChange')}>",'');
+        });
+
+        $("#gender").change(function(){
+            var gender=$(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<{:U('PersonCenter/profileSettingDo')}>",
+                data: 'gender=' + gender,
+                dataType: 'json',
+                success: function (data) {
+                    alert('修改成功');
+                },
+                async: false
+            });
+        });
+
+        $(".submit_btn").click(function () {
+            var name = $(this).prev('input').attr('id');
+            var value = $(this).prev('input').val();
+            var info = $(this).attr('data-info');
+
+            if(info=='address'){
+                var address=$(this).prev('textarea').val();
+                var birthprovince = $("#birthprovince").val();
+                var birthcity = $("#birthcity").val();
+                $.ajax({
+                    type: "POST",
+                    url: "<{:U('PersonCenter/profileSettingDo')}>",
+                    data: 'address=' + address + '&birthprovince=' + birthprovince + "&birthcity="+birthcity,
+                    dataType: 'json',
+                    success: function (data) {
+                        alert('修改成功');
+                    },
+                    async: false
+                });
+            }else if(info=='selfdesc'){
+                var selfdesc = $("#selfdesc").val();
+                if(selfdesc.length<50){
+                        $.ajax({
+                        type: "POST",
+                        url: "<{:U('PersonCenter/profileSettingDo')}>",
+                        data: 'selfdesc=' + selfdesc,
+                        dataType: 'json',
+                        success: function (data) {
+                            alert('修改成功');
+                        },
+                        async: false
+                    });
+                }else{
+                    alert('文字过长');
+                }
+                
+            }else if(info=='birth'){
+                var birthyear=$("#birthyear").val();
+                var birthmonth=$("#birthmonth").val();
+                var birthday=$("#birthday").val();
+                $.ajax({
+                    type: "POST",
+                    url: "<{:U('PersonCenter/profileSettingDo')}>",
+                    data: 'birthyear=' + birthyear + "&birthmonth="+birthmonth+"&birthday=" + birthday,
+                    dataType: 'json',
+                    success: function (data) {
+                        alert('修改成功');
+                    },
+                    async: false
+                });
+            }else if(info=='password'){
+                var oldpassword = $("#oldpassword").val();
+                var newpassword = $("#newpassword").val();
+                var confirmpassword=$("#confirmpassword").val();
+                if(oldpassword.length<6||newpassword.length<6||confirmpassword<6){
+                    show_message('<div class="bid_common_msg">密码小于6位</div>');
+                    return ;
+                }else if(newpassword!=confirmpassword){
+                    show_message('<div class="bid_common_msg">确认密码不一致</div>');
+                    return ;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "<{:U('Login/changePasswordDo')}>",
+                    data: 'oldpassword=' + oldpassword + "&newpassword="+newpassword+"&confirmpassword=" + confirmpassword,
+                    dataType: 'json',
+                    success: function (data) {
+                        if(data.status==1){
+                            show_message('<div class="bid_success_msg"></div>');
+                        }else if(data.staus==0){
+                            show_message('<div class="bid_password_not_eq"></div>');
+                        }else if(data.status==2){
+                            show_message('<div class="bid_oldpassword_error"></div>');
+                        }
+
+                    },
+                    async: false
+                });
+            }else if(info!=='bind_info'){
+
+                $.ajax({
+                    type: "POST",
+                    url: "<{:U('PersonCenter/profileSettingDo')}>",
+
+                    data: name + "=" + value,
+
+
+                    dataType: 'json',
+                    success: function (data) {
+                        if(data.status == 1){
+                            show_message('<div class="bid_success_msg"></div>');
+                        }else{
+                            show_short_message(data.content);
+                        }
+                    },
+                    async: false
+                });
+            }
+
+
+        });
+
+        $("#birthprovince").change(function(){
+            var pid = $('#birthprovince').val();
+            $.ajax({
+                type : 'POST',
+                url : "<{:U('PersonCenter/getCityByProvince')}>",
+                data : "pid="+pid,
+                dataType : 'json',
+                success : function(data){
+                    $('#birthcity').empty();
+                    for(var i=0;i<data.length;i++){
+                       $('#birthcity').append("<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>");
+                    }
+                },
+                async: false
+            });
+        });
+
+        //绑定手机号
+        $(".bind_telephone").click(function(){
+            var telephone = $("#telephone").val();
+            var captcha = $("#captcha").val();
+            var password = $("#password").val();
+            var returnurl = "<{$Think.get.returnurl}>";
+            var re = /^1\d{10}$/;
+            if (re.test(telephone) == false) {
+                alert("手机号格式不正确");
+                return;
+            }
+            $.post("<{:U('PersonCenter/bindPhone')}>",{telephone:telephone,captcha:captcha,password:password},function(result){
+                if(result.status!==1){
+                    show_short_message(result.content);
+                }else{
+                    show_short_message(result.content);
+                    if(returnurl!==""){
+                        window.locaion.href = returnurl;
+                    }else{
+                        $(".yan_zhen").addClass('none');
+                        $('.re_phone').removeClass('none').html('已绑定 <span class="show_phone"></span><span class="edit" onclick="re_bind()">修改</span>');
+                    }
+                }
+            });
+
+        });
+
+        //重新绑定手机号
+        $(".re_bind_telephone").click(function(){
+            var telephone = $("#telephone_other").val();
+            var captcha = $("#captcha_other").val();
+            var returnurl = "<{$Think.get.returnurl}>";
+            var re = /^1\d{10}$/;
+            if (re.test(telephone) == false) {
+                alert("手机号格式不正确");
+                return;
+            }
+            $.post("<{:U('PersonCenter/bindOtherPhone')}>",{telephone:telephone,captcha:captcha},function(result){
+                if(result.status!==1){
+                    show_short_message(result.content);
+                }else{
+                    show_short_message(result.content);
+                    if(returnurl!==""){
+                        window.locaion.href = returnurl;
+                    }else{
+                        $(".yan_zhen_other").addClass('none');
+                        $('.re_phone').removeClass('none').html('已绑定 <span class="show_phone"></span><span class="edit" onclick="re_bind()">修改</span>');
+                    }
+                }
+            });
+
+        });
+
+        //发送验证码
+        $(".send_bind_captcha").click(function(){
+            var telephone = $("#telephone").val();
+            var re = /^1\d{10}$/;
+            var returnurl = "<{$Think.get.returnurl}>";
+            if(re.test(telephone)==false){
+                alert('手机号格式不正确');
+                return;
+            }else{
+                $('.send_bind_captcha').countdown();
+            }
+            $.post(__PERSON_CENTER_CAPTCHA_SEND__,{telephone:telephone},function(result){
+                if(result.status==0){
+                    show_short_message(result.content);
+                }else{
+                    if(returnurl!==""){
+                        window.locaion.href = returnurl;
+                    }else{
+                        show_short_message(result.content);
+                    }
+                }
+            });
+
+        });
+
+
+        //重新绑定发送验证码
+        $(".send_re_bind_captcha").click(function(){
+            var telephone = $("#telephone_other").val();
+            var re = /^1\d{10}$/;
+            var returnurl = "<{$Think.get.returnurl}>";
+            if(re.test(telephone)==false){
+                alert('手机号格式不正确');
+                return;
+            }else{
+                $('.send_bind_captcha').countdown();
+            }
+            $.post(__PERSON_CENTER_CAPTCHA_SEND__,{telephone:telephone},function(result){
+                if(result.status==0){
+                    show_short_message(result.content);
+                }else{
+                    if(returnurl!==""){
+                        window.locaion.href = returnurl;
+                    }else{
+                        show_short_message(result.content);
+                    }
+                }
+            });
+
+        });
+
+        //出发跳转
+        $(document).ready(function(){
+            var tab = "<{$Think.get.tab}>";
+            if(tab=='account'){
+                change('account_manage');
+            }
+        });
+
+    });
+
+    /*点击修改后，展现修改的内容*/
+    function show(value){
+        //用户名
+        if(value == 'nickname'){
+            $('.form_name').removeClass('none');
+            $('.n_e').addClass('none');
+        }
+        //真实姓名
+        if(value == 'realname'){
+            $('.form_tname').removeClass('none');
+            $('.t_e,.t_e_2').addClass('none');
+        }
+        //填写地址
+        if(value == 'address'){
+            $('.form_address').removeClass('none');
+            $('.a_e,.a_e_2').addClass('none');
+        }
+        //填写生日
+        if(value == 'birth'){
+            $('.form_birth').removeClass('none');
+            $('.b_e,.b_e_2').addClass('none');
+        }
+        //填写宣言
+        if(value == 'xuan_yan'){
+            $('.form_xuan_yan').removeClass('none');
+            $('.x_e,.x_e_2').addClass('none');
+        }
+    } 
+
+
+    // 点击保存后hide
+    function hide(value){
+        //用户名
+        if(value == 'nickname'){
+            var use = $('#nickname').val();
+            // 判断用户名是否为空
+            if(use==""){
+                $('.use_tip').removeClass('none');
+            }else{
+                $('.form_name').addClass('none');
+                $('.n_e').removeClass('none');
+                $('.use_tip').addClass('none');
+            }
+            $('.name_show').text(use);
+        }
+        //真实姓名
+        if(value == 'realname'){
+            var realname = $('#realname').val();
+            //判断用户名是否为数字
+            if(!isNaN(realname)){
+                $('.realname_tip').removeClass('none');
+            }else{
+                $('.form_tname').addClass('none');
+                $('.t_e').removeClass('none');
+                $('.tname_show').text(realname);
+                $('.realname_tip').addClass('none');
+            }
+        }
+        //填写地址
+        if(value == 'address'){
+            var province_name = $('#birthprovince').find("option:selected").text();
+            var city_name = $('#birthcity').find("option:selected").text();
+            var address = $('#address').val();
+            $('.form_address').addClass('none');
+            $('.a_e').removeClass('none');
+            $('.address_show').text(province_name+city_name+address);
+        }
+        //填写生日
+        if(value == 'birth'){
+            var birthyear = $('#birthyear').val();
+            var birthmonth = $('#birthmonth').val();
+            var birthday = $('#birthday').val();
+            $('.form_birth').addClass('none');
+            $('.b_e').removeClass('none');
+            $('.birth_show').text(birthyear+'-'+birthmonth+'-'+birthday);
+        }
+        //填写宣言
+        if(value == 'xuan_yan'){
+            var selfdesc = $('#selfdesc').val();
+            $('.form_xuan_yan').addClass('none');
+            $('.x_e').removeClass('none');
+            $('.selfdesc_show').text(selfdesc);
+        }
+    }
+
+    /*验证手机号码格式是否正确*/
+    function check_num(str){
+        // 验证手机号的正则表达式 
+        var re = /^1\d{10}$/;
+        if (re.test(str) == false) {
+           alert("手机号格式不正确");
+        } 
+        //跳转到输入验证码的界面
+        if(re.test(str) == true){
+            $('.frist_bind').addClass('none');
+            $('.yan_zhen').removeClass('none');
+            $('.phone_num').val(str);
+
+
+        }
+    }
+
+    function check_num_other(str){
+        // 验证手机号的正则表达式
+        var re = /^1\d{10}$/;
+        if (re.test(str) == false) {
+            alert("手机号格式不正确");
+        }
+        //跳转到输入验证码的界面
+        if(re.test(str) == true){
+            //其它次数的绑定
+            $('.re_bind').addClass('none');
+            $('.yan_zhen_other').removeClass('none');
+            $("#telephone_other").val(str);
+        }
+    }
+
+
+</script>
+<{include file="default/pc/footer" /}>

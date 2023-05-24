@@ -1,0 +1,57 @@
+<{include file="default/mobile/header"/}>
+<link href="http://vjs.zencdn.net/5.9.2/video-js.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/video.css"/>
+
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="视频列表"/}>
+    <div class="container">
+    <{if condition="!empty($video['mobileurl'])"}>
+    <video id="my_video_1" class="video-js vjs-default-skin"  controls
+     preload="auto"  poster="<{$video.videocover}>"
+     data-setup="{}">
+     <source src="<{$video.mobileurl}>" type='video/mp4'>
+     <source src="my_video.webm" type='video/webm'>
+    </video>
+    <{elseif condition="!empty($video['addition']) and ($video.source eq 'youku')"/}>
+    <iframe height="300" width="100%" src="http://player.youku.com/embed/<{$video.addition}>" frameborder=0 allowfullscreen></iframe>
+    <{elseif condition="!is_null($video['addition']) and ($video.source eq 'tudou')"/}>
+    <!--土豆视频处理 addition表示类型  addition2表示类别id addition3表示id-->
+    <iframe height="300" width="100%" src="http://www.tudou.com/programs/view/html5embed.action?type=<{$video.addition}>&code=<{$video.addition2}>&lcode=<{$video.addition3}>" frameborder=0 allowfullscreen></iframe>
+    <{elseif condition="!is_null($video['addition']) and ($video.source eq 'iqiyi')"/}>
+    <iframe height="300" width="100%" src="http://open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=<{$video.addition}>&tvId=<{$video.addition2}>" frameborder=0 allowfullscreen></iframe>
+    <{elseif condition="!is_null($video['addition']) and ($video.source eq 'qq')"/}>
+    <iframe height="300" width="100%" src="http://v.qq.com/iframe/player.html?vid=<{$video.addition}>&tiny=0&auto=0" frameborder=0 allowfullscreen></iframe>
+    <{/if}>
+
+    </div>
+
+    <div class="video_article_content">
+    <div class="video_tab_switch">
+        <a>其他</a>
+    </div>
+
+    <{foreach name="videos" item="video"}>
+    <div class="video_recommend_item">
+        <a href="<{:U('Mobile/showvideo',array('id'=>$video['id']))}>">
+            <div class="poster">
+                <img src="<{$video.cover}>">
+                <div class="play_icon"></div>
+            </div>
+            <div class="info">
+                <div class="title"><{$video.title}></div>
+                <div class="detail">
+                    
+                </div>
+            </div>
+        </a>
+    </div>
+    <{/foreach}>
+   </div>
+
+   <script src="http://vjs.zencdn.net/5.9.2/video.js"></script>
+   <script type="text/javascript">
+        //var myPlayer = videojs('my_video_1');
+        //myPlayer.requestFullscreen();
+   </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/vote.css"/>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/online.min.css"/>
+<script type="text/javascript" src="/Public/mobile/js/online.js"></script>
+<style>
+    body{
+        margin-bottom: 100px;
+    }
+</style>
+<div class="wrap" id="wrap">
+    <{assign name="title" value="线上活动"/}>
+    <{include file="default/mobile/nav"/}>
+    <h1 class="votename">
+        <span>
+            <{if condition='$activity[ismultiselect] eq 0'}>【单选】<{else/}>【多选】<{/if}>
+        </span>
+        <{$activity.subject}>
+    </h1>
+    <div class="votenums">
+        <a href="javascript:;" title="参与人数">
+            <img src="/Public/mobile/images/ico_19.jpg">
+                <{$activity.id|getOnlineVoteNum}>
+            </img>
+        </a>
+        <a href="javascript:;" title="回复数">
+            <img src="/Public/mobile/images/ico_20.jpg">
+                <{$activity.id|getResponseCountByPidType=2}>
+            </img>
+        </a>
+    </div>
+    <ul class="tabul3">
+        
+        <{if condition="!checkHasVote(session('uid'),$activity['id'])"}>
+        <div id="screen_crop">
+        <{volist name="wrap_questions" id="question" key='k'}>
+        <li>
+            <a href="javascript:;" title="">
+                <img alt="" src="<{$question.image|buildImgUrl}>"/>
+            </a>
+            <div class="picvoted">
+                <p>
+                    <{$question.text}>
+                </p>
+            </div>
+            <div class="percent">
+                <b>
+                    <{if condition='$activity[ismultiselect] eq 0'}>
+                    <input type="radio" name="radio" class="single-check" data-choice="<{$k-1}>">
+                    <{else/}>
+                    <input type="checkbox" name="checkbox" class="multi-check" data-choice="<{$k-1}>">
+                    <{/if}>
+                </b>
+            </div>
+        </li>
+        <{/volist}>
+        <li>
+        <a href="javascript:;" title="确认" class="joinchat submit_vote" data-aid="<{$activity.id}>" data-isimg="1">确认</a>
+        </li>
+        <{else/}>
+        <{volist name="wrap_results" id='res' key='k'}>
+        <li>
+            <a href="javascript:;" title="">
+                <img alt="投票选项" src="<{$res.image}>"/>
+            </a>
+            <div class="picvoted">
+                <p>
+                    <{$res.text}>
+                </p>
+            </div>
+            <div class="percent">
+                <span>
+                    <b><{$res.value}></b>
+                    <b><{$res.percent}>%</b>
+                </span>
+            </div>
+        </li>
+        <{/volist}>
+        <{/if}>
+    </ul>
+    <span class="footblank">
+    </span>
+    <div class="footico">
+        <a href="<{:U('Mobile/response',array('type'=>2,'pid'=>$activity['id']))}>" title="评论">
+            <img alt="评论" src="/Public/mobile/images/ico1_03.png">
+                评论
+            </img>
+        </a>
+        <a href="javascript:;" title="分享">
+            <img alt="分享" src="/Public/mobile/images/ico2_05.png">
+                分享
+            </img>
+        </a>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="alphabg">
+    </div>
+    <div class="share">
+        <h2 class="sharetitle">分享</h2>
+        <div class="sharewrap">
+            <a href="javascript:;" title="新浪微博" class="share_online_activity_weibo"><img src="/Public/mobile/images/share_03.png" alt="新浪微博">新浪微博</a>
+            <a href="javascript:;" title="QQ空间" class="share_online_activity_qzone"><img src="/Public/mobile/images/share_05.png" alt="QQ空间">QQ空间</a>
+            <a href="javascript:;" title="QQ好友" class="share_online_activity_qq"><img src="/Public/mobile/images/share_07.png" alt="QQ好友">QQ好友</a>
+            <a href="javascript:;" title="微信朋友圈" class="share_online_activity_weixin"><img src="/Public/mobile/images/share_09.png" alt="微信朋友圈">微信朋友圈</a>
+            <div class="clear"></div>
+        </div>
+        <a href="javascript:;" title="关闭" class="closebtn close_share"><img src="/Public/mobile/images/close2.png" alt="关闭"></a>
+    </div>
+    
+</div>
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

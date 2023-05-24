@@ -1,0 +1,57 @@
+<!--添加更多及未来计划弹出层开始-->
+<div class="login_bg2" id="bg_login2">
+    <form class="commentForm" action="<{:U('Home/Welfare/addWelfare',array('starID'=>$starID))}>" method="post" enctype="multipart/form-data" name="form_event" id="form_event">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" aria-label="Close" type="button" data-dismiss="modal" onclick="hide_form2()"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><img style="width: 40px; height: 30px;" src="__PUBLIC__/gongyi/default/img/aa.png">更多公益
+                        <label style="color: rgb(153, 153, 153); font-size: 14px;">(走过的公益旅程!)</label>
+                    </h4>
+                    <h6 style="padding-left: 40px;">每个账户只能填写一个事件，请慎重哦~</h6>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label" for="title_event">公益</label>
+                        <input name="title" class="form-control" id="title_event" type="text" placeholder="限制20个文字，40字符">
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label" for="recipient-name">开始时间:</label>
+                        <div class="row" id="lasttime" style="padding-bottom: 10px;">
+
+                                <select id="Date_Year" name="Date_Year" data=""></select>
+                                <select id="Date_Month" name="Date_Month" ></select>
+                                <select id="Date_Day" name="Date_Day" ></select>
+
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label for="exampleInputFile">上传图片</label>
+                        <input name="file1" class="InputFile" id="exampleInputFile_event" type="file" accept="image/jpeg,image/png,image/gif">
+                        <p class="help-block">规格：限制为1张图片，大小限制在2M以内，尺寸为250*210</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-primary" style="width: 80px;" type="submit" value="提交">
+                    <button class="btn btn-default" type="button" data-dismiss="modal" onclick="hide_form2()">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var myDate = new Date();
+        $("#lasttime").DateSelector({
+            ctlYearId: 'Date_Year',
+            ctlMonthId: 'Date_Month',
+            ctlDayId: 'Date_Day',
+            defYear: myDate.getFullYear(),
+            defMonth: (myDate.getMonth()+1),
+            defDay: myDate.getDate(),
+            minYear: 2005,
+            maxYear: (myDate.getFullYear()+1)
+        });
+    });
+</script>

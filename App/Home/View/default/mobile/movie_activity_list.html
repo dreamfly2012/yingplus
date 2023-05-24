@@ -1,0 +1,32 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/priv.css"/>
+<div class="wrap" id="wrap">
+	<{include file="default/mobile/nav" title="包场观影"/}>
+	<{include file="default/mobile/forum_banner"/}>
+	
+	<div class="activity">
+		<h2><img src="/Public/mobile/images/t2on.png"> 包场观影</h2>
+		<ul class="tab2ul">
+			<{foreach name="activities" item="activity"}>
+			<li>
+				<a href="<{:U('Mobile/activity',array('aid'=>$activity['id']))}>" title="">
+					<p><{$activity.subject}></p>
+					<i><{$activity.holdstart|date="Y-m-d",###}></i>
+					<span><{$activity.holdstart|date="H:i",###}></span>
+				</a>
+			</li>
+			<{/foreach}>
+		</ul>	
+		
+	</div>
+	
+	
+	<a href="<{:U('Mobile/chat',array('type'=>'4','pid'=>$fid))}>" title="进入<{$fid|getFansgroupById}>聊天屋" class="joinchat">进入<{$fid|getFansgroupById}>聊天屋</a>
+	
+	<div class="alphabg"></div>
+	
+</div>
+
+
+</body>
+</html>

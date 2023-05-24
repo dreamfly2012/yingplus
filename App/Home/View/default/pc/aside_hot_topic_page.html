@@ -1,0 +1,12 @@
+<div class="commontitle ">
+    <p>热门话题</p>
+    <a href="javascript:;" title="创建" class="create create_topic" data-fid="<{$fid}>">创建</a>
+</div>
+<ul class="hotlist">
+    <{volist name="topics" id="hot_topic" offset="0" length="15"}>
+    <li><{if condition="$hot_topic.admin_digest eq 1"}><span class="site_blue">【精】</span><{/if}><a href="<{:U('Pc/topic',array('tid'=>$hot_topic['id']))}>" title="<{$hot_topic.subject}>" target="_blank"><{$hot_topic.subject}></a></li>
+    <{/volist}>
+</ul>
+<div class="hotpages">
+    <{$topic_page}>
+</div>

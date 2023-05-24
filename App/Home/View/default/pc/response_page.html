@@ -1,0 +1,27 @@
+<{volist name="responses.data" id="response"}>
+<div class="argitem">
+    <b class="avatar2"><a href="javascript:;" title=""><img src="<{$response.uid|getUserPhotoById}>" alt="" class="topic_user_photo"></a></b>
+    <div class="argright">
+        <h2><a href="javascript:;" title=""><{$response.uid|getUserNicknameById}></a></h2>
+        <p class="argtext">
+            <{$response.content}>
+        </p>
+    </div>
+    <div class="clear"></div>
+    <div class="argtime">
+        <a href="javascript:;" title="" class="goodtime add_plus_effect vote_response" data-pid="<{$response.id}>" data-type='6'>
+        <img class="" src="/Public/default/images/good_27.jpg">
+        <span class="vote_num"><{$response.favors}></span>
+        <b>+1</b>
+        </a>
+        <{$response.addtime|date='Y-m-d H:i',###}> 
+        <a href="javascript:void(0)" title="回复" class="anslink response_to" data-username="<{$response.uid|getUserNicknameById}>" data-rid="<{$response.id}>">回复</a>
+    </div>
+    <div class="anstextarea">
+        <textarea placeholder="请输入内容..."></textarea>
+    </div>
+</div>
+<{/volist}>
+<div class="argpage">
+    <{$responses.page}>
+</div>

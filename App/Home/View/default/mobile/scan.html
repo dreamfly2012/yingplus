@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>扫码列表</title>
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="description" content="#">
+<meta name="Keywords" content="#">
+<link rel="stylesheet" href="__PUBLIC__/mobile/movie/css/global.css">
+<link rel="stylesheet" href="__PUBLIC__/mobile/movie/css/scan.css">
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/adaptive.js"></script>
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/jquery.ajaxfileupload_latest.js"></script>
+<script type="text/javascript">
+    var is_login = "<{$is_login}>";
+    var login_url = "<{:U('Index/login')}>";
+    var aid = "<{$Think.get.aid}>";
+    var save_capture_img_url = "<{:U('UploadImg/upload')}>?";
+    var get_qrcode_content_url = "<{:U('Qrcode/decodeQrcode')}>";
+    var get_activity_info_url = "<{:U('MovieActivity/getActivityInfo')}>";
+    var get_enroll_info_url = "<{:U('MovieActivity/getEnrollInfo')}>";
+</script>
+</head>
+<body class="body-wrap">
+<!--   头部   -->
+<{include file="default/Index/header"/}>
+
+<div class="film-name">
+	<i class="video"></i>
+    <div class="name">
+    	<span class="movie_title">夏有乔木 雅望天堂</span><br>
+    	Sweet   Sixteen
+    </div>
+</div>
+<div class="cinema-info">
+	<div class="name" id="cinemaname">
+    	红旗街万达影院
+    </div>
+    <div class="address" id="detailaddress">
+    	长春市朝阳区1118号红旗街与湖西路交汇南行100米
+    </div>
+    <div class="other">
+    	人限：<span id="num">37 / 50</span>  时间：<span id="time">2016-06-01</span>
+    </div>
+    <div class="other">
+    	发起人：<i id="sponsor">想念变成一条线丶</i>
+    </div>
+</div>
+<a class="enroll scan" href="javascript:;">
+    <span id="scan_qrcode">扫描二维码</span>
+<input type="file" id="upload_qrcode" name="file" accept="image/*" class="upload_button">
+<a>
+<div class="help-txt">
+	帮助：请扫描报名者支付时收到的二维码，请在确认无误 后点击确认到场。此功能用于帮助你管理现场粉丝参与情况。
+</div>
+<!--   电影包场列表   -->
+<div class="content-unit">
+	<div class="title">
+    	<i></i>报名列表
+        <!--<a class="more"></a>
+        <span class="small-txt"><em>筛选</em></span>-->
+    </div>
+    <div class="box clearfix">
+    	<ul class="screen-list" id="enroll_list">
+        	<!-- <li>
+                <div class="txt">
+                	<div class="line clearfix">
+                    	<a class="name" href="#">老房子依然升起了 <span>(购票：6张 )</span> </a>
+                        <span class="exchange">已兑换</span>
+                    </div>
+                    <div class="line clearfix">
+                    	<div class="num">手机号：：<span>15044025583</span></div>
+                        <span class="time">2015-04-23</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="txt">
+                	<div class="line clearfix">
+                    	<a class="name" href="#">想念变成一条线 <span>（购票：1张）</span> </a>
+                        <span class="un-exchange">未到场</span>
+                    </div>
+                    <div class="line clearfix">
+                    	<div class="num">手机号：：<span>15044025584</span></div>
+                        <span class="time">2015-04-23</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="txt">
+                	<div class="line clearfix">
+                    	<a class="name" href="#">想念变成一条线 <span>（购票：1张）</span> </a>
+                        <span class="un-exchange">未到场</span>
+                    </div>
+                    <div class="line clearfix">
+                    	<div class="num">手机号：：<span>15044025585</span></div>
+                        <span class="time">2015-04-23</span>
+                    </div>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/mobile/movie/js/scan.js"></script>
+</body>
+</html>

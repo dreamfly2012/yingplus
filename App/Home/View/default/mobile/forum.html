@@ -1,0 +1,33 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/forum.css?v=1"/>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/preview.css?v=1">
+<script src="/Public/mobile/js/forum.js?v=1"></script>
+<div class="wrap" id="wrap">
+	<{assign name="title" value="$forum.fansgroup"/}>
+	<{include file="default/mobile/nav"/}>
+	<{include file="default/mobile/forum_banner"/}>
+	
+	<div class="aotab">
+		<ul>
+			<li><img src="/Public/mobile/images/t1on.png" alt="线上活动" class=""> 线上活动</li>
+			<li><img src="/Public/mobile/images/t2on.png" alt="包场观影" class="gray"> 包场观影</li>
+			<li><img src="/Public/mobile/images/t3on.png" alt="公益应援" class="gray"> 公益应援</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+	<div class="tab">
+		<{include file="default/mobile/hot_online_activity"/}>
+	</div>
+	<div class="tab" style="display:none;">
+		<{include file="default/mobile/hot_movie_activity"/}>
+	</div>
+	<div class="tab" style="display:none;">
+		<{include file="default/mobile/hot_welfare_event"/}>
+	</div>
+	<a href="<{:U('Mobile/chat',array('type'=>'4','pid'=>$fid))}>" title="进入<{$forum.id|getFansgroupById}>聊天屋" class="joinchat">进入<{$forum.id|getFansgroupById}>聊天屋</a>
+	<div class="alphabg"></div>
+	<{include file="default/mobile/footer"/}>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+body, h1, h2, h3, h4, p, ul, ol, dl, dd, form, div {
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+    padding: 0;
+    list-style: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+}
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background: #e2dac7;
+}
+
+.h1 {
+    height: 574px;
+}
+
+.h2 {
+    height: 366px;
+}
+
+.h3 {
+    height: 390px;
+}
+
+.h4 {
+    height: 744px;
+}
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mb40 {
+    margin-bottom: 40px;
+}
+
+.mb50 {
+    margin-bottom: 50px;
+}
+
+.ml130 {
+    margin-left: 130px;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+a, a:hover, a:visited, a:link {
+    text-decoration: none
+}
+
+.banner {
+    width: 100%;
+    height: 442px;
+    background: #411C02 url(../img/zhonghanliang.png) no-repeat top center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-wrap {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.video {
+    width: 344px;
+    height: 230px;
+    margin-left: 700px;
+    margin-top: 160px;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 30px 0 40px;
+    width: 1000px;
+    background: url(http://mat1.gtimg.com/gongyi/act/laoyousuoyi/content-bg.png) 86px 0 repeat-y;
+    font-size: 14px;
+    font-family: Î¢ÈíÑÅºÚ, simsun, sans-serif;
+}
+
+.content li {
+    position: relative;
+}
+
+.info {
+    position: relative;
+    z-index: 99;
+    float: left;
+    _width: 135px;
+}
+
+.info div {
+    margin-bottom: 25px;
+}
+
+.info ul, .info p {
+    float: left;
+    width: 80px;
+    color: #653915;
+}
+
+.info p {
+    position: relative;
+    top: 10px;
+    left: -20px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.info .m {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.info .d {
+    font-weight: bold;
+    font-size: 48px;
+    font-family: impact;
+}
+
+.info .t {
+    margin-left: -20px;
+    font-size: 18px;
+    font-family: microsoft yahei, sans-serif;
+}
+.t div{
+    font-size: 18px;
+}
+
+.dot {
+    display: block;
+    float: left;
+    margin: 30px 0 0 -18px;
+    width: 52px;
+    height: 50px;
+    background: url(http://mat1.gtimg.com/gongyi/act/laoyousuoyi/icon1.png) no-repeat;
+    vertical-align: middle;
+    zoom: 1;
+}
+
+.arrow_left {
+    float: left;
+    margin-left: -52px;
+    width: 24px;
+    height: 28px;
+    background: url(http://mat1.gtimg.com/gongyi/act/laoyousuoyi/icon-3.png) no-repeat;
+}
+
+.section {
+    position: relative;
+    z-index: 9;
+    float: left;
+    margin-left: 40px;
+    padding: 30px 30px 25px;
+    width: 750px;
+    border: 3px solid #d38e82;
+    filter: progid: DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#7FFFFFFF', endColorstr='#7FFFFFFF');
+}
+
+.section:hover {
+    width: 750px;
+    margin-top: -5px;
+}
+
+:root .section {
+    border: 3px solid #d38e82;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    filter: none;
+}
+
+.intro {
+    color: #653915;
+    float: left;
+}
+
+.intro h3 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #ac3935;
+    font-family: "Microsoft YaHei";
+    padding-bottom: 8px;
+}
+
+.intro p {
+    text-indent: 0;
+    line-height: 24px;
+    font-family: "微软雅黑";
+}
+
+.intro a {
+    color: #B93400;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.intro a:hover {
+    text-decoration: underline;
+}
+
+.pic-list2 {
+    clear: both;
+    overflow: hidden;
+}
+
+.pic-list2 li {
+    float: left;
+    padding: 15px 0;
+}
+
+.pic-list2 li.l1 {
+    margin-left: 10px
+}
+
+.img_one {
+    width: 230px;
+    height: 200px;
+}
+
+.img_two {
+    width: 355px;
+    height: 200px;
+}
+
+#footer {
+    font-size: 12px;
+    background: #fff;
+    border: none;
+    clear: both;
+    width: 100%;
+    height: 91px;
+    text-align: center;
+    color: #aaaaaa;
+    line-height: 22px;
+    padding-top: 15px;
+    border-top: 1px solid #d2d2d2;
+}
+
+#footer a {
+    color: #aaa;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div_style{
+            float: left;
+            margin-left: 250px;
+            margin-top: 100px;
+        }
+        .div_two{
+            margin-left: 100px;
+            margin-top: 50px;
+            float: left;
+        }
+        li{
+            list-style-type: none;
+            margin-left: 100px;
+            float:left;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <div class="div_style">
+         <form action="<{:U('JobRemand/postData')}>" method="post">
+            <label>星吧：</label>
+            <input type="text" name="array[name]"/>
+             <label>经纪人：</label>
+             <input type="text" name="array[nickname]"/><br/>
+            <label>操作时间：</label>
+            <input input="text" name="array[startime]"/>至
+            <input input="text" name="array[endtime]"/>
+            <input type="submit" name="submit" value="搜索"/>
+            <!--<button id="jobRemand">查询</button>-->
+         </form>
+    </div>
+    <{if condition="$operate neq ''"}>
+    <div class="div_two">
+        <ul class="one">
+            <li>星吧</li>
+            <li>经纪人</li>
+            <li>粉丝</li>
+            <li>操作</li>
+            <li>原因</li>
+            <li>操作时间</li>
+            <br/>
+        </ul>
+        <{foreach name="operate" item="vo"}>
+        <ul>
+            <li><{$vo.fid|getForumNameById}></li>
+            <li><{$vo.admin_id|getUserNicknameById}></li>
+            <li> <{$vo.uid|getUserNicknameById}></li>
+            <li><{$vo.operate}></li>
+            <li><{$vo.content}></li>
+            <li><{$vo.addtime}></li>
+        </ul>
+        <{/foreach}>
+    </div>
+    <{/if}>
+</div>
+</body>
+</html>

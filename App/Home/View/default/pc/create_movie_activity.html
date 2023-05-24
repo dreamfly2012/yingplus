@@ -1,0 +1,75 @@
+<form class="create-movie-activity" method="post" action="javascript:;">
+<div class="addactive_movie_activity">
+	<div class="add_title">
+		<p>包场活动</p>
+		<a href="javascript:void(0);" title="" class="closebtn2 close_form"></a>
+	</div>
+	<span class="hei40"></span>
+
+	<div class="show_success_text">
+	<div class="addactiveitem">
+		<p class="add_comleft">地区：</p>
+		<div class="add_comright">
+			<select name="holdprovince" id="holdprovince" class="sel1">
+                <{foreach name='provinces' item='province'}>
+                <option value="<{$province.id}>"
+                <{if condition="$province.id eq $current_province"}>selected='selected'
+                <{/if}>>
+                <{$province.name}>
+                </option>
+                <{/foreach}>
+            </select>
+			<select name="holdcity" id="holdcity" class="sel1">
+                <{foreach name='cities' item='city' }>
+                <option value="<{$city.id}>"
+                <{if condition="$city.id eq $current_city"}>selected='selected'
+                <{/if}>>
+                <{$city.name}>
+                </option>
+                <{/foreach}>
+            </select>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="addactiveitem div_cinema imp_none">
+		<p class="add_comleft">影院：</p>
+		<div class="add_comright">
+			<select name="cinemaid" id="cinemaid" class="sel1">
+            </select>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="addactiveitem">
+		<p class="add_comleft">时间：</p>
+		<div class="add_comright">
+			<input type="text" id="expecttime" name="expecttime" class="text4 text5"  placeholder="时间" value="" readonly="" onFocus="WdatePicker({isShowToday:false,minDate:'<{$limit_start|date=\'Y-m-d\',###}>',maxDate:'<{$limit_end|date=\'Y-m-d\',###}>'})">
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="addactiveitem">
+		<p class="add_comleft">手机号：</p>
+		<div class="add_comright">
+			<input type="text" name="telephone" id="telephone" class="text4 text6" placeholder="请输入手机号">
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="addactiveitem">
+		<p class="add_comleft">验证码：</p>
+		<div class="add_comright">
+			<input type="text" class="text4 text7" placeholder="请输入验证码" name="captcha" id="captcha">
+			<span id="sendcaptcha">获取验证码</span>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div>
+		<input type="hidden" name="type" value="1"/>
+		<input type="hidden" name="cinemaname" id="cinemaname"/>
+        <input type="hidden" name="fid" value="<{$fid}>" id="fid"/>
+        <input type="hidden" name="mid" value="<{$mid}>" id="mid"/>
+        <input type="submit" class="create-movie-submit add_submit" value="提交申请"/>
+    </div>
+    </div>
+	
+	
+</div>
+</form>

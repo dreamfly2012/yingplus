@@ -1,0 +1,44 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" href="/Public/mobile/css/online.css?v=2">
+<script src="/Public/mobile/js/response.js?v=2"></script>
+<style>
+    body{margin-bottom: 50px;}
+</style>
+<div class="wrap" id="wrap">
+    <{assign name="title" value="评论"/}>
+    <{include file="default/mobile/nav"/}>
+
+    <div class="response_block">
+    <{foreach name="responses" item="response"}>
+    <div class="argitem">
+        <b><a href="javascript:;" title=""><img src="<{$response.uid|getUserPhotoById}>"></a></b>
+        <div class="argright">
+            <h2><{$response.uid|getUserNicknameById}></h2>
+            <p>
+                <{$response.content}>
+            </p>
+            <div class="regtime">
+                <span><{$response.addtime|date="Y-m-d H:i:s",###}></span>
+                <a href="javascript:;" title="回复" class="response_to" data-username="<{$response.uid|getUserNicknameById}>" data-rid="<{$response.id}>"></a>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <{/foreach}>
+    </div>
+
+
+    <span class="footblank"></span>
+    <div class="foottextbox">
+        <textarea placeholder="请输入评论内容" draggable="false" id="response_content"></textarea>
+        <a href="javascript:;" title="评论" id="add_response_do" data-fid="<{$fid}>" data-pid="<{$pid}>" data-type="<{$type}>" data-rid="0">评论</a>
+    </div>
+
+    <div class="alphabg"></div>
+
+</div>
+
+
+</body>
+</html>

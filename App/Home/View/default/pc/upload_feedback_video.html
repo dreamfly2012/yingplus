@@ -1,0 +1,237 @@
+<script src="__PUBLIC__/plupload/plupload.full.min.js" type="text/javascript"></script>
+<form method="post" id="upload-video" action="javascript:;">
+<div class="addactive_video">
+	<div class="add_title">
+		<p>上传视频</p>
+		<a href="javascript:void(0);" title="" class="closebtn2 close_form"></a>
+	</div>
+	<span class="hei40"></span>
+	
+	<div id="tabhead" class="tabhead">
+        <span class="tab focus" data-content-class="upload">本地上传</span>
+        <span class="tab" data-content-class="online">视频链接</span>
+    </div>
+
+    <div class="content-body">
+        <div class="upload">
+            <div class="addactiveitem mt55">
+        		<p class="add_comleft">视频标题：</p>
+        		<div class="add_comright">
+        			<input type="text" class="text4" name="title" id="title" placeholder="请输入视频标题">
+        		</div>
+        		<div class="clear"></div>
+        	</div>
+        	<div class="addactiveitem">
+        		<p class="add_comleft">选择视频：</p>
+        		<div class="add_comright">
+        			<div class="uploadfile">
+        				<div id="filelist"></div>
+                        <input type="text" class="video_path">
+        				<a href="javascript:;" title="浏览" id="file_choose">浏览...</a>
+        			 <div class="clear"></div>
+        			</div>
+        		</div>
+        		<div class="clear"></div>
+        	</div>
+        </div>
+
+        <div class="online">
+            <div class="addactiveitem mt55">
+                <p class="add_comleft">视频标题：</p>
+                <div class="add_comright">
+                    <input type="text" class="text4" name="flashtitle" id="flashtitle" placeholder="请输入视频标题">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="addactiveitem">
+                <div class="valid_url"></div>
+                <p class="add_comleft">视频链接：</p>
+                <div class="add_comright">
+                    <input type="text" class="text4" name="flashurl" id="flashurl" placeholder="请输入视频链接">
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="hei10"></div>
+	<div class="hei10"></div>
+	<input type="hidden" name="id" value="" id="id" />
+    <div id="container">
+	<a href="javascript:;" title="确认提交" class="add_submit submit_add_video">确认提交</a>
+	</div>
+</div>
+</form>
+<style>
+    .valid_url{color:red;}
+    .mt55{margin-top: 55px;}
+    .online{display:none;}
+    .video_path{background-color:#d1d1d1}
+    .tabhead{    margin-left: 64px;}
+    .tabhead span.focus {
+        height: 31px;
+        border-bottom: none;
+        background: #fff;
+    }
+    .tabhead span {
+        display: inline-block;
+        padding: 0 5px;
+        height: 30px;
+        border: 1px solid #ccc;
+        background: url("/Public/default/images/dialog-title-bg.png") repeat-x;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    .content-body{
+        position: relative;
+        top: -1px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        width: 670px;
+        height: 240px;
+    }
+</style>
+
+<script type="text/javascript">
+    var timestamp = "<{$upload_form_data.timestamp}>";
+    var token = "<{$upload_form_data.token}>";
+    var swf = "<{$upload_form_data.swf}>";
+    var url = "<{$upload_form_data.uploader}>";
+    var xap = "<{$upload_forum_data.xap}>";
+    var uploadtoyun = "<{:U('VideoUpload/uploadToYun')}>";
+    var type = 'upload';
+    var call_back_button = "<{$upload_form_data.call_back_button}>";
+    var fid = "<{$fid}>";
+    var uploader = new plupload.Uploader({
+        runtimes : 'html5,flash,silverlight,html4',
+        browse_button : 'file_choose', // you can pass an id...
+        container: document.getElementById('container'), // ... or DOM Element itself
+        url : url,
+        flash_swf_url : swf,
+        silverlight_xap_url : xap,
+        
+        filters : {
+            max_file_size : '200mb',
+            mime_types : [
+               	{ title : "Video files", extensions : "mp4,flv,rmvb,avi" }
+              ]
+            
+        },
+
+        init: {
+            PostInit: function() {
+                document.getElementById('filelist').innerHTML = '';
+            },
+
+            FilesAdded: function(up, files) {
+                plupload.each(files, function(file) {
+                    document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+                    uploader.start();
+                });
+            },
+
+            UploadProgress: function(up, file) {
+                document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+            },
+
+            FileUploaded:function(up, file, response){
+                var response_info = $.parseJSON(response.response);
+                //console.log(response_info.data.info);
+                $("#id").val(response_info.data.info);
+            },
+
+            Error: function(up, err) {
+                alert(err.message);
+            }
+        }
+    });
+
+    uploader.init();
+
+    function convert_url(url){
+        if ( !url ) return '';
+        url = url.replace(/v\.youku\.com\/v_show\/id_([\w\-=]+)\.html/i, 'player.youku.com/player.php/sid/$1/v.swf')
+            .replace(/(www\.)?youtube\.com\/watch\?v=([\w\-]+)/i, "www.youtube.com/v/$2")
+            .replace(/youtu.be\/(\w+)$/i, "www.youtube.com/v/$1")
+            .replace(/v\.ku6\.com\/.+\/([\w\.]+)\.html.*$/i, "player.ku6.com/refer/$1/v.swf")
+            .replace(/www\.56\.com\/u\d+\/v_([\w\-]+)\.html/i, "player.56.com/v_$1.swf")
+            .replace(/www.56.com\/w\d+\/play_album\-aid\-\d+_vid\-([^.]+)\.html/i, "player.56.com/v_$1.swf")
+            .replace(/v\.pps\.tv\/play_([\w]+)\.html.*$/i, "player.pps.tv/player/sid/$1/v.swf")
+            .replace(/www\.letv\.com\/ptv\/vplay\/([\d]+)\.html.*$/i, "i7.imgs.letv.com/player/swfPlayer.swf?id=$1&autoplay=0")
+            .replace(/www\.tudou\.com\/programs\/view\/([\w\-]+)\/?/i, "www.tudou.com/v/$1")
+            .replace(/v\.qq\.com\/cover\/[\w]+\/[\w]+\/([\w]+)\.html/i, "static.video.qq.com/TPout.swf?vid=$1")
+            .replace(/v\.qq\.com\/.+[\?\&]vid=([^&]+).*$/i, "static.video.qq.com/TPout.swf?vid=$1")
+            .replace(/my\.tv\.sohu\.com\/[\w]+\/[\d]+\/([\d]+)\.shtml.*$/i, "share.vrs.sohu.com/my/v.swf&id=$1");
+        return url;
+    }
+
+    $(function () {
+        //tab切换
+        $('.tabhead .tab').click(function(){
+            var index = $('.tabhead .tab').index($(this));
+            if(index==0){
+                type = 'upload';
+            }else{
+                type = 'online';
+            }
+            $(this).addClass('focus').siblings().removeClass('focus');
+            $('.content-body>div').eq(index).css('display','block').siblings().css('display','none');
+        });
+
+
+        //上传视频到云服务
+        $('.submit_add_video').click(function () {
+            if(type=='upload'){
+                var id = $('#id').val();
+                var title = $('#title').val();
+                if (title == '') {
+                    alert('视频标题不能为空');
+                    return false;
+                }
+                if($("#filelist").children().length==0){
+                    alert('请选择上传文件');
+                    return false;
+                }
+                
+                $.ajax({
+                    type: "POST",
+                    url: uploadtoyun,
+                    data: {'attachmentid': id},
+                    dataType: "json",
+                    success: function (data) {
+                        if(data.data.code==0){
+                            $('.<{$upload_form_data.call_back_button}>').attr('data-id',data.data.info);
+                            $('.<{$upload_form_data.call_back_button}>').attr('data-title',title);
+                            $('.close_form').trigger('click');
+                            $('.<{$upload_form_data.call_back_button}>').trigger('click');
+                        }
+                    }
+                });
+                alert('视频已上传完，耐心等待转码');
+                
+            }else{
+                var url = $('#flashurl').val();
+                var new_url = convert_url(url);
+                var title = $('#flashtitle').val();
+                if(url==new_url){
+                    $('.valid_url').html('暂时不支持此url');
+                }else{
+                    if(title==''){
+                        alert('视频标题不能为空');
+                    }else{
+                        $('.valid_url').html('');
+                        $.post(add_forum_video_url,{'flashurl':new_url,'fid':fid},function(result){
+                            if(result.data.code==0){
+                                alert('添加视频成功');
+                                //window.location.reload();
+                            }
+                        });
+                    }
+                    
+                }
+                
+            }
+        });
+    });
+</script> 

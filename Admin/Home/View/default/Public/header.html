@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+
+
+
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+
+
+
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>影加管理系统</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <meta content="" name="description" />
+
+    <meta content="" name="author" />
+    <link rel="shortcut icon" href="__PUBLIC__/admin/img/favicon.ico" />
+
+    <link href="__PUBLIC__/admin/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="__PUBLIC__/admin/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <link href="__PUBLIC__/admin/media/css/bootstrap-fileupload.css" rel="stylesheet" type="text/css"/>
+
+    <link href="__PUBLIC__/admin/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="__PUBLIC__/admin/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="__PUBLIC__/admin/media/css/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="__PUBLIC__/admin/media/css/style.css" rel="stylesheet" type="text/css"/>
+
+    <link href="__PUBLIC__/admin/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+    <link href="__PUBLIC__/admin/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+    <link href="__PUBLIC__/admin/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+    <link href="__PUBLIC__/admin/media/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+
+    <link href="__PUBLIC__/admin/media/css/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/admin/media/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+
+    <link href="__PUBLIC__/admin/media/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+
+    <link href="__PUBLIC__/admin/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+    <link href="__PUBLIC__/admin/css/music/lanrenzhijia.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/diyUpload/css/webuploader.css">
+    
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/diyUpload/css/diyUpload.css">
+    
+
+    <script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+
+    <script src="__PUBLIC__/admin/js/datejs/WdatePicker.js"></script>
+
+    <script src="__PUBLIC__/admin/media/js/jquery-ui-1.10.1.custom.min.js"></script>
+
+    <script src="__PUBLIC__/admin/js/bootstrap.js"></script>
+
+    <script src="__PUBLIC__/admin/js/jquery.fancybox.js"></script>
+    
+    <script src="__PUBLIC__/admin/js/mymanage.js"></script>
+
+
+    <script type="text/javascript" src="__PUBLIC__/diyUpload/js/webuploader.html5only.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/diyUpload/js/diyUpload.js"></script>
+
+    <script src="__PUBLIC__/admin/js/echarts.js"></script>
+
+    <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    
+
+    <script>
+
+        $(function(){
+
+            $(".fancybox").fancybox({
+
+                openEffect  : 'elastic',
+
+                closeEffect : 'elastic'
+
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body class="page-header-fixed">
+
+<div class="header navbar navbar-inverse navbar-fixed-top">
+
+    <div class="navbar-inner">
+
+        <div class="container-fluid">
+
+            <a class="brand" href="">
+
+                <label style="margin-left: 20px;">YINGPLUS</label>
+
+            </a>
+
+            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+
+                <img src="__PUBLIC__/admin/media/image/menu-toggler.png" alt="" />
+
+            </a>
+
+            <ul class="nav pull-right">
+
+                <li class="dropdown user">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                        <img class="admin-photo" alt="" src="<{$photo}>" />
+
+                        <span class="username"><{$nickname}></span>
+
+                        <i class="icon-angle-down"></i>
+
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li class="divider"></li>
+
+                        <li><a href="<{:U('Home/Login/logout')}>"><i class="icon-key"></i> 注销</a></li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>

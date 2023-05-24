@@ -1,0 +1,70 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" href="/Public/mobile/css/index.css?v=2016-05-07" />
+<script type="text/javascript" src="/Public/mobile/js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="/Public/mobile/js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="/Public/mobile/js/index.js"></script>
+<div class="wrap" id="wrap">
+    <{assign name="title" value="影+,带你进入偶像的每一部作品！"/}>
+    <{include file="default/mobile/nav"/}>
+            
+    <!-- 轮播图 -->
+    <div class="main-visual">
+        <div class="flicking-con">
+            <a href="http://yekongque.80shihua.com/">1</a>
+            <a href="http://threeontheroad.80shihua.com/">2</a>
+            <a href="http://xiayouqiaomu.80shihua.com/">3</a>
+        </div>
+        <div class="main-image">
+            <ul id="carousel">
+                <li>
+                    <a href="http://yekongque.80shihua.com/">
+                        <img src="/Public/mobile/images/yekongque_bg_1.png" alt="夜孔雀"/>
+                        <b class="release_date">上映日期：2016-05-20</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://threeontheroad.80shihua.com/">
+                        <img src="/Public/mobile/images/sanrenxing_bg_1.png" alt="三人行"/>
+                        <b class="release_date">上映日期：2016-06-24</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://xiayouqiaomu.80shihua.com/">
+                        <img src="/Public/mobile/images/xiayouqiaomu_bg_1.png" alt="夏有乔木"/>
+                        <b class="release_date">上映日期：2016-08-05</b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main_title">
+        <p>影视<span class="site_yellow">爱豆</span></p>
+    </div>
+
+    <div id="recommend_star" class="recommend_star">
+        <span class="col-3">
+            <a href="<{:U('Mobile/forum',array('fid'=>19))}>">
+                <img src="/Public/mobile/images/liuyifei.png" alt="刘亦菲" class="img-circle"/>
+                <span>刘亦菲</span>
+            </a>
+        </span>
+        <span class="col-3">
+            <a href="<{:U('Mobile/forum',array('fid'=>2))}>">
+                <img src="/Public/mobile/images/zhonghanliang.png" alt="钟汉良" class="img-circle"/>
+                <span>钟汉良</span>
+            </a>
+        </span>
+        <span class="col-3">
+            <a href="<{:U('Mobile/forum',array('fid'=>18))}>">
+                <img src="/Public/default/images/photo/zhaoliying.png" alt="赵丽颖" class="img-circle"/>
+                <span>赵丽颖</span>
+            </a>
+        </span>
+    </div>
+
+</div>
+
+               
+    </body>
+</html>

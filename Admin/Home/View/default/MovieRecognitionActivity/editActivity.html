@@ -1,0 +1,233 @@
+<{include file="default/Public/header" /}>
+
+    <div class="page-container row-fluid">
+        <!-- BEGIN SIDEBAR -->
+        <{include file="default/Index/left" /}>
+            <!-- BEGIN PAGE -->
+            <div class="page-content">
+               <div class="container-fluid">
+
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="portlet box blue tabbable">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-reorder"></i>
+                                        <span class="hidden-480">电影编辑</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body form">
+                                    <div class="tabbable portlet-tabs">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#portlet_tab1" data-toggle="tab">默认风格</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="portlet_tab1">
+                                                <!-- BEGIN FORM-->
+                                                <form action="<{:U('Home/MovieRecognitionActivity/edit')}>" enctype="multipart/form-data"
+                                                      method="post" class="form-horizontal">
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 所属工作室：</label>
+                                                        <div class="controls">
+                                                            <select class="m-wrap small" name="fid" id="fid">
+                                                                <{foreach name="forums" item="forum"}>
+                                                                <option value='<{$forum.id}>' <{if condition="$forum.id eq $activity['fid']"}>selected="selected"<{/if}>><{$forum.name}></option>
+                                                                <{/foreach}>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 电影名称：</label>
+                                                        <div class="controls">
+                                                            <select class="m-wrap small" name="mid" id="mid">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 影院地点：</label>
+
+                                                        <div class="controls">
+                                                            <select id="province" class="medium m-wrap" name="province">
+
+                                                                <{foreach name="provinces" item="province"}>
+
+                                                                <option value="<{$province['id']}>" <{if condition="$province['id'] eq $activity['province']"}>selected="selected"<{/if}>><{$province['name']}>
+                                                                </option>
+
+                                                                <{/foreach}>
+
+                                                            </select>
+
+                                                            <select id="city" class="medium m-wrap" name="city">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 详细地址: </label>
+                                                        <div class="controls">
+                                                            <input type="text" id="detailaddress" class="medium m-wrap" name="detailaddress" value="<{$activity['detailaddress']}>"/>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div class="control-group">
+                                                        <label class="control-label"> 影院名称：</label>
+                                                        <div class="controls">
+                                                            <select id="cinema" class="medium m-wrap" name="cinema">
+
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">开始日期：</label>
+                                                        <div class="controls">
+                                                            <input id="holdstart_date" class="medium m-wrap" value="<{$activity['holdstart']|date='Y-m-d',###}>"
+                                                                   name="holdstart_date" class="Wdate" type="text"
+                                                                   onfocus="WdatePicker({minDate:'%y-%M-%d',maxDate:'2020-10-01'})">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">开始时间：(格式12:00)</label>
+                                                        <div class="controls">
+                                                            <input id="holdstart_time" class="medium m-wrap" value="<{$activity['holdstart']|date='H:i',###}>"
+                                                                   name="holdstart_time"  type="time"/>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">报名截止日期：</label>
+                                                        <div class="controls">
+                                                            <input id="enrollendtime" class="medium m-wrap"
+                                                                   value="<{$activity['enrollendtime']|date='Y-m-d',###}>"
+                                                                   name="enrollendtime" class="Wdate" type="text"
+                                                                   onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'holdstart_date\')}'})">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">价钱：</label>
+                                                        <div class="controls">
+                                                            <input type="text" id="price" class="medium m-wrap" name="price" value="<{$activity.price}>"/>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">人数：</label>
+                                                        <div class="controls">
+                                                            <input type="text" id="enrolltotal" class="medium m-wrap" name="enrolltotal" value="<{$activity.enrolltotal}>"/>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-actions">
+                                                        <input type="hidden" name="id" value="<{$activity.id}>"/>
+                                                        <button type="submit" class="btn blue"><i class="icon-ok"></i> 保存
+                                                        </button>
+                                                        <button type="button" class="btn">取消</button>
+                                                    </div>
+                                                </form>
+                                                <!-- END FORM-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script type="text/javascript">
+        var mid = '<{$activity.mid}>';
+        var cid = '<{$activity.cid}>';
+        var cinemaid = '<{$activity.cinema}>';
+        $(function () {
+            getMovies();
+            getCities();
+            getCinemas();
+            $('#fid').change(function () {
+                getMovies();
+            });
+            $('#province').change(function () {
+                getCities();
+                getCinemas();
+            });
+            $(document).on('onchange','#city',function(){
+                getCinemas();
+            });
+        });
+
+        function getMovies() {
+            var fid = $('#fid').val();
+            $.ajax({
+                type: 'POST',
+                url: "<{:U('MovieRecognitionActivity/getMoviesByFid')}>",
+                data: "fid=" + fid,
+                dataType: 'json',
+                success: function (data) {
+                    $('#mid').find('option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]['id'] == mid) {
+                            $('#mid').append("<option selected value='" + data[i]['id'] + "'>" + data[i]['title'] + "</option>");
+                        } else {
+                            $('#mid').append("<option value='" + data[i]['id'] + "'>" + data[i]['title'] + "</option>");
+                        }
+                    }
+                },
+                async: false
+            });
+        }
+
+        function getCities() {
+            var pid = $('#province').val();
+            $.ajax({
+                type: 'POST',
+                url: "<{:U('MovieRecognitionActivity/getCitiesByPid')}>",
+                data: "pid=" + pid,
+                dataType: 'json',
+                success: function (data) {
+                    $('#city').find('option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]['id'] == mid) {
+                            $('#city').append("<option selected value='" + data[i]['id'] + "'>" + data[i]['name'] + "</option>");
+                        } else {
+                            $('#city').append("<option value='" + data[i]['id'] + "'>" + data[i]['name'] + "</option>");
+                        }
+                    }
+                },
+                async: false
+            });
+        }
+        function getCinemas(){
+            var cid = $('#city').val();
+            $.ajax({
+                type: 'POST',
+                url: "<{:U('MovieRecognitionActivity/getCinemasByCid')}>",
+                data: "cid=" + cid,
+                dataType: 'json',
+                success: function (data) {
+                    $('#cinema').find('option').remove();
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]['id'] == mid) {
+                            $('#cinema').append("<option selected value='" + data[i]['id'] + "'>" + data[i]['title'] + "</option>");
+                        } else {
+                            $('#cinema').append("<option value='" + data[i]['id'] + "'>" + data[i]['title'] + "</option>");
+                        }
+                    }
+                },
+                async: false
+            });
+        }
+
+        $('.movie-recognition-activity').parent().show();
+        $('.movie-recognition-activity a').css('color', '#ffffff');
+        $('.movie-recognition-activity a').css('background', '#575757');
+
+</script>
+    <{include file="default/Public/footer" /}>

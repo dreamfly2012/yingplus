@@ -1,0 +1,18 @@
+<form>
+    <h2>发表回复</h2>
+    <input type="file" name="file" id="upload_message_image" class="upload_message_image"/>
+    <div class="argwid830">
+        <b><a href="javascript:;" title=""><img src="<{$Think.session.uid|getUserPhotoById}>" alt="" class="topic_user_photo"></a></b>
+        <div class="arg_right2">
+            <textarea class="textarea2 content" id="response_content"></textarea>
+            <span class="preview_img"></span>
+            <div class="clear"></div>
+            <div class="arg2btns">
+                 <a href="javascript:;" title="" class="choose_face"><img src="/Public/default/images/sendface.jpg" alt=""></a>
+                 <!-- <a href="javascript:;" title="" class="choose_img"><img src="/Public/default/images/sendimg.jpg" alt=""></a> -->
+                 <a href="javascript:;" title="提交" class="argsubmit" id="add_response_do" data-fid="<{$fid}>" data-pid="<{$pid}>" data-type="<{$response_type}>" data-rid="">提交</a>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</form>

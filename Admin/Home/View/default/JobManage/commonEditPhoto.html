@@ -1,0 +1,71 @@
+<div style="position: absolute;top: 250px;left:750px;">
+
+    <div>
+
+        <{if condition="$photo.path neq ''"}>
+
+             <img src="<{$photo.path}>" id="img-photo" style="position:absolute;width: 60px;height: 60px;border-width: 1px;
+
+    border-style: solid">
+
+        <{/if}>
+
+        <span style="margin-left: 85px;color: blue">编辑头像</span>
+
+        <input type="file" name="photo" style="margin-left: 18px"/><br/>
+
+
+
+    </div>
+
+    <div style="margin-top: 50px">
+
+        <{if condition="$banne.path neq ''"}>
+
+            <img src="<{$banne.path}>" id="img-banner" style="position:absolute;width: 60px;height: 60px;border-width: 1px;
+
+    border-style: solid">
+
+        <{/if}>
+
+        <span style="margin-left: 85px;color: blue">编辑工作室banner</span>
+
+        <input type="file" name="banner" style="margin-left: 18px"/><br/>
+
+    </div>
+
+    <div style="margin-top: 50px">
+
+        <{if condition="$indexphoto.path neq ''"}>
+
+            <img src="<{$indexphoto.path}>" id="img-indexphoto" style="position:absolute;width: 60px;height: 60px;border-width: 1px;
+
+    border-style: solid">
+
+        <{/if}>
+
+        <span style="margin-left: 85px;color: blue">编辑首页推荐头像</span>
+
+        <input type="file" name="indexphoto" style="margin-left: 18px"/><br/>
+
+    </div>
+
+
+
+    <div style="margin-top: 50px">
+
+        <{if condition="$datailbanner.path neq ''"}>
+
+        <img src="<{$datailbanner.path}>" id="img-detailbanner" style="position:absolute;width: 60px;height: 60px;border-width: 1px;
+
+    border-style: solid">
+
+        <{/if}>
+
+        <span style="margin-left: 85px;color: blue">编辑话题/活动banner</span>
+
+        <input type="file" name="detailbanner" style="margin-left: 18px"/><br/>
+
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/priv.css?v=3"/>
+<script src="/Public/default/js/jquery.ajaxfileupload.js?v=2"></script>
+<script type="text/javascript" src="/Public/mobile/js/chat.js?v=3"></script>
+
+
+<div class="wrap" id="wrap">
+    <{assign name="title" value="聊天屋"/}>
+    <{include file="default/mobile/nav"/}>
+    
+    <div class="search">
+        <input type="text" id="search_user" placeholder="搜索：用户昵称">
+        <input type="image" src="/Public/mobile/images/searchbtn.png" alt="搜索" title="搜索" class="searchbtn search_user" data-fid="<{$fid}>" data-type="forum">
+    </div>
+    
+    <div class="chat_dialog">
+    <p class="see_more" data-page='2' data-type='<{$type}>' data-pid="<{$pid}>">查看更多</p>
+
+    <{foreach name="responses" item="response"}>
+    
+    <{if condition="$Think.session.uid neq $response['uid']"}> 
+    <div class="argitem" data-rid="<{$response.id}>">
+        <b class="fl">
+            <a href="javascript:;" title="" class="response_to" data-username="<{$response.uid|getUserNicknameById}>" data-uid="<{$response.uid}>" data-rid="<{$response.id}>">
+                <img src="<{$response.uid|getUserPhotoById}>" class="user-photo"/>
+            </a>
+        </b>
+        <div class="argright fl">
+            <h2>
+                <{$response.uid|getUserNicknameById}>
+            </h2>
+            <div>
+                <div class="arrow_1 fl">
+                    <div class="arrow_left_1">
+                    </div>
+                    <div class="arrow_left_2">
+                    </div>
+                </div>
+                <p class="fl response_content">
+                    <{$response.content}>
+                </p>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <{else/}>
+    <div class="argitem" data-rid="<{$response.id}>">
+        <div class="argright fl">
+            <h2 class="tr myself">
+                <{$response.uid|getUserNicknameById}>
+            </h2>
+            <div>
+                <div class="arrow_2 fr">
+                    <div class="arrow_right_1">
+                    </div>
+                    <div class="arrow_right_2">
+                    </div>
+                </div>
+                <p class="fr tr response_content">
+                    <{$response.content}>
+                </p>
+            </div>
+        </div>
+        <b class="fr">
+            <a href="javascript:;" title="" class="response_to" data-username="<{$response.uid|getUserNicknameById}>" data-uid="<{$response.uid}>" data-rid="<{$response.id}>">
+                <img src="<{$response.uid|getUserPhotoById}>" class="user-photo"/>
+            </a>
+        </b>
+        <div class="clear">
+        </div>
+    </div>
+    <{/if}>
+
+    <{/foreach}>
+    </div>
+
+    
+    <div class="send">
+        <form>
+        <span class="emotion choose_face"></span>
+        <span class="image choose_img"></span>
+        <input type="file" name="file" id="upload_message_image" class="upload_message_image"/>
+        <textarea draggable="false" placeholder="请输入评论内容" id="response_content"><{if condition="$Think.get.username neq ''"}>@<{$Think.get.username}><{/if}></textarea>
+        <a href="javascript:;" title="发送" id="add_response_do" data-fid="<{$Think.get.pid}>" data-type='<{$Think.get.type}>' data-pid="<{$Think.get.pid}>">
+            发送
+        </a>
+        </form>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="alphabg">
+    </div>
+</div>
+
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+<link rel="stylesheet" href="__PUBLIC__/admin/css/topic.css" type="text/css" />
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12" style="margin-left: -365px;margin-top: 15px;">
+                <div class="portlet box light-grey topic-class">
+
+                    <div class="job_edit">
+                        <p style="color: #CC2700;height: 36px;font-size: 20px;margin-top: -51px;">添加星吧</p>
+                        <form action="<{:U('JobManage/addJobManageSelf')}>"  method="post" enctype="multipart/form-data">
+                            <label>星吧名：
+                                <input class="type-text" type="text" name="array[name]" value="<{$result.forumname}>"/>
+                            </label>
+                            <label>中文名：
+                                <input class="type-text" type="text" name="array[chinesename]"/><br/>
+                            </label>
+                            <label>韩文名：
+                                <input class="type-text" type="text" name="array[koreaname]"/><br/>
+                            </label>
+                            <label>英文名：
+                                <input class="type-text" type="text" name="array[englishname]"/><br/>
+                            </label>
+                            <label>组合名称：
+                                <input class="type-text" type="text" name="array[groupname]"/><br/>
+                            </label>
+                            <label>主要作品：
+                                <input class="type-text" type="text" name="array[representative]"  value="<{$result.representative}>"/><br/>
+                            </label>
+                            <div style="margin-top: 8px;">
+                                <span style="color: red">上传星吧图片</span>
+                                <input type="file" name="photo"/>
+                                <!--<p class="photo-status">星吧头像</p>-->
+                            </div>
+                            <div4 style="margin-top: 14px;">
+                                <span style="color: red">上传banner</span>
+                                <input type="file" name="banner"/>
+                                <!--<p class="photo-status">星吧头像</p>-->
+                            </div4>
+                            <div style="position: absolute;top: 556px;">
+                                 <button type="submit" class="but-sure">确定</button>
+                                  <a class="a" href="<{:U('JobManage/index')}>"><button type="button" class="btn-cancel">取消</button></a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

@@ -1,0 +1,197 @@
+<{include file="default/Public/header" /}>
+
+<body class="page-header-fixed">
+
+<!-- BEGIN CONTAINER -->
+
+<div class="page-container row-fluid">
+
+    <!-- BEGIN SIDEBAR -->
+
+    <{include file="default/Index/left" /}>
+
+    <!-- END SIDEBAR MENU -->
+
+</div>
+
+<!-- END SIDEBAR -->
+
+<!-- BEGIN PAGE -->
+
+<div class="page-content">
+
+    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+    <div id="portlet-config" class="modal hide">
+
+        <div class="modal-header">
+
+            <button data-dismiss="modal" class="close" type="button"></button>
+
+            <h3>portlet Settings</h3>
+
+        </div>
+
+        <div class="modal-body">
+
+            <p>Here will be a configuration form</p>
+
+        </div>
+
+    </div>
+
+    <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+    <!-- BEGIN PAGE CONTAINER-->
+
+    <div class="container-fluid">
+
+        <!-- BEGIN PAGE HEADER-->
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <!-- END BEGIN STYLE CUSTOMIZER -->
+
+                <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+                <h3 class="page-title">
+                    公益事件>>公益事件申请>>
+                </h3>
+
+                <!-- END PAGE TITLE & BREADCRUMB-->
+
+            </div>
+
+        </div>
+
+        <!-- END PAGE HEADER-->
+
+        <!-- BEGIN PAGE CONTENT-->
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+                <div class="portlet box light-grey topic-class">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>公益事件</div>
+
+                        <div class="tools">
+
+                            <a href="javascript:;" class="collapse"></a>
+
+                            <a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+                            <a href="javascript:;" class="reload"></a>
+
+                            <a href="javascript:;" class="remove"></a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="portlet-body">
+
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th>
+                                    电话号码
+                                </th>
+                                <th>
+                                    状态
+                                </th>
+                                <th>
+                                    申请时间
+                                </th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <{foreach name="lists" item="list"}>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" data-id="<{$event.id}>" class="single_checkbox"/>
+                                </td>
+                                <td>
+                                    <{$list.telephone}>
+                                </td>
+                                <td>
+                                    <{if condition="$list.status eq 0"}>未联系<{else/}>已联系<{/if}>
+                                </td>
+                                <td>
+                                    <{$list.addtime|date='Y-m-d H:i:s',###}>
+                                </td>
+                                <td>
+                                    <a href="<{:U('WelfareEvent/applyHandle',array('id'=>$list['id']))}>">【设置已联系】</a>
+                                </td>
+                            </tr>
+                            <{/foreach}>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="clearfix pagination">
+                        <div>
+                            <{$page}>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- END EXAMPLE TABLE PORTLET-->
+
+        </div>
+
+    </div>
+
+    <!-- END PAGE CONTENT-->
+
+</div>
+
+<!-- END PAGE CONTAINER-->
+
+</div>
+
+<!-- END PAGE -->
+
+</div>
+
+<!-- END CONTAINER -->
+
+<!-- BEGIN FOOTER -->
+
+<{include file="default/Public/footer" /}>
+
+
+
+
+<script>
+
+    $('.event-apply').parent().show().parent().addClass('active ').siblings().removeClass('active');
+    $('.event-apply a').css('color','#ffffff');
+    $('.event-apply a').css('background','#575757');
+
+</script>
+
+</body>
+
+<!-- END BODY -->
+
+
+
+</html>

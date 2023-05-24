@@ -1,0 +1,51 @@
+<ul>
+    <{volist name="recommend_activities" id="activity"}>
+    <li class="content">
+        <ul class="pt5">
+            <{if condition="$activity.isadminrecommend eq 1"}>
+            <li class="jian">
+                <b>
+                    荐
+                </b>
+            </li>
+            <li class="gongyi">
+                <a href="<{:U('Pc/activity',array('aid'=>$activity['id']))}>">
+                    <{if condition="$activity.category eq 1"}>
+                    【包场电影】<{$activity.cinemaid|getCinemaNameById}>
+                    <{elseif condition="$activity.category eq 2"/}>
+                    【线上活动】<{$activity.subject}>
+                    <{/if}>
+                </a>
+            </li>
+            <li class="date">
+                <{if condition="$activity.category eq 1"}>
+                <{$activity.holdstart|date="Y-m-d",###}>
+                <{else/}>
+                <{$activity.addtime|date="Y-m-d",###}>
+                <{/if}>
+            </li>
+            <{else/}>
+            <li class="gongyi ml40">
+                <a href="<{:U('Pc/activity',array('aid'=>$activity['id']))}>">
+                    <{if condition="$activity.category eq 1"}>
+                    【包场电影】<{$activity.cinemaid|getCinemaNameById}>
+                    <{elseif condition="$activity.category eq 2"/}>
+                    【线上活动】<{$activity.subject}>
+                    <{/if}>
+                </a>
+            </li>
+            <li class="date">
+                <{if condition="$activity.category eq 1"}>
+                <{$activity.holdstart|date="Y-m-d",###}>
+                <{else/}>
+                <{$activity.addtime|date="Y-m-d",###}>
+                <{/if}>
+            </li>
+            <{/if}>
+        </ul>
+    </li>
+    <{/volist}>
+</ul>
+<div class="videopages">
+    <{$recommend_activities_page}>
+</div>

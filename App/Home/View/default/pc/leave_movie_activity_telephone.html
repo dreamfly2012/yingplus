@@ -1,0 +1,56 @@
+<div class="addactive_telephone">
+    <div class="add_title">
+        <p>修改手机号</p>
+        <a href="javascript:void(0);" title="" class="closebtn2 close_form"></a>
+    </div>
+    <span class="hei40"></span>
+    <div class="addactiveitem">
+        <p class="add_comleft">手机号：</p>
+        <div class="add_comright">
+            <input type="text" id="telephone" placeholder="请输入手机号">
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="addactiveitem">
+        <p class="add_comleft">手机号：</p>
+        <input type="text" name="captcha" id="captcha" placeholder="验证码">
+        <span id="sendcaptcha" data-type='register'>获取验证码</span>
+        <div class="clear"></div>
+    </div>
+
+    <a href="javascript:;" title="确认提交" class="add_submit change_telephone_submit">确认修改</a>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on('click','.change_telephone_submit',function(){
+            var captcha = $('#captcha').val();
+            var telephone = $('#telephone').val();
+
+            if(telephone==''){
+                alert('手机号不能为空!');
+                return false;
+            }
+
+            //验证手机号格式
+
+            if(!check_phone(telephone)){
+                alert('手机号格式不正确');
+                return;
+            }
+
+            if(captcha==''){
+                alert('验证码不能为空');
+                return false;
+            }
+            $.post(check_captcha_url,{'telephone':telephone,'captcha':captcha},function(result){
+                if(result.data.code==0){
+                    $('#activity_telephone').val(telephone);
+                    $('#telephone_span').text(telephone);
+                    $('.close_form').trigger('click');
+                }else{
+                    alert(result.data.message);
+                }
+            });
+        });
+    });
+</script>

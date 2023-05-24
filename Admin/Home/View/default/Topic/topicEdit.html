@@ -1,0 +1,246 @@
+<{include file="default/Public/header" /}>
+<script src="/Public/umeditor/umeditor.config.js"></script>
+<script src="/Public/umeditor/umeditor.min.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/admin/css/topic.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/umeditor/themes/default/css/umeditor.min.css" />                      
+
+<div class="row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+    <div class="span12" style="background-color: #fff;margin-left: 225px;">
+
+
+
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+
+        <div class="color-panel hidden-phone" style="margin-left: 22px; margin-top: 53px;">
+
+
+
+            <div class="color-mode-icons icon-color"></div>
+
+
+
+            <div class="color-mode-icons icon-color-close"></div>
+
+
+
+            <h3 class="page-title">
+
+
+
+                话题编辑
+
+
+
+                <!-- <small>form layouts and more</small>-->
+
+
+
+            </h3>
+
+
+
+
+
+
+
+            <ul class="breadcrumb">
+
+
+
+                <li>
+
+
+
+                    <i class="icon-home"></i>
+
+
+
+                    <a href="#">话题编辑</a>
+
+
+
+                    <span class="icon-angle-right"></span>
+
+
+
+                </li>
+
+
+
+                <li><a href="#">编辑话题</a></li>
+
+
+
+            </ul>
+
+        </div>
+
+        <div class="portlet box blue tabbable" style="margin-left: 22px;">
+
+
+
+            <div class="portlet-title">
+
+
+
+                <div class="caption">
+
+
+
+                    <i class="icon-reorder"></i>
+
+
+
+                    <span class="hidden-480">话题</span>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="portlet-body form">
+
+
+
+                <div class="tabbable portlet-tabs">
+
+                    <div class="tab-content">
+
+
+
+                        <div class="tab-pane active" id="portlet_tab1">
+
+                            <form action="<{:U('Topic/editTopicPut',array('id'=>$topic['id']))}>" method="post" enctype="multipart/form-data"  class="form-horizontal">
+
+
+
+                                <div class="control-group" style="margin-top: 77px">
+
+
+
+                                    <label class="control-label">标题：</label>
+
+
+
+                                    <div class="controls">
+                                    <textarea name="array[subject]"><{$topic.subject}></textarea>
+                                        
+
+
+                                        <!-- <span class="help-inline">Some hint here</span>-->
+
+
+
+                                    </div>
+
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">内容：</label>
+
+                                    <div class="controls">
+                                    <script id="content" type="text/plain" name="array[content]"><{$topic.content|htmlspecialchars_decode}></script>
+                                   <!--  <textarea name="array[content]"><{$topic.content}></textarea> -->
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="control-group">
+                                   <label class="control-label">工作室</label>
+                                    <div class="controls">
+                                        <input type="text" name=" forum" value="<{$topic.fid|getFansGroupById}>"  class="m-wrap medium" readonly/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">创建者：</label>
+                                    <div class="controls">
+                                        <input type="text" name="nickname" value="<{$topic.uid|getUserNicknameById}>"  class="m-wrap medium" readonly/>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+
+
+
+                                    <button type="submit" id="qieding" class="btn blue"><i class="icon-ok"></i> Save</button>
+
+
+
+                                    <button type="button" id="quxiao" class="btn">Cancel</button>
+
+                                </div>
+
+
+
+
+
+                            </form>
+
+
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- END SAMPLE FORM PORTLET-->
+
+
+
+    </div>
+
+
+
+</div>
+<style>
+   .edui-container .edui-editor-body{
+        height: auto;
+        min-height: auto !important;
+        width:810px;
+   }
+   .edui-container{
+        width:800px;
+        height:auto;
+        margin-top: 50px;
+        margin-left: -61px;
+   }
+    
+</style>
+<script src="__PUBLIC__/admin/js/manage.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+var um = UM.getEditor('content', {
+    
+    fontfamily:[
+        {
+            label: '',
+            name: 'yahei',
+            val: '微软雅黑,Microsoft YaHei'
+        }
+    ],
+    fontsize:[
+        12, 14, 16, 18
+    ],
+    
+});
+</script>
+
+<{include file="default/Public/footer" /}>

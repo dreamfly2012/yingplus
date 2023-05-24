@@ -1,0 +1,19 @@
+<ul class="">
+    <{volist name="events" id="event"}>
+    <li class="content">
+        <ul class="pt5">
+            <li class="gongyi ml40">
+                <a href="<{$event.url}>">
+                    【公益】<{$event.subject}>
+                </a>
+            </li>
+            <li class="date">
+                <{$event.begintime|date="Y-m-d",###}>
+            </li>
+        </ul>
+    </li>
+    <{/volist}>
+</ul>
+<div class="videopages">
+    <{$event_page}>
+</div>

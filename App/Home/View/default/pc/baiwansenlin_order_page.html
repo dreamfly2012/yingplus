@@ -1,0 +1,22 @@
+<{foreach name="orderlist" item="list"}>
+<div class="table">
+    <ul>
+        <li>
+            <i>
+            </i>
+            <{$list.username}>
+        </li>
+        <li>
+            <{$list.addtime}>
+        </li>
+        <li>
+            <{$list.treenum}>
+            <img src="/Public/default/baiwansenlin/img/tree.png"/>
+        </li>
+    </ul>
+</div>
+<{/foreach}>
+
+<div style="clear: both;margin: 30px 200px">
+    <{$order_page}>
+</div>

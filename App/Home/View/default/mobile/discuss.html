@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>讨论页面</title>
+    <{include file="default/Index/head"/}>
+</head>
+<body class="angled">
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/mobile/css/discuss.css">
+<script type="text/javascript">
+	var get_response_top_10_url = "<{:U('Response/get',array('number'=>10))}>";
+    var get_latest_response_url = "<{:U('Response/get')}>";
+    var response_add_url = "<{:U('Response/add')}>";
+</script>
+<script type="text/javascript" src="__PUBLIC__/mobile/js/discuss.js"></script>
+<div class="container">
+    <div class="page-header">
+        <h1 class="text-center">讨论区</h1>
+    </div>
+    <div id="response">
+    	<dl class="row">
+    		<dt class="col-xs-3 text-center">
+				<a href="http://me.mi.com/6407666" target="_blank" class="comment_avatar">
+    				<img src="http://cdn.fds.api.xiaomi.com/b2c-bbs/cn/6407666/avatar.jpg?&amp;width=50&amp;height=50" onerror="javascript:this.src='http://s1.bbs.xiaomi.cn/statics/images/noavatar_small.gif'">
+    			</a>
+			    <h5>
+			      	<a href="http://me.mi.com/6407666" target="_blank" class="comment_username">扛槍嘚熊猫</a>
+			    </h5>
+			</dt>
+    		<dd class="col-xs-9 pt10 pb10">观望一下，现在用的是4C，可以就入了</dd>
+    	</dl>
+    	<dl class="row">
+    		<dt class="col-xs-3 text-center">
+				<a href="http://me.mi.com/6407666" target="_blank" class="comment_avatar">
+    				<img src="http://cdn.fds.api.xiaomi.com/b2c-bbs/cn/6407666/avatar.jpg?&amp;width=50&amp;height=50" onerror="javascript:this.src='http://s1.bbs.xiaomi.cn/statics/images/noavatar_small.gif'">
+    			</a>
+			    <h5>
+			      	<a href="http://me.mi.com/6407666" target="_blank" class="comment_username">扛槍嘚熊猫</a>
+			    </h5>
+			</dt>
+    		<dd class="col-xs-9 pt10 pb10">观望一下，现在用的是4C，可以就入了</dd>
+    	</dl>
+	</div>
+</div>    
+    <div class="container">
+        <div class="input-group">
+            <textarea class="form-control response_textarea" id="response_content" placeholder="参与讨论，聊一聊" required="required"></textarea> 
+            <span class="input-group-addon" id="response_add">发表</span>
+        </div>
+    </div>
+</body>
+</html>

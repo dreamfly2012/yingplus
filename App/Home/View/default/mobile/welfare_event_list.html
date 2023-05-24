@@ -1,0 +1,44 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/forum.css?v=2016-04-22"/>
+<style>
+	body{
+		background: #FFF;
+	}
+</style>
+
+<div class="wrap" id="wrap">
+	<{include file="default/mobile/nav" title="公益"/}>
+	<{include file="default/mobile/forum_banner"/}>
+	
+	<div class="activity">
+		<ul class="tabul3">
+			<{volist name="events" id="event"}>
+			<li>
+				<b><a href="<{$event.url}>" title="<{$event.subject}>"><img src="<{$event.img_url}>" alt=""></a></b>
+				<div class="tab3right">
+					<h2><a href="<{$event.url}>" title="<{$event.subject}>"><{$event.subject}></a></h2>
+					<p>
+						<{$event.content}>
+					</p>
+				</div>
+				<div class="clear"></div>
+			</li>
+			<{/volist}>
+		</ul>
+	</div>
+	
+	<div class="createbtns">
+		<a href="<{:U('Mobile/createWelfareEvent')}>" title="我要创建">我要创建</a>
+		<a href="javascript:void(0);" title="查看更多">查看更多</a>
+		<div class="clear"></div>
+	</div>
+	<a href="<{:U('Mobile/chat',array('type'=>4,'pid'=>16))}>" title="进入梅格妮+聊天屋" class="joinchat">进入梅格妮+聊天屋</a>
+	
+	<div class="alphabg"></div>
+	
+</div>
+
+
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<{include file="default/Public/header" /}>
+<div class="page-container row-fluid">
+    <{include file="default/Index/left" /}>
+    <div class="page-content">
+
+
+        <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+
+        <div id="portlet-config" class="modal hide">
+
+
+            <div class="modal-header">
+
+
+                <button data-dismiss="modal" class="close" type="button"></button>
+
+
+                <h3>portlet Settings</h3>
+
+
+            </div>
+
+
+            <div class="modal-body">
+
+
+                <p>Here will be a configuration form</p>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+
+        <!-- BEGIN PAGE CONTAINER-->
+
+
+        <div class="container-fluid">
+
+
+            <!-- BEGIN PAGE HEADER-->
+
+            <div class="row-fluid">
+
+                <div class="span12">
+
+                    <div class="portlet box blue tabbable">
+
+                        <div class="portlet-title">
+
+
+                            <div class="caption">
+
+
+                                <i class="icon-reorder"></i>
+
+
+                                <span class="hidden-480">公益添加</span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="portlet-body form">
+
+
+                            <div class="tabbable portlet-tabs">
+
+
+                                <ul class="nav nav-tabs">
+
+
+                                    <li class="active"><a href="#portlet_tab1" data-toggle="tab">默认风格</a></li>
+
+
+                                </ul>
+
+
+                                <div class="tab-content">
+
+
+                                    <div class="tab-pane active" id="portlet_tab1">
+
+
+                                        <!-- BEGIN FORM-->
+
+
+                                        <form action="<{:U('WelfareEvent/addDo')}>"
+                                              enctype="multipart/form-data" method="post" class="form-horizontal">
+                                            
+                                             <div class="control-group">
+
+
+                                                <label class="control-label"> 所属工作室：</label>
+
+
+                                                <div class="controls">
+
+                                                    <select name="fid" id="fid">
+                                                        <{foreach name="forums" item="forum"}>
+                                                            <option value="<{$forum.id}>" <{if condition="$_GET['fid'] eq $forum['id']"}>selected="selected"<{/if}>><{$forum.name}></option>
+                                                        <{/foreach}>
+                                                    </select>
+                                                    
+
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div class="control-group">
+
+
+                                                <label class="control-label"> 公益标题：</label>
+
+
+                                                <div class="controls">
+
+                                                    <input class="Wdate m-wrap large"
+                                                           value="" name="subject" type="text"/>
+                                                    
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="control-group">
+
+                                                <label class="control-label"> 公益内容:</label>
+
+                                                <div class="controls">
+                                                    <textarea class="large m-wrap" rows="8" name="content"></textarea>
+                                                    
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="control-group">
+
+                                                <label class="control-label"> 公益url(每次需要请问开发人员):</label>
+
+                                                <div class="controls">
+                                                    <input type="text" class="large m-wrap" name="url"/>
+
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="control-group">
+
+
+                                                <label class="control-label">开始时间:</label>
+
+
+                                                <div class="controls">
+
+
+                                                    <input type="text" class="Wdate large m-wrap" name="begintime" onClick="WdatePicker()" value=""/>
+
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="control-group">
+
+
+                                                <label class="control-label"> 结束时间:</label>
+
+
+                                                <div class="controls">
+
+                                                    <input type="text" class="Wdate large m-wrap" name="endtime" onClick="WdatePicker()" value=""/>
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div class="control-group">
+                                                <label class="control-label"> 状态:</label>
+
+
+                                                <div class="controls">
+
+                                                    <select class="large m-wrap" name="status">
+                                                        <option value="0">正常</option>
+                                                        <option value="1">删除</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="control-group">
+                                                <label class="control-label"> 是否设置为推荐:</label>
+
+
+                                                <div class="controls">
+
+                                                    <select class="large m-wrap" name="promote">
+                                                        <option value="0">不推荐</option>
+                                                        <option value="1">推荐</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="control-group">
+                                                <label class="control-label"> 海报:</label>
+
+                                                <div id="as"></div>
+                                                <div class="parentFileBox">
+                                                <ul class="fileBoxUl">
+                                                </ul>
+                                                </div>
+
+                                                <input type="hidden" name="attachment" id="attachment" value=""/>
+                                            </div>
+
+
+                                            <div class="form-actions">
+
+
+                                                <button type="submit" class="btn blue"><i class="icon-ok"></i> 保存
+                                                </button>
+
+
+                                                <button type="button" class="btn">取消</button>
+
+
+                                            </div>
+
+
+                                        </form>
+
+
+                                        <!-- END FORM-->
+
+
+                                    </div>
+
+
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+     var upload_img_url = "<{:U('Upload/upload')}>";
+    //上传
+    $('#as').diyUpload({
+        url: upload_img_url,
+        success: function(data) {
+            if (data.data.code == 0) {
+                var attachmentid = data.data.info;
+                $(".diySuccess").eq($(".diySuccess").length - 1).attr('data-id', data.data.info);
+                $(".diyCancel").eq($(".diyCancel").length - 1).attr('data-id', data.data.info);
+                var old_val = $('#attachment').val();
+                $('#attachment').val(old_val+','+attachmentid);
+            } else if (data.data.code == 2) {
+                
+            } else {
+                $(".diySuccess").each(function() {
+                    if ($(this).attr('data-id') == undefined) {
+                        $(this).parents('li').remove();
+                    }
+                })
+                alert(data.data.message);
+            }
+        },
+        error: function(err) {
+            console.info(err);
+        },
+        buttonText: '选择',
+        chunked: true,
+        // 分片大小
+        chunkSize: 50 * 1024 * 1024,
+        //最大上传的文件数量, 总文件大小,单个文件大小(单位字节);
+        fileNumLimit: 9,
+        fileSizeLimit: 50 * 1024 * 1024,
+        fileSingleSizeLimit: 50 * 1024 * 1024,
+        accept: {
+            title: "图片和视频",
+            extensions: "gif,jpg,jpeg,bmp,png",
+            mimeTypes: "image/*,video/*"
+        }
+    });
+
+    //编辑删除
+    $(document).on('click', '#edit_upload', function() {
+        $(".diySuccess").css('display', 'none');
+        $(".fileBoxUl li").addClass('diyUploadHover');
+    })
+    //删除反馈图片和视频
+    $(document).on('click', ".diyCancel", function() {
+        if(confirm('是否真的删除?')){
+            var id = $(this).attr('data-id');
+            var old_val = $('#attachment').val();
+            old_val_arr = old_val.split(',');
+            for(i=0;i<old_val_arr.length;i++){
+                if(old_val_arr[i]==id){
+                    old_val_arr.splice(i,1);
+                }
+            }
+            var new_val = old_val_arr.toString();
+            $('#attachment').val(new_val);
+            $(this).parent('li').remove();
+        }
+        
+    })
+
+    $('.event-add').parent().show();
+    $('.event-add a').css('color', '#ffffff');
+    $('.event-add a').css('background', '#575757');
+
+</script>
+
+<{include file="default/Public/footer" /}>

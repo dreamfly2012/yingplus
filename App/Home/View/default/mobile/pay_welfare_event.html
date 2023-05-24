@@ -1,0 +1,95 @@
+<{include file="default/mobile/header"/}>
+<link href="/Public/mobile/pay/css/index.css?v=2016-04-22" rel="stylesheet" type="text/css"/>
+
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="支付订单"/}>
+
+    <form id="payform" method="post" action="<{:U('Donate/payOrder')}>"  class="common_form" onsubmit="return check_pay_form();">
+    <div class="table">
+        <div class="td">
+            <p class="address f26">
+                <span class="h2 f26">
+                    项目：
+                </span>
+                <{$event.name}>
+            </p>
+        </div>
+        
+        <div class="td">
+            <div class="h2 fl f26">
+                金额：
+            </div>
+            <div class="number fr ml20">
+                
+                <div class="num fl number">
+                    <input type="text" class="buynum" name="quantity" value="10" id="inp">
+                </div>
+                
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        
+        
+        <div class="td bt mt10">
+            <div class="weixin fl">
+            </div>
+            <div class="h2 fl f26">
+                微信支付
+            </div>
+            <label class="option fr option_2" id="weixin">
+                <input type="radio" name="method" type="radio" value="2" checked="checked">
+            </label>
+            <div class="clear">
+            </div>
+        </div>
+        
+        <input type="hidden" name="aid" value="<{$aid}>"/>
+        <input type="submit" class="deal_form_submit" value="去付款">
+        <div class="button f26 go_to_pay">
+            付款
+        </div>
+    </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		var inp = $('#inp');
+		inp.blur(function(){
+			var inpVal = inp.val();
+			if(!isNaN(inpVal)&&inpVal>0){ 
+				//console.log(inpVal)
+			}else{
+				swal('请输入正整数');
+				$('#inp').val(10);
+			}
+		})
+		inp.keyup(function(){
+			$('.total_price').text(inp.val());
+		});
+	});
+	function check_pay_form(){
+		if(is_login=='true'){
+			return true;
+		}else{
+			jump_login_page();
+			return false;
+		}
+	}
+
+	$('.go_to_pay').click(function(){
+		if(is_login=='true'){
+			$('.deal_form_submit').trigger('click');
+		}else{
+			jump_login_page();
+		}
+		
+	});
+
+</script>
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

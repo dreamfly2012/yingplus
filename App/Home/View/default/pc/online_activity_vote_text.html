@@ -1,0 +1,71 @@
+<{assign name="title" value="$activity.subject"/}>
+<{assign name="description" value="$seo['description']"/}>
+<{assign name="keywords" value="$seo['keywords']"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+<{include file="default/pc/banner"/}>
+<script src="/Public/default/js/online_activity.js"></script>
+
+<div class="cont">
+    <div class="cl">
+        <{include file="default/pc/online_activity_top"/}>
+        <div class="newstitle">
+            <b><img src="<{$activity.uid|getUserPhotoById}>" alt="用户头像"></b>
+            <h2><span> <{if condition='$activity[ismultiselect] eq 0'}>【单选】<{else/}>【多选】<{/if}></span><{$activity.subject}></h2>
+            <p class="editor"><{$activity.uid|getUserNicknameById}></p>
+            <p class="joinnums">已有 <strong><{$activity.id|getOnlineVoteNum}></strong> 人参加</p>
+            <a href="javascript:;" title="创建活动" class="ans create_online_activity" data-fid="<{$fid}>">创建活动</a>
+            <div class="clear"></div>
+        </div>
+        <h2 class="act_title"></h2>
+        <div class="act_text">
+            <{$activity.content}>
+        </div>
+        <{if condition="!checkHasVote(session('uid'),$activity['id'])"}>
+        <div id="screen_crop">
+        <ul class="selectlist">
+            <{volist name="questions" id='question' key='k'}>
+                <li><label><span><{$k}>、<{$question}></span>  <{if condition='$activity[ismultiselect] eq 0'}><input type="radio" name="radio" class='single-check' data-choice="<{$k-1}>"><{else/}><input type="checkbox" class="multi-check" data-choice="<{$k-1}>"><{/if}></label></li>
+            <{/volist}>   
+        </ul>
+        </div>
+        <div class="clear"></div>
+        <div class="arg2btns">
+             <a href="javascript:;" title="确认" class="argsubmit submit_vote" data-aid="<{$activity.id}>" data-isimg="0">确认</a>
+             <div class="clear"></div>
+        </div>
+        
+        <{else/}>
+            <ul class="selectresult">
+                <{volist name="wrap_results" id='res' key='k'}>
+                <li>
+                    <h2><a href="javascript:;" title=""><{$k}>、<{$res.text}></a></h2>
+                    <div class="per">
+                        <b style="width:<{$res.percent}>%;"></b>
+                        <span><{$res.value}>（<{$res.percent}>%）</span>
+                    </div>
+                </li>
+                <{/volist}>
+            </ul>
+        <{/if}>
+        
+        <div class="hei10"></div>
+        <div class="wonderarg">
+            精彩评论
+        </div>
+        <div class="response_block">
+        <{include file="default/pc/response_page"/}>
+        </div>
+    </div>
+    <{include file="default/pc/aside"/}>
+    <div class="clear"></div>
+</div>
+<div class="arg2">
+    <{include file="default/pc/response_submit_form"/}>
+</div>
+
+
+<{include file="default/pc/footer"/}>
+
+</body>
+</html>

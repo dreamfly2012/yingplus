@@ -1,0 +1,11 @@
+<ul class="selectresult">
+    <{volist name="wrap_results" id='res' key='k'}>
+    <li>
+        <h2><a href="javascript:;" title=""><{$k}>、<{$key}></a></h2>
+        <div class="per">
+            <b style="width:<{$res.percent}>%;"></b>
+            <span><{$res.value}>（<{$res.percent}>%）</span>
+        </div>
+    </li>
+    <{/volist}>
+</ul>

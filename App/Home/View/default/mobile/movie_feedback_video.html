@@ -1,0 +1,45 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/preview.css">
+<script type="text/javascript" src="/Public/mobile/js/jquery.ajaxfileupload.js"></script>
+<style type="text/css">
+    body{
+        margin-bottom: 50px;
+    }
+</style>
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="活动反馈区"/}>
+    
+    <div class="feedbacktitle">
+        <ul>
+            <li><a href="<{:U('Mobile/movieActivityFeedbackImage',array('aid'=>$aid))}>" title="活动照片">活动照片</a></li>
+            <li class="on"><a href="j<{:U('Mobile/movieActivityFeedbackVideo',array('aid'=>$aid))}>" title="活动视频">活动视频</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    
+    <{foreach name="feedbacks" item="feedback"}>
+    <div class="videoshowitem">
+        <a href="<{:U('Mobile/showfeedbackvideo',array('id'=>$feedback['id']))}>" title="" class="fancybox">
+            <span class="play"></span>
+            <h2><{$feedback.title}></h2>
+            <span class="user"><{$feedback.uid|getUserNicknameById}></span>
+            <div class="mask">
+            </div> 
+            <img src="<{$feedback.image}>" alt="">
+        </a>
+    </div>
+    <{/foreach}>
+    
+
+    
+    <{include file="default/mobile/movie_feedback_footer"/}>
+    
+    
+    <div class="alphabg"></div>
+
+</div>
+
+<script src="/Public/mobile/js/fleximg.js"></script>
+
+</body>
+</html>

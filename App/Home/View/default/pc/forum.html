@@ -1,0 +1,279 @@
+<{assign name="title" value="$forum.fansgroup"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+<{include file="default/pc/banner"/}>
+
+<div class="tophd">
+	<p><strong>图片墙：</strong>上传明星照片，一同创建最个性的照片墙。</p>
+	<{if condition="checkIsInForum(session('uid'),$fid)"}>
+	<a href="javascript:;" title="加入" class="joinbtn exitforum" data-fid="<{$fid}>">已 加 入</a>
+	<{else/}>
+	<a href="javascript:;" title="加入" class="joinbtn joinforum" data-fid="<{$fid}>">＋  加 入</a>
+	<{/if}>
+</div>
+<div class="picwrap">
+	<ul class="picroll">
+		<{if condition="empty($picture_pages)"}>
+		<li class="<{$i}>">
+			<{for start="0" end="11" name="j"}>
+				<a href='javascript:;' class='picitem upload_forumpicture' title='照片墙' rel='picture_rel'><span class='forum_bg_span upload_default_icon'></span></a>
+			<{/for}>
+
+			<form action="javascript:;" method="post" enctype="multipart/form-data">
+			<a href="javascript:;" title="上传图片" class="uploadico upload_forumpicture"></a>
+			<input type="file" id="upload_forumpicture" name="file" data-fid="<{$fid}>"/>
+			</form>
+		</li>
+		<{/if}>
+		<{for start="0" end="$picture_pages" name="i"}>
+		<li class="<{$i}>">
+			<{for start="($i)*11" end="($i+1)*11" name="j"}>
+				<{if condition="empty($pictures[$j])"}>
+				<a href='javascript:;' class='picitem upload_forumpicture' title='照片墙' rel='picture_rel'><span class='forum_bg_span upload_default_icon'></span></a>
+				<{else/}>
+				<a href="<{$pictures[$j].url}>" class="fancybox picitem" title="相册" rel="picture_rel"><span class="forum_bg_span" style="background-image: url(<{$pictures[$j].url}>)"></span></a>
+				<{/if}>
+			<{/for}>
+
+			<form action="javascript:;" method="post" enctype="multipart/form-data">
+			<a href="javascript:;" title="上传图片" class="uploadico upload_forumpicture"></a>
+			<input type="file" id="upload_forumpicture" name="file" data-fid="<{$fid}>"/>
+			</form>
+		</li>
+		<{/for}>
+	</ul>
+</div>
+
+<div class="cont1">
+	<div class="cleft">
+		<div class="commontitle">
+			<p>线上活动</p>
+			<a href="javascript:;" title="创建" class="create_online_activity" data-fid="<{$forum.id}>">创建</a>
+		</div>
+		<figure class="actol">
+
+			<h2><a href="<{:U('Pc/activity',array('aid'=>$online_top_activity['id']))}>" title="" target="_blank"><{$online_top_activity.subject}></a></h2>
+			<p>
+				<{if condition="$online_top_activity.type eq 8"}>
+					<{if condition="$online_top_activity.vote_type eq 'image'"}>
+						<{volist name="online_wrap_questions" id="question" key='k' offset="0" length="3"}>
+							<a href="<{:U('Pc/activity',array('aid'=>$online_top_activity['id']))}>" title="" target="_blank"><span class="recomend_online_bg_span" style="background-image: url(<{$question.image}>)" data-text="<{$question.text}>"></span></a>
+						<{/volist}>
+					<{else/}>
+						<{volist name="questions" id='question' key='k'}>
+						<label><span><{$k}>、<{$question}></span></label>
+						<{/volist}>
+					<{/if}>
+				<{else/}>
+					<{volist name="posters" id="poster" key='k' offset="0" length="15"}>
+						<a href="<{:U('Pc/activity',array('aid'=>$online_top_activity['id']))}>" title="" target="_blank"><span class="recomend_online_bg_span" style="background-image: url(<{$poster.img_url}>)"></span></a>
+					<{/volist}>
+				<{/if}>
+			</p>
+
+		</figure>
+		<ul class="actlist">
+			<{volist name="online_activities" id="activity" offset="0" length='4'}>
+			<{if condition="$activity.isadminrecommend neq 1"}>
+			<li><p><a href="<{:U('Pc/activity',array('aid'=>$activity['id']))}>" title="<{$activity.subject}>"target="_blank"><{$activity.subject}></a></p><span><{$activity.addtime|date='Y-m-d',###}></span></li>
+			<{/if}>
+			<{/volist}>
+		</ul>
+		<div class="clear"></div>
+		<p class="actmore"><a href="<{:U('Pc/activitylist')}>?tab=2" title="更多活动" target="_blank">更多活动 >></a></p>
+		<div class="commontitle">
+			<p class="priv">包场观影</p>
+			<a href="javascript:;" title="创建" class="create_movie_activity" data-fid="<{$forum.id}>">创建</a>
+		</div>
+		<ul class="privlist">
+			<{volist name="activities" id="activity" offset="0" length="6"}>
+			<li>
+				<p><a href="<{:U('pc/activity',array('aid'=>$activity['id']))}>" title="" target="_blank"><{$activity.subject}></a></p>
+				<i><{$activity.holdstart|date='Y-m-d',###}></i>
+				<b><{$activity.holdstart|date='H:i',###}></b>
+				<span></span>
+			</li>
+			<{/volist}>
+		</ul>
+		<p class="actmore"><a href="<{:U('Pc/activitylist')}>?tab=1" title="更多场次" target="_blank">更多场次 >></a></p>
+	</div>
+	<div class="cmid">
+		<div class="commontitle">
+			<p class="pub">公益应援</p>
+			<a href="<{:U('Pc/launch_public_welfare')}>" target="_blank" title="创建">创建</a>
+		</div>
+		<ul class="publist">
+			<{volist name="events" id="event" offset="0" length="4"}>
+			<li>
+				<b><a href="<{$event.url}>" title="" target="_blank"><img src="<{$event.img_url}>" alt=""></a></b>
+				<div class="pubright">
+					<h2><a href="<{$event.url}>" title="<{$event.subject}>" target="_blank"><{$event.subject}></a></h2>
+					<p>
+						<{$event.content}>
+					</p>
+				</div>
+				<div class="clear"></div>
+			</li>
+			<{/volist}>
+		</ul>
+		<p class="actmore pubmore"><a href="<{:U('Pc/activitylist')}>?tab=3" title="更多公益" target="_blank">更多公益 >></a></p>
+	</div>
+	<div class="cright">
+		<div class="fanstab">
+			<ul>
+				<li class="on">粉丝交流</li>
+				<li><{$forum.id|getFansgroupById}>粉丝</li>
+			</ul>
+			<span id="forum_fensi_num"><{$userlist|count}></span>
+			<div class="clear"></div>
+		</div>
+		<div class="tabwrap">
+			
+			<div class="guestlist" id="forum_guestlist" style="width:240px;">
+				<p class="see_more" data-page="2" data-pid="<{$fid}>" data-type='4'>查看更多</p>
+				<{volist name="forum_responses" id="response"}>
+				<div class="guitem_forum">
+					<h2 data-rid="<{$response.id}>"><img src="<{$response.uid|getUserPhotoById}>"><{$response.uid|getUserNicknameById}></h2>
+					<p>
+						<{$response.content}>
+					</p>
+				</div>
+				<{/volist}>
+			</div>
+		</div>
+		
+		<div class="tabwrap" style="display:none;">
+			<div class="fanssearch">
+				<input type="text" class="searchtext search_forum_user" placeholder="搜索：用户昵称" data-fid="<{$forum.id}>">
+				<input type="image" class="searchbtn" src="/Public/default/images/icoserach.jpg" alt="搜索" title="搜索">
+			</div>
+			<div class="onlinelist">
+				<ul>
+					<{volist name="userlist" id="user"}>
+					<li data-username="<{$user.uid|getUserNicknameById}>" data-uid="<{$user.uid}>"><img src="<{$user.uid|getUserPhotoById}>"><{$user.uid|getUserNicknameById}></li>
+					<{/volist}>
+				</ul>
+			</div>
+		</div>
+		<form>
+		<p class="sendface">
+			<span class="preview_img"></span>
+			<a href="javascript:;" title="表情" class="choose_face"><img src="/Public/default/images/sendface.jpg"></a>
+			<a href="javascript:;" title="图片" class="choose_img"><img src="/Public/default/images/sendimg.jpg"></a>
+			<input type="file" name="file" id="upload_message_image" class="upload_message_image"/>
+		</p>
+		<textarea class="textarea1 content" style="width:220px" placeholder="与在线粉丝互动交流......" id="response_content"></textarea>
+		<a href="javascript:void(0);" title="发送" class="sendbtn addresponse" data-fid="<{$forum.id}>" data-type='4' data-source="forum" data-pid="<{$forum.id}>" data-rid="">发送</a>
+		</form>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="cont2">
+	<div class="video">
+		<div class="commontitle vid_title">
+			<p class="vid">视频</p>
+			<a href="javascript:;" title="上传视频" class="upload_video" data-call-back-button="upload_forum_video">上传视频</a>
+			<span class="upload_forum_video" data-id="0" data-title=""></span>
+		</div>
+		<div class="piclist">
+			<div class='video_block'>
+			<{include file="default/pc/video_page"/}>
+			</div>
+		</div>
+		
+	</div>
+	<div class="hotword">
+		<div class="hot_topic_list_block">
+			<{include file="default/pc/aside_hot_topic_page"/}>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+<script type="text/javascript">
+	//定时获取最新消息（10秒）
+	function getLiveForumInfo(){
+	    var lastid = $('.guitem_forum h2:last').attr('data-rid');
+	    htmlobj=$.ajax({
+	        type:"POST",
+	        url:get_latest_response_url,
+	        data:{
+	            'pid':fid,
+	            'type':4,
+	            'lastid':lastid
+	        },
+	        dataType:'json',
+	        success:function(data) {
+	            if(data.data.info.length != 0){
+	                var length = data.data.info.length;
+	                var template_arr = [];
+	                for(var i=0;i<length;i++){
+	                    template = '<div class="guitem_forum">'+
+	                                '<h2 data-rid="'+data.data.info[i].id+'" data-username="'+data.data.info[i].username+'" class="response_to"><img src="'+data.data.info[i].userphoto+'">'+data.data.info[i].username+'</h2>'+
+	                                '<p>'+
+	                                data.data.info[i].content+
+	                                '</p>'+
+	                            '</div>';
+	                    template_arr.push(template);       
+	                }
+	                $("#forum_guestlist").append(template_arr.join(''));
+	                $('.guestlist')[0].scrollTop = $('.guestlist')[0].scrollHeight;
+	            }
+	        },
+	        async:false
+	    });
+	}
+
+	function chat_template(username,content,userphoto,rid,uid){
+		var template = '<div class="guitem_forum">'+
+					'<h2 data-rid="'+rid+'" data-username="'+username+'" class="response_to">'+
+						'<img src="'+userphoto+'">'+username+
+					'</h2>'+
+					'<p>'+
+					content+
+					'</p>'+
+				'</div>';
+		return template;		
+	}
+	
+	setInterval("getLiveForumInfo()",10000);
+
+	
+	//查看更多
+	$(document).on('click','.see_more',function(){
+		var _this = $(this);
+		var p = $(this).attr('data-page');
+		var pid = $(this).attr('data-pid');
+		var type = $(this).attr('data-type');
+		$.post(get_more_message_url,{'p':p,'pid':pid,'type':type},function(result){
+			if(result.data.code==0){
+				var length = result.data.info.data.length;
+				var info = result.data.info.data;
+				var template = '';
+				if(length!=0){
+					for(i=length-1;i--;i>=0){
+						var username = info[i].username;
+						var content = info[i].content;
+						var userphoto = info[i].userphoto;
+						var rid = info[i].id;
+						var ruid = info[i].uid;
+						
+						template += chat_template(username,content,userphoto,rid,ruid); 
+					}
+					_this.attr('data-page',parseInt(p)+1);
+					$(template).insertAfter(_this);
+					$('.guestlist').parseEmotion();
+				}else{
+					_this.removeClass('see_more').addClass('no_more');
+					_this.text('没有更多信息了');
+				}
+			}
+		});
+	});
+</script>
+<{include file="default/pc/footer"/}>
+
+</body>
+</html>

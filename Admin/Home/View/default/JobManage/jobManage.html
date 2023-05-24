@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/admin/js/bootstrap.js"></script>
+    <link href="__PUBLIC__/admin/css/bootstrap.css" rel="stylesheet">
+    <script src="__PUBLIC__/admin/js/topicdeal.js"></script>
+    <script>
+        var JobManage_URL = "<{:U('Home/JobManage/dealJob')}>";
+    </script>
+    <style>
+        .none{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+      <div>
+              <label>星吧：</label>
+              <input type="text" name="array[name]"/>
+              <label>中文名：</label>
+              <input type="text" name="array[chinesename]"/>
+              <label>主要作品：</label>
+              <input type="text" name="array[representative]"/>
+              <button id="jobManage">查询</button>
+      </div>
+      <div>
+          <table class="show_job">
+              <tr>
+                  <th>星吧名</th>
+                  <th>中文名</th>
+                  <th>英文名</th>
+                  <th>组合名称</th>
+                  <th>主要作品</th>
+              </tr>
+              <{foreach name="forum" item="vo"}>
+              <tr class="show">
+                  <th><{$vo.name}></th>
+                  <th><{$vo.chinesename}></th>
+                  <th><{$vo.koreaname}></th>
+                  <th><{$vo.groupname}></th>
+                  <th><{$vo.representative}></th>
+                  <th>编辑</th>
+              </tr>
+              <{/foreach}>
+
+          </table>
+      </div>
+</body>
+</html>

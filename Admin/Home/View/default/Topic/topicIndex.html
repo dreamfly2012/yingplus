@@ -1,0 +1,217 @@
+﻿<{include file="default/Public/header" /}>
+
+
+
+<link rel="stylesheet" href="__PUBLIC__/admin/css/topic.css" type="text/css" />
+
+<div class="page-container row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+</div>
+
+<script>
+
+    $('.chazhao-topic').parent().show();
+
+</script>
+
+<div class="page-content">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <h3 class="page-title">
+
+
+
+                    话题管理-查找话题 <small>查找条件</small>
+
+
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <form id="topic_form" action="javascript:;">
+
+                <div class="portlet box light-grey topic-class">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>话题列表</div>
+
+                        <div class="tools">
+                            <a href="<{:U('Topic/addTopicContent')}>"
+                            class="topic_add_word">
+                                 添加话题
+                            </a>
+                        </div>
+
+                    </div>
+
+
+
+                    <label class="topic-nickname-all">
+
+                        查找昵称：<input type="text" id="nickname" class="topic-nickname" name="array[nickname]"/>
+
+                                <select name="self" class="topic-selete" id="select">
+
+                                    <option value="0">创建</option>
+
+                                    <option value="1">参与</option>
+
+                                </select>
+
+                    </label>
+
+
+
+                    <label class="topic-time-start">
+
+                        话题创建时间：<!--<input type="text" id="startime" class="time-comom" name="array[startime]"/>-->
+
+                        <input id="d4311"   name="array[startime]" class="Wdate startLimit" type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"/>
+
+                    </label>
+
+                    <label  class="topic-time-end">
+
+                        至　<input id="d4312"   name="array[endtime]" class="Wdate endLimit" type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"/>
+
+                    </label><br/>
+
+                    <label class="topic-guan">
+
+                        话题关键字搜索：
+
+                        　<input type="text"  name="array[subject]" id="subject" class="topic-nickname-guan"/>
+
+                    </label>
+
+
+
+                    <label class="topic-delete-topic">
+
+                        <input name="array[status]" type="checkbox" id="status" value="1"/>已删除话题
+
+                    </label>
+
+                    <label class="topic-plus-topic">
+
+                        <input name="array[plus]" type="checkbox" id="plus" value="1"/>加精话题
+
+                    </label>
+
+                    <label class="top_style">
+
+                        <input name="array[istop]"  type="checkbox" value="1"/>置顶话题
+
+                    </label>
+
+                    <!--<button class="topic-look" id="topic">查找</button>-->
+
+                    <button class="topic-look" id="topic">查询</button>
+
+                    <span class="dataclass"></span>
+
+                    <div class="portlet-body">
+
+                        <div class="div-first">
+
+                            <button id="all-delete">批删</button>
+
+                            <button id="all-plus">批精</button>
+
+                            <button id="all-top">批顶</button>
+
+                        </div>
+
+
+
+                        <div class="div-second">
+
+                            <button id="all-repair">恢复</button>
+
+                            <button id="cancel-plus">取精</button>
+
+                            <button id="cancel-top">取顶</button>
+
+                        </div>
+
+                        <div class="index-table">
+
+                            <{include file="default/topic/showCondition"/}>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<{include file="default/Public/footer" /}>
+
+
+
+
+
+<!--以下为必要的，勿删-->
+
+<script src="__PUBLIC__/admin/js/manage.js"></script>
+
+<script src="__PUBLIC__/admin/js/topicdeal.js"></script>
+
+<script>
+
+    var LookTopic_URL = "<{:U('Home/Topic/indexTopic')}>";
+
+    var TopicDeleteRe_URL = "<{:U('Home/Topic/deleteStatus')}>";
+
+    var TopicRepair_URL = "<{:U('Home/Topic/setStatus')}>";
+
+    var TopicDigest_URL = "<{:U('Home/Topic/plusDigest')}>";
+
+    var TopicCancelDigest_URL = "<{:U('Home/Topic/cancelDigest')}>";
+
+    var TopicIsTop_URL = "<{:U('Home/Topic/toTopicTop')}>";
+
+    var TopicCancelTop_URL = "<{:U('Home/Topic/cancelTopicTop')}>";
+
+    var TopicAllDELETETop_URL = "<{:U('Home/Topic/deleteAllTopic')}>";
+
+    var TopicAllPlusTop_URL = "<{:U('Home/Topic/plusAllTopic')}>";
+
+    var TopicAllTop_URL = "<{:U('Home/Topic/topAllTopic')}>";
+
+    var TopicAllRepairTop_URL = "<{:U('Home/Topic/repairAllTopic')}>";
+
+    var TopicAllCancelPlusTop_URL = "<{:U('Home/Topic/toCancelPlusAllTopic')}>";
+
+    var TopicAllCancelTop_URL = "<{:U('Home/Topic/toCancelAllTop')}>";
+
+</script>
+

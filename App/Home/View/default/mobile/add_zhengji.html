@@ -1,0 +1,26 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/vote.css"/>
+<script type="text/javascript" src="/Public/mobile/js/online.js"></script>
+<div class="wrap" id="wrap">
+    <{include file="default/mobile/nav" title="上传图片"/}>
+    
+    <h1 class="votename">图片</h1>
+   
+    <form method="post" id="add-zhengji-form" action="javascript:;">
+        <div style="text-align: center;">
+            <img src="<{$img}>" id="jcrop_target" style="height:400px;">
+        </div>
+        <div>
+            <p class="votetitle">描述：</p>
+            <input type="text" class="text92per" id="desc" name="desc" placeholder="请输入描述...">
+            <div class="clear"></div>
+        </div>
+        <a href="javascript:;" title="确认提交" class="votesubmit add-zhengji-do" data-aid="<{$aid}>" data-attachmentid="<{$attachmentid}>">确定</a>
+    </form>
+    
+    <div class="alphabg"></div>
+</div>
+
+
+</body>
+</html>

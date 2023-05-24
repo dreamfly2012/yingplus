@@ -1,0 +1,280 @@
+body {
+	background:#fff;	
+}
+/*    背景   */
+.feedback-bg {
+	background:url(../images/feedback/bg.jpg) no-repeat;
+	background-size:contain;
+	box-shadow:2px 2px 3px #aaa;
+	height:2.85rem;
+	position:relative;
+}
+/*    影院信息   */
+.cinema {
+	padding:0 10%;
+	font-size:.30rem;
+	color:#999; 
+}
+.cinema span.name {
+	font-size:.48rem;
+	color:#ef4343;
+	display:block;
+}
+/*    价格信息   */
+.price-list {
+	background:#f0efed;
+	margin:.2rem auto 0;
+	width:94%;
+	
+}
+.price-list li {
+	border-bottom:#c4c3c3 solid 1px;
+	height:.9rem;
+	line-height:.9rem;
+	padding:0 7%;
+	font-size:.38rem;
+}
+.price-list li .left {
+	float:left;
+}
+.price-list li .right {
+	float:right;
+}
+.price-list li .right .as {
+	border:#999 solid 1px;
+	border-radius:4px;
+	width:1.8rem;
+	height:.5rem;
+	overflow:hidden;
+	position:relative;
+	top:.19rem;
+}
+.price-list li .right .as .min, .price-list li .right .as .add {
+	background:#f0efed;
+	border:none;
+	padding:0;
+	float:left;
+	width:.5rem;
+	height:.5rem;
+}
+.price-list li .right .as .text_box {
+	background:#fff;
+	border:none;
+	border-right:#999 solid 1px;
+	border-left:#999 solid 1px;
+	padding:0;
+	float:left;
+	width:.5rem;
+	height:.5rem;
+	width:calc(.8rem - 2px);
+	text-align:center;
+}
+/*    活动详情开始   */
+.film-name {
+	padding:.3rem 0;
+	text-align:center;
+}
+.film-name .video {
+	background:url(../images/detail/video.png) no-repeat;
+	background-size:contain;
+	width:.7rem;
+	height:.7rem;
+	display:inline-block;
+	margin-right:.2rem;
+	vertical-align:top;
+}
+.film-name .name {
+	display:inline-block;
+	font-size:.4rem;
+	color:#ef4343;
+	text-align:center;
+}
+.film-name .name span {
+	font-size:.55rem;
+	color:#444;
+}
+
+
+
+/*    报名按钮   */
+.enroll {
+	background:#ef4343;
+	border:#c62c2c solid 1px;
+	box-shadow:2px 2px 3px #aaa;
+	width:4rem;
+	height:1rem;
+	line-height:1rem;
+	display:block;
+	margin:.5rem auto;
+	font-size:.6rem;
+	color:#fff;
+	text-align:center;
+	text-shadow:2px 2px 3px #333;
+}
+.end {
+	background:#e5e5e5;
+	border:#ccc solid 1px;
+	box-shadow:2px 2px 3px #aaa;
+	color:#fff;
+	text-shadow:2px 2px 3px #333;
+}
+
+.instructions {
+	margin-bottom:.5rem;
+	padding:0 3%;	
+}
+.instructions .title {
+	border-bottom:#c7c6c6 solid 1px;
+	padding:0 0 .3rem;
+	margin-bottom:.2rem;
+	text-align:center;
+	font-size:.4rem;
+	color:#333;
+}
+.instructions .title i {
+	background:#d87677;
+	display:inline-block;
+	width:.08rem;
+	height:.44rem;
+	margin-right:.18rem;
+	vertical-align:middle;
+	position:relative;
+	top:-.02rem;
+}
+.instructions p {
+	line-height:150%;
+	padding:0 .5rem;
+	font-size:.32rem;
+	color:#666;	
+}
+.instructions .pic-box {
+}
+.instructions .pic-box img {
+	margin:.1rem 1%;
+	width:30.70%;
+}
+
+
+/*    验证手机   */
+.verify-phone {
+	background:#f0efed;
+	margin:.2rem auto 0;
+	width:82%;
+	padding:.2rem 6%;
+}
+.verify-phone h6 {
+	margin-bottom:.1rem;
+	font-size:.38rem;
+	color:#666;	
+}
+.verify-phone > div {
+	margin-bottom:.1rem;
+}
+.code { 
+   
+} 
+.verify-phone input[type=text] {
+	background:#fff;
+	border:none;
+	width:4.5rem;
+	height:.7rem;
+	padding:0 .2rem;
+	font-size:.33rem;
+	vertical-align:middle;
+} 
+.verify-phone input[type=button] {
+	background:#b9b8b8;
+	border-radius:4px;
+	cursor: pointer; 
+    border: 1px solid #999; 
+    text-align: center; 
+    width:2.5rem;
+	height:.7rem;
+	color:#666;
+	line-height:.6rem;
+	vertical-align:middle;
+	font-size:.33rem;
+} 
+
+/*    支付列表   */
+.pay-list {
+	border-top:#c4c3c3 solid 1px;
+	margin:.3rem auto;
+}
+.pay-list li {
+	border-bottom:#c4c3c3 solid 1px;
+	padding:.3rem 3%;	
+}
+.pay-list .logo {
+	width:1.7rem;
+	float:left;
+	margin-right:.3rem;
+}
+.pay-list .logo img {
+	width:1.7rem;
+}
+.pay-list .txt {
+	float:left;
+}
+.pay-list .txt h6 {
+	font-size:.5rem;
+	color:#333;
+}
+.pay-list .txt p {
+	font-size:.3rem;
+	color:#999;
+}
+.pay-list .check {
+	background:url(../images/pay/check.png);
+	background-size:contain;
+	width:.7rem;
+	height:.7rem;
+	float:right;
+	display:block;
+	position:relative;
+	top:.2rem;
+}
+.pay-list .un-check {
+	background:url(../images/pay/un-check.png);
+	background-size:contain;
+	width:.7rem;
+	height:.7rem;
+	float:right;
+	display:block;
+	position:relative;
+	top:.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

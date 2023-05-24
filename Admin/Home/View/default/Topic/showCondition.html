@@ -1,0 +1,191 @@
+<div id="indexTopicPage">
+
+    <table class="topic_index table table-striped table-bordered table-hover table-diao" id="sample_1">
+
+        <thead>
+
+            <tr>
+
+                <th style="width:50px;">
+
+                    <input type="checkbox" id="choose-all"/>全选
+
+                </th>
+
+                <th>标题</th>
+
+                <th class="hidden-480">创建者</th>
+
+                <th class="hidden-480">封禁操作</th>
+
+                <th class="hidden-480">发布时间</th>
+
+                <th class="hidden-480">操作</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        <{if condition="$result neq ''"}>
+
+            <{foreach name="result" item="topic"}>
+
+                  <tr class="test-show" id="<{$topic.id}>">
+
+                          <td><input type="checkbox" class="checkboxes" name="check" lid="<{$topic.id}>"></td>
+
+                          <td><{$topic.subject}><a class="edit_url" href="<{:U('Topic/editTopic',array('id'=>$topic['id']))}>">编辑</a></td>
+
+                          <td class="hidden-480"><{$topic.nickname}></td>
+
+                          <td class="hidden-480">
+
+                              <label class="fj">
+
+                                  <{$topic.uid|getBanUserStatus}>
+
+                              <input type="hidden" class="uid" value="<{$topic.uid}>">
+
+                             </label>
+
+                          </td>
+
+                          <td class="hidden-480"><{$topic.addtime}></td>
+
+                          <td>
+
+                            <{if condition="$topic['status'] eq 0"}>
+
+                                   <button  class="delete_button" lid="<{$topic.id}>">删除</button>
+
+                                 <{if condition="$topic['isdigest'] eq 0 && $topic['admin_digest'] eq 0"}>
+
+                                     <button  class="plus_button" lid="<{$topic.id}>">可点击加精</button>
+
+                                 <{elseif condition="$topic['isdigest'] eq 1 || $topic['admin_digest'] eq 1"/}>
+
+                                     <button  class="cancel_button" lid="<{$topic.id}>">取消加精</button>
+
+                                 <{/if}>
+
+                                 <{if condition="$topic['istop'] eq 0 && $topic['isadmintop'] eq 0"}>
+
+                                     <button  class="setTop_button" lid="<{$topic.id}>">可点击置顶</button>
+
+                                 <{elseif condition="$topic['istop'] eq 1||$topic['isadmintop'] eq 1"/}>
+
+                                     <button  class="cancelTop_button" lid="<{$topic.id}>">取消置顶</button>
+
+                                 <{/if}>
+
+                            <{elseif condition="$topic['status'] eq 1"/}>
+
+                                 <button  class="repair_delete_topic" lid="<{$topic.id}>">恢复</button>
+
+                            <{/if}>
+
+                          </td>
+
+                  </tr>
+
+            <{/foreach}>
+
+        <{/if}>
+
+        </tbody>
+
+    </table>
+
+    <div class="page-style" style="margin-left: 387px;">
+
+        <{$page}>
+
+    </div>
+
+</div>
+
+<form action="<{:U('Home/FansManage/banUserDispose')}>" method="post">
+
+    <div class="container">
+
+        <div id="example" class="modal hide fade" style="display: none;width: 372px;">
+
+            <div class="modal-header">
+
+                <h3>封禁粉丝：</h3>
+
+            </div>
+
+            <div class="modal-body">
+
+                <h6>
+
+                    <input type="checkbox" name="fj1"/>禁止参与活动和话题
+
+                </h6>
+
+                <h6>
+
+                    <input type="checkbox" name="fj2"/>禁止发布活动和话题
+
+                </h6>
+
+                <h4>填写原因：</h4>
+
+                <p>
+
+                    <textarea id="content" name="content" cols="10"></textarea>
+
+                    <input type="hidden" value="" name="uid" id="userid"/>
+
+                </p>
+
+                <h6>
+
+                    封禁时长：
+
+                    <select name="time">
+
+                        <option value="3600">一小时</option>
+
+                        <option value="86400">一天</option>
+
+                        <option value="259200">三天</option>
+
+                    </select>
+
+                </h6>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <input class="btn" type="submit" style="width: 100px;" id="success" value="确定"/>
+
+                <input class="btn" style="width: 100px;" data-dismiss="modal" value="关闭"/>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+<script>
+
+    function indexTopicPage(id){
+
+        $.get('<{:U("Topic/indexTopicPage")}>',{'p':id}, function(data){  //用get方法发送信息到TestAction中的test方法
+
+            $("#indexTopicPage").replaceWith("<div  id='indexTopicPage'>"+data+"</div>"); //test一定要和tpl中的一致
+
+        });
+
+    }
+
+
+
+</script>

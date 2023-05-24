@@ -1,0 +1,132 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/vote.css"/>
+<script src="__PUBLIC__/plupload/plupload.full.min.js" type="text/javascript"></script>
+<style>
+#filelist{
+    font-size: 18px;
+    font-style: italic;
+    font-family: initial;
+    font-weight: bold;
+    padding: 20px 16px;
+}
+#container{
+    position: relative;
+    text-align: center;
+}
+</style>
+<div class="wrap" id="wrap">
+	<{include file="default/mobile/nav" title="上传视频"/}>
+	
+	
+	<p class="votetitle">标题：</p>
+	<input type="text" class="text92per" id="title" placeholder="请输入标题...">
+	<div id="filelist"></div>
+    <div id="container">
+    <a href="javascript:;" title="上传视频" class="uploadvideo" id="choose_file">上传视频</a>
+	</div>
+    
+    <a href="javascript:;" title="提交" class="votesubmit submit_add_video">提交</a>
+    <input type="hidden" name="id" id="id" value=""/>
+	
+	<div class="alphabg"></div>
+	
+</div>
+
+<script type="text/javascript">
+	var timestamp = "<{$upload_form_data.timestamp}>";
+    var token = "<{$upload_form_data.token}>";
+    var swf = "<{$upload_form_data.swf}>";
+    var url = "<{$upload_form_data.uploader}>";
+    var aid = "<{$upload_form_data.aid}>";
+    var xap = "<{$upload_forum_data.xap}>";
+    var uploadtoyun = "<{:U('VideoUpload/uploadToYun')}>";
+    var call_back_button = "<{$upload_form_data.call_back_button}>";
+    var fid = "<{$fid}>";
+    var uploader = new plupload.Uploader({
+        runtimes : 'html5,flash,silverlight,html4',
+        browse_button : 'choose_file', // you can pass an id...
+        container: document.getElementById('container'), // ... or DOM Element itself
+        url : url,
+        flash_swf_url : swf,
+        silverlight_xap_url : xap,
+        
+        filters : {
+            max_file_size : '200mb',
+            mime_types : [
+               	{ title : "Video files", extensions : "mp4,flv,rmvb,avi" }
+              ]
+            
+        },
+
+        init: {
+            PostInit: function() {
+                document.getElementById('filelist').innerHTML = '';
+            },
+
+            FilesAdded: function(up, files) {
+                plupload.each(files, function(file) {
+                    document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+                    uploader.start();
+                });
+            },
+
+            UploadProgress: function(up, file) {
+                document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+            },
+
+            FileUploaded:function(up, file, response){
+                var response_info = $.parseJSON(response.response);
+                //console.log(response_info.data.info);
+                $("#id").val(response_info.data.info);
+            },
+
+            Error: function(up, err) {
+                swal(err.message);
+            }
+        }
+    });
+
+    uploader.init();
+
+    //上传视频到云服务
+    $('.submit_add_video').click(function () {
+        var id = $('#id').val();
+        var title = $('#title').val();
+        if (title == '') {
+            swal('视频标题不能为空');
+            return false;
+        }
+        if($("#filelist").children().length==0){
+            swal('请选择上传文件');
+            return false;
+        }
+        
+        $('.submit_add_video').replaceWith('<span class="loading">上传转码中...</span>');
+      
+        $.ajax({
+            type: "POST",
+            url: uploadtoyun,
+            data: {'attachmentid': id},
+            dataType: "json",
+            success: function (data) {
+                if(data.data.code==0){
+                    $.post(add_forum_video_url,{'attachmentid':id,'title':title},function(result){
+                        if(result.data.code==0){
+                            swal('上传视频成功');
+                            window.location.href =  '/'; 
+                        }else{
+                            swal(result.data.message);
+                        }
+                    });
+                    
+                }
+            }
+        });
+        
+        
+        
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<{assign name="title" value="百万森林公益"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+
+<link rel="stylesheet" type="text/css" href="/Public/default/baiwansenlin/css/index.css"/>
+<link rel="stylesheet" href="/Public/default/baiwansenlin/css/reset.css"/>
+<link rel="stylesheet" href="/Public/default/baiwansenlin/css/style.css" media="screen" type="text/css"/>
+<script src="/Public/default/baiwansenlin/js/index.js"></script>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace" class="svg-defs">
+    <defs>
+        <pattern id="image" width="1" height="1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <image xlink:href="/Public/default/baiwansenlin/img/clouds.jpg" width="100" height="100" preserveAspectRatio="none">
+            </image>
+        </pattern>
+        <g id="shape-butterfly-1">
+            <path class="path" fill="" clip-rule="evenodd" d="M8.65,2.85c0.934-0.2,2.15-0.333,3.65-0.4c1.534-0.1,2.667-0.083,3.4,0.05c1.533,0.267,3.45,0.767,5.75,1.5c2.466,0.8,4.35,1.617,5.65,2.45c2.066,1.2,3.883,2.383,5.45,3.55c2.567,2.1,4.35,3.8,5.35,5.1l2.1,2.5c0.933,1.167,1.517,1.983,1.75,2.45c0.333,0.767,1.083,2.117,2.25,4.05c0.233,0.467,0.717,1.683,1.45,3.65c0.733,2.067,1.2,3.45,1.4,4.15c0.467,1.733,0.917,3.767,1.35,6.1l0.4,3.85l-0.25-3.4c-0.6-5.967-1.267-10.25-2-12.85c-0.733-2.434-2.167-5.467-4.3-9.1c-0.966-1.667-1.566-3-1.8-4c-0.233-0.933-0.1-1.267,0.4-1c1.3,0.733,2.917,3.867,4.85,9.4c1.667,4.7,2.85,11.2,3.55,19.5c0.567,6.934,0.667,11.917,0.3,14.95l0.2,0.05c0.231,0,0.348-0.05,0.35-0.15v0.05l0.1,0.05v27.4c-0.032-0.018-0.065-0.035-0.1-0.05v-0.05c-0.7,0.267-0.983,0.117-0.85-0.45c0.067-0.333,0.017-0.817-0.15-1.45c-0.2-0.6-0.316-0.983-0.35-1.15l-0.5-1.65c-0.533-2.967-0.833-5.034-0.9-6.2c-0.1-1.533-0.133-2.4-0.1-2.6c0-0.933,0.167-1.667,0.5-2.2c0.567-0.9,0.684-1.75,0.35-2.55c-0.167-0.367-0.367-0.6-0.6-0.7c-0.333-0.133-0.517,0.283-0.55,1.25c-0.033,1.533-0.167,2.9-0.4,4.1c-0.1,2.3-0.267,3.684-0.5,4.15c-0.333,0.667-1.25,2.95-2.75,6.85c-1.167,2.8-2.233,4.817-3.2,6.05c-0.9,1.2-1.583,2.1-2.05,2.7c-0.8,1-1.434,1.667-1.9,2c-2.067,1.333-3.633,2.067-4.7,2.2c-3.033,0.267-4.95,0.317-5.75,0.15c-0.8-0.167-1.383-0.217-1.75-0.15c-0.533,0.1-1.033,0.45-1.5,1.05c-0.5,0.667-1.217,1.284-2.15,1.85c-0.934,0.567-1.85,0.934-2.75,1.1c-2.467,0.433-4.45,0.25-5.95-0.55c-0.7-0.4-1.467-1.15-2.3-2.25c-0.6-0.867-1.033-1.567-1.3-2.1c-0.267-0.667-0.483-1.483-0.65-2.45c-0.3-1.467-0.383-2.717-0.25-3.75c0.267-1.9,0.45-3.05,0.55-3.45c0.233-1.233,0.566-2.333,1-3.3C9.25,77.45,9.767,76.4,10,76c0.667-1.233,1.55-2.583,2.65-4.05c1.1-1.434,2.184-2.583,3.25-3.45c0.367-0.3,1.15-0.867,2.35-1.7c0.767-0.566,1.917-1.25,3.45-2.05c1.733-0.933,3.267-1.633,4.6-2.1c2.133-0.733,4.534-1.467,7.2-2.2c0.467-0.1,1.517-0.3,3.15-0.6c0.967-0.233,0.4-0.4-1.7-0.5c-2.434-0.1-4.534-0.3-6.3-0.6c-1.566-0.267-3.383-0.7-5.45-1.3c-2.8-0.8-4.467-1.317-5-1.55c-1.567-0.667-3.2-1.75-4.9-3.25c-1.733-1.533-3-3.1-3.8-4.7c-0.533-1.067-0.967-2.434-1.3-4.1c-0.233-1.067-0.3-2.133-0.2-3.2c0.133-0.833,0.183-1.3,0.15-1.4v-0.6c-2.467-3.233-3.983-5.433-4.55-6.6c-0.533-1.033-0.883-1.833-1.05-2.4c-0.3-0.867-0.466-1.85-0.5-2.95c-0.033-2.367,0.034-4.117,0.2-5.25c0.3-1.034,0.483-1.8,0.55-2.3c0.167-0.867,0.034-1.533-0.4-2c-0.6-0.7-1.133-1.517-1.6-2.45c-0.566-1.133-0.833-2.117-0.8-2.95c0.033-1.333,0.167-2.367,0.4-3.1c0.367-1.267,1.05-2.267,2.05-3C4.417,4.25,6.483,3.317,8.65,2.85z">
+            </path>
+            <g>
+            </g>
+        </g>
+    </defs>
+</svg>
+<!--
+    <section class="background">
+    </section>
+-->
+<section class="scene3d" style="z-index:10px;">
+    <div class="cube skybox">
+        <var class="scale">
+            <figure class="face front">
+            </figure>
+        </var>
+    </div>
+    <div class="butterfly_container">
+        <var class="rotate3d">
+            <var class="scale">
+                <var class="translate3d">
+                    <var class="translate3d-1">
+                        <figure class="butterfly">
+                            <svg class="wing left" viewBox="0 0 50 100">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url('#image');">
+                                </use>
+                            </svg>
+                            <svg class="wing right" viewBox="0 0 50 100">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url('#image');">
+                                </use>
+                            </svg>
+                        </figure>
+                    </var>
+                </var>
+            </var>
+        </var>
+    </div>
+    <div class="butterfly_container" style="margin-top: 160px; margin-left: 140px;-webkit-animation-duration: 5s;-moz-animation-duration: 5s;-ms-animation-duration: 5s;-o-animation-duration: 5s;animation-duration: 5s;">
+        <var class="rotate3d">
+            <var class="scale">
+                <var class="translate3d">
+                    <var class="translate3d-1">
+                        <figure class="butterfly">
+                            <svg class="wing left" viewBox="0 0 50 100" style="-webkit-animation-duration: .75s;-moz-animation-duration: .75s;-ms-animation-duration: .75s;-o-animation-duration: .75s;animation-duration: .75s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill:url('#image');">
+                                </use>
+                            </svg>
+                            <svg class="wing right" viewBox="0 0 50 100" style="-webkit-animation-duration: .75s;-moz-animation-duration: .75s;-ms-animation-duration: .75s;-o-animation-duration: .75s;animation-duration: .75s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url('#image');">
+                                </use>
+                            </svg>
+                        </figure>
+                    </var>
+                </var>
+            </var>
+        </var>
+    </div>
+    <div class="butterfly_container scale_half" style="margin-top: 110px; margin-left: 50px;-webkit-animation-duration: 5s;-moz-animation-duration: 5s;-ms-animation-duration: 5s;-o-animation-duration: 5s;animation-duration: 5s;">
+        <var class="rotate3d">
+            <var class="scale">
+                <var class="translate3d">
+                    <var class="translate3d-1">
+                        <figure class="butterfly">
+                            <svg class="wing left" viewBox="0 0 50 100" style="-webkit-animation-duration: .75s;-moz-animation-duration: .75s;-ms-animation-duration: .75s;-o-animation-duration: .75s;animation-duration: .75s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url('#image');">
+                                </use>
+                            </svg>
+                            <svg class="wing right" viewBox="0 0 50 100" style="-webkit-animation-duration: .75s;-moz-animation-duration: .75s;-ms-animation-duration: .75s;-o-animation-duration: .75s;animation-duration: .75s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url('#image');">
+                                </use>
+                            </svg>
+                        </figure>
+                    </var>
+                </var>
+            </var>
+        </var>
+    </div>
+    <div class="butterfly_container scale_half" style="margin-top: 180px;-webkit-animation-duration: 20s;-moz-animation-duration: 20s;-ms-animation-duration: 20s;-o-animation-duration: 20s;animation-duration: 20s;">
+        <var class="rotate3d">
+            <var class="scale">
+                <var class="translate3d">
+                    <var class="translate3d-1">
+                        <figure class="butterfly">
+                            <svg class="wing left" viewBox="0 0 50 100" style="-webkit-animation-duration: 1s;-moz-animation-duration: 1s;-ms-animation-duration: 1s;-o-animation-duration: 1s;animation-duration: 1s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url(#image);">
+                                </use>
+                            </svg>
+                            <svg class="wing right" viewBox="0 0 50 100" style="-webkit-animation-duration: 1s;-moz-animation-duration: 1s;-ms-animation-duration: 1s;-o-animation-duration: 1s;animation-duration: 1s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url(#image);">
+                                </use>
+                            </svg>
+                        </figure>
+                    </var>
+                </var>
+            </var>
+        </var>
+    </div>
+    <div class="butterfly_container scale_half" style="margin-top: 460px; margin-left: 50px;-webkit-animation-duration: 20s;-moz-animation-duration: 20s;-ms-animation-duration: 20s;-o-animation-duration: 20s;animation-duration: 20s;">
+        <var class="rotate3d">
+            <var class="scale">
+                <var class="translate3d">
+                    <var class="translate3d-1">
+                        <figure class="butterfly">
+                            <svg class="wing left" viewBox="0 0 50 100" style="-webkit-animation-duration: 1.2s;-moz-animation-duration: 1.2s;-ms-animation-duration: 1.2s;-o-animation-duration: 1.2s;animation-duration: 1.2s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url(#image);">
+                                </use>
+                            </svg>
+                            <svg class="wing right" viewBox="0 0 50 100" style="-webkit-animation-duration: 1.2s;-moz-animation-duration: 1.2s;-ms-animation-duration: 1.2s;-o-animation-duration: 1.2s;animation-duration: 1.2s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url(#image);">
+                                </use>
+                            </svg>
+                        </figure>
+                    </var>
+                </var>
+            </var>
+        </var>
+    </div>
+    <div class="butterfly_container scale_third" style="margin-top: 560px;-webkit-animation-duration: 20s;-moz-animation-duration: 20s;-ms-animation-duration: 20s;-o-animation-duration: 20s;animation-duration: 20s;">
+        <var class="rotate3d">
+            <var class="scale">
+                <var class="translate3d">
+                    <var class="translate3d-1">
+                        <figure class="butterfly">
+                            <svg class="wing left" viewBox="0 0 50 100" style="-webkit-animation-duration: .35s;-moz-animation-duration: .35s;-ms-animation-duration: .35s;-o-animation-duration: .35s;animation-duration: .35s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url(#image);">
+                                </use>
+                            </svg>
+                            <svg class="wing right" viewBox="0 0 50 100" style="-webkit-animation-duration: .35s;-moz-animation-duration: .35s;-ms-animation-duration: .53s;-o-animation-duration: .35s;animation-duration: .35s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url(#image);">
+                                </use>
+                            </svg>
+                        </figure>
+                    </var>
+                </var>
+            </var>
+        </var>
+    </div>
+    <div class="butterfly_container scale_third" style="margin-top: -90px; margin-left: 300px; -webkit-animation-duration: 4s;-moz-animation-duration: 4s;-ms-animation-duration: 4s;-o-animation-duration: 4s;animation-duration: 4s;">
+        <var class="rotate3d">
+            <var class="scale">
+                <var class="translate3d">
+                    <var class="translate3d-1">
+                        <figure class="butterfly">
+                            <svg class="wing left" viewBox="0 0 50 100" style="-webkit-animation-duration: .45s;-moz-animation-duration: .45s;-ms-animation-duration: .45s;-o-animation-duration: .45s;animation-duration: .45s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url(#image);">
+                                </use>
+                            </svg>
+                            <svg class="wing right" viewBox="0 0 50 100" style="-webkit-animation-duration: .45s;-moz-animation-duration: .45s;-ms-animation-duration: .45s;-o-animation-duration: .45s;animation-duration: .45s;">
+                                <use class="left" xlink:href="#shape-butterfly-1" style="fill: url(#image);">
+                                </use>
+                            </svg>
+                        </figure>
+                    </var>
+                </var>
+            </var>
+        </var>
+    </div>
+</section>
+
+<div class="all">
+    <div class="bg_public bg_1">
+        <div class="bg_content" style="">
+           <!--  <a class="bg_a" href="<{:U('Pc/donationform')}>" target="_blank">
+            </a> -->
+        </div>
+    </div>
+    <div class="bg_public bg_2">
+    </div>
+    <div class="bg_public bg_3">
+    </div>
+    <div class="bg_public bg_4">
+    </div>
+    <!-- 内容部分开始 -->
+    <div class="main">
+        <div class="bg_public main_one">
+            <div class="banner_logo">
+            </div>
+            <div class="had">
+                Kris林已有
+                <strong>
+                    <{$tree_num}>
+                </strong>
+                棵大树
+            </div>
+            <div class="tree_one">
+            </div>
+            <div class="join">
+               我要植树
+            </div>
+        </div>
+        <div class="bg_public main_two">
+            <div class="left_banner">
+            </div>
+            <div class="detail">
+                <ul>
+                    <li class="title">
+                        项目详情
+                    </li>
+                    <li class="line_1">
+                    </li>
+                    <li class="line_2">
+                    </li>
+                    <li class="content pt">
+                        <div class="fl">
+                            项目名称：
+                        </div>
+                        <div class="fl">
+                            <span >
+                                吴亦凡出道四周年公益应援
+                            </span>
+                            <br/>
+                            <span class=>
+                                ——为爱播种，拒绝沙漠
+                            </span>
+                        </div>
+                    </li>
+                    <li class="content pt">
+                        发起方：
+                        <a href="http://www.millionforest.org/" target="_blank">
+                            <span>
+                                百万森林计划
+                            </span>
+                            <i>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="content">
+                        认领方：
+                        <span>
+                            Kris真的不凡
+                        </span>
+                    </li>
+                    <li class="content">
+                        执行地：
+                        <span>
+                            甘肃省民勤县
+                        </span>
+                    </li>
+                    <li class="content">
+                        项目时间：
+                        <span>
+                            <{$event.begintime|date='Y-m-d',###}>-<{$event.endtime|date='Y-m-d',###}>
+                        </span>
+                    </li>
+                    <li class="content">
+                        筹集目标：
+                        <span>
+                            ¥4,080=408
+                            <img src="/Public/default/baiwansenlin/img/tree.png"/>
+                        </span>
+                    </li>
+                    <li class="content">
+                        已筹集：
+                        <b>
+                            ¥<{$collect_money}>
+                        </b>
+                    </li>
+                    <li class="content number">
+                        <{$collect_user_num}>
+                        <span>
+                            位梅格妮参与
+                        </span>
+                    </li>
+                    <!-- <a href="<{:U('Pc/donationform')}>">
+                        <li class="donation">
+                            我要捐款
+                        </li>
+                    </a> -->
+                </ul>
+            </div>
+        </div>
+        <div class="main_three">
+            <div class="option_width option_one">
+                <div class="option_width optionbar_one">
+                    <div class="shuo" id="shuo">
+                    </div>
+
+                    <div class="introduce" id="introduce">
+                    <div class="divider"></div>
+                    </div>
+                </div>
+                <div class="option_width option_content_one" id="content_one">
+                    <div class="option_width arrow">
+                        <div class="yes">
+                        </div>
+                        <div class="not">
+                        </div>
+                        <div class="line_3">
+                        </div>
+                    </div>
+                    <div class="option_detail_one">
+                        亲爱的凡凡，转眼你已经出道四周年了，四年里你一直那么美好，那么光芒万丈，一直给我勇气和力量。在你出道四周年的纪念日里，我相信你一定会受到无数祝福，因为爱你的人真的很多很多。今年我选择了发起公益活动为你庆祝，希望我们梅格妮种的408棵树能为你带来幸运和祝福！<br/>
+                        亲爱的妮妮，或许我们素不相识，但是我们有一样的信仰，他就是吴亦凡。值此吴亦凡出道四周年之际，我发起了：为爱播种，拒绝荒漠公益应援活动，活动中将筹集408棵树，而后由公益组织 以吴亦凡的名义在西北荒漠地区种植一片KRIS林，爱凡凡的每个你一定要多多支持，让我们一起把对凡凡满满的爱分享给需要帮助的地方！
+
+
+                    </div>
+                    <div class="line_4">
+                    </div>
+                </div>
+                <div class="option_width option_content_two" id="content_two">
+                    <div class="option_width arrow">
+                        <div class="not">
+                        </div>
+                        <div class="yes">
+                        </div>
+                        <div class="line_3">
+                        </div>
+                    </div>
+                    <div class="option_width option_detail_one">
+                        经kris真的不凡申请，影+对接了深度合作公益组织百万森林计划（隶属于中国绿化基金会），为其发起了吴亦凡出道四周年公益应援活动，活动以为爱播种，拒绝荒漠为主题。活动将筹集4080元公益善款，用以在西北荒漠地区种植408棵梭梭树（该项目来自百万森林计划之梭梭项目）。活动善款将由影+平台垂直对接百万森林计划公益组织，中间不经由任何个人或组织。活动具体执行将由百万森林计划负责，影+平台时刻更新活动最新进展。为爱播种，拒绝荒漠，需要每个你的支持！
+                    </div>
+                    <div class="line_4">
+                    </div>
+                </div>
+            </div>
+            <div class="option_width option_two">
+                <div class="option_width optionbar_two">
+                    <div class="optionbar" id="comment">
+                        评论
+
+                    </div>
+                        
+                    <div class="optionbar" id="number">
+                        <i></i>
+                        爱心梅格妮
+                    </div>
+                </div>
+                <div class="option_width table_content_one" id="table_two">
+                    <div class="option_width arrow">
+                        <div class="yes">
+                        </div>
+                        <div class="not">
+                        </div>
+                        <div class="line_3">
+                        </div>
+                    </div>
+                    <div class="option_detail_two">
+                    <div class="response_block">
+                    <{include file="default/pc/response_page"/}>
+                    </div>
+                    <div class="arg2">
+                    <{include file="default/pc/response_submit_form"/}>
+                    </div>
+                    </div>
+                    <div class="white">
+                    </div>
+                </div>
+                <div class="option_width table_content_two" id="table_one">
+                    <div class="option_width arrow">
+                        <div class="not">
+                        </div>
+                        <div class="yes">
+                        </div>
+                        <div class="line_3">
+                        </div>
+                    </div>
+                    <div class="option_detail_two">
+                        <div class="table">
+                            <ul>
+                                <li>
+                                    昵称
+                                </li>
+                                <li>
+                                    时间
+                                </li>
+                                <li>
+                                    棵树
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="order_block">
+                        <{include file="default/pc/baiwansenlin_order_page"/}>
+                        </div>
+                    </div>
+                    <div class="line_4">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_four">
+            <div class="weibo_1">
+                <iframe width="338" height="460" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=338&height=460&fansRow=1&ptype=1&speed=0&skin=3&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=5660320992&verifier=22747122&dpc=1"></iframe>
+            </div>
+            <div class="underline">
+            </div>
+            <!--<div class="weibo_2">-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<{include file="default/pc/footer"/}>
+</body>
+</html>

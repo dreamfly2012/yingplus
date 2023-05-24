@@ -1,0 +1,265 @@
+body {
+    background-size: 100% auto;
+    /*background-color: #fff0f5;*/
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    border: 0px;
+    cursor: pointer;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+
+i {
+    display: block;
+}
+
+* {
+    font-family: 微软雅黑;
+}
+
+a, a:hover, a:visited, a:link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dn {
+    display: none;
+}
+
+.main {
+    width: 1100px;
+    height: 1200px;
+    margin: 70px auto;
+    position: relative;
+    /*background: #ccc;*/
+}
+
+.button {
+    width: 46px;
+    height: 149px;
+    top: 50px;
+    left: 94%;
+    position: absolute;
+}
+
+.b_one {
+    width: 46px;
+    height: 46px;
+    background: url(../img/movie_2.png);
+    margin-top: 20px;
+    position: relative;
+}
+
+.b_two {
+    width: 46px;
+    height: 46px;
+    margin-top: 20px;
+    background: url(../img/laba_2.png);
+    position: relative;
+}
+
+.b_three {
+    width: 46px;
+    height: 46px;
+    margin-top: 20px;
+    background: url(../img/xin_2.png);
+    position: relative;
+}
+
+.b_one:hover {
+    background: url(../img/movie_3.png);
+}
+
+.b_two:hover {
+    background: url(../img/laba_3.png);
+}
+
+.b_three:hover {
+    background: url(../img/xin_3.png);
+}
+
+.option {
+    width: 1100px;
+    height: 50px;
+    /*background: yellow;*/
+    /*margin-left: 100px;*/
+    margin: 0 auto;
+}
+
+.width {
+    width: 46%;
+}
+
+.name {
+    width: 17%;
+    height: 50px;
+    /*background: #ccc;*/
+    font-size: 22px;
+    color: #555;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    float: left;
+}
+
+.name:hover {
+    color: #1588e1;
+}
+
+.jian_1 {
+    width: 250px;
+    height: 50px;
+    font-size: 24px;
+    color: #212121;
+    font-weight: 590;
+    margin-right: 130px;
+    margin-left: 50px;
+}
+
+.blue {
+    color: #1588e1;
+}
+
+.dib {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ft16 {
+    font-size: 16px;
+}
+
+.name_1 {
+    width: 24px;
+    height: 24px;
+    background: url(../img/movie.png);
+    margin-top: -5px;
+}
+
+.name_2 {
+    width: 24px;
+    height: 26px;
+    background: url(../img/laba.png);
+    margin-top: -5px;
+}
+
+.name_3 {
+    width: 28px;
+    height: 22px;
+    background: url(../img/xin.png);
+    margin-top: -3px;
+}
+
+.click {
+    font-size: 24px;
+    color: #1588e1;
+}
+
+.line_3 {
+    width: 140px;
+    height: 2px;
+    background: #fcb01f;
+    margin-left: 25px;
+    display: none;
+}
+
+.ml50 {
+    margin-left: 50px;
+}
+
+.line_1 {
+    width: 900px;
+    height: 2px;
+    background: #e2dac7;
+    /*margin-left: 100px;*/
+    margin: 0 auto;
+}
+
+.table {
+    width: 900px;
+    height: 243px;
+    /*background: red;*/
+    /*margin-left: 110px;*/
+    margin: 0 auto;
+}
+
+.content {
+    width: 93%;
+    height: 50px;
+    /*background: green;*/
+    margin-left: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.jian {
+    width: 30px;
+    height: 30px;
+    background: #fcb01f;
+    margin-top: 6px;
+    margin-left: 0px;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    line-height: 28px;
+    float: left;
+}
+
+.gongyi {
+    width: 674px;
+    height: 30px;
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 40px;
+    float: left;
+}
+
+.gongyi a {
+    color: #555;
+}
+
+.gongyi a:hover {
+    color: #6eb2eb;
+}
+
+.date {
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    color: #bababa;
+    line-height: 40px;
+    float: left;
+}
+
+.ml40 {
+    margin-left: 40px;
+}
+
+.pt5 {
+    padding-top: 5px;
+}
+
+.footer {
+    font-size: 12px;
+    margin-bottom: 100px;
+    text-align: center;
+    width: 100%;
+    height: 92px;
+    line-height: 85px;
+    color: #aaa;
+}

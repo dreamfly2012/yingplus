@@ -1,0 +1,66 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/online.min.css"/>
+<script type="text/javascript" src="/Public/mobile/js/online.js"></script>
+<div class="wrap" id="wrap">
+	<{assign name="title" value="线上活动"/}>
+	<{include file="default/mobile/nav"/}>
+	
+	<h1 class="votename"><span>【<{if condition='$activity[ismultiselect] eq 0'}>单选<{else/}>多选<{/if}>】</span><{$activity.subject}></h1>
+	<div class="votenums">
+		<a href="javascript:;" title=""><img src="/Public/mobile/images/ico_19.jpg"> <{$activity.id|getOnlineVoteNum}></a>
+		<a href="javascript:;" title=""><img src="/Public/mobile/images/ico_20.jpg"> <{$activity.id|getResponseCountByPidType=2}></a>
+	</div>
+	<div class="votetext">
+		<{$activity.content}>
+	</div>
+	<{if condition="!checkHasVote(session('uid'),$activity['id'])"}>
+	<ul class="tabul1">
+		<{volist name="questions" id="question" key="k"}>
+		<{if condition='$activity[ismultiselect] eq 0'}>
+		<li><label><input type="radio" value="" name="question" class="single-check" data-choice="<{$k-1}>"><span><{$question}></span></label><div class="clear"></div></li>
+		<{else/}>
+		<li><label><input type="checkbox" value="" name="question"  class="multi-check" data-choice="<{$k-1}>"><span><{$question}></span></label><div class="clear"></div></li>
+		<{/if}>
+		<{/volist}>
+	</ul>
+	<a href="javascript:;" title="投票" class="votebtn submit_vote" data-aid="<{$activity.id}>" data-isimg="0"><img src="/Public/mobile/images/good_03.png" alt="投票"> 投 票</a>
+	<{else/}>
+		<{volist name="wrap_results" id='res' key='k'}>
+		<div class="voteitem">
+			<h2><a href="javascript:;" title="<{$res.text}>"><{$res.text}></a></h2>
+			<div class="votepercent">
+				<div class="votebg"><b style="width:<{$res.percent}>%;"></b></div>
+				<span><{$res.value}>（<{$res.percent}>%）</span>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<{/volist}>
+	<{/if}>
+	
+	<span class="footblank"></span>
+	<div class="footico">
+		<a href="<{:U('Mobile/response',array('type'=>2,'pid'=>$activity['id']))}>" title="评论"><img src="/Public/mobile/images/ico1_03.png" alt="评论"> 评论</a>
+		<a href="javascript:;" title="分享"><img src="/Public/mobile/images/ico2_05.png" alt="分享"> 分享</a>
+		<div class="clear"></div>
+	</div>
+	
+	
+	
+	<div class="alphabg"></div>
+
+	<div class="share">
+		<h2 class="sharetitle">分享</h2>
+		<div class="sharewrap">
+			<a href="javascript:;" title="新浪微博" class="share_online_activity_weibo"><img src="/Public/mobile/images/share_03.png" alt="新浪微博">新浪微博</a>
+			<a href="javascript:;" title="QQ空间" class="share_online_activity_qzone"><img src="/Public/mobile/images/share_05.png" alt="QQ空间">QQ空间</a>
+			<a href="javascript:;" title="QQ好友" class="share_online_activity_qq"><img src="/Public/mobile/images/share_07.png" alt="QQ好友">QQ好友</a>
+			<a href="javascript:;" title="微信朋友圈" class="share_online_activity_weixin"><img src="/Public/mobile/images/share_09.png" alt="微信朋友圈">微信朋友圈</a>
+			<div class="clear"></div>
+		</div>
+		<a href="javascript:;" title="关闭" class="closebtn close_share"><img src="/Public/mobile/images/close2.png" alt="关闭"></a>
+	</div>
+</div>
+
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

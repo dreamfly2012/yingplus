@@ -1,0 +1,252 @@
+*{
+	font-family: "微软雅黑";
+}
+.banner{
+	width: 100%;
+	height: 420px;
+	background: url(http://yingplus-10014575.cossh.myqcloud.com/image/index_banner_02.png) no-repeat center;
+}
+.banner .container{
+	position: relative;
+    width: 1100px;
+    margin: 0 auto;
+    height: 420px;
+}
+
+.banner .left_curtain{
+	position: absolute;
+	top:-5px;
+	left:-65px;
+	width: 190px;
+	height: 600px;
+	background: url(/Public/default/images/left_curtain.png) no-repeat;
+}
+
+.banner .right_curtain{
+	position: absolute;
+	top:-5px;
+	right:-57px;
+	width: 190px;
+	height: 600px;
+	background: url(/Public/default/images/right_curtain.png) no-repeat;
+}
+
+.index_left_content{
+	float: left;
+	width: 280px;
+	height: auto;
+	margin-left: 67px;
+}
+.index_left_content h2{
+	font-size: 24px;
+    padding-top: 24px;
+    color: #000000;
+}
+.index_left_content h2 span{
+	color:#ffc916;
+}
+.index_left_content .divider{
+	margin-top: 5px;
+    height: 2px;
+    width: 280px;
+    background: #ffc916;
+}
+
+.index_left_content .hope{
+	margin-top: 10px;
+	font-size: 16px;
+	font-family: '微软雅黑';
+}
+
+.forum_list li{
+	clear: both;
+    margin-top: 10px;
+    border-bottom: 1px solid #cccccc;
+    height: 130px;
+}
+.index_left_content .join_forum_btn{
+	float:left;
+	background: #ffc916;
+    color: #ffffff;
+    text-align: center;
+    width: 90px;
+    height: 19px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 14px;
+    padding-top: 4px;
+    margin-top: 30px;
+}
+.index_left_content .userphoto{
+	float: left;
+	width:50%;
+}
+
+.index_left_content .userphoto img{
+	width: 82px;
+	height: 82px;
+	border-radius: 50px;
+}
+.index_left_content .userphoto span{
+	display: inline-block;
+    width: 100%;
+    margin-left: 20px;
+	font-size: 18px;
+    color: #666;
+}
+
+.index_right_content{
+	float: right;
+	width: 720px;
+	height: auto;
+	margin-left: 30px;
+}
+.mt30{
+	margin-top: 30px;
+}
+.pt20{
+	padding-top:20px;
+}
+.clearfix{
+	clear: both;
+}
+
+.index_right_content .section{
+	clear: both;
+}
+
+.index_right_content .section .left{
+	float:left;
+	width: 342px;
+	position: relative;
+}
+
+.index_right_content .section .left img{
+	width:342px;
+}
+
+.index_right_content .section .right img{
+	width:342px;
+}
+
+.index_right_content .left .movie_sepecial_btn{
+	background: url(/Public/default/images/special_movie_btn.png) no-repeat;
+    background-size: cover;
+    width: 202px;
+    height: 49px;
+    position: absolute;
+    bottom: 0;
+    left: 195px;
+    cursor: pointer;
+}
+
+.index_right_content .right .movie_sepecial_btn{
+	background: url(/Public/default/images/special_movie_btn.png) no-repeat;
+    background-size: cover;
+    width: 202px;
+    height: 49px;
+    position: absolute;
+    bottom: 0;
+    left: -60px;
+    cursor: pointer;
+}
+
+.index_right_content .section .right{
+	float:left;
+	width: 340px;
+	position: relative;
+}
+
+
+.right .title{
+	margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 25px;
+}
+
+.right .title a{
+	color:#000;
+}
+
+.right .title span{
+	font-size: 18px;
+}
+
+
+.right .release_date{
+	background: #ffc916;
+	text-align: center;
+    width: 240px;
+    height: 30px;
+    color: #ffffff;
+    margin-left: 25px;
+    margin-top: 30px;
+    font-size: 20px;
+    padding-top: 7px;
+}
+
+.right .elite_title{
+	margin-left: 25px;
+	margin-top: 20px;
+	font-size: 18px;
+	color:#c00d12;
+}
+
+.right .desc{
+	margin-left: 25px;
+	margin-top: 20px;
+	color:#000000;
+	width: 240px;
+	font-family: "微软雅黑";
+}
+.right .desc p{
+	font-size: 14px;
+}
+
+
+.left .title{
+	margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 0px;
+}
+
+.left .title a{
+	color:#000;
+}
+
+.left .title span{
+	font-size: 18px;
+}
+
+
+.left .release_date{
+	background: #ffc916;
+	text-align: center;
+    width: 240px;
+    height: 30px;
+    color: #ffffff;
+    margin-left: 0px;
+    margin-top: 30px;
+    font-size: 20px;
+    padding-top: 7px;
+}
+
+.left .elite_title{
+	margin-left: 0px;
+	margin-top: 20px;
+	font-size: 18px;
+	color:#c00d12;
+}
+
+.left .desc{
+	margin-left: 0px;
+	margin-top: 20px;
+	color:#000000;
+	width: 240px;
+	font-family: "微软雅黑";
+}
+.left .desc p{
+	font-size: 14px;
+}

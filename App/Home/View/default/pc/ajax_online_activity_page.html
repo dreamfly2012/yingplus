@@ -1,0 +1,19 @@
+<ul class="">
+    <{volist name="online_activities" id="activity"}>
+    <li class="content">
+        <ul class="pt5">
+            <li class="gongyi ml40">
+                <a href="<{:U('Pc/activity',array('aid'=>$activity['id']))}>">
+                    【线上活动】<{$activity.subject}>
+                </a>
+            </li>
+            <li class="date">
+                <{$activity.addtime|date="Y-m-d",###}>
+            </li>
+        </ul>
+    </li>
+    <{/volist}>
+</ul>
+<div class="videopages">
+    <{$online_page}>
+</div>

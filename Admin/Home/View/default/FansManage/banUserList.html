@@ -1,0 +1,218 @@
+<{include file="default/Public/header" /}>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<script>
+
+        var checkStar_URL = "<{:U('Home/FansManage/checkStar_exist')}>";
+
+        var banUserManage_URL = "<{:U('Home/FansManage/banUserManage')}>";
+
+</script>
+
+<div class="page-container row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+</div>
+
+<div class="page-content">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <h3 class="page-title">
+
+
+
+                    粉丝管理>>粉丝封禁管理 <small>粉丝封禁管理</small>
+
+
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <div class="portlet box light-grey">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>粉丝封禁列表</div>
+
+                        <div class="tools">
+
+                            <a href="javascript:;" class="collapse"></a>
+
+                            <a href="javascript:;" class="reload"></a>
+
+                            <a href="javascript:;" class="remove"></a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="portlet-body">
+
+                        <form action="<{:U('Home/FansManage/fansBanList')}>" method="get">
+
+                        粉丝昵称：<input type="text" value="<{$inputinfo['nickname']}>" name="nickname"/>
+
+                        操作时间段：
+
+                            <input id="d4311" value="<{$inputinfo['begintime']}>"  name="begintime" class="Wdate" type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'2020-10-01\'}'})"/>
+
+                            至
+
+                            <input id="d4312" value="<{$inputinfo['endtime']}>"  name="endtime" class="Wdate" type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'2020-10-01'})"/>
+
+                        <input style="margin-left: 10px;margin-top: -8px" id="lookup" type="submit" value="查询"/> 共 <font color="red"><{$count}></font> 条<br/>
+
+                        封禁时长：
+
+                            <select name="totaltime" style="margin-left: -7px;">
+
+                                <option value="">----请选择----</option>
+
+                                <option value="3600" <{if condition="$inputinfo['totaltime'] eq 3600"}>selected<{/if}>>一小时</option>
+
+                                <option value="86400" <{if condition="$inputinfo['totaltime'] eq 86400"}>selected<{/if}>>一天</option>
+
+                                <option value="259200" <{if condition="$inputinfo['totaltime'] eq 259200"}>selected<{/if}>>三天</option>
+
+                            </select>
+
+                        封 禁 选项：
+
+                            <select name="option">
+
+                                <option value="" >----请选择----</option>
+
+                                <option value="3" <{if condition="$inputinfo['option'] eq 3"}>selected<{/if}>>禁止所有操作</option>
+
+                                <option value="1" <{if condition="$inputinfo['option'] eq 1"}>selected<{/if}>>禁止参与话题和活动</option>
+
+                                <option value="2" <{if condition="$inputinfo['option'] eq 2"}>selected<{/if}>>禁止创建话题和活动</option>
+
+                            </select>
+
+                            <br/>
+
+                        关注影星：<input type="text" id="starname" value="<{$inputinfo['starname']}>" name="starname"/>
+
+                        </form>
+
+                        <table class="table table-striped table-bordered table-hover" id="sample_1">
+
+                            <thead>
+
+                            <tr>
+
+                                <th style="width:8px;">
+
+                                    <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" />
+
+                                </th>
+
+                                <th>被封禁人</th>
+
+                                <th class="hidden-480">状态</th>
+
+                                <th class="hidden-480">权限选项</th>
+
+                                <th class="hidden-480">封禁原因</th>
+
+                                <th class="hidden-480">封禁时长</th>
+
+                                <th class="hidden-480">操作时间</th>
+
+                            </tr>
+
+                            </thead>
+
+                            <{foreach name="forumBanUser" item="forumBanUser"}>
+
+                            <tbody>
+
+                            <tr class="odd gradeX">
+
+                                <td>
+
+                                    <input type="checkbox" class="checkboxes" value="1" />
+
+                                </td>
+
+                                <td><{$forumBanUser['nickname']}></td>
+
+                                <td class="hidden-480">
+
+                                    <{if condition="$forumBanUser['status'] eq 1"}>
+
+                                    <a href="#" class="banuser" data-id="<{$forumBanUser['id']}>" data-status="<{$forumBanUser['status']}>">【取消封禁】</a>
+
+                                    <{else/}>
+
+                                    【已解禁】
+
+                                    <{/if}>
+
+                                </td>
+
+                                <td class="hidden-480"><{$forumBanUser['content']}></td>
+
+                                <td class="hidden-480"><{$forumBanUser['reason']}></td>
+
+                                <td class="center hidden-480"><{$forumBanUser['totaltime']}></td>
+
+                                <td class="center hidden-480"><{$forumBanUser['bantime']}></td>
+
+                            </tr>
+
+                            </tbody>
+
+                            <{/foreach}>
+
+                        </table>
+
+                        <div style="margin-left: 45%;">
+
+                        <{$page}>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+    $('.ban-fans').parent().show();
+    $('.ban-fans a').css('color','#ffffff');
+    $('.ban-fans a').css('background','#575757');
+
+</script>
+
+<{include file="default/Public/footer" /}>
+
+
+

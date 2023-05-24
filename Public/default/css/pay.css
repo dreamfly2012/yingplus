@@ -1,0 +1,165 @@
+.header {height:58px;background:#fcb01f;border-top:solid 3px #fff102;box-shadow:0 0 5px #666;overflow:hidden;position:relative;z-index:3;}
+.container {width:1100px;margin:0 auto;}
+.logo {width:130px;display:block;float:left;}
+.icoweibo,.icoqq,.otherway,.loginandregedit,.findactivity {float:right;display:inline-block;margin-top:18px;}
+.icoweibo {margin-right:4px;}
+.icoqq {margin-right:22px;}
+.otherway {font:12px/20px "microsoft yahei";color:#fff;padding:0 16px;border-left:solid 1px #ffcc01;}
+.loginandregedit {text-align:center;font:14px/20px "microsoft yahei";color:#fff;width:114px;border-left:solid 1px #ffcc01;}
+.loginandregedit a {color:#fff;margin:0 4px;}
+.loginandregedit a:hover,.findactivity:hover {color:#54a342;}
+.findactivity {margin-right:16px;color:#fff;font:14px/20px "microsoft yahei";}
+.main {width:1100px;height:auto;margin:32px auto 0;border:solid 1px #ddd;}
+.pay1 {height:auto;margin:0 auto;padding:12px;border-bottom:solid 1px #ddd;}
+.pay1 table {}
+.pay1 table th {font:normal normal 16px/38px "microsoft yahei";color:#272727;background:#ffc600;padding:0 6px;}
+.pay1 table td {font:normal normal 16px/38px "microsoft yahei";color:#272727;padding:0 6px;}
+.filmcourtname {color:#272727;padding:0 30px;}
+.pay1 table th.payhead1st {text-align:left;text-indent:30px;}
+.pay1 table td.price {font:bold 16px/38px arial;color:#b60606;}
+.num {width:96px;margin:0 auto;}
+.minu,.plus {width:20px;height:36px;float:left;display:inline-block;font:bold 16px/36px arial;color:#000;background:#ffc600;}
+.buynum {width:48px;height:20px;float:left;font:14px/20px arial;padding:7px 4px;border-top:solid 1px #ddd;border-bottom:solid 1px #ddd;background:none;border-left:none;border-right:none;text-align:center;}
+.payway {width:996px;font:14px/14px "microsoft yahei";padding-top:24px;padding-bottom:32px;display:block;margin:0 auto;}
+.paywaylist {width:996px;height:auto;margin:0 auto;padding-bottom:36px;}
+.paywaylist li {float:left;margin-right:50px;}
+.paywaylist li input {position:relative;top:-20px;margin-right:10px;}
+.hr1px {height:1px;clear:both;background:#ddd;}
+.sholdpay {height:74px;font:14px/74px "microsoft yahei";margin:0 auto;width:1024px;text-align:right;}
+.sholdpay b {font:bold 24px/74px "microsoft yahei";color:#b60606;position:relative;top:2px;}
+.paybtn {width:1024px;padding:16px 0;margin:0 auto;text-align:right;}
+.paybtn a {display:inline-block;width:152px;height:52px;text-align:center;font:20px/52px "microsoft yahei";color:#654f02;background:#ffc600;border-radius:8px;}
+.paybtn a:hover {background:#1689e2;color:#fff;}
+.role {width:1024px;height:auto;margin:0 auto;font:14px/24px "microsoft yahei";color:#333;padding:18px 0;}
+.role h4 {font:normal normal 14px/24px "microsoft yahei";padding-bottom:6px;}
+.footer {height:84px;text-align:center;font:14px/84px "microsoft yahei";color:#5c5c5c;}
+.footer a {color:#5c5c5c;}
+
+.deal_form_submit{opacity: 0;}
+.send_mobile{    
+	text-align: left;
+    padding-top: 10px;
+    display: inline;
+    font-size: 20px;
+}
+.send_captcha_div{
+	display: inline;
+	text-align: left;
+}
+
+#check_captcha{
+	width: 134px;
+    height: 42px;
+    font: 14px/42px "microsoft yahei";
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
+    background: #fcb01f;
+    cursor: pointer;
+    border:none;
+}
+
+#sendcaptcha{
+	width: 134px;
+    height: 42px;
+    font: 14px/42px "microsoft yahei";
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
+    background: #fcb01f;
+    cursor: pointer;
+    border:none;
+}
+.none{
+	display: none;
+}
+
+
+
+#captcha{
+	width: 258px;
+    height: 20px;
+    border: solid 1px #c7c7c7;
+    border-radius: 3px;
+    display: inline;
+    padding: 10px 15px;
+    font: 14px/20px "microsoft yahei";
+    color: #666;
+    background: #fff;
+}
+
+span[disabled]#sendcaptcha {width:134px;height:42px;font:14px/42px "microsoft yahei";color:#fff;text-align:center;border-radius:3px;display:inline-block;background:#C7C7C7;cursor:pointer;}
+
+#telephone {
+    width: 395px;
+    height: 20px;
+    border: solid 1px #c7c7c7;
+    border-radius: 3px;
+    display: inline;
+    padding: 10px 16px;
+    font: 14px/20px "microsoft yahei";
+    color: #666;
+    background: #fff;
+}
+
+.change_telephone{
+	cursor:pointer;
+}
+
+#success_text{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.scan-result{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.scan-result img{
+    width:200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+<{assign name="title" value="支付页面"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+
+<link rel="stylesheet" type="text/css" href="/Public/default/css/pay.css">
+<form id="payform" method="post" action="<{:U('Donate/payOrder')}>"  class="common_form" onsubmit="return check_pay_form();">
+<div class="main">
+	<div class="pay1">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<th width="454" class="payhead1st">项目</th>
+				<th width="216">捐赠金额</th>
+			</tr>
+			<tr>
+				<td height="74"><a href="#" title="" class="filmcourtname"><{$event.name}></a></td>
+				<td align="center">
+					<div class="num">
+						<input type="hidden" name="aid" value="<{$aid}>"/>
+						<input type="text" id="inp" class="buynum" name="quantity" value="10" onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">元
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<span class="payway">微信</span>
+	<ul class="paywaylist">
+		<!-- <li><label><input type="radio" name="method" type="radio" value="1" checked="checked"> <img src="/Public/default/images/payway_13.jpg" alt="支付宝"></label></li> -->
+		<li><label><input type="radio" name="method" type="radio" value="2" checked="checked"> <img src="/Public/default/images/payway_15.jpg" alt="微信支付"></label></li>
+		<div class="clear"></div>
+	</ul>
+	<hr class="hr1px">
+
+	<p class="sholdpay">应付金额：<b id="total_points">￥<span class="total_price">10</span></b></p>
+	<hr class="hr1px">
+	<div class="paybtn">
+		<span style="width: 800px;float: left;font-family:'微软雅黑';font-size:14px;">活动善款将由影+平台垂直对接百万森林计划公益组织，中间不经由任何个人或组织。活动具体执行将由百万森林计划负责，影+平台时刻更新活动最新进展。为爱播种，拒绝荒漠，需要每个你的支持！</span>
+		<input type="submit" class="deal_form_submit" value="去付款">
+		<a href="javascript:;" title="" class="go_to_pay">去付款</a>
+	</div>
+	
+	<hr class="hr1px">
+	
+</div>
+</form>
+
+<{include file="default/pc/footer"/}>
+<style>
+	.buynum {
+    	border: solid 1px #ddd;
+   
+	}
+	#telephone {
+		width: 258px;
+		height: 20px;
+		border: solid 1px #c7c7c7;
+		border-radius: 3px;
+		margin: 16px auto 0;
+		display: block;
+		padding: 10px 15px;
+		font: 14px/20px "microsoft yahei";
+		color: #666;
+		background: #fff;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		var inp = $('#inp');
+		inp.blur(function(){
+			var inpVal = inp.val();
+			if(!isNaN(inpVal)&&inpVal>0){ 
+				//console.log(inpVal)
+			}else{
+				alert('请输入正整数');
+				$('#inp').val(10);
+			}
+		})
+		inp.keyup(function(){
+			$('.total_price').text(inp.val());
+		});
+	});
+	function check_pay_form(){
+		if(is_login=='true'){
+			return true;
+		}else{
+			show_form(login_form_url);
+			return false;
+		}
+	}
+
+	$('.go_to_pay').click(function(){
+		$('.deal_form_submit').trigger('click');
+	});
+
+</script>
+
+
+
+</body>
+</html>

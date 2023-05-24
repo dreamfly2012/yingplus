@@ -1,0 +1,37 @@
+<{assign name="title" value="支付页面"/}>
+<{include file="default/pc/header"/}>
+<{include file="default/pc/nav"/}>
+
+<link rel="stylesheet" type="text/css" href="/Public/default/css/pay.css">
+
+<div class="main">
+
+    <div class="scan-result">
+
+        <div class="p" id="success_text">
+            请在2小时内使用微信的"扫一扫"完成支付
+        </div>
+        <img src="<{:U('Qrcode/showQrcode')}>?url=<{$pay_url}>" class="code qrcode_img" alt="二维码"/>
+
+    </div>
+</div>
+
+<script>
+    var check_has_pay_url = "<{:U('Donate/checkHasPay')}>";
+    var trade_no = "<{$trade_no}>";
+    function checkHasPay(trade_no){
+        $.post(check_has_pay_url,{'trade_no':trade_no},function(result){
+            if(result.info==0){
+                window.location.href = "<{:U('Pc/baiwansenlin')}>";
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        setInterval("checkHasPay(trade_no)",1000*10);
+    });
+</script>
+
+<{include file="default/pc/footer"/}>
+</body>
+</html>

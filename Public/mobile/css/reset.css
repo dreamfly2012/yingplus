@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* Style Reset */
+*,:before,:after {-webkit-box-sizing: border-box;box-sizing: border-box;}
+body, div, dl, dt, dd, ul, ol, li, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote 
+{ margin: 0; padding: 0;} 
+html button::-moz-focus-inner{ border-color:transparent!important; } 
+input, button, textarea,select, optgroup, option { font-family: inherit; font-size: 100%; font-style: inherit; font-weight: inherit;}
+ul, li, dl, dt, dd, ol { display: block; list-style: none; }
+fieldset, img { border: 0; }
+img {display:block;max-width:100% !important;}
+iframe { background-image: none; }
+hr{ border:0 #ccc solid; border-top-width: 1px; clear: both; height: 0; }
+h1,h2,h3,h4,h5,h6 {margin:0;padding:0;}
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+.clear { clear:both; } input {outline:none;}
+.db{ display: block; }
+.di{ display: inline; }
+a {text-decoration:none;-webkit-tap-highlight-color: rgba(1,59,116,0.5);}
+center {padding:25px 0;}
+
+
+@media all and (min-width:640px){
+body {max-width:640px;margin:0 auto;}
+
+}
+@media all and (max-width:380px){
+
+}
+@media all and (max-width:480px){
+	
+}
+@media all and (max-width:640px){
+	
+}
+@media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/4s */ 
+	
+}
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone5 */ 
+	
+}
+@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone6 */ 
+
+}
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone6+ */ 
+	
+}
+@media all and (orientation:landscape){
+/*	body {overflow:hidden;}
+	.onResize {display:block;position:fixed;top:0;left:0;width:100%;z-index:999;background:url(../images/bodybg.jpg) #ccc center repeat;}
+	.onResize img {width:50%;margin:10% auto;display:block;}	*/
+	
+}

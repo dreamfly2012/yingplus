@@ -1,0 +1,28 @@
+<{include file="default/mobile/header"/}>
+<link rel="stylesheet" type="text/css" href="/Public/mobile/css/login.css">
+<script type="text/javascript" src="__PUBLIC__/mobile/js/register.js"></script>
+<div class="wrap" id="wrap">
+	<{include file="default/mobile/nav" title="注册"/}>
+	<div class="loginway">
+		<span>注册</span>
+	</div>
+	<form action="javascript:;" method="post">
+	<ul class="loginform">
+		<li class="border-li"><p>用户名</p><input type="text" name="telephone" id="telephone" value="" placeholder="请输入手机号码" required="required" autocomplete="off"><div class="clear"></div></li>
+		<li class="border-li"><p>密码</p><input type="password" name="password" id="password" value="" placeholder="请输入密码" required="required" autocomplete="off"><div class="clear"></div></li>
+		<li><p>验证码</p><input type="text" name="captcha" id="captcha" placeholder="请填写验证码" value="" required="required" autocomplete="off"><a href="javascript:;" id="sendcaptcha" class="captchabtn">发送验证码</a><div class="clear"></div></li>
+	</ul>
+
+	<a href="javascript:;" title="登录" class="loginbtn" id="register">注册</a>
+		<input type="submit" class="none" id="register_submit"/>
+	</form>
+
+	<div class="loginlinks">
+		<a href="<{:U('Mobile/login')}>" title="登录" class="reg">登录</a>
+		<a href="<{:U('Mobile/forgetpassword')}>" title="忘记密码？" class="forget">忘记密码？</a>
+	</div>
+	<div class="alphabg"></div>
+</div>
+<{include file="default/mobile/footer"/}>
+</body>
+</html>

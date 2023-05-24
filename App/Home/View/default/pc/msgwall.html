@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>留言墙</title>
+    <meta name="Keywords" content="留言墙,反馈墙,建议,期许">
+    <meta name="Description" content="留下你对明星的期许,对影加的一段情,虽然你我可能会分离,但是我知道你曾给我留下你的期许">
+    <link href="/Public/msgwall/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/msgwall/css/msgwall.css" rel="stylesheet">
+    <script type="text/javascript">
+        var add_msg_do_url = "<{:U('Msgwall/adddo')}>";//添加留言
+    </script>
+    <script type="text/javascript" src="/Public/msgwall/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/Public/msgwall/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Public/msgwall/js/msgwall.js"></script>
+</head>
+<body>
+
+<div class="jumbotron header">
+    <h1>虽然你我可能会分离，但我知道你对我动过情。</h1>
+</div>
+
+<div class="container">
+    <a class="btn btn-success" data-toggle="modal" data-target="#msgModal">留言</a>
+    <ul id="msglist">
+        <{foreach name="list" item="data"}>
+        <li class="msg_style">
+            <a href="javascript:void(0);" class="marker">
+                <div name="liContent">
+                <h2><{$data.addtime|date='Y-m-d H:i:s',###}></h2>
+                <p><{$data.content}></p>
+                </div>
+                <h3>来自: <{$data.address}></h3>
+            </a>
+        </li>
+        <{/foreach}>
+    </ul>
+
+    <nav>
+        <ul class="pagination">
+            <{$page}>
+        </ul>
+    </nav>
+    <!-- Modal -->
+<div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <form action="javascript:;" method="post" id="msgform">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">填写留言</h4>
+      </div>
+      <div class="modal-body">
+        <textarea maxlength='200' name='content' id="content">
+            
+        </textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="add">保存</button>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
+</div>
+
+<div class="jumbotron footer">
+    Copyright © 2016
+</div>
+</body>
+</html>

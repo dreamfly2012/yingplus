@@ -1,0 +1,177 @@
+<link rel="stylesheet" href="/Public/default/css/jquery.Jcrop.min.css" type="text/css" />
+<script src="/Public/default/js/jquery.Jcrop.min.js"></script>
+<script type="text/javascript" src="/Public/default/js/jquery.ajaxfileupload.js"></script>
+<style>
+    .bid_xl_base{width:440px;background:#ebecef;margin:20px auto 0px auto;left:40%;top:20px;z-index: 999;position: fixed;}
+    .bid_title_base{background:#4cb1ce;font-size:18px;line-height:30px;color:#fff;width:auto;height:30px;padding-left:19px;}
+    .bid_cl{  width: 30px;height: 30px;  cursor: pointer;  background: #ccc;  border-radius: 30px;  text-align: center;  float: right; }
+    .bid_uh_base{width:400px;height:280px;margin:20px auto 20px auto;}
+    .bid_uh_left{height:280px;width:253px;float:left;font-size:14px;}
+    .bid_uh_left span{color:#4cb1ce;float:right;cursor:pointer;}
+    .bid_uh_left p{margin:0px 0px 5px 0px;}
+    .bid_uh_img{cursor:pointer;width:250px;height:250px;border:1px #cccccc solid;background:url(../img/bid_uh_bg.png);}
+    .bid_uh_img img{width:100%;height:100%;}
+    .bid_uh_right{height:280px;width:128px;float:right;font-size:14px;}
+    .bid_uh_right p{margin:0px 0px 5px 0px;}
+    .bid_uh_r1{background:#fff;width:106px;height:106px;border:1px #cccccc solid;overflow: hidden;}
+    .bid_uh_r1 img{width: 100%;height: 100%;}
+    .bid_uh_r2{background:#fff;width:71px;height:71px;border:1px #cccccc solid;margin:9px 0px 9px 0px;overflow: hidden;}
+    .bid_uh_r2 img{width: 100%;height: 100%;}
+    .bid_uh_r3{background:#fff;width:47px;height:47px;border:1px #cccccc solid;overflow: hidden;}
+    .bid_uh_r3 img{width: 100%;height: 100%;}
+    .bid_bot_base{height:29px;padding-bottom:28px;margin:0px auto 0px auto;}
+    .bid_bot_2{width:135px;}
+    .bid_r{width: 100px;height: 40px;background: #222;border: none;color: #fff;}
+    .none{display: none;}
+</style>
+<form method="post" action="<{:U('Home/PersonCenter/produceAvatar')}>" >
+    <div class="bid_xl_base">
+        <div class="bid_title_base">修改头像<div class="bid_cl close_form">x</div></div>
+        <div class="bid_uh_base">
+            <div class="bid_uh_left">
+                <p>照片<span class="upload_photo">更换照片</span></p>
+                <div class="bid_uh_img upload_photo" id="imgs"></div>
+                <input type="file" name="file" id="upload_photo" class="none"/>
+                <input type="hidden" id="x" name="x" value=""/>
+                <input type="hidden" id="y" name="y" value=""/>
+                <input type="hidden" id="w" name="w" value=""/>
+                <input type="hidden" id="h" name="h" value=""/>
+                <input type="hidden" id="avatar" name="avatar" value="" />
+            </div>
+            <div class="bid_uh_right">
+                <p>预览</p>
+                <div class="bid_uh_r1"><img src=""  class="preview"/></div>
+                <div class="bid_uh_r2"><img src=""  class="preview"/></div>
+                <div class="bid_uh_r3"><img src=""  class="preview"/></div>
+            </div>
+        </div>
+        <div class="bid_bot_base bid_bot_2">
+            <input type="submit" value="保存新头像" class="bid_r" />
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(document).ready(function() {
+        //上传图片到云
+        $(document).on("change","#upload_photo",function(){
+            $.ajaxFileUpload({
+                url: upload_img_url, //用于文件上传的服务器端请求地址
+                secureuri: false, //是否需要安全协议，一般设置为false
+                fileElementId: 'upload_photo', //文件上传域的ID
+                data:{
+
+                },
+                dataType: 'json', //返回值类型 一般设置为json
+                success: function (data, status)  //服务器成功响应处理函数
+                {
+                    //尝试进行json解析
+                    if(data.data.code==0){
+                        //添加到照片墙
+                        $.post(get_attachment_img_url,{'id':data.data.info},function(result){
+                            if(result.data.code==0){
+                                $.post(get_attachment_img_url,{'id':data.data.info},function(result){
+                                    if(result.data.code==0){
+                                        $('#imgs').css('background-image',result.data.info.remote_url);
+                                        $('#jcrop_target').Jcrop({
+                                            setSelect: [0,0,100,100],
+                                            onChange: showPreview,
+                                            onSelect: showPreview,
+                                            onRelease: hidePreview,
+                                            onSelect: updateCoords,
+                                            aspectRatio: 1
+                                        });
+
+                                        function showPreview(coords)
+                                        {
+                                            var $preview = $('.preview');
+                                            var img_width = $('#imgs div:eq(0) img').width();
+                                            var img_height = $('#imgs div:eq(0) img').height();
+                                            var img_name = $('#imgs div:eq(0) img').attr('src');
+                                            $('#avatar').val(img_name);
+                                            if (parseInt(coords.w) > 0)
+                                            {
+                                                var rx = 100 / coords.w;
+                                                var ry = 100 / coords.h;
+                                                $preview.css({
+                                                    width: Math.round(rx * img_width) + 'px',
+                                                    height: Math.round(ry * img_height) + 'px',
+                                                    marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+                                                    marginTop: '-' + Math.round(ry * coords.y) + 'px'
+                                                }).show();
+                                            }
+                                        }
+
+                                        function hidePreview()
+                                        {
+                                            $preview.stop().fadeOut('fast');
+                                        }
+                                    }
+                                });
+
+                                $('#jcrop_target').Jcrop({
+                                    setSelect: [0,0,100,100],
+                                    onChange: showPreview,
+                                    onSelect: showPreview,
+                                    onRelease: hidePreview,
+                                    onSelect: updateCoords,
+                                    aspectRatio: 1
+                                });
+
+                                function showPreview(coords)
+                                {
+                                    var $preview = $('.preview');
+                                    var img_width = $('#imgs div:eq(0) img').width();
+                                    var img_height = $('#imgs div:eq(0) img').height();
+                                    var img_name = $('#imgs div:eq(0) img').attr('src');
+                                    $('#avatar').val(img_name);
+                                    if (parseInt(coords.w) > 0)
+                                    {
+                                        var rx = 100 / coords.w;
+                                        var ry = 100 / coords.h;
+                                        $preview.css({
+                                            width: Math.round(rx * img_width) + 'px',
+                                            height: Math.round(ry * img_height) + 'px',
+                                            marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+                                            marginTop: '-' + Math.round(ry * coords.y) + 'px'
+                                        }).show();
+                                    }
+                                }
+
+                                function hidePreview()
+                                {
+                                    $preview.stop().fadeOut('fast');
+                                }
+                            }
+                        });
+                    }else{
+                        alert(data.data.message)
+                    }
+                },
+                error: function (data, status, e)//服务器响应失败处理函数
+                {
+                    alert(e);
+                }
+            });
+        });
+
+
+        $(document).on('click',".upload_photo",function(){
+            $("#upload_photo").trigger('click');
+        });
+    });
+
+    function updateCoords(c)
+    {
+        $('#x').val(c.x);
+        $('#y').val(c.y);
+        $('#w').val(c.w);
+        $('#h').val(c.h);
+    };
+
+    function checkCoords()
+    {
+        if (parseInt($('#w').val())) return true;
+        alert('Please select a crop region then press submit.');
+        return false;
+    };
+</script>

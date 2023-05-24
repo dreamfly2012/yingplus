@@ -1,0 +1,170 @@
+<{include file="default/Public/header" /}>
+<script>
+    var deleteAllVideo_URL = "<{:U('MovieActivity/deleteAllVideo')}>";
+    $(function() {
+        $(document).on("click", '#choose_all', function () {
+            if (this.checked) {
+                $(":checkbox[name='check']").prop('checked', true);//attr("checked",true);
+            } else {
+                $(":checkbox[name='check']").prop('checked', false);
+            }
+        });
+
+        //筛选
+        $(document).on("change", '#filter_movie', function () {
+            var mid = $(this).val();
+            window.location.href =  "<{:U('MovieActivity/filterVideo')}>?mid="+mid;
+        });
+
+
+        $(document).on('click', '#all_delete', function () {
+            var repair = confirm("确定要批量删除吗？");
+            if (repair == true) {
+                var array = {};
+                var i = 0;
+                $(":checkbox[name='check']").each(function () {
+                    if (this.checked) {
+                        array["test[" + i + "]"] = $(this).attr("lid");
+                        $("tr").remove('#' + $(this).attr("lid"));
+                        i++;
+                    }
+
+                });
+                $.ajax({
+                    type: "POST",
+                    url: deleteAllVideo_URL,
+                    data: array,
+                    dataType: "json",
+                    success: function (data) {
+                    }, async: true
+
+                });
+                window.location.reload();
+            }
+
+        });
+    });
+</script>
+<div class="page-container row-fluid">
+
+    <{include file="default/Index/left" /}>
+
+</div>
+
+<div class="page-content">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <h3 class="page-title">
+
+
+
+                    订单管理>>订单列表 <small>订单列表</small>
+
+
+
+                </h3>
+
+            </div>
+
+        </div>
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <div class="portlet box light-grey">
+
+                    <div class="portlet-title">
+
+                        <div class="caption"><i class="icon-globe"></i>订单列表</div>
+
+                        <div class="tools">
+
+                            <a href="javascript:;" class="collapse"></a>
+
+                            <a href="javascript:;" class="reload"></a>
+
+                            <a href="javascript:;" class="remove"></a>
+
+                        </div>
+
+                    </div>
+                    
+                    <div class="portlet-body">
+                       
+                        <table class="table table-striped table-bordered table-hover" id="sample_1">
+
+                            <thead>
+
+                            <tr>
+                                <th>订单影院</th>
+                                <th>购买链接</th>
+                                <th>订单号</th>
+                                <th>用户昵称</th>
+                                <th>购买数量</th>
+                                <th>电话号码</th>
+                                <th>购买时间</th>
+                                <th>订单状态</th>
+                            </tr>
+
+                            </thead>
+                          
+                            <{foreach name="orderList" item="order"}>
+
+                            <tbody>
+
+                            <tr class="odd gradeX">
+                                <td>
+                                    <{$order.cinemaname}>
+                                </td>
+                                <td><a href="<{$order.buylink}>"><{$order.buylink}></a></td>
+
+                                <td><{$order.trade_no}></td>
+
+                                <td><{$order.uid|getUserNicknameById}></td>
+                                <td><{$order.goods_amount}></td>
+
+                                <td><{$order['telephone']}></td>
+
+                                <td><{$order['pay_time']|date="Y-m-d H:i",###}></td>
+
+                                <td><{if condition="$order.handle_status eq 1"}><a href="<{:U('Order/handle',array('id'=>$order['id']))}>" target="_blank">已处理</a><{else/}><a href="<{:U('Order/handle',array('id'=>$order['id']))}>" target="_blank">未处理</a><{/if}></td>
+
+                            </tr>
+
+                            </tbody>
+
+                            <{/foreach}>
+
+                        </table>
+
+                        <div class="text-center pagination">
+                            <{$page}>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+    $('.through-order-list').parent().show();
+    $('.through-order-list a').css('color','#ffffff');
+    $('.through-order-list a').css('background','#575757'); 
+</script>
+
+<{include file="default/Public/footer" /}>
